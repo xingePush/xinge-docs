@@ -22,8 +22,6 @@
         }
     },
     "links": {
-      "sidebar": {
-        "腾讯移动推送": "http://xg.qq.com"
-      }
+      "sidebar": {}
     }
 }

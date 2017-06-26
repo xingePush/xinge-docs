@@ -430,3 +430,6 @@ withCompletionHandler:(void(^)())completionHandler {
 ## 本地推送
 
 本地推送相关功能请参考[苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1).
+
+## iOS推送常见问题
+iOS推送常见问题请参考[那些年，我们一起走过的iOS推送的坑](/那些年，我们一起走过的iOS推送的坑)

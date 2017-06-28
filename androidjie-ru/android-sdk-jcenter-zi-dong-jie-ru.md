@@ -6,8 +6,7 @@
     AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目中导入jar包和so文件；在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。 
 
     在app build.gradle文件下配置 以下内容
-
-    ```xml
+    
     android {
         ......
         defaultConfig {
@@ -41,7 +40,7 @@
         compile 'com.tencent.mid:mid:3.721-alpha'
         ......
     }
-    ```
+  
 
     ***注意*** 
 

@@ -2,7 +2,7 @@
 
 * [信鸽基础介绍](README.md)
 * [Android接入](androidjie-ru.md)
-  * [Android SDK 快速接入](androidjie-ru/android-sdk-kuai-su-jie-ru.md)
+  * [Android SDK 手动接入](androidjie-ru/android-sdk-kuai-su-jie-ru.md)
   * [Android SDK 完整接入](androidjie-ru/android-sdk-wan-zheng-jie-ru.md)
   * [Android SDK 3.1升级指南](androidjie-ru/android-sdk-31sheng-ji-zhi-nan.md)
   * [Android SDK Jcenter 自动接入](androidjie-ru/android-sdk-jcenter-zi-dong-jie-ru.md)

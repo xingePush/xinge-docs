@@ -166,6 +166,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"[XGPush Demo] device token is %@", deviceTokenStr);
 }
 ```
+**注意：account是需要设置的账号,视业务需求自定义,可以是用户的名称或者ID等,长度为2个字节以上，不要使用"myAccount"或者"test","123456"这种过于简单的字符串,若不想设置账号，请传入nil**
+
+
 ### 设置/删除标签
 
 开发者可以针对不同的用户设置标签,然后对该标签推送.对标签推送会让该标签下的所有设备都收到推送.一个设备可以设置多个标签.

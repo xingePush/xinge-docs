@@ -16,15 +16,31 @@
 
 <hr>
 
-以eclipse为开发的IDE为例，将SDK导入到工程的步骤为：
+将SDK导入到工程的步骤为：
 
 （1）创建或打开Android工程（关于如何创建Android工程，请参照开发环境的章节）。
 
 （2）将信鸽 SDK目录下的libs目录所有文件拷贝到工程的libs（或lib）目录下。
 
 （3）选中libs（或lib）目录下的信鸽jar包，右键菜单中选择Build Path， 选择Add to Build Path将SDK添加到工程的引用目录中。
+ 
+（4）.so文件是信鸽必须的组件，支持armeabi、armeabi-v7a、misp和x86平台，请根据自己当前.so支持的平台添加
 
-（4）打开Androidmanifest.xml，添加以下配置（建议参考下载包的Demo修改），其中YOUR_ACCESS_ID和YOUR_ACCESS_KEY替换为APP对应的accessId和accessKey,请确保按照要求配置，否则可能导致服务不能正常使用。
+     a）如果你的项目中没有使用其它.so，建议复制四个平台目录到自己工程中；
+
+     b）如果已有.so文件，只需要复制信鸽对应目录下的文件；
+
+     c）若是MSDK接入的游戏，通常只需要armeabi目录下的.so；
+
+     d）若当前工程已经有armeabi，那么只需要添加信鸽的armeabi下的.so，其它目录无需添加。其它情况类似，只添 
+        加当前 平台存在的平台即可。
+
+    e）若在Androidstudio中导入so文件出错（错误10004.SOERROR），在main文件目录下 添加jniLibs命名的文件 
+       夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。
+
+
+
+（5）打开Androidmanifest.xml，添加以下配置（建议参考下载包的Demo修改），其中YOUR_ACCESS_ID和YOUR_ACCESS_KEY替换为APP对应的accessId和accessKey,请确保按照要求配置，否则可能导致服务不能正常使用。
 
 ```xml
 <application
@@ -264,19 +280,6 @@ a）MSDK与信鸽冲突：删除wup.jar
 
 b）MTA与信鸽冲突：删除低版本的mid.jar
 
-(2).so文件导入：
-
-.so文件是信鸽必须的组件，支持armeabi、armeabi-v7a、misp和x86平台，请根据自己当前.so支持的平台添加
-
-a）如果你的项目中没有使用其它.so，建议复制四个平台目录到自己工程中
-
-b）如果已有.so文件，只需要复制信鸽对应目录下的文件
-
-c）若是MSDK接入的游戏，通常只需要armeabi目录下的.so
-
-d）若当前工程已经有armeabi，那么只需要添加信鸽的armeabi下的.so，其它目录无需添加。其它情况类似，只添加当前 平台存在的平台即可。
-
-e）若在Androidstudio中导入so文件出错，在main文件目录下 添加jniLibs命名的文件夹 将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹
 
 ##代码混淆
 

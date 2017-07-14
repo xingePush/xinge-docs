@@ -204,11 +204,9 @@ XGPushManager提供信鸽服务的对外API列表，方法默认为public static
 
 
 
-#### XGPushBaseReceiver广播类
+#### XGPushConfig配置类
 
-XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需要开发者继承本类，并重载相关的方法；
-
-同时，还需要在AndroidManifest.xml静态注册（注意：如果是在代码动态注册，只有当前APP运行时才能收到消息）。
+XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public static类型，对于本类提供的set和enable方法，要在XGPushManager接口前调用才能及时生效。
 
 <table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
 		<tbody>
@@ -249,7 +247,82 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String getToken(Context context)</span><br />
 				</td>
 				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">获取设备的token，只有注册成功才能获取到正常的结果</span>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">获取设备的token，只有注册成功才能获取到正常的结果</span> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+#### XGPushBaseReceiver广播类
+
+XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需要开发者继承本类，并重载相关的方法；
+
+同时，还需要在AndroidManifest.xml静态注册（注意：如果是在代码动态注册，只有当前APP运行时才能收到消息）。
+
+<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
+		<tbody>
+			<tr>
+				<td style="text-align:center;">
+					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">原型</span></strong><br />
+				</td>
+				<td style="text-align:center;">
+					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">功能</span></strong><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onTextMessage(Context context,XGPushTextMessage message)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">收到消息</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">注册结果</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onUnregisterResult(Context context, int errorCode)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">反注册结果</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onSetTagResult(Context context,int errorCode,String tagName)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">设置标签结果</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onDeleteTagResult(Context context, int errorCode,String tagName)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">删除标签结果</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onNotifactionShowedResult(Context context, XGPushShowedResult notifiShowedRlt)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">通知被展示触发的结果，可以在此保存APP收到的通知</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onNotifactionClickedResult(Context context, XGPushClickedResult message)</span><br />
+				</td>
+				<td>
+					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">通知被打开触发的结果</span><br />
 				</td>
 			</tr>
 		</tbody>

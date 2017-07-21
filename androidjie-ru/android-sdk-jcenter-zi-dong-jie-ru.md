@@ -35,7 +35,7 @@
         ......
         //以信鸽3.1为例
         //信鸽的版本
-        compile 'com.tencent.xinge:xinge:3.1.4-alpha'
+        compile 'com.tencent.xinge:xinge:3.1.6-alpha'
         //mid包的版本
         compile 'com.tencent.mid:mid:3.72.4-alpha'
         ......

@@ -244,7 +244,7 @@ SingleTask或SingleInstance，请在该activity重载onNewIntent方法：
 <action android:name="android.intent.action" />
 
 
-(10)请检查AndroidManifest.xml是否已正确配置XGDaemonService、XGPushProvider、SettingsContentProvider和MidProvider，且provider中的authorities中是否正确设置：
+(10)请检查AndroidManifest.xml是否已正确配置-XGPushProvider、SettingsContentProvider和MidProvider，且provider中的authorities中是否正确设置：
 
 android:authorities="com.qq.xgdemo.AUTH_XGPUSH"，应用包名为当前APP包名，如com.tencent.xgdemo
 

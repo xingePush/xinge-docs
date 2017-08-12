@@ -32,11 +32,6 @@
            android:persistent="true"
            android:process=":xg_service_v3" />
 
-<!-- 【可选】 增强xg_service存活率  -->
-       <service
-           android:name="com.tencent.android.tpush.service.XGDaemonService"
-           android:process=":xg_service_v3" />
-
 <!-- 【必须】 通知service，此选项有助于提高抵达率 -->
        <service
            android:name="com.tencent.android.tpush.rpc.XGRemoteService"

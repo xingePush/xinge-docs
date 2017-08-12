@@ -586,11 +586,11 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 		
 		// 若不设定以上自定义layout，又想简单指定通知栏图片资源
 		
-		// build.setNotificationLargeIcon(R.drawable.ic_action_search);
+		build.setNotificationLargeIcon(R.drawable.ic_action_search);
 		
 		// 客户端保存build_id
 		
-		// XGPushManager.setPushNotificationBuilder(this, build_id, build);
+		XGPushManager.setPushNotificationBuilder(this, build_id, build);
 		
 		```
 

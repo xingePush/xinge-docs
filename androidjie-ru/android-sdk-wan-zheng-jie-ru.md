@@ -1,60 +1,10 @@
+
+
+
+
 #Android SDK 完整接入
 
 <hr>
-
-##功能列表
-
-<hr>
-
-***信鸽SDK主要提供以下功能:***
-
-***（1）注册信鸽服务***
-
-    启动&注册
-
-    账号绑定的注册（推荐有帐号体系的业务使用）
-
-    反注册
-
-***（2）通知与消息***
-
-    接收通知
-
-    接收消息
-
-***（3）标签（Tag）***
-
-    设置标签
-
-    删除标签
-
-***（4）结果反馈***
-
-    注册结果
-
-    反注册结果
-
-    添加/删除标签结果
-
-    通知点击
-
-***（5）效果统计***
-
-    通知推送效果
-
-    通知点击效果
-
-    消息推送效果
-
-***（6）自定义通知样式***
-
-***（7）信鸽服务的设置API***
-
-    debug模式
-
-    AccessID设置
-
-    AccessKey设置
 
 ##API接口
 
@@ -66,192 +16,40 @@
 
 所有API接口的包名路径前缀都是：com.tencent.android.tpush，其中有以下个重要的对外提供接口的类，如下：
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">类名</span></strong><br />
-				</td>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">说明</span></strong><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">XGPushManager</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">Push服务，推送效果</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">XGPushConfig</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">Push服务配置项接口</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">XGPushBaseReceiver</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">接收消息和结果反馈的receiver，需要开发者自己在AndroidManifest.xml静态注册</span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-
+|类名|说明|
+|-------|-----|
+|XGPushManagerPush服务|推送|
+|XGPushConfig|Push服务配置项接口|
+|XGPushBaseReceiver|接收消息和结果反馈的receiver，需要开发者自己在AndroidManifest.xml静态注册|
 
 #### XGPushManager功能类
 
 XGPushManager提供信鸽服务的对外API列表，方法默认为public static类型。
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">原型</span></strong><br />
-				</td>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">功能</span></strong><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void registerPush(Context context)void registerPush(Context context, final XGIOperateCallback callback)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">启动并注册APP</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void registerPush(Context context, String account)void registerPush(Context context, String account, final XGIOperateCallback callback)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;"><span style="font-size:14px;">启动并注册APP，同时绑定账号（</span><span style="color:#E53333;font-size:14px;">推荐有帐号体系的APP使用</span><span style="font-size:14px;">）</span></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void registerPush(Context context,String account, String ticket, int ticketType, String qua, final XGIOperateCallback callback)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">同上，仅供带登陆态的业务使用</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void unregisterPush(Context context)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">反注册，建议在不需要接收推送的时候调用</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void setTag(Context context,String tagName)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">设置标签</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void deleteTag(Context context,String tagName)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">删除标签</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">XGPushClickedResult onActivityStarted(Activity activity)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">Activity被打开的效果统计；获取下发的自定义key-value</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onActivityStoped(Activity activity)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">Activity被打开的效果统计</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void setPushNotificationBuilder(Context context, int notificationBulderId, XGPushNotificationBuilder notificationBuilder)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">自定义本地通知样式</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">long addLocalNotification(Context context, XGLocalMessage msg)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">本地通知</span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
+|原型|功能|
+|----------|------|
+|void registerPush(Context context)void registerPush(Context context, final XGIOperateCallback callback)|启动并注册|
+|void registerPush(Context context, String account)void registerPush(Context context, String account, final XGIOperateCallback callback)|启动并注册APP，同时绑定账号|推荐有帐号体系的APP使用|
+|void registerPush(Context context,String account, String ticket, int ticketType, String qua, final XGIOperateCallback callback)|同上，仅供带登陆态的业务使用|
+|void unregisterPush(Context context)|反注册，建议在不需要接收推送的时候调用|
+|void setTag(Context context,String tagName)|设置标签|
+|void deleteTag(Context context,String tagName)|删除标签|
+|XGPushClickedResult onActivityStarted(Activity activity)|Activity被打开的效果统计；获取下发的自定义key-value|
+|void onActivityStoped(Activity activity)|Activity被打开的效果统计|
+|void setPushNotificationBuilder(Context context, int notificationBulderId, XGPushNotificationBuilder notificationBuilder)|自定义本地通知样式|
+|long addLocalNotification(Context context, XGLocalMessage msg)|本地通知|
 
 
 #### XGPushConfig配置类
 
 XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public static类型，对于本类提供的set和enable方法，要在XGPushManager接口前调用才能及时生效。
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">原型</span></strong><br />
-				</td>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">功能</span></strong><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void enableDebug(Context context,boolean debugMode)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">是否开启debug模式，即输出logcat日志</span><span style="color:#333333;font-family:'Microsoft YaHei';"><span style="font-size:14px;">（</span><span style="color:#E53333;font-size:14px;">重要：为保证数据的安全性，发布前必须设置为false</span><span style="font-size:14px;">）</span></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">boolean setAccessId(Context context,long accessId)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">配置accessId</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">boolean setAccessKey(Context context,String accessKey)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">配置accessKey</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String getToken(Context context)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">获取设备的token，只有注册成功才能获取到正常的结果</span> 
-				</td>
-			</tr>
-		</tbody>
-	</table>
+|原型|功能|
+|-----|-----|
+|void enableDebug(Context context,boolean debugMode)|是否开启debug模式，即输出logcat日志重要：为保证数据的安全性，发布前必须设置为false）|
+|boolean setAccessId(Context context,long accessId)|配置accessId|
+|boolean setAccessKey(Context context,String accessKey)|配置accessKey|
+|String getToken(Context context)|获取设备的token，只有注册成功才能获取到正常的结果|
 
 #### XGPushBaseReceiver广播类
 
@@ -259,75 +57,14 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 
 同时，还需要在AndroidManifest.xml静态注册（注意：如果是在代码动态注册，只有当前APP运行时才能收到消息）。
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">原型</span></strong><br />
-				</td>
-				<td style="text-align:center;">
-					<strong><span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">功能</span></strong><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onTextMessage(Context context,XGPushTextMessage message)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">收到消息</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">注册结果</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onUnregisterResult(Context context, int errorCode)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">反注册结果</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onSetTagResult(Context context,int errorCode,String tagName)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">设置标签结果</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onDeleteTagResult(Context context, int errorCode,String tagName)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">删除标签结果</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onNotifactionShowedResult(Context context, XGPushShowedResult notifiShowedRlt)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">通知被展示触发的结果，可以在此保存APP收到的通知</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">void onNotifactionClickedResult(Context context, XGPushClickedResult message)</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">通知被打开触发的结果</span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
+|原型|功能|
+|-----|----|
+|void onTextMessage(Context context,XGPushTextMessage message)|收到消息||void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)|注册结果|
+|void onUnregisterResult(Context context, int errorCode)|反注册结果| 
+|void onSetTagResult(Context context,int errorCode,String tagName)|设置标签结果|
+|void onDeleteTagResult(Context context, int errorCode,String tagName)|删除标签结果|
+|void onNotifactionShowedResult(Context context, XGPushShowedResult notifiShowedRlt)|通知被展示触发的结果，可以在此保存APP收到的通知|
+|void onNotifactionClickedResult(Context context, XGPushClickedResult message)|通知被打开触发的结果|
 
 
 
@@ -374,7 +111,7 @@ XGPushManager.registerPush(this);```
 
 ```java
 public static void registerPush(Context context,
-            final XGIOperateCallback callback)```
+final XGIOperateCallback callback)```
 
 
 ***（2）参数***
@@ -387,14 +124,14 @@ callback：callback调用，主要包括操作成功和失败的回调，不能�
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {
-    @Override
-    public void onSuccess(Object data, int flag) {
-        Log.d("TPush", "注册成功，设备token为：" + data);
-    }
-    @Override
-    public void onFail(Object data, int errCode, String msg) {
-        Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
-    }
+@Override
+public void onSuccess(Object data, int flag) {
+Log.d("TPush", "注册成功，设备token为：" + data);
+}
+@Override
+public void onFail(Object data, int errCode, String msg) {
+Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
+}
 })```
 
 
@@ -433,7 +170,7 @@ XGPushManager.registerPush(this, "UserAccount")
 
 ```java
 public static void registerPush(Context context, String account,
-            final XGIOperateCallback callback) ```
+final XGIOperateCallback callback) ```
 
 
 ***（2）参数***
@@ -450,17 +187,17 @@ callback：callback调用，主要包括操作成功和失败的回调，不能�
 
 ```java
 XGPushManager.registerPush(this, "UserAccount",
-        new XGIOperateCallback() {
-            @Override
-            public void onSuccess(Object data, int flag) {
-                Log.d("TPush", "注册成功，设备token为：" + data);
-            }
+new XGIOperateCallback() {
+@Override
+public void onSuccess(Object data, int flag) {
+Log.d("TPush", "注册成功，设备token为：" + data);
+}
 
-            @Override
-            public void onFail(Object data, int errCode, String msg) {
-                Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
-            }
-        });```
+@Override
+public void onFail(Object data, int errCode, String msg) {
+Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
+}
+});```
 
 
 
@@ -493,8 +230,8 @@ registerPush(context, "*")或registerPush(context, "*", xGIOperateCallback )```
 
 ```java
 public static void registerPush(Context context, String account,
-            String ticket, int ticketType, String qua,
-            final XGIOperateCallback callback)
+String ticket, int ticketType, String qua,
+final XGIOperateCallback callback)
 
 
 
@@ -519,18 +256,18 @@ qua：QZone专用字段，不需要时可填null
 
 ```java
 XGPushManager.registerPush(this, "UserAccount", "ticket", 1, null,
-        new XGIOperateCallback() {
-            @Override
-            public void onSuccess(Object data, int flag) {
-                Log.d("TPush", "注册成功，设备token为：" + data);
-            }
+new XGIOperateCallback() {
+@Override
+public void onSuccess(Object data, int flag) {
+Log.d("TPush", "注册成功，设备token为：" + data);
+}
 
-            @Override
-            public void onFail(Object data, int errCode, String msg) {
-                Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
-            }
-        });
-```                    
+@Override
+public void onFail(Object data, int errCode, String msg) {
+Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
+}
+});
+```
 
 #### 获取注册结果
 
@@ -546,22 +283,22 @@ XGIOperateCallback的定义：
 
 ```java
 /**
- * 操作回调接口
- */
+* 操作回调接口
+*/
 public interface XGIOperateCallback {
-    /**
-     * 操作成功时的回调。
-     * @param data 操作成功的业务数据，如注册成功时的token信息等。
-     * @param flag 标记码
-     */
-    public void onSuccess(Object data, int flag);    
-    /**
-     * 操作失败时的回调
-     * @param data 操作失败的业务数据
-     * @param errCode 错误码
-     * @param msg 错误信息
-     */
-    public void onFail(Object data, int errCode, String msg);
+/**
+* 操作成功时的回调。
+* @param data 操作成功的业务数据，如注册成功时的token信息等。
+* @param flag 标记码
+*/
+public void onSuccess(Object data, int flag);
+/**
+* 操作失败时的回调
+* @param data 操作失败的业务数据
+* @param errCode 错误码
+* @param msg 错误信息
+*/
+public void onFail(Object data, int errCode, String msg);
 }
 ```
 
@@ -575,109 +312,27 @@ public interface XGIOperateCallback {
 
 ```java
 /**
- * 注册结果
- *
- * @param context
- *            APP上下文对象
- * @param errorCode
- *            错误码，{@link XGPushBaseReceiver#SUCCESS}表示成功，其它表示失败
- * @param registerMessage
- *            注册结果返回
- */
+* 注册结果
+*
+* @param context
+* APP上下文对象
+* @param errorCode
+* 错误码，{@link XGPushBaseReceiver#SUCCESS}表示成功，其它表示失败
+* @param registerMessage
+* 注册结果返回
+*/
 ```
 
 
 其中，XGPushRegisterResult提供的方法列表：
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>方法名</strong></span><br />
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>返回值</strong></span><br />
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>默认值</strong></span><br />
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>描述</strong></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getToken()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">设备的token，即设备唯一识别ID</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getAccessId()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">long</span>
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">0</span>
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">获取注册的accessId</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getAccount()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">获取注册绑定的账号</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getTicket()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">登陆态票据</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getTicketType()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">short</span>
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">0</span>
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">票据类型</span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
+|方法名|返回值|默认值|描述|
+|---|---|----|----|
+|getToken()|String|""|设备的token，即设备唯一识别ID|
+|getAccessId()|long|0|获取注册的accessId|
+|getAccount|String|""|获取注册绑定的账号|
+|getTicket()|String|""|登陆态票据|
+|getTicketType()|short|0|票据类型|
 
 
 ### 反注册
@@ -701,7 +356,7 @@ context： APP的上下文对象。
 
 ***（3）示例***
 
- ```java
+```java
 XGPushManager.unregisterPush(this);```
 
 
@@ -714,13 +369,13 @@ XGPushManager.unregisterPush(this);```
 
 ```java
 <pre class="brush:cpp;">/**
- * 反注册结果
- *
- * @param context
- *            APP上下文对象
- * @param errorCode
- *            错误码，{@link XGPushBaseReceiver#SUCCESS}表示成功，其它表示失败
- */
+* 反注册结果
+*
+* @param context
+* APP上下文对象
+* @param errorCode
+* 错误码，{@link XGPushBaseReceiver#SUCCESS}表示成功，其它表示失败
+*/
 @Override
 public void onUnregisterResult(Context context, int errorCode) {
 
@@ -740,7 +395,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 信鸽推送服务主要提供2种推送格式：
 “推送通知” 和 “透传消息命令”，二者存在一定的区别。
 
-***（1） 推送通知（展现在通知栏）***
+####推送通知（展现在通知栏）=
 
 指的是在设备的通知栏展示的内容，由信鸽SDK完成所有的操作，APP可以监听通知被打开的行为，也就是说在前台下发的通知不需要APP做任何处理，默认会展示在通知栏。
 
@@ -748,7 +403,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 通常来说，结合自定义通知样式，常规的通知能够满足大部分业务需求，如果需要更灵活的方式请考虑使用消息。
 
-***（2）透传消息命令（可自定义展示任意位置）***
+####应用内消息命令（消息不展示到通知栏）
 
 指的是由信鸽下发给APP的内容，需要APP继承XGPushBaseReceiver接口实现并自主处理所有操作过程，也就是说，下发的消息默认是不会展示在通知栏的，信鸽只负责将消息从信鸽服务器下发到APP这个过程，不负责消息的处理逻辑，需要APP自己实现。具体可参考Demo中的CustomPushReceiver。
 
@@ -758,7 +413,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 例如：某游戏需要针对不同情景（用户升级提示、版本更新提示、活动营销提示等）提供不同的通知，可以把这些情景以json格式封装在消息，下发到APP，然后APP根据这些场景提供不同的提示，满足个性化需求。
 
-***（3）消息配置***
+  ***消息配置***
 
 若要接收消息，需要配置消息接收Receiver，即在AndroidManifest.xml配置以下信息，其中android:name的值需要修改为APP自己实现的Receiver。
 
@@ -771,10 +426,10 @@ public void onUnregisterResult(Context context, int errorCode) {
 <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
 <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
 <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
-    </intent-filter>
+</intent-filter>
 </receiver>```
 
-***（4）接收消息***
+***获取应用内消息***
 
 开发者在前台下发消息，需要APP继承XGPushBaseReceiver重载onTextMessage方法接收，成功接收后，再根据特有业务场景进行处理。
 
@@ -785,10 +440,10 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 ***原型***
 
-     ```java
-     public void onTextMessage(Context context,
-     XGPushTextMessage message)
-      ```
+```java
+public void onTextMessage(Context context,
+XGPushTextMessage message)
+```
 
 
 ***参数***
@@ -797,67 +452,147 @@ context：应用当前上下文
 
 message：接收到消息结构体，其中XGPushTextMessage的方法列表如下：
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>方法名</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>返回值</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>默认值</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;"><strong>描述</strong></span>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getContent()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">消息正文内容，通常只需要下发本字段即可</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getCustomContent()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">消息自定义key-value</span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">getTitle()</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">String</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">""</span><br />
-				</td>
-				<td>
-					<span style="font-family:'Microsoft YaHei';color:#333333;font-size:14px;">消息标题（注意：从前台下发消息命令字中的描述不属于标题）</span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
+|方法名|返回值|默认值|描述|
+|----|--------|-----|---|
+|etContent()|String|""|消息正文内容，通常只需要下发本字段即可|
+|getCustomContent()|String|""|消息自定义key-value|
+|getTitle()|String|""|消息标题（注意：从前台下发应用内消息字中的描述不属于标题|
 
+####本地通知
+  本地通知由用户自定义设置，保存在本地。当应用打开，信鸽service 会根据网络心跳判断当前是否有通知5分钟一次 本地通知需要service开启才能弹出，可能存在5分钟左右延时。（当设置的时间大于当前设备时间通知弹出。）
+  
+        ```java
+        //新建本地通知
+        XGLocalMessage local_msg = new XGLocalMessage();
+       
+        //设置本地消息类型，1:通知，2:消息
+        
+        local_msg.setType(1);
+        
+        // 设置消息标题
+        
+        local_msg.setTitle("qq");
+        
+        //设置消息内容
+        
+        local_msg.setContent("ww");
+        
+        //设置消息日期，格式为：20140502
+        
+        local_msg.setDate("20140930");
+        
+        //设置消息触发的小时(24小时制)，例如：22代表晚上10点
+        
+        local_msg.setHour("19");
+        
+        //获取消息触发的分钟，例如：05代表05分
+        
+        local_msg.setMin("31");
+        
+        //设置消息样式，默认为0或不设置
+        
+        local_msg.setBuilderId(0);
+          
+        //设置动作类型：1打开activity或app本身，2打开浏览器，3打开Intent ，4通过包名打开应用
+         
+        local_msg.setAction_type(1);
+        
+        //设置拉起应用页面
+        
+        local_msg.setActivity("com.qq.xgdemo.SettingActivity");
+        // 设置URL
+        
+         local_msg.setUrl("http://www.baidu.com");
+         
+        // 设置Intent
+        
+         local_msg.setIntent("intent:10086#Intent;scheme=tel;action=android.intent.action.DIAL;S.key=value;end");
+             
+        // 是否覆盖原先build_id的保存设置。1覆盖，0不覆盖
+        
+         local_msg.setStyle_id(1);
+         
+        // 设置音频资源
+        
+         local_msg.setRing_raw("mm");
+         
+        // 设置key,value
+        
+         HashMap<String, Object> map = new HashMap<String, Object>();
+         
+         map.put("key", "v1");
+         
+          map.put("key2", "v2");
+          
+        local_msg.setCustomContent(map);
+        
+        // 设置下载应用URL
+        
+        local_msg.setPackageDownloadUrl("http://softfile.3g.qq.com:8080/msoft/179/1105/10753/MobileQQ1.0(Android)_Build0198.apk");
+        
+        //添加通知到本地
+        XGPushManager.addLocalNotification(context,local_msg);
+        ```
+        
+
+
+###自定义通知样式
+用户可以根据自行需要设置通知样式，由于目前的定制ROM的限制，部分接口 无法适配全部机型。
+
+ ```java
+  XGCustomPushNotificationBuilder build = new  XGCustomPushNotificationBuilder();
+  
+		build.setSound(
+				RingtoneManager.getActualDefaultRingtoneUri(
+						getApplicationContext(), RingtoneManager.TYPE_ALARM))
+						 
+						// 设置声音
+						
+				// setSound(
+				// Uri.parse("android.resource://" + getPackageName()
+				// + "/" + R.raw.wind)) 设定Raw下指定声音文件
+				
+				.setDefaults(Notification.DEFAULT_VIBRATE) // 振动
+				
+				.setFlags(Notification.FLAG_NO_CLEAR); // 是否可清除
+				
+		// 设置自定义通知layout,通知背景等可以在layout里设置
+		
+		build.setLayoutId(R.layout.notification);
+		
+		// 设置自定义通知内容id
+		
+		build.setLayoutTextId(R.id.content);
+		
+		// 设置自定义通知标题id
+		
+		build.setLayoutTitleId(R.id.title);
+		
+		// 设置自定义通知图片id
+		
+		build.setLayoutIconId(R.id.icon);
+		
+		// 设置自定义通知图片资源
+		
+		build.setLayoutIconDrawableId(R.drawable.logo);
+		
+		// 设置状态栏的通知小图标
+		
+		build.setIcon(R.drawable.right);
+		
+		// 设置时间id
+		
+		build.setLayoutTimeId(R.id.time);
+		
+		// 若不设定以上自定义layout，又想简单指定通知栏图片资源
+		
+		// build.setNotificationLargeIcon(R.drawable.ic_action_search);
+		
+		// 客户端保存build_id
+		
+		// XGPushManager.setPushNotificationBuilder(this, build_id, build);
+		
+		```
 
 ### 获取设备Token
 
@@ -895,7 +630,7 @@ public abstract void onNotifactionShowedResult(Context context,XGPushShowedResul
 context：当前应用上下文 notifiShowedRlt： 被展示的通知对象
 
 
-### 效果统计
+### 获取消息点击结果
 
 <hr>
 
@@ -913,8 +648,7 @@ public abstract void onNotifactionShowedResult(Context context,XGPushShowedResul
 
 ***（2）参数***
 
-activity：当前activity上下文
-
+activity：被打开activity上下文
 
 ***（3）返回值***
 
@@ -922,96 +656,13 @@ XGPushClickedResult：通知被打开的对象，如果该activity是由信鸽�
 
 XGPushClickedResult类方法列表：
 
-<table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
-		<tbody>
-			<tr>
-				<td style="text-align:center;">
-					<span style="color:#333333;font-size:14px;font-family:'Microsoft YaHei';"><strong>方法名</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="color:#333333;font-size:14px;font-family:'Microsoft YaHei';"><strong>返回值</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="color:#333333;font-size:14px;font-family:'Microsoft YaHei';"><strong>默认值</strong></span>
-				</td>
-				<td style="text-align:center;">
-					<span style="color:#333333;font-size:14px;font-family:'Microsoft YaHei';"><strong>描述</strong></span>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">getMsgId()</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">long</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">0</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">消息id</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">getTitle()</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">String</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">""</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">通知标题</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">getContent()</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">String</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">""</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">通知正文内容</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">getActivityName()</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">String</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">""</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">被打开的页面名称</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">getCustomContent()</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">String</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">""</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-				<td>
-					<span style="color:#333333;font-family:'Microsoft YaHei';font-size:14px;">自定义key-value，json字符串</span><span style="color:#333333;font-family:'Microsoft YaHei';"></span><br />
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-同时，在Activity的onPause()调用以下方法
+|方法名|返回值|默认值|描述|
+|----|--------|-----|---|
+|getMsgId()|long|0|消息id|
+|getTitle()|String|""|通知标题|
+|getContent()|String|""|通知正文内容|
+|getActivityName()|String|""|被打开的页面名称|
+|getCustomContent()|String|""|自定义key-value，json字符串同时，在Activity的onPause()调用以下方法|
 
 
 ***（1）原型***
@@ -1029,25 +680,26 @@ activity：当前activity上下文
 
 ```java
 @Override
-    protected void onPause() {
-        super.onPause();
-        XGPushManager.onActivityStoped(this);
-    } ```
+protected void onPause() {
+super.onPause();
+XGPushClickedResult clickedResult = XGPushManager.onActivityStarted(this);
+String  customContent= clickedResult.getCustomContent();
+} ```
 
 
- ### 标签
+### 标签
 
- <hr>
+<hr>
 
- ***预置标签***
+***预置标签***
 
- 目前信鸽提供三类预置标签：
+目前信鸽提供三类预置标签：
 
-	地理位置（省一级）
+地理位置（省一级）
 
-	应用版本号
+应用版本号
 
-	流失用户（3天or7天）
+流失用户（3天or7天）
 
 预置标签会在SDK内部自动上报。
 

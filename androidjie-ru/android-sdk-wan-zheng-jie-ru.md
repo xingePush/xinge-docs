@@ -433,7 +433,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 开发者在前台下发消息，需要APP继承XGPushBaseReceiver重载onTextMessage方法接收，成功接收后，再根据特有业务场景进行处理。
 
-同时，XGPushBaseReceiver还提供其它相关的接口，如通知被展示、被点击的结果反馈、注册/反注册结果反馈等，请参考“XGPushBaseReceiver”章节或demo。
+同时，XGPushBaseReceiver还提供其它相关的接口，如通知被展示、被点击的结果反馈、注册/反注册结果反馈等，请参考“XGPushBaseReceiver”章节或demo中的MessageReceiver类。
 
 请确保在AndroidManifest.xml已经注册过该receiver，即设YOUR_PACKAGE.XGPushBaseReceiver。
 
@@ -459,7 +459,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 |getTitle()|String|""|消息标题（注意：从前台下发应用内消息字中的描述不属于标题|
 
 ####本地通知
-  本地通知由用户自定义设置，保存在本地。当应用打开，信鸽service 会根据网络心跳判断当前是否有通知5分钟一次 本地通知需要service开启才能弹出，可能存在5分钟左右延时。（当设置的时间大于当前设备时间通知弹出。）
+  本地通知由用户自定义设置，保存在本地。当应用打开，信鸽service 会根据网络心跳判断当前是否有通知5分钟一次 本地通知需要service开启才能弹出，可能存在5分钟左右延时。（当设置的时间小于当前设备时间通知弹出。）
   
         ```java
         //新建本地通知

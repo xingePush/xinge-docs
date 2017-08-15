@@ -35,11 +35,18 @@
 
     dependencies {
         ......
+        
         //以信鸽3.1为例
+        
         //信鸽的版本
-        compile 'com.tencent.xinge:xinge:3.1.6-alpha'
-        //mid包的版本
+        compile 'com.tencent.xinge:xinge:3.1.8-alpha'
+        
+        //wup包 如果和其他腾讯系的sdk 发生wup冲突，这个依赖可不添加
+        compile 'com.tencent.wup:wup:1.0.0.E-alpha'
+        
+        //mid包
         compile 'com.tencent.mid:mid:3.72.4-alpha'
+        
         ......
     }
   

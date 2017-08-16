@@ -265,7 +265,7 @@ url路径
 
 返回：本接口不返回push id
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -324,7 +324,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 获取push_id：
 
@@ -385,7 +385,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -431,7 +431,7 @@ http://openapi.xg.qq.com/v2/push/all_device?access_id=2100240957&message={"title
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -468,7 +468,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空。本接口不返回push id
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -505,7 +505,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为每个account发送返回码。本接口不返回push id
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -573,7 +573,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -601,7 +601,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -643,7 +643,7 @@ url路径
 
 即显示删除device_token后该account映射的剩余token
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -673,7 +673,7 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -723,7 +723,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -754,7 +754,7 @@ url路径
 ```
 若请求应用列表中某个应用信息非法，则不会在result中返回结果
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -790,7 +790,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -824,7 +824,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -862,7 +862,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -895,7 +895,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -928,7 +928,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 
@@ -996,7 +996,7 @@ url路径
 }
 ```
 
-示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下为android推送示例，需替换通用参数后使用）
 
 MD5加密前：
 

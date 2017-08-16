@@ -1,6 +1,5 @@
 # Rest API 使用指南
 ##协议描述
-<hr>
 
 请求URL结构为：
 `http://接口域名/v2/class/method?params`
@@ -50,7 +49,7 @@ Sign=MD5($http_method$url$k1=$v1$k2=$v2$secret_key); 该签名值基本可以保
 
 则上述E步骤拼接出的字符串为
 
-POSTopenapi.xg.qq.com/v2/push/single_deviceParam1=Value1Param2=Value2access_id=123timestamp=1386691200abcde，注意字典序中大写在前。
+POSTopenapi.xg.qq.com/v2/push/single_deviceaccess_id=123Param1=Value1Param2=Value2timestamp=1386691200abcde，注意字典序中大写在前。
 
 计算出该字符串的MD5为ccafecaef6be07493cfe75ebc43b7d53，以此作为sign参数的值
 
@@ -266,6 +265,20 @@ url路径
 
 返回：本接口不返回push id
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/single_deviceaccess_id=2100250470device_token=76501cd0277cdcef4d8499784a819d4772e0fddemessage={"title":"测试消息","content":"来自restapi的单推接口测试消息"}message_type=1timestamp=1502356505f1fa8b11f540794bf13e10d499ac5c36
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/single_device?access_id=2100250470&timestamp=1502356505&device_token=76501cd0277cdcef4d8499784a819d4772e0fdde&message_type=1&message={"title":"测试消息","content":"来自restapi的单推接口测试消息"}&sign=b7f5761d37fb352536e53db0c50ffcc6
+```
+
 
 
 ###批量设备
@@ -306,11 +319,40 @@ url路径
 
 |参数名         |类型          |必需  |默认值          |描述  |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|device_list         |string          |是  |无          |Json数组格式，每个元素是一个token，string类型，单次发送token不超过1000个。
-例：[“token1”,”token2”,”token3”]  |
+|device_list         |string          |是  |无          |Json数组格式，每个元素是一个token，string类型，单次发送token不超过1000个。例：[“token1”,”token2”,”token3”]  |
 |push_id         |uint          |是  |无          |创建批量推送消息 接口的返回值中的 push_id |
 
 响应结果：在通用返回结果参数中，result字段的json为空
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+获取push_id：
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/create_multipushaccess_id=2100264266message={"title":"测试消息","content":"来自restapi的批量接口测试消息","custom_content":{"key1":"value1","key2":"value2"}}message_type=2timestamp=1502694940d8fc29c627259a06452794e31dab5bb8
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/create_multipush?access_id=2100264266&message={"title":"测试消息","content":"来自restapi的批量接口测试消息","custom_content":{"key1":"value1","key2":"value2"}}&message_type=2&timestamp=1502694940&sign=e5ca158c01712fb185399e67b6a57d1f
+```
+
+进行推送：
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/device_list_multipleaccess_id=2100264266device_list=["78e8540853619eb14fb49fdd53274c0c82ca2025"]push_id=2854657652timestamp=1502694940d8fc29c627259a06452794e31dab5bb8
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/device_list_multiple?access_id=2100264266&device_list=["78e8540853619eb14fb49fdd53274c0c82ca2025"]&push_id=2854657652&timestamp=1502694940&sign=e4779a9173a1c51541800e76b8a25322
+```
 
 ### 全量设备
 <hr>
@@ -341,6 +383,20 @@ url路径
 {
    “push_id”:string (表示给app下发的任务id，如果是循环任务，返回的是循环父任务id)
 }
+```
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/all_deviceaccess_id=2100240957message={"title":"测试消息","content":"来自restapi的全量接口测试消息"}message_type=1timestamp=1502360486f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/all_device?access_id=2100240957&message={"title":"测试消息","content":"来自restapi的全量接口测试消息"}&message_type=1&timestamp=1502360486&sign=4813a111880885223b72229495508813
 ```
 
 ### 标签
@@ -375,6 +431,20 @@ url路径
 }
 ```
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/tags_deviceaccess_id=2100240957message={"title":"测试消息","content":"来自restapi的标签接口测试消息"}message_type=1tags_list=["qwertyuiop"]tags_op=ORtimestamp=1502360486f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/tags_device?access_id=2100240957&message={"title":"测试消息","content":"来自restapi的标签接口测试消息"}&message_type=1&timestamp=1502360486&tags_list=["qwertyuiop"]&tags_op=OR&sign=95dbc4d1107a99d6824fda19e7ff09c9
+```
+
 ### 单个帐号
 <hr>
 
@@ -398,6 +468,20 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空。本接口不返回push id
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/single_accountaccess_id=2100240957account=easonshipushtestaccountmessage={"title":"测试消息","content":"来自restapi的单个账号接口测试消息"}message_type=1timestamp=1502361241f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/single_account?access_id=2100240957&account=easonshipushtestaccount&message={"title":"测试消息","content":"来自restapi的单个账号接口测试消息"}&message_type=1&timestamp=1502361241&sign=0d7bee840e87801e8a90b831ee87eefb
+```
+
 
 ### 批量帐号
 <hr>
@@ -420,6 +504,20 @@ url路径
 |environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
 响应结果：在通用返回结果参数中，result字段的json为每个account发送返回码。本接口不返回push id
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/account_listaccess_id=2100240957account_list=["easonshipushtestaccount"]message={"title":"测试消息","content":"来自restapi的批量账号接口测试消息"}message_type=1timestamp=1502361241f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/account_list?access_id=2100240957&account_list=["easonshipushtestaccount"]&message={"title":"测试消息","content":"来自restapi的批量账号接口测试消息"}&message_type=1&timestamp=1502361241&sign=cff802738763385db89aaadb49dbe345
+```
 
 **注：**
 
@@ -456,6 +554,8 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
+示例：请参考批量设备示例
+
 ##标签设置/删除接口
 <hr>
 
@@ -473,6 +573,20 @@ url路径
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/tags/batch_setaccess_id=2100240957tag_token_list=[["easonshitag1","76501cd0277cdcef4d8499784a819d4772e0fdde"]]timestamp=1502361905f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/tags/batch_set?access_id=2100240957&tag_token_list=[["easonshitag1","76501cd0277cdcef4d8499784a819d4772e0fdde"]]&timestamp=1502361905&sign=3c0ea17401f02fed8397eef9230fb607
+```
+
 - **(2)批量删除标签**
 
 url路径
@@ -486,6 +600,20 @@ url路径
 |tag_token_list         |string          |是  |无          |json字符串，包含若干标签-token对，后台将为每一对里面的token删除对应的标签。每次调用最多允许设置20对，每个对里面标签在前，token在后。注意标签最长50字节，不可包含空格；真实token长度至少40字节。示例如下（其中token值仅为示意）： [[”tag1”,”token1”],[”tag2”,”token2”]]  |
 
 响应结果：在通用返回结果参数中，result字段的json为空
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/tags/batch_delaccess_id=2100240957tag_token_list=[["easonshitag1","76501cd0277cdcef4d8499784a819d4772e0fdde"]]timestamp=1502361905f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/tags/batch_del?access_id=2100240957&tag_token_list=[["easonshitag1","76501cd0277cdcef4d8499784a819d4772e0fdde"]]&timestamp=1502361905&sign=301fd2e83a7f65223e1d9e38fb0b5864
+```
 
 ##账号映射删除接口
 <hr>
@@ -515,6 +643,20 @@ url路径
 
 即显示删除device_token后该account映射的剩余token
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/application/del_app_account_tokensaccess_id=2100240957account=easonshipushtestaccountdevice_token=76501cd0277cdcef4d8499784a819d4772e0fddetimestamp=1502361905f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/application/del_app_account_tokens?access_id=2100240957&account=easonshipushtestaccount&device_token=76501cd0277cdcef4d8499784a819d4772e0fdde&timestamp=1502361905&sign=c8c86feab7a1d8b1a3064c733a76079a
+```
+
 ### 全清
 
 **(1)删除应用中某account映射的所有token**
@@ -530,6 +672,20 @@ url路径
 |account        |string         |是  |无          |账号  |
 
 响应结果：在通用返回结果参数中，result字段的json为空
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/application/del_app_account_all_tokensaccess_id=2100240957account=easonshipushtestaccounttimestamp=1502701471f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/application/del_app_account_all_tokens?access_id=2100240957&account=easonshipushtestaccount&timestamp=1502701471&sign=88fbcc8b5c29a3f5ae1dab99b7479439
+```
 
 ## 查询接口
 <hr>
@@ -567,6 +723,20 @@ url路径
 }
 ```
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/get_msg_statusaccess_id=2100240957push_id=2841253998timestamp=1502698593f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/get_msg_status?access_id=2100240957&push_id=2841253998&timestamp=1502698593&sign=39b62ab54f08e7844ed1d86e00cec76a
+```
+
 **(2)查询应用覆盖的设备数（token总数）**
 
 url路径
@@ -583,6 +753,20 @@ url路径
 }
 ```
 若请求应用列表中某个应用信息非法，则不会在result中返回结果
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/application/get_app_device_numaccess_id=2100240957timestamp=1502701471f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/application/get_app_device_num?access_id=2100240957&timestamp=1502701471&sign=e4385f856ddaa932170c181927965cb1
+```
 
 **(3)查询应用的某个token的信息（查看是否有效）**
 
@@ -606,6 +790,20 @@ url路径
 }
 ```
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/application/get_app_token_infoaccess_id=2100240957device_token=76501cd0277cdcef4d8499784a819d4772e0fddetimestamp=1502698593f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/application/get_app_token_info?access_id=2100240957&device_token=76501cd0277cdcef4d8499784a819d4772e0fdde&timestamp=1502698593&sign=c4f650c6c468adba2e2b82a15ca68c3e
+```
+
 **(4)查询应用某帐号映射的token（查看帐号-token对应关系）**
 
 url路径
@@ -624,6 +822,20 @@ url路径
 {
      “tokens”:[“token1”,”token2”]
 }
+```
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/application/get_app_account_tokensaccess_id=2100240957account=easonshipushtestaccounttimestamp=1502699212f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/application/get_app_account_tokens?access_id=2100240957&account=easonshipushtestaccount&timestamp=1502699212&sign=015ef9e7fde208f2d12674f731e13e8c
 ```
 
 ### 查询标签
@@ -650,6 +862,20 @@ url路径
 }
 ```
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/tags/query_app_tagsaccess_id=2100240957timestamp=1502699212f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/tags/query_app_tags?access_id=2100240957&timestamp=1502699212&sign=5dbf914884378af6b62cba919e012b34
+```
+
 **(2)查询应用的某个设备上设置的标签**
 
 url路径
@@ -669,6 +895,20 @@ url路径
 }
 ```
 
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/tags/query_token_tagsaccess_id=2100240957device_token=76501cd0277cdcef4d8499784a819d4772e0fddetimestamp=1502699212f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/tags/query_token_tags?access_id=2100240957&device_token=76501cd0277cdcef4d8499784a819d4772e0fdde&timestamp=1502699212&sign=4cbd1b7a5553ed263f47a4a0b96402e9
+```
+
 **(3)查询应用某个标签下关联的设备数**
 
 url路径
@@ -686,6 +926,20 @@ url路径
 {
      “device_num”:589874
 }
+```
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/tags/query_tag_token_numaccess_id=2100240957tag=easonmipushtesttimestamp=1502699920f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/tags/query_tag_token_num?access_id=2100240957&tag=easonmipushtest&timestamp=1502699920&sign=0ea7f16df1b59d69c9b81b385f938822
 ```
 
 ### 查询SDK版本号
@@ -740,4 +994,18 @@ url路径
 {
    “status”: 0, //0为成功，其余为失败
 }
+```
+
+示例：MD5加密前url用作生成sign，RestApi Url为最终请求的url（以下示例均需替换通用参数后使用）
+
+MD5加密前：
+
+```java
+GETopenapi.xg.qq.com/v2/push/cancel_timing_taskaccess_id=2100240957push_id=2853333945timestamp=1502700856f255184d160bad51b88c31627bbd9530
+```
+
+RestApi Url:
+
+```java
+http://openapi.xg.qq.com/v2/push/cancel_timing_task?access_id=2100240957&push_id=2853333945&timestamp=1502700856&sign=1fb3b7846f79d0027542acd05effb4a3
 ```

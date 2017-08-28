@@ -29,7 +29,7 @@ XGPushManager提供信鸽服务的对外API列表，方法默认为public static
 |原型|功能|
 |----------|------|
 |void registerPush(Context context)void registerPush(Context context, final XGIOperateCallback callback)|启动并注册|
-|void registerPush(Context context, String account)void registerPush(Context context, String account, final XGIOperateCallback callback)|启动并注册APP，同时绑定账号|推荐有帐号体系的APP使用|
+|void registerPush(Context context, String account)void registerPush(Context context, String account, final XGIOperateCallback callback)|启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用|
 |void registerPush(Context context,String account, String ticket, int ticketType, String qua, final XGIOperateCallback callback)|同上，仅供带登陆态的业务使用|
 |void unregisterPush(Context context)|反注册，建议在不需要接收推送的时候调用|
 |void setTag(Context context,String tagName)|设置标签|
@@ -59,7 +59,8 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 
 |原型|功能|
 |-----|----|
-|void onTextMessage(Context context,XGPushTextMessage message)|收到消息||void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)|注册结果|
+|void onTextMessage(Context context,XGPushTextMessage message)|收到消息|
+|void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)|注册结果|
 |void onUnregisterResult(Context context, int errorCode)|反注册结果| 
 |void onSetTagResult(Context context,int errorCode,String tagName)|设置标签结果|
 |void onDeleteTagResult(Context context, int errorCode,String tagName)|删除标签结果|
@@ -395,7 +396,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 信鸽推送服务主要提供2种推送格式：
 “推送通知” 和 “透传消息命令”，二者存在一定的区别。
 
-####推送通知（展现在通知栏）=
+####推送通知（展现在通知栏）
 
 指的是在设备的通知栏展示的内容，由信鸽SDK完成所有的操作，APP可以监听通知被打开的行为，也就是说在前台下发的通知不需要APP做任何处理，默认会展示在通知栏。
 
@@ -405,7 +406,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 ####应用内消息命令（消息不展示到通知栏）
 
-指的是由信鸽下发给APP的内容，需要APP继承XGPushBaseReceiver接口实现并自主处理所有操作过程，也就是说，下发的消息默认是不会展示在通知栏的，信鸽只负责将消息从信鸽服务器下发到APP这个过程，不负责消息的处理逻辑，需要APP自己实现。具体可参考Demo中的CustomPushReceiver。
+指的是由信鸽下发给APP的内容，需要APP继承XGPushBaseReceiver接口实现并自主处理所有操作过程，也就是说，下发的消息默认是不会展示在通知栏的，信鸽只负责将消息从信鸽服务器下发到APP这个过程，不负责消息的处理逻辑，需要APP自己实现。具体可参考Demo中MessageReceiver。
 
 消息指的是由开发者通过前台或后台脚本下发的文本消息，信鸽只负责将消息传递给APP，APP完全自主负责消息体的处理。
 
@@ -420,7 +421,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 ```xml
 <!-- APP实现的Receiver，用于接收消息和结果反馈 -->
 <!-- com.tencent.android.xgpushdemo.CustomPushReceiver需要改为自己的Receiver -->
-<receiver android:name="com.tencent.xgpushdemo.CustomPushReceiver" >
+<receiver android:name="com.tencent.android.xgpushdemo.CustomPushReceiver" >
 <intent-filter>
 <!-- 接收消息透传 -->
 <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />

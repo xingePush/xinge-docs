@@ -38,7 +38,7 @@ XGPushManager提供信鸽服务的对外API列表，方法默认为public static
 |void onActivityStoped(Activity activity)|Activity被打开的效果统计|
 |void setPushNotificationBuilder(Context context, int notificationBulderId, XGPushNotificationBuilder notificationBuilder)|自定义本地通知样式|
 |long addLocalNotification(Context context, XGLocalMessage msg)|本地通知|
-
+|boolean isNotificationOpened(Context context)|检测通知栏是否关闭|
 
 #### XGPushConfig配置类
 
@@ -50,6 +50,10 @@ XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public s
 |boolean setAccessId(Context context,long accessId)|配置accessId|
 |boolean setAccessKey(Context context,String accessKey)|配置accessKey|
 |String getToken(Context context)|获取设备的token，只有注册成功才能获取到正常的结果|
+|void setReportNotificationStatusEnable(final Context context,final boolean debugMode)|设置上报通知栏是否关闭 默认打开|
+|void setReportApplistEnable(final Context context,final boolean debugMode)|设置上报APP 列表，用于智能推送 默认打开|
+
+
 
 #### XGPushBaseReceiver广播类
 

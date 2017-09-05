@@ -1,9 +1,8 @@
-#信鸽Android 3.1版本升级指南
+#信鸽Android 3.版本升级指南
 
 <hr>
 
-1.	【必须】提取Xg_sdk_v3.0_20170301_1733.jar替换当前信鸽SDK版本，新增mid-core-sdk-                                       3.7.2.jar
-
+1.	【必须】提取SDK文档中的最新jar包替换当前信鸽SDK版本。                         
 2.	【必须】根据所需平台，提取libtpnsSecurity.so和libxguardian.so替换老版本
 
 3.	【必须】设置XGPushActivity和用户自定义的MessageReceiver的android:exported建议设 

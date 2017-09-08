@@ -5,7 +5,7 @@
   * [Android SDK API](androidjie-ru/android-sdk-wan-zheng-jie-ru.md)
   * [Android SDK 3.X升级指南](androidjie-ru/android-sdk-31sheng-ji-zhi-nan.md)
   * [Android SDK 手动接入](androidjie-ru/android-sdk-kuai-su-jie-ru.md)
-  * [Android SDK Jcenter 自动接入](androidjie-ru/android-sdk-jcenter-zi-dong-jie-ru.md)
+  * [Android Sutdio Jcenter 自动接入](androidjie-ru/android-sdk-jcenter-zi-dong-jie-ru.md)
 * [iOS接入](iosjie-ru.md)
   * [iOS 证书设置指南](ios-zheng-shu-she-zhi-zhi-nan.md)
   * [iOS SDK v2.5.0 完整接入](ios-sdk-wan-zheng-jie-ru/ios-sdk-wan-zheng-jie-ru-v2-5-0.md)

@@ -13,8 +13,7 @@
 
 另外，感谢第三方开发者（非官方）提供的其它语言版本：
 
-1、服务端Python3
+<a href="https://github.com/huangnaiang/xinge-node-sdk">服务端Node js</a>
 
-2、信鸽Cordova插件
 
-3、服务端Node js
+

@@ -41,7 +41,7 @@
         //以信鸽3.1为例
         
         //信鸽稳定版
-        compile 'com.tencent.xinge:xinge:3.1.8-alpha'
+        compile 'com.tencent.xinge:xinge:3.1.81-alpha'
         
         //wup包 如果和其他腾讯系的sdk 发生wup冲突，这个依赖可不添加
         compile 'com.tencent.wup:wup:1.0.0.E-alpha'

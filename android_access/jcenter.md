@@ -2,7 +2,7 @@
 
 ##Android SDk Jcenter 自动接入
 
-
+###一导入依赖
     AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目中导入jar包和so文件；
     在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。
     导入依赖过后修改应用配置，书写注册代码就能够实现信鸽快速接入。 
@@ -15,7 +15,7 @@
         ......
         defaultConfig {
 
-            //信鸽官网上注册的包名.
+            //信鸽官网上注册的包名.注意application ID 和当前的应用包名以及 信鸽官网上注册应用的包名必须一致。
             applicationId "你的包名" 
             ......
 
@@ -76,5 +76,25 @@
 
         android.useDeprecatedNdk=true
 
+###二书写注册代码
 
+配置好以上信息在主界面的oncreat中调用信鸽注册代码。
 
+```java
+ //开启信鸽日志输出
+ 
+ XGPushConfig.enableDebug(this, true);
+ 
+ //信鸽注册代码
+
+ XGPushManager.registerPush(this, new XGIOperateCallback() { 
+    @Override  
+     public void onSuccess(Object data, int flag) {   
+         Log.d("TPush", "注册成功，设备token为：" + data);  
+       }   
+    @Override    
+     public void onFail(Object data, int errCode, String msg) {      
+        Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);  
+      }}
+```
+运行工程过滤“TPush”，成功获取到设备token，说明终端已经成功注册。然后可以利用获取到的token在信鸽推送平台上推送测试。

@@ -98,3 +98,17 @@
       }}
 ```
 运行工程过滤日志标签“TPush”，成功获取到设备token，说明终端已经成功注册。然后可以利用获取到的token在信鸽推送平台上推送测试。
+
+注 如需监听消息请参考XGBaseReceiver接口或者是demo的MessageReceiver类。自行继承XGBaseReceiver并且在配置文件中配置如下内容：
+
+```xml
+  <receiver android:name="完整的类名如:com.qq.xgdemo.receiver.MessageReceiver"
+      android:exported="true" >
+      <intent-filter>
+          <!-- 接收消息透传 -->
+          <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+          <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+          <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+      </intent-filter>
+  </receiver>
+  ```

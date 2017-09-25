@@ -1,16 +1,16 @@
-# Rest API 使用指南
+#Rest API 使用指南
 ##协议描述
 
 请求URL结构为：
 `http://接口域名/v2/class/method?params`
 
-|字段名         |用途          |备注  |
+|字段名 |用途 |备注 |
 | ------------- |:-------------|: -----|
-|接口域名        |接口域名 |统一使用openapi.xg.qq.com |
-|v2             |表示当前api的版本号     |无 |
-|class          |提供的接口类别     |   无 |
-|method         |每个接口大类提供的具体操作接口|如查询、设置、删除等|
-|params         |以GET方式调用接口时传递的参数|包括通用参数和api相关特定参数。所有的参数都必须为utf8编码，params字符串应进行url encode|
+|接口域名 |接口域名 |统一使用openapi.xg.qq.com |
+|v2 |表示当前api的版本号 |无 |
+|class |提供的接口类别 | 无 |
+|method |每个接口大类提供的具体操作接口|如查询、设置、删除等|
+|params |以GET方式调用接口时传递的参数|包括通用参数和api相关特定参数。所有的参数都必须为utf8编码，params字符串应进行url encode|
 
 注：以POST方式调用接口时，参数应<font color=#E53333>以POST参数形式传递</font>，内容要求同<font color=#E53333>params</font>字段。HTTP HEADER中“Content-type”字段要设置为“<font color=#E53333>application/x-www-form-urlencoded</font>”
 
@@ -19,14 +19,13 @@
 
 各接口url结构的params字段有共同参数
 
-|参数名        |类型          |是否必要  |参数描述 |
+|参数名 |类型 |是否必要 |参数描述 |
 | ------------- |:-------------|: ----------|: -----|
-|access_id      |uint |是|应用的唯一标识符，在提交应用时管理系统返回。可在xg.qq.com管理台查看|
-|cal_type       |int  |否|0-使用离线计算，1-使用实时统计，默认情况下为0|
-|timestamp      |uint |是 |本请求的unix时间戳，用于确认请求的有效期。默认情况下，请求时间戳与服务器时间（北京时间）偏差大于600秒则会被拒绝|
-|valid_time     |uint | 否|配合timestamp确定请求的有效期，单位为秒，最大值为600。若不设置此参数或参数值非法，则按默认值600秒计算有效期|
-|sign           |string|是|内容签名|
-	
+|access_id |uint |是|应用的唯一标识符，在提交应用时管理系统返回。可在xg.qq.com管理台查看|
+|cal_type |int |否|0-使用离线计算，1-使用实时统计，默认情况下为0|
+|timestamp |uint |是 |本请求的unix时间戳，用于确认请求的有效期。默认情况下，请求时间戳与服务器时间（北京时间）偏差大于600秒则会被拒绝|
+|valid_time |uint | 否|配合timestamp确定请求的有效期，单位为秒，最大值为600。若不设置此参数或参数值非法，则按默认值600秒计算有效期|
+|sign |string|是|内容签名|
 备注：内容签名生成规则：
 
 A）提取请求方法method（GET或POST）；
@@ -66,11 +65,11 @@ POSTopenapi.xg.qq.com/v2/push/single_deviceaccess_id=123Param1=Value1Param2=Valu
 
 **(1)字段定义如下**
 
-|参数名        |类型          |是否必要  |参数描述 |
+|参数名 |类型 |是否必要 |参数描述 |
 | ------------- |:-------------|: ----------|: -------|
-|ret_code      |int |是|返回码|
-|err_msg     |string |否 |请求出错时的错误信息|
-|result     |json | 否|请求正确时，若有额外数据要返回，则结果封装在该字段的json中。若无额外数据，则可能无此字段|
+|ret_code |int |是|返回码|
+|err_msg |string |否 |请求出错时的错误信息|
+|result |json | 否|请求正确时，若有额外数据要返回，则结果封装在该字段的json中。若无额外数据，则可能无此字段|
 
 <font color=#E53333>特别注意：</font>
 
@@ -83,26 +82,26 @@ POSTopenapi.xg.qq.com/v2/push/single_deviceaccess_id=123Param1=Value1Param2=Valu
 
 描述如下
 
-|值          |含义          |可采取措施  |
+|值 |含义 |可采取措施 |
 | ------------- |:-------------:|: -----------:|
-|0   |调用成功          |  |
-|-1  |参数错误          |检查参数配置  |
-|-2  |请求时间戳不在有效期内          |检查设备当前时间  |
-|-3  |sign校验无效          |检查Access ID和Secret Key（注意不是Access Key）  |
-|2   |参数错误          |检查参数配置  |
-|14  |收到非法token，例如iOS终端没能拿到正确的token       |Android Token长度为40位iOS Token长度为64位  |
-|15  |信鸽逻辑服务器繁忙          |稍后重试  |
-|19  |操作时序错误。例如进行tag操作前未获取到deviceToken   |没有获取到deviceToken的原因：1.没有注册信鸽或者苹果推送2.provisioning profile制作不正确  |
-|20  |鉴权错误，可能是由于Access ID和Access Key不匹配         |检查Access ID和Access Key  |
-|40  |推送的token没有在信鸽中注册          |检查token是否注册  |
-|48  |推送的账号没有绑定token          |检查account和token是否有绑定关系见推送指南：绑定/设置账号见热门问题解答：账号和设备未绑定的解答  |
-|63  |标签系统忙          |检查标签是否设置成功见推送指南：设置标签  |
-|71  |APNS服务器繁忙          |苹果服务器繁忙，稍后重试  |
-|73  |消息字符数超限          |iOS目前是1000字节左右，苹果的额外推送设置如角标，也会占用字节数  |
-|76  |请求过于频繁，请稍后再试          |全量广播限频为每3秒一次  |
-|78  |循环任务参数错误          |  |
-|100 |APNS证书错误。请重新提交正确的证书      |证书格式是pem的，另外，注意区分生产证书、开发证书的区别  |
-|其他 |其他错误         |   |
+|0 |调用成功 | |
+|-1 |参数错误 |检查参数配置 |
+|-2 |请求时间戳不在有效期内 |检查设备当前时间 |
+|-3 |sign校验无效 |检查Access ID和Secret Key（注意不是Access Key） |
+|2 |参数错误 |检查参数配置 |
+|14 |收到非法token，例如iOS终端没能拿到正确的token |Android Token长度为40位iOS Token长度为64位 |
+|15 |信鸽逻辑服务器繁忙 |稍后重试 |
+|19 |操作时序错误。例如进行tag操作前未获取到deviceToken |没有获取到deviceToken的原因：1.没有注册信鸽或者苹果推送2.provisioning profile制作不正确 |
+|20 |鉴权错误，可能是由于Access ID和Access Key不匹配 |检查Access ID和Access Key |
+|40 |推送的token没有在信鸽中注册 |检查token是否注册 |
+|48 |推送的账号没有绑定token |检查account和token是否有绑定关系见推送指南：绑定/设置账号见热门问题解答：账号和设备未绑定的解答 |
+|63 |标签系统忙 |检查标签是否设置成功见推送指南：设置标签 |
+|71 |APNS服务器繁忙 |苹果服务器繁忙，稍后重试 |
+|73 |消息字符数超限 |iOS目前是1000字节左右，苹果的额外推送设置如角标，也会占用字节数 |
+|76 |请求过于频繁，请稍后再试 |全量广播限频为每3秒一次 |
+|78 |循环任务参数错误 | |
+|100 |APNS证书错误。请重新提交正确的证书 |证书格式是pem的，另外，注意区分生产证书、开发证书的区别 |
+|其他 |其他错误 | |
 
 
 ### 推送Android平台
@@ -121,48 +120,44 @@ message参数值应为如下所述的json字符串，其总长度不能超过409
 ```
 {
 "title ":"xxx", // 标题，必填
-"content ":"xxxxxxxxx",  // 内容，必填
+"content ":"xxxxxxxxx", // 内容，必填
 "accept_time": //表示消息将在哪些时间段允许推送给用户，选填
 [
 {
 “start”:{“hour”:”13”,“min”:”00”},
- ”end”: {“hour”:”14”,“min”:”00”} 
+”end”: {“hour”:”14”,“min”:”00”}
 },
 {
 “start”:{“hour”:”00”,”min”:”00”},
- ”end”: {“hour”:”09”,“min”:”00”} 
+”end”: {“hour”:”09”,“min”:”00”}
 }
 ],
- 
 "n_id":0, //通知id，选填。若大于0，则会覆盖先前弹出的相同id通知；若为0，展示本条通知且不影响其他通知；若为-1，将清除先前弹出的所有通知，仅展示本条通知。默认为0
-"builder_id":0,  // 本地通知样式，必填
-"ring":1，   // 是否响铃，0否，1是，下同。选填，默认1
-"ring_raw":"ring",  // 指定应用内的声音（ring.mp3），选填
+"builder_id":0, // 本地通知样式，必填
+"ring":1， // 是否响铃，0否，1是，下同。选填，默认1
+"ring_raw":"ring", // 指定应用内的声音（ring.mp3），选填
 "vibrate":1, // 是否振动，选填，默认1
 "lights":1// 是否呼吸灯，0否，1是，选填，默认1
-"clearable":1,  // 通知栏是否可清除，选填，默认1
+"clearable":1, // 通知栏是否可清除，选填，默认1
 "icon_type":0 //默认0，通知栏图标是应用内图标还是上传图标,0是应用内图标，1是上传图标,选填
 "icon_res":"xg",// 应用内图标文件名（xg.png）或者下载图标的url地址，选填
 "style_id":1 //Web端设置是否覆盖编号的通知样式，默认1，0否，1是,选填
 "small_icon":"xg"指定状态栏的小图片(xg.png),选填
 "action":{ // 动作，选填。默认为打开app
-        "action_type  ": 1, // 动作类型，1打开activity或app本身，2打开浏览器，3打开Intent
-        "activity ": "xxx"
-        "aty_attr ": // activity属性，只针对action_type=1的情况
-            {
-             "if":0,   // 创建通知时，intent的属性，如：intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-             "pf":0,   // PendingIntent的属性，如：PendingIntent.FLAG_UPDATE_CURRENT
-            }   
-        "browser": {"url": "xxxx ","confirm": 1},  // url：打开的url，confirm是否需要用户确认        
-        “intent”: “xxx”
-  
-      },
-   
- 
+"action_type ": 1, // 动作类型，1打开activity或app本身，2打开浏览器，3打开Intent
+"activity ": "xxx"
+"aty_attr ": // activity属性，只针对action_type=1的情况
+{
+"if":0, // 创建通知时，intent的属性，如：intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+"pf":0, // PendingIntent的属性，如：PendingIntent.FLAG_UPDATE_CURRENT
+}
+"browser": {"url": "xxxx ","confirm": 1}, // url：打开的url，confirm是否需要用户确认
+“intent”: “xxx”
+},
 "custom_content":{ // 用户自定义的key-value，选填
-        "key1": "value1",
-        "key2": "value2"
-      }
+"key1": "value1",
+"key2": "value2"
+}
 }
 ```
 
@@ -178,23 +173,22 @@ message参数值应为如下所述的json字符串，其总长度不能超过409
 
 {
 "title":"xxx", // 标题，选填
-"content ":"xxxxxxxxx",  // 内容，选填
+"content ":"xxxxxxxxx", // 内容，选填
 "accept_time": //表示消息将在哪些时间段允许推送给用户，选填
 [
 {
 “start”:{“hour”:”13”,“min”:”00”},
- ”end”: {“hour”:”14”,“min”:”00”} 
+”end”: {“hour”:”14”,“min”:”00”}
 },
 {
 “start”:{“hour”:”00”,”min”:”00”},
- ”end”: {“hour”:”09”,“min”:”00”} 
+”end”: {“hour”:”09”,“min”:”00”}
 }
 ],
- 
 "custom_content":{ // 用户自定义的key-value，选填
-        "key1": "value1",
-        "key2": "value2"
-      }
+"key1": "value1",
+"key2": "value2"
+}
 }
 ```
 ### 推送iOS平台
@@ -202,7 +196,7 @@ message参数值应为如下所述的json字符串，其总长度不能超过409
 
 message参数应为APNS规定的payload（也是一个json字符串），详细定义参考APNS官方手册。
 
-信鸽在其基础上仅增添了两保留字段 xg 和 accept_time。payload不能超过256字节。需要注意的是accept_time字段不会传递给APNS，因此不占用payload容量。
+信鸽在其基础上仅增添了两保留字段 xg 和 accept_time。payload不能超过4096字节。需要注意的是accept_time字段不会传递给APNS，因此不占用payload容量。
 
 **(1)示例**
 
@@ -214,27 +208,27 @@ message参数应为APNS规定的payload（也是一个json字符串），详细�
 
 ```
 {
-    "aps" : {   //  apns规定的key-value
-        "alert" : {
-            "body" : "Bob wants to play poker",
-            "action-loc-key" : "PLAY"
-        },
-        "badge" : 5,
-        “category” : “INVITE_CATEGORY”,
+"aps" : { // apns规定的key-value
+"alert" : {
+"body" : "Bob wants to play poker",
+"action-loc-key" : "PLAY"
+},
+"badge" : 5,
+“category” : “INVITE_CATEGORY”,
 },
 "accept_time":[ //允许推送给用户的时段，选填。accept_time不会占用payload容量
 {
 "start":{"hour":"13","min":"00"},
-        "end": {"hour":"14","min":"00"} 
+"end": {"hour":"14","min":"00"}
 },
 {
 "start":{"hour":"00","min":"00"},
-         "end": {"hour":"09","min":"00"} 
+"end": {"hour":"09","min":"00"}
 }
 ] // 仅0~9点和13~14点这两个时段可推送
-    "custom1" : "bar",   // 合法的自定义key-value，会传递给app
-"custom2" : [ "bang",  "whiz" ],  // 合法的自定义key-value，会传递给app
-"xg" : "oops"  // 错误！xg为信鸽系统保留key，其value会被信鸽系统覆盖，应避免使用
+"custom1" : "bar", // 合法的自定义key-value，会传递给app
+"custom2" : [ "bang", "whiz" ], // 合法的自定义key-value，会传递给app
+"xg" : "oops" // 错误！xg为信鸽系统保留key，其value会被信鸽系统覆盖，应避免使用
 }
 ```
 ##推送接口
@@ -246,21 +240,20 @@ url路径
 
 `http://接口域名/v2/push/single_device?params`
 
-请求参数：除了通用参数外，还包括如下参数  
+请求参数：除了通用参数外，还包括如下参数
 
 参数说明
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|device_token          |string          |是  |无          |针对某一设备推送，token是设备的唯一识别 ID |
-|message_type          |uint         |是  |无          |消息类型：1：通知 2：透传消息。iOS平台请填0  |
-|message         |string          |是  |无          |参见1.4、1.5两节  |
-|expire_time         |uint          |否  |3天          |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）  |
-|send_time         |string          |否  |立即          |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送  |
-|multi_pkg          |uint          |否  |0          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效  |
-|environment          |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0  |
+|device_token |string |是 |无 |针对某一设备推送，token是设备的唯一识别 ID |
+|message_type |uint |是 |无 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
+|send_time |string |否 |立即 |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送 |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
-	
 响应结果：在通用返回结果参数中，result字段的json为空。
 
 返回：本接口不返回push id
@@ -292,20 +285,20 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|message_type         |uint          |是  |无          |消息类型：1：通知 2：透传消息  |
-|message         |string          |是  |无          |参见1.4、1.5两节  |
-|expire_time         |uint          |否  |3天         |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）。
-在超时时间内，可以发起此消息的批量推送。  |
-|multi_pkg         |uint          |否  |无          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息  |
-|environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0  |
+|message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）。
+在超时时间内，可以发起此消息的批量推送。 |
+|multi_pkg |uint |否 |无 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
 响应结果：在通用返回结果参数中，result字段的json如下
 
 ```
 {
-   “push_id”:string (表示给app下发的任务id)
+“push_id”:string (表示给app下发的任务id)
 }
 ```
 
@@ -317,10 +310,10 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|device_list         |string          |是  |无          |Json数组格式，每个元素是一个token，string类型，单次发送token不超过1000个。例：[“token1”,”token2”,”token3”]  |
-|push_id         |uint          |是  |无          |创建批量推送消息 接口的返回值中的 push_id |
+|device_list |string |是 |无 |Json数组格式，每个元素是一个token，string类型，单次发送token不超过1000个。例：[“token1”,”token2”,”token3”] |
+|push_id |uint |是 |无 |创建批量推送消息 接口的返回值中的 push_id |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -366,22 +359,22 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|message_type         |uint          |是  |无          |消息类型：1：通知 2：透传消息。iOS平台请填0  |
-|message         |string          |是  |          |参见1.4、1.5两节  |
-|expire_time      |uint          |否  |3天         |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）  |
-|send_time        |string          |否  |立即          |指定推送时间,格式为year-mon-day hour:min:sec <font color=#E53333>若小于服务器当前时间，则会立即推送</font>  |
-|multi_pkg         |uint          |否  |0          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。<font color=#E53333>本字段对iOS平台无效</font>  |
-|environment         |uint         |仅iOS必需  |          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
-|loop_times         |uint          |否  |          |循环任务执行的次数，取值[1, 15]  |
-|loop_interval        |uint          |否  |         |循环任务的执行间隔，以天为单位，取值[1, 14]。loop_times和loop_interval一起表示任务的生命周期，不可超过14天  |
+|message_type |uint |是 |无 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
+|message |string |是 | |参见1.4、1.5两节 |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
+|send_time |string |否 |立即 |指定推送时间,格式为year-mon-day hour:min:sec <font color=#E53333>若小于服务器当前时间，则会立即推送</font> |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。<font color=#E53333>本字段对iOS平台无效</font> |
+|environment |uint |仅iOS必需 | |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
+|loop_times |uint |否 | |循环任务执行的次数，取值[1, 15] |
+|loop_interval |uint |否 | |循环任务的执行间隔，以天为单位，取值[1, 14]。loop_times和loop_interval一起表示任务的生命周期，不可超过14天 |
 
 响应结果：在通用返回结果参数中，result字段的json示例如下
 
 ```
 {
-   “push_id”:string (表示给app下发的任务id，如果是循环任务，返回的是循环父任务id)
+“push_id”:string (表示给app下发的任务id，如果是循环任务，返回的是循环父任务id)
 }
 ```
 
@@ -406,28 +399,28 @@ http://openapi.xg.qq.com/v2/push/all_device?access_id=2100240957&message={"title
 
 标签推送url路径
 
-  `http://接口域名/v2/push/tags_device?params`
+`http://接口域名/v2/push/tags_device?params`
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|message        |string         |是  |无          |参见1.4、1.5两节  |
-|message_type  |uint          |是  |1          |消息类型：1：通知 2：透传消息。iOS平台请填0  |
-|tags_list         |json          |是  |无          |[“tag1”,”tag2”,”tag3”]  |
-|tags_op         |string         |是  |无          |取值为AND或OR  |
-|expire_time         |uint          |否  |3天         |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）  |
-|send_time         |string          |否  |立即          |指定推送时间，格式为year-mon-day hour:min:sec <font color=#E53333>若小于服务器当前时间，则会立即推送</font>  |
-|multi_pkg         |uint         |否  |0          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效  |
-|environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0  |
-|loop_times         |uint          |否  |无          |循环任务执行的次数，取值[1, 15]  |
-|loop_interval         |uint          |否  |无         |循环任务的执行间隔，以天为单位，取值[1, 14]。loop_times和loop_interval一起表示任务的生命周期，不可超过14天  |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|message_type |uint |是 |1 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
+|tags_list |json |是 |无 |[“tag1”,”tag2”,”tag3”] |
+|tags_op |string |是 |无 |取值为AND或OR |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
+|send_time |string |否 |立即 |指定推送时间，格式为year-mon-day hour:min:sec <font color=#E53333>若小于服务器当前时间，则会立即推送</font> |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
+|loop_times |uint |否 |无 |循环任务执行的次数，取值[1, 15] |
+|loop_interval |uint |否 |无 |循环任务的执行间隔，以天为单位，取值[1, 14]。loop_times和loop_interval一起表示任务的生命周期，不可超过14天 |
 
 响应结果：在通用返回结果参数中，result字段的json示例如下
 
 ```
 {
-   “push_id”:string (表示给app下发的任务id，如果是循环任务，返回的是循环父任务id)
+“push_id”:string (表示给app下发的任务id，如果是循环任务，返回的是循环父任务id)
 }
 ```
 
@@ -456,15 +449,15 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account         |string          |是  |无          |针对某一账号推送，帐号可以是qq号，邮箱号，openid，手机号等各种类型  |
-|message_type         |uint          |是  |1          |消息类型：1：通知 2：透传消息  |
-|message        |string          |是  |无          |参见1.4、1.5两节  |
-|expire_time         |uint          |否  |3天          |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）  |
-|send_time         |string          |否  |立即          |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送  |
-|multi_pkg         |uint          |否  |0          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息  |
-|environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0  |
+|account |string |是 |无 |针对某一账号推送，帐号可以是qq号，邮箱号，openid，手机号等各种类型 |
+|message_type |uint |是 |1 |消息类型：1：通知 2：透传消息 |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
+|send_time |string |否 |立即 |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送 |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
 响应结果：在通用返回结果参数中，result字段的json为空。本接口不返回push id
 
@@ -494,14 +487,14 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account_list         |string         |是  |无          |Json数组格式，每个元素是一个account，string类型，<font color=#E53333>单次发送account不超过100个</font>。例：[“account1”,”account2”,”account3”] |
-|message_type         |uint          |是  |无          |消息类型：1：通知 2：透传消息  |
-|message        |string          |是  |无          |参见1.4、1.5两节  |
-|expire_time        |uint         |否  |3天          |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天）  |
-|multi_pkg        |uint          |否  |0          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息  |
-|environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
+|account_list |string |是 |无 |Json数组格式，每个元素是一个account，string类型，<font color=#E53333>单次发送account不超过100个</font>。例：[“account1”,”account2”,”account3”] |
+|message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
 响应结果：在通用返回结果参数中，result字段的json为每个account发送返回码。本接口不返回push id
 
@@ -531,13 +524,13 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|message_type         |uint          |是  |无          |消息类型：1：通知 2：透传消息  |
-|message         |string          |是  |无          |参见1.4、1.5两节  |
-|expire_time         |uint          |否  |无          |消息离线存储多久，单位为秒，最长存储时间3天。在超时时间内，可以发起此消息的批量推送  |
-|multi_pkg         |uint          |否  |无          |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息  |
-|environment         |uint          |仅iOS必需  |无          |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0  |
+|message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
+|message |string |是 |无 |参见1.4、1.5两节 |
+|expire_time |uint |否 |无 |消息离线存储多久，单位为秒，最长存储时间3天。在超时时间内，可以发起此消息的批量推送 |
+|multi_pkg |uint |否 |无 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
+|environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 
 其次，选择推送批量帐号：
 
@@ -547,10 +540,10 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account_list         |string          |是  |无          |Json数组格式，每个元素是一个account，string类型，<font color=#E53333>单次发送account不超过1000个</font>。例：[“account1”,”account2”,”account3”]  |
-|push_id         |uint          |是  |无          | 创建批量推送消息 接口的返回值中的 push_id  |
+|account_list |string |是 |无 |Json数组格式，每个元素是一个account，string类型，<font color=#E53333>单次发送account不超过1000个</font>。例：[“account1”,”account2”,”account3”] |
+|push_id |uint |是 |无 | 创建批量推送消息 接口的返回值中的 push_id |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -567,9 +560,9 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|tag_token_list         |string          |是  |无          |json字符串，包含若干标签-token对，后台将把每一对里面的token打上对应的标签。<font color=#E53333>每次调用最多允许设置20对，每个对里面标签在前，token在后。注意标签最长50字节，不可包含空格；真实token长度至少40字节。</font>示例（其中token值仅为示意）： [[”tag1”,”token1”],[”tag2”,”token2”]]  |
+|tag_token_list |string |是 |无 |json字符串，包含若干标签-token对，后台将把每一对里面的token打上对应的标签。<font color=#E53333>每次调用最多允许设置20对，每个对里面标签在前，token在后。注意标签最长50字节，不可包含空格；真实token长度至少40字节。</font>示例（其中token值仅为示意）： [[”tag1”,”token1”],[”tag2”,”token2”]] |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -595,9 +588,9 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|tag_token_list         |string          |是  |无          |json字符串，包含若干标签-token对，后台将为每一对里面的token删除对应的标签。每次调用最多允许设置20对，每个对里面标签在前，token在后。注意标签最长50字节，不可包含空格；真实token长度至少40字节。示例如下（其中token值仅为示意）： [[”tag1”,”token1”],[”tag2”,”token2”]]  |
+|tag_token_list |string |是 |无 |json字符串，包含若干标签-token对，后台将为每一对里面的token删除对应的标签。每次调用最多允许设置20对，每个对里面标签在前，token在后。注意标签最长50字节，不可包含空格；真实token长度至少40字节。示例如下（其中token值仅为示意）： [[”tag1”,”token1”],[”tag2”,”token2”]] |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -628,16 +621,16 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account         |string          |是  |无          |账号，可以是邮箱号、手机号、QQ号等任意形式的业务帐号  |
-|device_token         |string          |是  |无          |token，设备的唯一识别ID  |
+|account |string |是 |无 |账号，可以是邮箱号、手机号、QQ号等任意形式的业务帐号 |
+|device_token |string |是 |无 |token，设备的唯一识别ID |
 
 响应结果：在通用返回结果参数中，result字段的json如下
 
 ```
 {
-     “tokens”:[“token1”,”token2”]
+“tokens”:[“token1”,”token2”]
 }
 ```
 
@@ -667,9 +660,9 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account        |string         |是  |无          |账号  |
+|account |string |是 |无 |账号 |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -700,26 +693,26 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|push_id        |json         |是  |          |[
+|push_id |json |是 | |[
 {“push_id”: string}, {“push_id”:“xxxx”},
-]  |
+] |
 
 
 响应结果：在通用返回结果参数中，result字段的json形式为：
 
 ```
 {
-   “list”: [
-     {
-         “push_id”: “27ABC5486977”
-         “status”: 0（未处理）/1（推送中）/2（推送完成）/3（推送失败）
-         “start_time”:”year-mon-day hour:min:sec“
-         “finished”:xxxx  （已发送）
-         “total”:xxxxx   （共需要发送）
-       },
-   ] 
+“list”: [
+{
+“push_id”: “27ABC5486977”
+“status”: 0（未处理）/1（推送中）/2（推送完成）/3（推送失败）
+“start_time”:”year-mon-day hour:min:sec“
+“finished”:xxxx （已发送）
+“total”:xxxxx （共需要发送）
+},
+]
 }
 ```
 
@@ -749,7 +742,7 @@ url路径
 
 ```
 {
-   “device_num”: 34567(设备数)
+“device_num”: 34567(设备数)
 }
 ```
 若请求应用列表中某个应用信息非法，则不会在result中返回结果
@@ -776,9 +769,9 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|device_token        |string         |是  |  无        |无 |
+|device_token |string |是 | 无 |无 |
 
 响应结果：在通用返回结果参数中，result字段的json如下：
 
@@ -812,15 +805,15 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|account        |string         |是  |  无        |帐号 |
+|account |string |是 | 无 |帐号 |
 
 响应结果：在通用返回结果参数中，result字段的json如下
 
 ```
 {
-     “tokens”:[“token1”,”token2”]
+“tokens”:[“token1”,”token2”]
 }
 ```
 
@@ -849,16 +842,16 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|start         |uint          |否  |0          |开始值  |
-|limit         |uint          |否  |100          |限制数量  |
+|start |uint |否 |0 |开始值 |
+|limit |uint |否 |100 |限制数量 |
 
 响应结果：在通用返回结果参数中，result字段的json格式如下
 ```
 {
-   “total”: 2, //应用的tag总数，注意不是本次查询返回的tag数
-   “tags”:[“tag1”,”tag2”]
+“total”: 2, //应用的tag总数，注意不是本次查询返回的tag数
+“tags”:[“tag1”,”tag2”]
 }
 ```
 
@@ -884,14 +877,14 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|device_token         |string          |是  |无          |无  |
+|device_token |string |是 |无 |无 |
 
 响应结果：在通用返回结果参数中，result字段的json格式如下
 ```
 {
-     “tags”:[“tag1”,”tag2”]
+“tags”:[“tag1”,”tag2”]
 }
 ```
 
@@ -917,14 +910,14 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|tag         |string          |是  |无          |无  |
+|tag |string |是 |无 |无 |
 
 响应结果：在通用返回结果参数中，result字段的json格式如下
 ```
 {
-     “device_num”:589874
+“device_num”:589874
 }
 ```
 
@@ -969,9 +962,9 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|push_id         |string          |是  |无          |待删除离线消息的任务ID  |
+|push_id |string |是 |无 |待删除离线消息的任务ID |
 
 响应结果：在通用返回结果参数中，result字段的json为空
 
@@ -985,14 +978,14 @@ url路径
 
 请求参数：除了通用参数外，还包括如下参数
 
-|参数名         |类型          |必需  |默认值          |描述  |
+|参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|push_id         |string          |是  |无          |要取消的任务ID  |
+|push_id |string |是 |无 |要取消的任务ID |
 
 响应结果：在通用返回结果参数中，result字段的json格式如下
 ```
 {
-   “status”: 0, //0为成功，其余为失败
+“status”: 0, //0为成功，其余为失败
 }
 ```
 

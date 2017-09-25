@@ -196,7 +196,7 @@ message参数值应为如下所述的json字符串，其总长度不能超过409
 
 message参数应为APNS规定的payload（也是一个json字符串），详细定义参考APNS官方手册。
 
-信鸽在其基础上仅增添了两保留字段 xg 和 accept_time。payload不能超过4096字节。需要注意的是accept_time字段不会传递给APNS，因此不占用payload容量。
+信鸽在其基础上仅增添了两保留字段 xg 和 accept_time。payload不能超过800字节。需要注意的是accept_time字段不会传递给APNS，因此不占用payload容量。
 
 **(1)示例**
 

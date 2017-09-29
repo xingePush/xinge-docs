@@ -15,9 +15,11 @@
 1. 下载信鸽 SDK, 解压缩
 2. 将XGPush.h 以及 libXG-SDK.a 添加到工程
 3. 添加以下库/framework 的引用 CoreTelephony.framework, SystemConfiguration.framework, UserNotifications.framework, libXG-SDK.a 以及 libz.tbd.添加完成以后,库的引用如下:
-   ![library](img/xg/xg_library_ref.png)
+![library](https://raw.githubusercontent.com/iosmonster/mta_xg/master/doc/img/xg_library_ref.png)
+
 4. 在工程配置和后台模式中打开推送,如下图
-   ![projcfg](img/xg/xg_proj_cfg.png)
+![projcfg](https://raw.githubusercontent.com/iosmonster/mta_xg/master/doc/img/xg_proj_cfg.png)
+
 5. 参考 Demo, 添加相关代码
 
 ### 管理信鸽推送服务

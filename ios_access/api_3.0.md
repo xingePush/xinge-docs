@@ -20,13 +20,9 @@
 
 ### 工程配置
 
-（1）下载信鸽 SDK, 解压缩。注：使用CocoaPods的用户可以通过如下名称管理信鸽：
+（1）下载信鸽 SDK, 解压缩。注：3.0版本sdk暂不支持使用CocoaPods。
 
-```shell
-pod 'QQ_XGPush'
-```
-
-（2）将 XGSetting.h, XGPush.h 以及 libXG-SDK.a 添加到工程
+（2）将 XGPush.h 以及 libXG-SDK.a 添加到工程
 
 （3）添加以下库/framework 的引用 CoreTelephony.framework, SystemConfiguration.framework, UserNotifications.framework, libXG-SDK.a 以及 libz.tbd.添加完成以后,库的引用如下
 

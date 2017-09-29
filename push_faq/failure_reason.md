@@ -93,3 +93,12 @@ iOS推送提示failed to load certificate,check your APNS certificate，对应�
 (6)请检查xml的receiver和service标签是否匹配，强烈建议请直接复制demo的例子再修改。
 
 (7)请检查是否没有加“android.permission.GET_TASKS”权限的问题
+
+
+
+###推送暂停
+<hr>
+
+（1）相同的内容在推送给所有设备的时候，一小时内不能重复创建。
+
+（2）每小时最多创建30条全量推送。

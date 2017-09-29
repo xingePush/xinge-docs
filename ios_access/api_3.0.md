@@ -12,7 +12,7 @@
 前往[http://xg.qq.com](http://xg.qq.com)注册并获取AppKey
 
 ### 工程配置
-1. 下载信鸽 SDK, 解压缩
+1. 下载信鸽 SDK, 解压缩。注：3.0版本sdk暂不支持pods。
 2. 将XGPush.h 以及 libXG-SDK.a 添加到工程
 3. 添加以下库/framework 的引用 CoreTelephony.framework, SystemConfiguration.framework, UserNotifications.framework, libXG-SDK.a 以及 libz.tbd.添加完成以后,库的引用如下:
 ![library](https://raw.githubusercontent.com/iosmonster/mta_xg/master/doc/img/xg_library_ref.png)

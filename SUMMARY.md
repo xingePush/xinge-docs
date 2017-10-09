@@ -13,10 +13,10 @@
 * [服务端API接入](server_api.md)
   * [Rest API 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)
+* [信鸽返回码一览](push_ret_code.md)
 * [热门问题与解答](push_faq.md)
   * [推送流程图](push_faq/flow_chart.md)
   * [推送失败原因](push_faq/failure_reason.md)
   * [热门技术问题](push_faq/technical_issues.md)
   * [名词解释](push_faq/noun_explanation.md)
-* [信鸽返回码一览](push_ret_code.md)
 

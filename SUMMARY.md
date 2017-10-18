@@ -6,6 +6,7 @@
   * [Android SDK 3.X升级指南](android_access/upgrade_guide.md)
   * [Android SDK 手动接入](android_access/manual.md)
   * [Android Sutdio Jcenter 自动接入](android_access/jcenter.md)
+  * [Android FAQ](android_access/android-faq.md)
 * [iOS接入](ios_access.md)
   * [iOS 证书设置指南](ios_access/certificate_config.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)

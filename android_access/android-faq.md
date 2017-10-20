@@ -4,6 +4,8 @@
 
 ##注册以及部分日志输出。
 
+<hr>
+
 1.根据<a href="http://docs.developer.qq.com/xg/android_access/manual.html" target="_blank" >手动接入</a>或者<a href="http://docs.developer.qq.com/xg/android_access/jcenter.html" target="_blank" >自动接入</a>，配置好信鸽过后，获取信鸽注册日志（接入过程中建议调用有回调的注册接口，开启信鸽的debug日志输出。AndroidStudio 建议采用jcenter自动接入，无需在配置文件中配置信鸽各个节点，全部由依赖导入）。
 
 ***开启debug日志数据***
@@ -73,6 +75,7 @@ XGPushManager.setTag(this,"XINGE");
 
 ##推送问题
 
+<hr>
 
 ###推送时效性问题
 
@@ -187,6 +190,8 @@ b.每小时最多推送30条全量推送，超过三十次会被暂停。
 
 ##消息点击事件，以及跳转页面方法。
 
+<hr>
+
 由于目前sdk点击 消息默认会有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调里 设置跳转操作，有可能会和默认的点击事件造成冲突。
 
 解决办法如下(推荐使用第一种方式)：
@@ -232,3 +237,42 @@ b.在后台推送 message的action字段中的setActivity，设置为一个不�
 使用这种方法会到导致，信鸽的消息回调点击结果XGPushClickedResult ，无法获取到消息Messega参数相应的值，在终端回调的跳转操作的所需要的值;
 
 获取Meseage参数值的方法为：通过点击回调onNotifactionClickedResult方法中的Message参数的获取相关的内容，然后自行使用Intent传递获取。
+
+##包冲突
+
+<hr>
+
+(1)jar包冲突：
+
+如果提示jar包冲突，请删除冲突的包，保留一份即可，建议保留版本高的。
+常见的冲突有：
+
+a）MSDK与信鸽冲突：删除wup.jar
+
+b）MTA与信鸽冲突：删除低版本的mid.jar
+
+
+##代码混淆
+
+<hr>
+
+如果你的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
+
+```xml
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.tencent.mid.** {* ;}
+-keep public class * extends com.qq.taf.jce.JceStruct{*;}
+```
+多行显示
+
+Android多行显示特性，在2.38及以上版本已经实现并默认开启，但此功能部分机型生效。
+多包名推送
+
+目前市场上部分app针对不同渠道有不同的包名，同一款app可能会有上百个包名，这时就可以利用access id向该app的所有包名进行推送。在多包名推送模式下，设备上所有使用这个access id注册推送的app都会收到这条消息。
+单应用多包名推送分为简单的三个步骤：
+1）在信鸽前台注册应用，无需填写包名；若已经填好包名，也不会影响推送效果；
+2）集成最新SDK在应用内；
+3）在进行推送前，将推送参数 multi_pkg 设置为1；
+

@@ -131,7 +131,11 @@
         加当前 平台存在的平台即可。
 
     e）若在Androidstudio中导入so文件出错（错误10004.SOERROR），在main文件目录下 添加jniLibs命名的文件 
-       夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。
+       夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。如图：
+       
+   ![](/assets/E6A320E0-BA09-4C84-B33F-C6916401F080.png)
+       
+       
 
 
 
@@ -192,7 +196,7 @@
       android:exported="true">
       <intent-filter>
  <!-- 【必须】 请修改为当前APP包名 .PUSH_ACTION, 如demo的包名为：com.qq.xgdemo -->
-              <action android:name="您的包名.PUSH_ACTION" />
+              <action android:name="当前应用的包名.PUSH_ACTION" />
       </intent-filter>
    </service>
 
@@ -200,19 +204,19 @@
 <!-- 【必须】 【注意】authorities修改为 包名.AUTH_XGPUSH, 如demo的包名为：com.qq.xgdemo-->
   <provider
        android:name="com.tencent.android.tpush.XGPushProvider"
-       android:authorities="com.qq.xgdemo.AUTH_XGPUSH"
+       android:authorities="当前应用的包名.AUTH_XGPUSH"
        android:exported="true"/>
 
   <!-- 【必须】 【注意】authorities修改为 包名.TPUSH_PROVIDER, 如demo的包名为：com.qq.xgdemo-->
   <provider
        android:name="com.tencent.android.tpush.SettingsContentProvider"
-       android:authorities="com.qq.xgdemo.TPUSH_PROVIDER"
+       android:authorities="当前应用的包名.TPUSH_PROVIDER"
        android:exported="false" />
 
   <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
   <provider
        android:name="com.tencent.mid.api.MidProvider"
-       android:authorities="com.qq.xgdemo.TENCENT.MID.V3"
+       android:authorities="当前应用的包名.TENCENT.MID.V3"
        android:exported="true" >
   </provider>
 

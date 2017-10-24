@@ -226,7 +226,7 @@ b.后台设置Messege 类中的 Action字段的 的SetActivity方法（包名+�
 		String  s= clickedResult.getContent();
 ```
 
-二.发透传消息到终端，自定义通知栏，采用本地通知，设置要跳转的页面。
+二.发透传消息到终端，自定义通知栏，采用<a href="http://docs.developer.qq.com/xg/android_access/api.html#本地通知" target="_blank" >本地通知</a>，设置要跳转的页面。
 
 ##包冲突
 

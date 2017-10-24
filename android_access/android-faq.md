@@ -192,7 +192,7 @@ b.每小时最多推送30条全量推送，超过三十次会被暂停。
 
 <hr>
 
-由于目前sdk点击 消息默认会有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调里 设置跳转操作，有可能会和默认的点击事件造成冲突。
+由于目前sdk点击 消息默认会有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调onNotifactionClickedResult方法内，设置跳转操作，自定义的跳转和默认的点击事件造成冲突。反应情况是会跳转到指定界面过后再回到主界面。所以不能再onNotifactionClickedResult内设置跳转。
 
 解决办法如下(推荐使用第一种方式)：
 
@@ -226,17 +226,7 @@ b.后台设置Messege 类中的 Action字段的 的SetActivity方法（包名+�
 		String  s= clickedResult.getContent();
 ```
 
-二.如果需要在终端点击回调里设置点击跳转操作。需要在下发消息的时候把修改默认的点击事件
-
-a.在web端推送，可在高级高能里把deeplink, 设置为空的页面来修改默认的点击事件。
-
-b.在后台推送 message的action字段中的setActivity，设置为一个不存在的页面。
-
-然后在终端点击回调onNotifactionClickedResult方法内设置Intent跳转操作。
-
-使用这种方法会到导致，信鸽的消息回调点击结果XGPushClickedResult ，无法获取到消息Messega参数相应的值，在终端回调的跳转操作的所需要的值;
-
-获取Meseage参数值的方法为：通过点击回调onNotifactionClickedResult方法中的Message参数的获取相关的内容，然后自行使用Intent传递获取。
+二.发透传消息到终端，自定义通知栏，采用本地通知，设置要跳转的页面。
 
 ##包冲突
 

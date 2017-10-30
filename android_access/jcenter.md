@@ -54,18 +54,14 @@
         compile 'com.tencent.mid:mid:3.72.4-alpha'
     
     
-        //信鸽beta版
-        
-        //a和b依赖 二选一 用户可根据需要决定是否需要采集安装列表的信鸽jar，
-        //不带采集安装列表
-        compile 'com.tencent.xinge:xinge:3.1.1-a-beta' 
-        //带采集安装列表
-        compile 'com.tencent.xinge:xinge:3.1.1-b-beta'
+        //信鸽beta版（推荐）
+        compile 'com.tencent.xinge:xinge:3.1.2-beta' 
     
         //wup包 如果和其他腾讯系的sdk 发生wup冲突，这个依赖可不添加
         compile 'com.tencent.wup:wup:1.0.0.E-alpha'
+        
         //mid包
-        compile 'com.tencent.mid:mid:3.74-alpha'
+        compile 'com.tencent.mid:mid:3.9.0-alpha'
         ......
     }
   

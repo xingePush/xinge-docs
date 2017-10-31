@@ -63,13 +63,13 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 
 |原型|功能|
 |-----|----|
-|void onTextMessage(Context context,XGPushTextMessage message)|收到消息|
-|void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)|注册结果|
-|void onUnregisterResult(Context context, int errorCode)|反注册结果| 
-|void onSetTagResult(Context context,int errorCode,String tagName)|设置标签结果|
-|void onDeleteTagResult(Context context, int errorCode,String tagName)|删除标签结果|
-|void onNotifactionShowedResult(Context context, XGPushShowedResult notifiShowedRlt)|通知被展示触发的结果，可以在此保存APP收到的通知|
-|void onNotifactionClickedResult(Context context, XGPushClickedResult message)|通知被打开触发的结果|
+|void onTextMessage(Context context,XGPushTextMessage message)|应用内消息的回调|
+|void onRegisterResult(Context context,int errorCode,XGPushRegisterResult registerMessage)|注册回调|
+|void onUnregisterResult(Context context, int errorCode)|反注册回调| 
+|void onSetTagResult(Context context,int errorCode,String tagName)|设置标签回调|
+|void onDeleteTagResult(Context context, int errorCode,String tagName)|删除标签回调|
+|void onNotifactionShowedResult(Context context, XGPushShowedResult notifiShowedRlt)|通知被展示触发的回调，可以在此保存APP收到的通知|
+|void onNotifactionClickedResult(Context context, XGPushClickedResult message)|通知被点击触发的回调|
 
 
 

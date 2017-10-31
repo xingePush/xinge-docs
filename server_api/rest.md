@@ -231,7 +231,7 @@ message参数应为APNS规定的payload（也是一个json字符串），详细�
 "aps" : { // apns规定的key-value
 "badge" : 5,
 "category" : “INVITE_CATEGORY”,
-"content-avaliable": 1, //静默通知的标识
+"content-available": 1, //静默通知的标识
 },
 "custom1" : "bar", // 合法的自定义key-value，会传递给app
 "custom2" : [ "bang", "whiz" ], // 合法的自定义key-value，会传递给app

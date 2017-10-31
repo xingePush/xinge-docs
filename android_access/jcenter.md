@@ -42,7 +42,7 @@
     dependencies {
         ......
         
-        //以信鸽3.1为例
+        //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。
         
         //信鸽稳定版
         compile 'com.tencent.xinge:xinge:3.1.81-alpha'
@@ -57,7 +57,7 @@
         //信鸽beta版（推荐）
         compile 'com.tencent.xinge:xinge:3.1.2-beta' 
     
-        //wup包 如果和其他腾讯系的sdk 发生wup冲突，这个依赖可不添加
+        //wup包 
         compile 'com.tencent.wup:wup:1.0.0.E-alpha'
         
         //mid包

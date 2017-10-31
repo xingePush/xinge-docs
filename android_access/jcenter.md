@@ -55,8 +55,13 @@
     
     
         //信鸽beta版（推荐）
+        
+        //不采集安装列表
         compile 'com.tencent.xinge:xinge:3.1.2-beta' 
-    
+        
+        //采集安装列表
+        compile 'com.tencent.xinge:xinge:3.1.2-a-beta' 
+        
         //wup包 
         compile 'com.tencent.wup:wup:1.0.0.E-alpha'
         

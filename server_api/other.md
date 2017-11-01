@@ -3,11 +3,13 @@
 
 服务端其它语言SDK及文档官方下载：
 
-1、<a href="http://xg.qq.com/xg/help/ctr_help/download">服务端Java</a>
+1、<a href="http://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-JAVA-1.1.8.zip">服务端Java</a>
 
-2、<a href="http://xg.qq.com/xg/help/ctr_help/download">服务端PHP</a>
+2、<a href="http://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-PHP-1.1.9.zip">服务端PHP</a>
 
-3、<a href="http://xg.qq.com/xg/help/ctr_help/download">服务端Python</a>
+3、<a href="http://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-Python-1.1.8.zip">服务端Python</a>
+
+4、<a href="http://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-CSharp-1.1.9.zip">服务端C#</a>
 
 
 

@@ -20,4 +20,5 @@
   * [推送失败原因](push_faq/failure_reason.md)
   * [热门技术问题](push_faq/technical_issues.md)
   * [名词解释](push_faq/noun_explanation.md)
+  * [权限管理](push_faq/quan-xian-guan-li.md)
 

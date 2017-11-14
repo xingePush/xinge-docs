@@ -549,13 +549,8 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
   
 		build.setSound(
 				RingtoneManager.getActualDefaultRingtoneUri(
+				
 						getApplicationContext(), RingtoneManager.TYPE_ALARM))
-						 
-						// 设置声音
-						
-				// setSound(
-				// Uri.parse("android.resource://" + getPackageName()
-				// + "/" + R.raw.wind)) 设定Raw下指定声音文件
 				
 				.setDefaults(Notification.DEFAULT_VIBRATE) // 振动
 				
@@ -572,10 +567,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 		// 设置自定义通知标题id
 		
 		build.setLayoutTitleId(R.id.title);
-		
-		// 设置自定义通知图片id
-		
-		build.setLayoutIconId(R.id.icon);
+		 
 		
 		// 设置自定义通知图片资源
 		
@@ -603,7 +595,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 
 <hr>
 
-Token是信鸽保持与后台长连接的唯一身份标识，是识别识别的唯一ID，只有设备注册成功后才能获取token，可以有以下方法获。信鸽的token在应用卸载重新安装的时候有可能会变。
+Token是信鸽保持与后台长连接的唯一身份标识，是识别识别的唯一ID，只有设备注册成功后才能获取token，可以有以下方法获。（信鸽的token在应用卸载重新安装的时候有可能会变。）
 
 ***（1）通过带callback的注册接口获取***
 

@@ -452,10 +452,17 @@ b.后台设置Messege 类中的 Action字段的 的SetActivity方法（包名+�
 
 ```java
 		......
-		Message message_android = new Message();
-		ClickAction action = new ClickAction();
-		action.setActivity("包名+类名 如：com.qq.xgdemo.activity.SettingActivity");
- 		message_android.setAction(action);
+		
+		XingeApp android= new XingeApp(access ID, secret key);
+		  Message message_android = new Message();
+		  message_android.setExpireTime(86400);
+		  message_android.setTitle("信鸽推送");
+		  message_android.setType(1);
+		  message_android.setContent("android test2");      
+		  ClickAction action = new ClickAction();
+		  action.setActivity("com.qq.xgdemo.activity.SettingActivity");
+		  message_android.setAction(action);
+		  JSONObject ret1= android.pushSingleDevice("token",message_android);
  		......
 ```
 

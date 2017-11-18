@@ -125,7 +125,7 @@
        夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。如图：
        
        
-       ![](/assets/E6A320E0-BA09-4C84-B33F-C6916401F080.png)
+   ![](/assets/E6A320E0-BA09-4C84-B33F-C6916401F080.png)
        
        
 
@@ -364,6 +364,8 @@ d.确认手机当前模式是正常模式，部分手机在低电量，勿扰模
 ***Androidstudio的开发工具的解决办法***：
 
 Androidstudio可在main文件目录下 添加jniLibs命名的文件夹将SDK文档中的Other-Platform-SO下的7个so库文件夹添加至该目录 ，或者采用<a href="http://docs.developer.qq.com/xg/android_access/jcenter.html" target="_blank" >自动接入</a>，无须手动导入so文件。
+
+
 
 
 ***B.如注册无回调:***

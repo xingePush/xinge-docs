@@ -2,15 +2,12 @@
 
 
 
-#Android SDK 完整接入
+
+#API接口
 
 <hr>
 
-##API接口
-
-<hr>
-
-###接口概览
+##接口概览
 
 <hr>
 
@@ -22,7 +19,7 @@
 |XGPushConfig|Push服务配置项接口|
 |XGPushBaseReceiver|接收消息和结果反馈的receiver，需要开发者自己在AndroidManifest.xml静态注册|
 
-#### XGPushManager功能类
+### XGPushManager功能类
 
 XGPushManager提供信鸽服务的对外API列表，方法默认为public static类型。
 
@@ -40,7 +37,7 @@ XGPushManager提供信鸽服务的对外API列表，方法默认为public static
 |long addLocalNotification(Context context, XGLocalMessage msg)|本地通知|
 |boolean isNotificationOpened(Context context)|检测通知栏是否关闭|
 
-#### XGPushConfig配置类
+### XGPushConfig配置类
 
 XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public static类型，对于本类提供的set和enable方法，要在XGPushManager接口前调用才能及时生效。
 
@@ -55,7 +52,7 @@ XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public s
 
 
 
-#### XGPushBaseReceiver广播类
+### XGPushBaseReceiver广播类
 
 XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需要开发者继承本类，并重载相关的方法；
 
@@ -75,7 +72,7 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 
 
 
-###启动与注册
+##启动与注册
 
 <hr>
 
@@ -88,7 +85,7 @@ APP只有在完成信鸽的启动与注册后才可以信鸽SDK提供push服务�
 注册接口通常提供简版和带callback版本的接口，请根据业务需要决定选择接口。
 
 
-####绑定设备注册
+###绑定设备注册
 
 <hr>
 
@@ -141,7 +138,7 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 
 
 
-####绑定账号注册
+###绑定账号注册
 
 <hr>
 
@@ -208,7 +205,7 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 
 
 
-#### 账号解绑
+### 账号解绑
 
 <hr>
 
@@ -274,7 +271,7 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 });
 ```
 
-#### 获取注册结果
+### 获取注册结果
 
 <hr>
 
@@ -340,7 +337,7 @@ public void onFail(Object data, int errCode, String msg);
 |getTicketType()|short|0|票据类型|
 
 
-### 反注册
+## 反注册
 
 <hr>
 
@@ -393,14 +390,14 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 切换帐号无需反注册，多次注册自动会以最后一次为准。
 
-### 通知和消息
+## 通知和消息
 
 <hr>
 
 信鸽推送服务主要提供2种推送格式：
 “推送通知” 和 “透传消息命令”，二者存在一定的区别。
 
-####推送通知（展现在通知栏）
+###推送通知（展现在通知栏）
 
 指的是在设备的通知栏展示的内容，由信鸽SDK完成所有的操作，APP可以监听通知被打开的行为，也就是说在前台下发的通知不需要APP做任何处理，默认会展示在通知栏。
 
@@ -408,7 +405,7 @@ public void onUnregisterResult(Context context, int errorCode) {
 
 通常来说，结合自定义通知样式，常规的通知能够满足大部分业务需求，如果需要更灵活的方式请考虑使用消息。
 
-####应用内消息命令（消息不展示到通知栏）
+###应用内消息命令（消息不展示到通知栏）
 
 指的是由信鸽下发给APP的内容，需要APP继承XGPushBaseReceiver接口实现并自主处理所有操作过程，也就是说，下发的消息默认是不会展示在通知栏的，信鸽只负责将消息从信鸽服务器下发到APP这个过程，不负责消息的处理逻辑，需要APP自己实现。具体可参考Demo中MessageReceiver。
 
@@ -463,7 +460,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 |getCustomContent()|String|""|消息自定义key-value|
 |getTitle()|String|""|消息标题（注意：从前台下发应用内消息字中的描述不属于标题|
 
-####本地通知
+###本地通知
   本地通知由用户自定义设置，保存在本地。当应用打开，信鸽service 会根据网络心跳判断当前是否有通知5分钟一次 本地通知需要service开启才能弹出，可能存在5分钟左右延时。（当设置的时间小于当前设备时间通知弹出。）
   
         ```java
@@ -539,9 +536,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
         XGPushManager.addLocalNotification(context,local_msg);
         ```
         
-
-
-###自定义通知样式
+##自定义通知样式
 用户可以根据自行需要设置通知样式，由于目前的定制ROM的限制，部分接口 无法适配全部机型。
 
  ```java
@@ -591,7 +586,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
 		
 		```
 
-### 获取设备Token
+## 获取设备Token
 
 <hr>
 
@@ -610,7 +605,7 @@ Token是信鸽保持与后台长连接的唯一身份标识，是识别识别的
 当设备一旦注册成功后，便会将token存储在本地，之后可通过XGPushConfig.getToken(context)接口获取。
 
 
-### 获取通知
+## 获取通知
 
 <hr>
 
@@ -627,7 +622,7 @@ public abstract void onNotifactionShowedResult(Context context,XGPushShowedResul
 context：当前应用上下文 notifiShowedRlt： 被展示的通知对象
 
 
-### 获取消息点击结果
+## 获取消息点击结果
 
 <hr>
 
@@ -684,7 +679,7 @@ String  customContent= clickedResult.getCustomContent();
 } ```
 
 
-### 标签
+## 标签
 
 <hr>
 
@@ -768,14 +763,14 @@ XGPushManager.deleteTag (this, "male"); ```
 
 
 
-### 配置接口
+## 配置接口
 
 <hr>
 
 所有的配置相关接口在XGPushConfig类中，为了使配置及时生效，开发者需要保证配置接口在启动或注册信鸽之前被调用。
 
 
-#### debug模式
+### debug模式
 
 （重要：为保证数据的安全性，请在发布时确保已关闭debug模式！！）
 
@@ -792,7 +787,7 @@ context:APP上下文对象
 
 debugMode：默认为false。如果要开启debug日志，设为true
 
-#### 获取token
+### 获取token
 
 token（又称MID：Mobile ID）是一个设备的身份识别ID，由服务器根据设备属性随机产生并下发到本地，同一台设备下所有使用信鸽或MTA（腾讯移动分析）的APP获取的token都是相同的。
 
@@ -819,7 +814,7 @@ context：APP上下文对象
 成功时返回正常的token；失败时返回null或”0”
 
 
-####设置AccessID
+###设置AccessID
 
 如果已在AndroidManifest.xml配置过，不需要再次调用；如果2者都存在，则以本接口为准。
 
@@ -843,9 +838,7 @@ false：失败
 
 注意：通过本接口设置的accessId会同时存储在文件中
 
-
-#### 设置AccessKey
-
+### 设置AccessKey
 如果已在AndroidManifest.xml配置过，不需要再次调用；如果2者都存在，则以本接口为准。
 
 ***（1）函数原型***

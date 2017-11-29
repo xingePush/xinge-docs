@@ -122,7 +122,7 @@
        夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。如图：
        
        
-   ![](/assets/E6A320E0-BA09-4C84-B33F-C6916401F080.png)
+   ![](/assets/SO配置.jpg)
        
        
 

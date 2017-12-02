@@ -5,8 +5,6 @@
 ##获取小米推送秘钥
 (a)根据[小米开放平台](https://dev.mi.com/console/appservice/push.html)指引开通小米开发者账号,然后注册应用并获取小米推送的秘钥。将获取的小米推送密钥和您信鸽的access id 通过邮件dtsupport@tencent.com 发送给我们，或者添加QQ2631775454。目前需要信鸽的后台手动将信鸽的accessID 和小米的推送密钥进行绑定。
 
-
-
 认证小米开发者
 ![](/assets/注册小米开发者认证.jpeg)
 

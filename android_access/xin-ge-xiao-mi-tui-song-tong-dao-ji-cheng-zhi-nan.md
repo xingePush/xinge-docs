@@ -3,18 +3,19 @@
 小米通道是信鸽和小米合作的推送通道。在小米手机上，消息通过小米的系统通道抵达终端无需打开应用就能够收到推送，在非小米手机依旧使用信鸽的推送通道（在非小米手机上应用不在前台运行无法保证一定能够收到推送消息。）次功能必须先集成信鸽3.2.0-beta版本。
 
 ##获取小米推送秘钥
+
 (a)根据[小米开放平台](https://dev.mi.com/console/appservice/push.html)指引开通小米开发者账号,然后注册应用并获取小米推送的秘钥。将获取的小米推送密钥和您信鸽的access id 通过邮件dtsupport@tencent.com 发送给我们，或者添加QQ2631775454。目前需要信鸽的后台手动将信鸽的accessID 和小米的推送密钥进行绑定。
 
-认证小米开发者
+认证小米开发者：
 ![](/assets/注册小米开发者认证.jpeg)
 
-获取小米推送密钥
-
+获取小米推送密钥：
 ![](/assets/或者小米ID.jpeg)
 
 ##配置小米推送相关内容
 ###AS开发建议使用jcenter依赖接入
 1.引入小米推送的jar包
+
 ```xml
 
 //需要在信鸽的集成基础上新增小米push的jar包
@@ -99,7 +100,7 @@ android:protectionLevel="signature" />
 <!-- 注：小米push 需要的权限 end -->
 ```
 
-3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
+3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求此节点必须配置：
 
 ```xml
 <receiver
@@ -115,19 +116,20 @@ android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver"
 <action android:name="com.xiaomi.mipush.ERROR" />
 </intent-filter>
 </receiver>
+
 ```
 
 ###开启小米推送
 
-1.设置小米APPID和APPKEY
+1.设置小米APPID和APPKEY。
+
+```java
 XGPushConfig.setMiPushAppId(getApplicationContext(), "APPID");
 XGPushConfig.setMiPushAppKey(getApplicationContext(), "APPKEY");
 //打开第三方推送
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
- 
-2.小米通道集成成功日志如下：
 
-```xml
+//注册成功的日志如下
 12-02 16:17:32.299 12584-12584/com.qq.xgdemo I/XINGE: [XGPushManager] Action -> Register to xinge server
 12-02 16:17:32.996 12584-12584/com.qq.xgdemo I/XINGE: [XGPushManager] Register call back to com.qq.xgdemo
 12-02 16:17:32.997 12584-12626/com.qq.xgdemo I/XINGE: [XGPushManager] XG register push success with token : 1d31bb3ea6185baebdf05dfc2e586dfe5dc41fb5

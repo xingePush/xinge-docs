@@ -1,6 +1,6 @@
 #FCM通道集成指南
 
-fcm通道是信鸽和谷歌推出的各种推送通道，在外国可用谷歌service框架的手机上能够实现不打开应用收到推送消息。在没有fcm的手机rom下依旧走信鸽的推送通道。
+fcm通道是信鸽和谷歌推出的各种推送通道，在外国可用谷歌service框架的手机上能够实现不打开应用收到推送消息。在没有fcm的手机rom下依旧走信鸽的推送通道。此功能必须先集成信鸽推送 3.2beta版本。
 
 ##获取FCM推送秘钥
 [FireBase官网](https://firebase.google.com/?hl=zh-cn)注册应用信息。并将获取到的FCM应用推送服务器密钥和您信鸽的access id 通过邮件dtsupport@tencent.com 发送给我们，或者添加QQor微信2631775454。目前需要信鸽的后台手动将信鸽的access id和FCM的服务器密钥进行绑定。并下载google-services.json 文件。如图所示：

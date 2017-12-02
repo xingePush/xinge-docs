@@ -6,7 +6,7 @@
   * [Android SDK 3.X升级指南](android_access/upgrade_guide.md)
   * [Android SDK 集成指南](android_access/jcenter.md)
   * [信鸽FCM推送集成指南](android_access/xin-ge-xiao-mi-tui-song-ji-cheng-zhi-nan.md)
-  * [信鸽小米推送集成指南](android_access/xin-ge-xiao-mi-tui-song-ji-cheng-zhi-nan.md)
+  * [信鸽小米推送指南](android_access/xin-ge-xiao-mi-tui-song-zhi-nan.md)
 * [iOS接入](ios_access.md)
   * [iOS 证书设置指南](ios_access/certificate_config.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)

@@ -46,15 +46,28 @@
         
       
         
-        //采集安装列表
-        compile 'com.tencent.xinge:xinge:3.1.2-release' 
-        
-        //wup包 
-        compile 'com.tencent.wup:wup:1.0.0.E-release'
-        
-        //mid包
-        compile 'com.tencent.mid:mid:3.9.0-release'
+    //信鸽jar
+    compile 'com.tencent.xinge:xinge:3.1.2-release' 
+    
+    //wup包
+    compile 'com.tencent.wup:wup:1.0.0.E-release'
+    
+    //mid包
+    compile 'com.tencent.mid:mid:3.9.0-release'
+
         ......
+        
+        
+    //信鸽3.2.0beta
+    //信鸽jar
+    compile 'com.tencent.xinge:xinge:3.2.0-beta' 
+    //wup包
+    compile 'com.tencent.wup:wup:1.0.0.E-release'
+    //mid包
+    compile 'com.tencent.mid:mid:4.0.0-beta'
+
+
+        
     }
   
 

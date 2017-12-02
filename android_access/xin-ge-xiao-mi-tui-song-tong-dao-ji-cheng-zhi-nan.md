@@ -118,16 +118,16 @@ android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver"
 </receiver>
 
 ```
+***开启小米推送***
 
-###开启小米推送
-
-1.设置小米APPID和APPKEY。
+设置小米APPID和APPKEY。
 
 ```java
 XGPushConfig.setMiPushAppId(getApplicationContext(), "APPID");
 XGPushConfig.setMiPushAppKey(getApplicationContext(), "APPKEY");
 //打开第三方推送
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
+
 
 //注册成功的日志如下
 12-02 16:17:32.299 12584-12584/com.qq.xgdemo I/XINGE: [XGPushManager] Action -> Register to xinge server

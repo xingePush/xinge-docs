@@ -11,7 +11,6 @@
 ```xml 
 <activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="false" > </activity> 
 
-<!-- 这里是业务自定义的receiver，若已配置请设置exported为false，否则可忽略之 --> 
 <receiver android:name="您的自定义MessageReceiver，继承于XGPushBaseReceiver" android:exported="true"> 
       <intent-filter> 
             <!-- 接收消息透传 --> 

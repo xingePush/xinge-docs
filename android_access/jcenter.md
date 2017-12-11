@@ -58,15 +58,13 @@
         ......
         
         
-    //信鸽3.2.0beta
+    //信鸽3.2.0 beta 
     //信鸽jar
-    compile 'com.tencent.xinge:xinge:3.2.0-beta' 
+    compile 'com.tencent.xinge:xinge:3.2.0-1-beta' 
     //wup包
     compile 'com.tencent.wup:wup:1.0.0.E-release'
     //mid包
     compile 'com.tencent.mid:mid:4.0.0-beta'
-
-
         
     }
   

@@ -6,9 +6,7 @@
 
 ## 界面介绍
 
-
-![](assets/pushdetal.png)
-
+![](/assets/pushdetail1.png)
 
 #### 下发进度
 

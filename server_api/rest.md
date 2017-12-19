@@ -369,10 +369,10 @@ url路径
 |参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |message_type |uint |是 |无 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
-|message |string |是 | |参见1.4、1.5两节 |
+|message |string |是 | |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
-|send_time |string |否 |立即 |指定推送时间,格式为year-mon-day hour:min:sec <font color=#E53333>若小于服务器当前时间，则会立即推送</font> |
-|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。<font color=#E53333>本字段对iOS平台无效</font> |
+|send_time |string |否 |立即 |指定推送时间,格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送 |
+|multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效 |
 |environment |uint |仅iOS必需 | |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
 |loop_times |uint |否 | |循环任务执行的次数，取值[1, 15] |
 |loop_interval |uint |否 | |循环任务的执行间隔，以天为单位，取值[1, 14]。loop_times和loop_interval一起表示任务的生命周期，不可超过14天 |

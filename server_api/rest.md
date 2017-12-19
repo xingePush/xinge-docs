@@ -256,7 +256,7 @@ url路径
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |device_token |string |是 |无 |针对某一设备推送，token是设备的唯一识别 ID |
 |message_type |uint |是 |无 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
 |send_time |string |否 |立即 |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送 |
 |multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息。本字段对iOS平台无效 |
@@ -296,7 +296,7 @@ url路径
 |参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则不存储；iOS无需设置此参数|
 |multi_pkg |uint |否 |无 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
 |environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
@@ -412,7 +412,7 @@ http://openapi.xg.qq.com/v2/push/all_device?access_id=2100240957&message={"title
 
 |参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |message_type |uint |是 |1 |消息类型：1：通知 2：透传消息。iOS平台请填0 |
 |tags_list |json |是 |无 |[“tag1”,”tag2”,”tag3”] |
 |tags_op |string |是 |无 |取值为AND或OR |
@@ -460,7 +460,7 @@ url路径
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |account |string |是 |无 |针对某一账号推送，帐号可以是qq号，邮箱号，openid，手机号等各种类型 |
 |message_type |uint |是 |1 |消息类型：1：通知 2：透传消息 |
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
 |send_time |string |否 |立即 |指定推送时间，格式为year-mon-day hour:min:sec 若小于服务器当前时间，则会立即推送 |
 |multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
@@ -498,7 +498,7 @@ url路径
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |account_list |string |是 |无 |Json数组格式，每个元素是一个account，string类型，<font color=#E53333>单次发送account不超过100个</font>。例：[“account1”,”account2”,”account3”] |
 |message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |3天 |消息离线存储时间（单位为秒），最长存储时间3天。若设置为0，则使用默认值（3天） |
 |multi_pkg |uint |否 |0 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
 |environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |
@@ -534,7 +534,7 @@ url路径
 |参数名 |类型 |必需 |默认值 |描述 |
 | ------------- |:-------------|: -----------|:-------------|: -----------|
 |message_type |uint |是 |无 |消息类型：1：通知 2：透传消息 |
-|message |string |是 |无 |参见1.4、1.5两节 |
+|message |string |是 |无 |参见[1.1.4](#推送android平台)、[1.1.5](#推送ios平台)两节 |
 |expire_time |uint |否 |无 |消息离线存储多久，单位为秒，最长存储时间3天。在超时时间内，可以发起此消息的批量推送 |
 |multi_pkg |uint |否 |无 |0表示按注册时提供的包名分发消息；1表示按access id分发消息，所有以该access id成功注册推送的app均可收到消息 |
 |environment |uint |仅iOS必需 |无 |向iOS设备推送时必填，1表示推送生产环境；2表示推送开发环境。推送Android平台不填或填0 |

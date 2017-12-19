@@ -42,9 +42,7 @@
     dependencies {
         ......
         
-        //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请确认libs 中没有信鸽的相关jar包）
-        
-      
+    //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请确认libs 中没有信鸽的相关jar包）
         
     //信鸽jar
     compile 'com.tencent.xinge:xinge:3.1.2-release' 

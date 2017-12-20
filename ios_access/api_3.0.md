@@ -22,7 +22,7 @@
 
 5. 添加编译参数-ObjC
 ![](/assets/编译参数.png)
-__注意：checkTargetOtherLinkFlagForObjc报错，是因为build setting中，Other link flags未添加-Objc__
+__注意：checkTargetOtherLinkFlagForObjc报错，是因为build setting中，Other link flags未添加-ObjC__
 6. 参考 Demo, 添加相关代码
 
 ### 管理信鸽推送服务

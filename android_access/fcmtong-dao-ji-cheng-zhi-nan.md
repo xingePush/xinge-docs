@@ -9,7 +9,7 @@
 ![](/assets/获取fcmjson.jpeg )
 
 获取服务器密钥：
-![](/assets/获取获取服务器密钥.jpeg)
+![](/assets/获取服务器密钥.jpeg)
 
 
 ##AS开发集成方法

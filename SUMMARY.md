@@ -6,6 +6,7 @@
   * [Android SDK 3.X升级指南](android_access/upgrade_guide.md)
   * [Android SDK 集成指南](android_access/jcenter.md)
   * [小米通道集成指南](android_access/xiao-mi-tong-dao-ji-cheng-zhi-nan.md)
+  * [FCM通道集成指南](android_access/fcmtong-dao-ji-cheng-zhi-nan.md)
 * [iOS接入](ios_access.md)
   * [iOS 证书设置指南](ios_access/certificate_config.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)

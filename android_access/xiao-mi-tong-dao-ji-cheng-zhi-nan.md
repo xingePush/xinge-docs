@@ -19,7 +19,7 @@
 ```xml
 
 //需要在信鸽的集成基础上新增小米push的jar包
-compile 'com.tencent.xinge:mipush:3.5.1-release'
+compile 'com.tencent.xinge:mipush:3.2.2-release'
 ```
 
 2.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置

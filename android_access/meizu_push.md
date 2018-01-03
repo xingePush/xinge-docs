@@ -129,10 +129,10 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 
 ```xml
 -dontwarn com.meizu.cloud.pushsdk.**
- -keep class com.meizu.cloud.pushsdk.** {* ;}
+ -keep class com.meizu.cloud.pushsdk.** {*;}
 
 ```
-# 厂商通道测试方法(通用)
+## 厂商通道测试方法(通用)
 
 1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 

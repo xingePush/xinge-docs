@@ -108,4 +108,21 @@ compile 'com.tencent.xinge:xgmz:3.3.1-3-alpha'
      </intent-filter>
 </receiver>
 ```
+##启动代码已经注册日志输出
+
+在启动信鸽(XGPushManager.registerPush)之前配置如下代码：
+
+```java
+//设置魅族APPID和APPKEY
+XGPushConfig.enableOtherPush(context, true);
+XGPushConfig.setMzPushAppId(this, APP_ID);
+XGPushConfig.setMzPushAppKey(this, APP_KEY);
+```
+
+注册成功的日志如下：
+ 
+```java
+//成功的获取到信鸽的token和魅族的token，并且绑定成功说明注册成功
+INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
+```
 

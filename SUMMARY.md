@@ -5,6 +5,7 @@
   * [Android SDK API](android_access/api.md)
   * [Android SDK 3.X升级指南](android_access/upgrade_guide.md)
   * [Android SDK 集成指南](android_access/jcenter.md)
+  * [华为推送通道（内测）集成指南](android_access/huawei_push.md)
   * [魅族推送通道（内测）集成指南](android_access/meizu_push.md)
   * [小米推送通道（内测）集成指南](android_access/mi_push.md)
 * [iOS接入](ios_access.md)

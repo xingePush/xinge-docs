@@ -11,19 +11,6 @@
 3. 魅族推送通道不支持透传消息
 
 
-##获取魅族魅族推送密钥
-
-1.打开[魅族推送官网](https://open.flyme.cn/open-web/views/push.html)
-
-2.注册/登录开发者账号。（如果您是新注册账号，进行实名认证大约需要2天左右时间，具体请咨询魅族侧）
-
-3.在魅族推送平台（http://push.meizu.com） 中新建应用。注意「应用包名」需跟您在信鸽填写的包名保持一致
-
-4.获取应用相关的信息，并且将这些信息复制，填入信鸽管理台，这些信息是AppID，AppKey，AppSecret
-
-5.在信鸽管理台-应用配置-厂商&海外通道处-魅族推送通道处，将相关推送密钥填入。
-
-
 ##集成方式
 
 ###AndroidStudio集成方式
@@ -81,6 +68,7 @@ compile 'com.tencent.xinge:xgmz:3.3.1-3-alpha'
 <!-- 注：魅族push 需要的权限 end -->
 
 ```
+
 ####魅族消息receiver
 
 如需要自定义魅族消息的广播需要新建类继承（MzPushMessageReceiver）。然后在Androidmanifest.xml中配置一下节点：
@@ -103,6 +91,7 @@ compile 'com.tencent.xinge:xgmz:3.3.1-3-alpha'
      </intent-filter>
 </receiver>
 ```
+
 ##启动代码已经注册日志输出
 
 在启动信鸽(XGPushManager.registerPush)之前配置如下代码：

@@ -125,15 +125,6 @@ XGPushConfig.setMzPushAppKey(this, APP_KEY);
 //成功的获取到信鸽的token和魅族的token，并且绑定成功说明注册成功
 INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
 ```
-###代码混淆
-
-
-
-
-```
-- dontwarn com.meizu.cloud.pushsdk.**
-  - keep class com.meizu.cloud.pushsdk.** {*;}
-```
 
 
 

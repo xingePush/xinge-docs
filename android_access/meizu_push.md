@@ -129,7 +129,7 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 
 ```xml
 -dontwarn com.meizu.cloud.pushsdk.**
- -keep class com.meizu.cloud.pushsdk.**{*;}
+ -keep class com.meizu.cloud.pushsdk.** {* ;}
 
 ```
 # 厂商通道测试方法(通用)

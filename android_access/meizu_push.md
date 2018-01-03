@@ -127,16 +127,22 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 ```
 ###代码混淆
 
-```xml
--dontwarn com.meizu.cloud.pushsdk.**
- -keep class com.meizu.cloud.pushsdk.** {*;}
+
+
 
 ```
+- dontwarn com.meizu.cloud.pushsdk.**
+  - keep class com.meizu.cloud.pushsdk.** {*;}
+```
+
+
+
+
 ## 厂商通道测试方法(通用)
 
 1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 
-2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常相关**配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤**
+2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常相关配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤
 
 3. 将集成好的App（测试版本）安装在测试机上，并且运行App
 

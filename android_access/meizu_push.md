@@ -125,4 +125,25 @@ XGPushConfig.setMzPushAppKey(this, APP_KEY);
 //成功的获取到信鸽的token和魅族的token，并且绑定成功说明注册成功
 INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
 ```
+###代码混淆
+
+```xml
+-dontwarn com.meizu.cloud.pushsdk.**
+ -keep class com.meizu.cloud.pushsdk.**{*;}
+
+```
+# 厂商通道测试方法(通用)
+
+1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
+
+2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常相关**配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤**
+
+3. 将集成好的App（测试版本）安装在测试机上，并且运行App
+
+4. 保持App在前台运行，尝试对设备进行单推/全推
+
+5. 如果应用收到消息，将App退到后台，并且杀掉所有App进程
+
+6. 再次进行单推/全推，如果能够收到推送，则表明厂商通道集成成功
+
 

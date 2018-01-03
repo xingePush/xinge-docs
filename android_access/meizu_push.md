@@ -86,4 +86,26 @@ compile 'com.tencent.xinge:xgmz:3.3.1-3-alpha'
 
 ```
 
+####魅族消息receiver
+
+如需要自定义魅族消息的广播需要新建类继承（MzPushMessageReceiver）。然后在Androidmanifest.xml中配置一下节点：
+
+```xml
+<!-- 默认的自定义广播接收器，用于自定义处理魅族push消息广播，receiver的name为自定义的广播接收类 start -->
+<receiver android:name="应用包名.MzReceiver">
+    <intent-filter>
+        <!-- 接收push消息 -->
+        <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+        <!-- 接收register消息-->
+         <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK"/>
+        <!-- 接收unregister消息-->
+         <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+
+         <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
+         <action android:name="com.meizu.c2dm.intent.RECEIVE" />
+          
+         <category android:name="应用包名"></category>
+     </intent-filter>
+</receiver>
+```
 

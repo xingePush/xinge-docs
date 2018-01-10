@@ -513,7 +513,7 @@ b）MTA与信鸽冲突：删除低版本的mid.jar
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {* ;}
 -keep class com.tencent.mid.** {* ;}
--keep public class * extends com.qq.taf.jce.JceStruct{*;}
+-keep class com.qq.taf.jce.** {*;} 
 ```
 ##多行显示
 <hr>

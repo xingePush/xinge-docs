@@ -50,7 +50,7 @@ Sign=MD5($http_method$url$k1=$v1$k2=$v2$secret_key); 该签名值基本可以保
 
 POSTopenapi.xg.qq.com/v2/push/single_deviceaccess_id=123Param1=Value1Param2=Value2timestamp=1386691200abcde，注意字典序中大写在前。
 
-计算出该字符串的MD5为ccafecaef6be07493cfe75ebc43b7d53，以此作为sign参数的值
+计算出该字符串的MD5为6b90c7f4a137c7d0b756d48f748c93b2，以此作为sign参数的值
 
 ### 通用返回结果
 <hr>

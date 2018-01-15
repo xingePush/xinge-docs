@@ -187,6 +187,12 @@ public class MyReceiver extends PushReceiver {
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
 ```
 
+注册成功的日志如下
+```xml
+01-15 16:40:41.116 17916-17934/? I/XINGE: [XGOtherPush] other push token is : 0865551032618726300001294600CN01 other push type: huawei
+01-15 16:40:41.122 15730-15846/? I/XINGE: [a] binder other push token with accid = 2100274337  token = 17c32948df0346d5837d4748192e9d2f14c81e08 otherPushType = huawei otherPushToken = 0865551032618726300001294600CN01
+```
+
 ###代码混淆
 
 ```xml

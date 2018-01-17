@@ -21,7 +21,13 @@ XGPushManager提供信鸽服务的对外API列表，方法默认为public static
 |原型|功能|
 |----------|------|
 |void registerPush(Context context)void registerPush(Context context, final XGIOperateCallback callback)|启动并注册|
-|void registerPush(Context context, String account)void registerPush(Context context, String account, final XGIOperateCallback callback)|启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用|
+|void bindAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2（不包括3.2.2）之前的版本使用）|
+|void bindAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
+|void bindAccount(Context context, final String account) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
+| void appendAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号）|
+| void appendAccount(Context context, final String account) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号）|
+| void delAccount(Context context, final String account, XGIOperateCallback callback)  |解绑指定账号（3.2.2以及3.2.2之后的版本使用）|
+| void delAccount(Context context, final String account  |解绑指定账号（3.2.2以及3.2.2之后的版本使用）|
 |void registerPush(Context context,String account, String ticket, int ticketType, String qua, final XGIOperateCallback callback)|同上，仅供带登陆态的业务使用|
 |void unregisterPush(Context context)|反注册，建议在不需要接收推送的时候调用|
 |void setTag(Context context,String tagName)|设置标签|

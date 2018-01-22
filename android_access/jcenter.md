@@ -289,7 +289,8 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 ***设置账号***
 
 ```java
-XGPushManager.registerPush(getApplicationContext(), "XINGE");
+//注意在3.2.2 版本信鸽对账号绑定和解绑接口进行了升级具体详情请参考API文档。
+XGPushManager.bindAccount(getApplicationContext(), "XINGE");
 ```
 过滤“TPush”账号注册成功的日志如下：
 

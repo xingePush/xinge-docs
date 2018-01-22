@@ -40,6 +40,26 @@ accessid：
 
 ##集成指南
 
+###AndroidStudio集成方法
+
+在app模块下的build.gradle文件内先配置好信鸽所需要的配置之后再增加以下的华为节点：
+
+1.配置华为APPID。
+
+```xml
+ manifestPlaceholders = [
+	 HW_APPID: "华为的APPID"
+        ]
+```
+
+2.导入华为推送相关依赖。
+```xml
+ compile 'com.tencent.xinge:xghw:2.5.2.300-beta'
+```
+
+3.配置[华为消息的receiver](/华为消息receiver).
+
+
 ###Eclipes集成方法
 
 1.导入华为推送相关jar包 将HMSSdkBase_*.jar，HMSSdkPush_*.jar放在libs文件夹里。

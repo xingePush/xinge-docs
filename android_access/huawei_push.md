@@ -5,13 +5,15 @@
 注意事项：
 
 1. 该功能目前在内测过程中，请确认您的管理台中是否有相应栏目，如果没有相应栏目，请发邮件到dtsupport@tencent.com邮箱申请开通此功能。
-邮件标题：申请开通多厂商通道推送
+
+邮件标题：申请开通多厂商通道推
 邮件内容：
 公司名称：
 应用名称：
 accessid：
 联系人：
 联系方式：
+
 
 2. 华为推送只有在签名发布包环境下才可以收到推送消息
 
@@ -85,7 +87,7 @@ accessid：
 
         <provider
             android:name="com.huawei.hms.update.provider.UpdateProvider"
-            android:authorities="com.qq.otherpush.hms.update.provider"
+            android:authorities="应用包名.hms.update.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
         </provider>      

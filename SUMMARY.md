@@ -8,7 +8,7 @@
   * [华为推送通道（内测）集成指南](android_access/huawei_push.md)
   * [魅族推送通道（内测）集成指南](android_access/meizu_push.md)
   * [小米推送通道（内测）集成指南](android_access/mi_push.md)
-  * [测试Demo的用法](android_access/ce-shi-demo-de-yong-fa.md)
+  * [Android测试Demo用法介绍](android_access/ce-shi-demo-yong-fa-jie-shao.md)
 * [iOS接入](ios_access.md)
   * [iOS 证书设置指南](ios_access/certificate_config.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)

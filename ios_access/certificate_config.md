@@ -65,7 +65,7 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 ![](http://developer.qq.com/wiki/xg/imgs/20151118170443_25583.jpg)
 
 成功后，下载到本地
-http://developer.qq.com/wiki/xg/imgs/20151118170536_85822.jpg
+![](http://developer.qq.com/wiki/xg/imgs/20151118170536_85822.jpg)
 
 再次打开Keychain Access。选中Push证书导出，选中一行。导出的格式为p12
 

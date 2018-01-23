@@ -14,6 +14,7 @@
 
 ###AndroidStudio工程
 
+
 需要将获取到的测试应用的ACCESSID和ACCESSKEY配置到demo工程app模块下的build.gradle文件下的ManifestPlaceholders节点。如图所示：
 
 ![](/assets/AndroidStudioDemo.png)

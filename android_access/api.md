@@ -146,7 +146,7 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 
 绑定账号注册指的是，在绑定设备注册的基础上，使用指定的账号（一个账号可能在多个设备登陆）注册APP，这样可以通过后台向指定的账号发送推送消息，有2个版本的API接口。
 
-注意：这里的帐号可以是邮箱、QQ号、手机号、用户名等任意类别的业务帐号。目前一个帐号可以绑定最多15个设备token，超限后最新的会随机顶掉之前绑定的一个。
+注意：这里的帐号可以是邮箱、QQ号、手机号、用户名等任意类别的业务帐号。
 
 
 
@@ -183,9 +183,30 @@ context：当前应用上下文对象，不能为null
 
 account：绑定的账号，绑定后可以针对账号发送推送消息。
 
-如果要按别名推送，那就需要开发者在调用注册接口时把别名设置在注册请求里面的account字段，一台设备只允许有一个别名，但一个别名下可以有最多15台设备，不能为null
+如果要按别名推送，那就需要开发者在调用注册接口时把别名设置在注册请求里面的account字段，一台设备只允许有一个别名，多个设备登录同一个账号最后一个绑定的设备有效，不能为null
 
 callback：callback调用，主要包括操作成功和失败的回调，不能为null
+
+注：在信鸽3.2.2beta版本以后账号绑定需要调用全新的接口
+
+```java
+
+启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2不包括3.2.2之前的版本使用，有注册回调
+void registerPush(Context context, String account, XGIOperateCallback callback)
+	
+启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）
+void bindAccount(Context context, String account, XGIOperateCallback callback)
+
+启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效，无注册回调）	
+void bindAccount(Context context, final String account)
+
+启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，有注册回调）
+void appendAccount(Context context, String account, XGIOperateCallback callback)
+
+启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，无注册回调）
+void appendAccount(Context context, final String account)	
+```
+
 
 ***（3）示例***
 
@@ -219,6 +240,19 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 registerPush(context, "*")或registerPush(context, "*", xGIOperateCallback )```
 
 即设置account="*"即为解除之前的账号绑定
+
+在信鸽3.2.2版本以后解绑账号需要调用全新的接口：
+
+```java
+//解绑指定账号（3.2.2以及3.2.2之后的版本使用，有注册回调）
+
+void delAccount(Context context, final String account, XGIOperateCallback callback)	
+
+//解绑指定账号（3.2.2以及3.2.2之后的版本使用，无注册回调）
+
+void delAccount(Context context, final String account ）	
+
+```
 
 注意
 

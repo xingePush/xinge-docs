@@ -207,7 +207,7 @@ public class MyReceiver extends PushReceiver {
             </intent-filter>
         </receiver>
 ```
-###启动华为推送以及注册成功日志
+###启动华为推送以及注册日志
 在调用信鸽（XGPushManager.registerPush）之前开启第三方推送接口：
 
 ```java
@@ -220,6 +220,10 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 01-15 16:40:41.116 17916-17934/? I/XINGE: [XGOtherPush] other push token is : 0865551032618726300001294600CN01 other push type: huawei
 01-15 16:40:41.122 15730-15846/? I/XINGE: [a] binder other push token with accid = 2100274337  token = 17c32948df0346d5837d4748192e9d2f14c81e08 otherPushType = huawei otherPushToken = 0865551032618726300001294600CN01
 ```
+
+如果出现：
+otherPushType = huawei otherPushToken = null,这个日志
+
 
 ###代码混淆
 

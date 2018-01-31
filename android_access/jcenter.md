@@ -344,7 +344,7 @@ XGPushManager.setTag(this,"XINGE");
 
 ###收不到推送的问题
 
-用获取到的token，在<a href="http://xg.qq.com/xg" target="_blank" >信鸽web</a>推送。如无法收到推送请根据以下情况进行排查（请确保SDK版本是最新的版本，如果是旧版本出现问题，在新版本可能已经修复，如遇到文本端推送报错，请刷新页面重试）。
+用获取到的token，在<a href="http://xg.qq.com/xg" target="_blank" >信鸽web</a>推送。如无法收到推送请根据以下情况进行排查（请确保SDK版本是最新的版本，如果是旧版本出现问题，在新版本可能已经修复，如遇到web端推送报错，请刷新页面重试）。
 
 
 ####注册成功无法收到推送：

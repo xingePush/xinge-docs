@@ -7,15 +7,23 @@
 1. 该功能目前在内测过程中，请确认您的管理台中是否有相应栏目，如果没有相应栏目，请发邮件到dtsupport@tencent.com邮箱申请开通此功能。
 
 邮件标题：申请开通多厂商通道推
+
 邮件内容：
+
 公司名称：
+
 应用名称：
+
 accessid：
+
 联系人：
+
 联系方式：
 
 
-2. 华为推送只有在签名发布包环境下才可以收到推送消息
+2. 华为推送只有在**_签名发布包环境_**下才可以收到推送消息
+
+3. 华为手机中的**_移动推送服务_**，必须升级到__2.5.3以上版本__，华为通道会注册失败（依旧走信鸽通道）。
 
 ##获取华为推送密钥
 
@@ -222,8 +230,14 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 ```
 
 如果出现：
+
 otherPushType = huawei otherPushToken = null,这个日志
 
+请在注册代码之前调用：
+
+XGPushConfig.setHuaweiDebug(true);
+
+请手动确认给应用存储权限，然后查看SD卡目录下的huawei.txt文件内输出的注册华为失败的错误原因。然后根据[华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode)对应的错误码原因，以及解决办法。
 
 ###代码混淆
 

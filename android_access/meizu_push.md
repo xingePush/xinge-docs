@@ -108,15 +108,12 @@ compile 'com.tencent.xinge:xgmz:3.3.170110-beta'
      </intent-filter>
 </receiver>
 ```
-##代码混淆
 
-```xml
+##代码混淆
 
 -dontwarn com.meizu.cloud.pushsdk.**
 
  -keep class com.meizu.cloud.pushsdk.**{*;}
-
-```
 
 
 ##启动代码已经注册日志输出

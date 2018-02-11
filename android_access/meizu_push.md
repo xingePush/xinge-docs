@@ -109,15 +109,6 @@ compile 'com.tencent.xinge:xgmz:3.3.170110-beta'
 </receiver>
 ```
 
-##代码混淆
-
-```xml
--dontwarn com.meizu.cloud.pushsdk.**
-
- -keep class com.meizu.cloud.pushsdk.**{*;}
-
-```
-
 
 ##启动代码已经注册日志输出
 
@@ -137,7 +128,15 @@ XGPushConfig.setMzPushAppKey(this, APP_KEY);
 INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
 ```
 
+##代码混淆
 
+```xml
+
+-dontwarn com.meizu.cloud.pushsdk.**
+
+ -keep class com.meizu.cloud.pushsdk.**{*;}
+
+```
 
 ## 厂商通道测试方法(通用)
 

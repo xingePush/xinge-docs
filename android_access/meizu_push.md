@@ -21,7 +21,7 @@
 
 ![](/assets/魅族图片.png)
 
-注：更多详情请参照[魅族开发文档](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf);
+注：更多详情请参照[魅族开发文档](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf)
 
 5.在信鸽管理台-应用配置-厂商&海外通道处-魅族推送通道处，将相关推送密钥填入。
 
@@ -132,9 +132,11 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 
 -dontwarn com.meizu.cloud.pushsdk.**
 
- -keep class com.meizu.cloud.pushsdk.**{*;}
+-keep class com.meizu.cloud.pushsdk.**{*;}
 
 ```
+
+
 
 ## 厂商通道测试方法(通用)
 

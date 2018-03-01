@@ -46,7 +46,7 @@
 
 2.导入华为推送相关依赖。
 ```xml
- compile 'com.tencent.xinge:xghw:2.5.2.300-beta'
+ compile 'com.tencent.xinge:xghw:2.5.2.300-release'
 ```
 
 3.配置[华为消息的receiver](/华为消息receiver).

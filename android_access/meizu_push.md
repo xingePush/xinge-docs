@@ -33,7 +33,7 @@
 1.在app模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
 
 ```java
-compile 'com.tencent.xinge:xgmz:3.3.170110-beta'
+compile 'com.tencent.xinge:xgmz:3.2.2-release'
 ```
 
 2.配置[魅族消息receiver](/魅族消息receiver)。

@@ -94,7 +94,7 @@
 <!-- 注：华为push 需要的 end -->
 
 ```
-3.2.配置[华为消息的receiver](/华为消息receiver).
+3.2.配置<a href="#华为消息receiver">华为消息receiver</a>.
 
 ####华为消息receiver
 

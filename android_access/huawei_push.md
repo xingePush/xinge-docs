@@ -10,7 +10,7 @@
 
 ##获取华为推送密钥
 
-1.打开[华为开放平台](/http://developer.huawei.com)
+1.打开[华为开放平台](http://developer.huawei.com)
 
 2.注册/登录开发者账号。（如果您是新注册账号，需进行实名认证）
 
@@ -26,7 +26,7 @@
  
 ![](/assets/huaweisha.jpg)
 
-获取SHA256证书指纹方法请参照[华为推送接入文档](/http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_introduction_agent)
+获取SHA256证书指纹方法请参照[华为推送接入文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_introduction_agent)
 
 <hr>
 
@@ -49,7 +49,7 @@
  compile 'com.tencent.xinge:xghw:2.5.2.300-release'
 ```
 
-3.配置[华为消息的receiver](/华为消息receiver).
+3.配置<a href="#华为消息receiver"></a>.
 
 
 ###Eclipes集成方法

@@ -49,7 +49,7 @@
  compile 'com.tencent.xinge:xghw:2.5.2.300-release'
 ```
 
-3.配置<a href="#华为消息receiver"></a>.
+3.配置<a href="#华为消息receiver">华为消息receiver</a>.
 
 
 ###Eclipes集成方法

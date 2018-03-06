@@ -6,7 +6,7 @@
 
 ##注册测试应用
 
-注册测试应用的名词不限，但是包名必须为com.qq.xgdemo。（如果包名不一致推送的时候需要勾选多包名推送）。并获取注册完整过后应用对应的ACCESSID和ACCESSKEY。
+注册测试应用的名称不限，但是包名必须为com.qq.xgdemo。（如果包名不一致推送的时候需要勾选多包名推送）。并获取注册完整过后应用对应的ACCESSID和ACCESSKEY。
 
 ![](/assets/注册信鸽demo.png)
 

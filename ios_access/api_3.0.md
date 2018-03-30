@@ -257,7 +257,7 @@ __示例__
 [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:@"your account" type:XGPushTokenBindTypeAccount];
 ```
 
-__注1: 一个设备只能绑定一个账号,绑定账号的时候前一个账号自动失效.一个账号最多绑定15台设备,超过之后会随机解绑一台设备,然后再进行注册.__  
+__注1: 一个账号最多绑定15台设备,超过之后会随机解绑一台设备,然后再进行注册.__  
 
 #### 管理设备Token协议(XGPushTokenManagerDelegate)
 

@@ -478,6 +478,33 @@ b.后台设置Messege 类中的 Action字段的 的SetActivity方法（包名+�
 
 二.发应用内消息到终端，用户自定义通知栏，采用<a href="http://docs.developer.qq.com/xg/android_access/api.html#本地通知" target="_blank" >本地通知</a>弹出通知，设置要跳转的页面。
 
+三.使用Intent来跳转指定页面（Android 3.2.3版本使用此方式）
+
+1.需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
+
+```java
+<activity
+android:name="com.qq.xg.AboutActivity"
+android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+<intent-filter >
+   <action android:name="android.intent.action.VIEW" />
+   <category android:name="android.intent.category.DEFAULT"/>
+    <data android:scheme="xgscheme"
+          android:host="com.xg.push"
+          android:path="/notify_detail" />
+</intent-filter>
+</activity>
+
+```
+
+2.若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
+
+```java
+action.setIntent("xgscheme://com.xg.push/notify_detail");
+```
+
+
+
 ##包冲突
 
 <hr>

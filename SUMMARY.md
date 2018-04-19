@@ -27,4 +27,5 @@
   * [权限管理](console/auth.md)
   * [推送详情](console/pushdetail.md)
 * [名词解释](push_faq/noun_explanation.md)
+* [APICloud TencentPush](apicloud-tencentpush.md)
 

@@ -22,7 +22,6 @@
   * [推送流程图](push_faq/flow_chart.md)
   * [推送失败原因](push_faq/failure_reason.md)
   * [热门技术问题](push_faq/technical_issues.md)
-  * [三方通道功能说明](push_faq/san-fang-tong-dao-gong-neng-shuo-ming.md)
 * [管理台功能介绍](console.md)
   * [权限管理](console/auth.md)
   * [推送详情](console/pushdetail.md)

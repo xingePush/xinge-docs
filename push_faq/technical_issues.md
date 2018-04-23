@@ -127,8 +127,57 @@ iOS SDK在注册xgpush时，出现下列情况是什么意思？
 
 解答：setAccount之后要重新registerDevice一次，详细见注册设备
 
-- **（10）创建标签推送失败，Debug日志中出现报错“有错误发生，服务器返回码：2”**
+- **（10）创建标签推送失败，Debug日志中出现报错“有错误发生，服务器返回码：2**
 
 解答：这个是由于标签名称中包含空格导致的，标签名称中不能有空格。
 
+- **（11）信鸽Android SDK关于集成厂商通道在开发调试过程中可能遇到的消息回调的问题**
 
+小米通道：
+消息接收支持回调，消息点击支持回调(必须要自定义通知)，如果在信鸽前端推送消息时在【高级设置】中指定点击打开任一【应用】【自定义页面】【URL】【客户端自定义】之后，点击依然可以打开指定的页面，但是消息点击将不再支持回调，支持透传
+
+华为通道：
+消息接收暂不支持回调，消息点击支持回调(但必须添加自定义参数)，支持透传(但忽略自定义参数)
+
+魅族通道：
+消息接收支持回调，消息点击支持回调，不支持透传
+
+_以上涉及到暂不支持的特性是对应厂商的策略，信鸽会持续跟进厂商的变化_
+
+
+- **（12）信鸽Android SDK关于集成厂商通道在开发调试过程中可能遇到的消息otherpushToken = null的问题**
+
+**小米通道排查路径：**
+1）根据开发文档检查manifest文件配置，尤其需要修改包名的地方有没修改：
+
+
+```
+<permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
+<!-- 这里com.example.mipushtest改成app的包名 -->
+<uses-permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" />
+<!-- 这里com.example.mipushtest改成app的包名 -->
+```
+
+
+
+2）在信鸽注册前有没有设置小米的appid和appkey，以及有没有启动第三方推送
+// 启动第三方推送
+
+
+```
+XGPushConfig.enableOtherPush(this, true);
+// 设置小米的Appid和Appkey
+XGPushConfig.setMiPushAppId(this, MIPUSH_APPID);
+XGPushConfig.setMiPushAppKey(this, MIPUSH_APPKEY);
+```
+
+
+
+3）app的包名是否和小米推送官网上注册的包名一致
+4）通过实现自定义的继承PushMessageReceiver的广播来监听小米注册的结果，查看注册返回码
+5）启动logcat，观察tag为PushService的异常信息日志
+
+**华为通道排查路径：**
+1）检查【设置】->【应用管理】->【华为移动服务】的版本信息是否大于2.5.3
+2）根据开发文档检查manifest文件配置是否正确
+3）在信鸽注册之前，有没有启动第三方服务，以及华为APPID是否正确设置

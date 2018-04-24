@@ -11,7 +11,7 @@
     在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。
     导入依赖过后修改应用配置，书写注册代码就能够实现信鸽快速接入。 
     对应的依赖版本号均是，官网上最新的版本。
-    用户自定义的recevier.依然需要在Androidmianfest.xml配置相关节点。
+    用户自定义的recevier.依然需要在Androidmanifest.xml配置相关节点。
 
     在app build.gradle文件下配置 以下内容
     

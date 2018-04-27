@@ -643,13 +643,13 @@ Token是信鸽保持与后台长连接的唯一身份标识，是识别识别的
 
 <hr>
 
-通知的下发和展示完全是由信鸽SDK控制的，但有的开发者需要在本地存储被展示过的通知内容，可以通过重载XGPushBaseReceiver的onNotifactionShowedResult(Context, XGPushShowedResult)方法实现。其中，XGPushShowedResult对象提供读取通知内容的接口。
+通知的下发和展示完全是由信鸽SDK控制的，但有的开发者需要在本地存储被展示过的通知内容，可以通过重载XGPushBaseReceiver的onNotificationShowedResult(Context, XGPushShowedResult)方法实现。其中，XGPushShowedResult对象提供读取通知内容的接口。
 
 
 ***原型***
 
 ```java
-public abstract void onNotifactionShowedResult(Context context,XGPushShowedResult notifiShowedRlt); ```
+public abstract void onNotificationShowedResult(Context context,XGPushShowedResult notifiShowedRlt); ```
 
 ***参数***
 
@@ -669,7 +669,7 @@ context：当前应用上下文 notifiShowedRlt： 被展示的通知对象
 ***（1）原型***
 
 ```java
-public abstract void onNotifactionShowedResult(Context context,XGPushShowedResult notifiShowedRlt); ```
+public abstract void onNotificationShowedResult(Context context,XGPushShowedResult notifiShowedRlt); ```
 
 
 ***（2）参数***

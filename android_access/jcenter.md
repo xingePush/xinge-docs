@@ -44,14 +44,14 @@
         
     //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请确认libs 中没有信鸽的相关jar包）
     
-    //信鸽3.2.2 release版本
+    //信鸽3.2.3 release版本
     //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请                    确认libs 中没有信鸽的相关jar包） 
     
-    //信鸽3.2.3 beta版本
-    //compile 'com.tencent.xinge:xinge:3.2.3_1-beta'
+    //信鸽3.2.4 beta版本
+    //compile 'com.tencent.xinge:xinge:3.2.4-beta'
     
     //信鸽jar
-    compile 'com.tencent.xinge:xinge:3.2.2-release'
+    compile 'com.tencent.xinge:xinge:3.2.3-release'
     //wup包
     compile 'com.tencent.wup:wup:1.0.0.E-release'
     //mid包

@@ -45,8 +45,11 @@
 ```
 
 2.导入华为推送相关依赖。
-```xml
- compile 'com.tencent.xinge:xghw:2.5.2.300-release'
+```java
+compile 'com.tencent.xinge:xghw:2.5.2.300-release'
+
+//华为3.2.4 beta版本
+//compile 'com.tencent.xinge:xghw:3.2.4-beta'
 ```
 
 3.配置<a href="#华为消息receiver">华为消息receiver</a>.
@@ -238,7 +241,7 @@ XGPushConfig.setHuaweiDebug(true);
 
 ## 厂商通道测试方法
 
-1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
+1. 在您的App中集成信鸽V3.2.1以上版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 
 2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常，相关配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤
 

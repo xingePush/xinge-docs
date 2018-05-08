@@ -19,10 +19,13 @@
 ###AS开发建议使用jcenter依赖接入
 1.引入小米推送的jar包
 
-```xml
+```java
 
 //需要在信鸽的集成基础上新增小米push的jar包
 compile 'com.tencent.xinge:mipush:3.2.2-release'
+
+//小米3.2.4-beta版
+//compile 'com.tencent.xinge:mipush:3.2.4-beta'
 ```
 
 2.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
@@ -147,7 +150,7 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
 ##厂商通道测试方法(通用)
 
-1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
+1. 在您的App中集成信鸽V3.2.1以上版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 
 2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常相关<font color= darkblue>**配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤**</font>
 

@@ -34,6 +34,9 @@
 
 ```java
 compile 'com.tencent.xinge:xgmz:3.2.2-release'
+
+// 魅族3.2.4-beta版
+// compile 'com.tencent.xinge:xgmz:3.2.4-beta'
 ```
 
 2.配置[魅族消息receiver](/魅族消息receiver)。
@@ -140,7 +143,7 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 
 ## 厂商通道测试方法(通用)
 
-1. 在您的App中集成信鸽V3.2.1版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
+1. 在您的App中集成信鸽V3.2.1以上版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 
 2. 确认已在信鸽管理台中「应用配置-厂商&海外通道」中填写相关的应用信息。通常相关配置将在1个小时后生效，请您耐心等待，在生效后再进行下一个步骤
 

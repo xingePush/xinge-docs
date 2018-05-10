@@ -53,6 +53,8 @@ compile 'com.tencent.xinge:xghw:2.5.2.300-release'
 ```
 
 3.配置<a href="#华为消息receiver">华为消息receiver</a>.
+**注：**如果使用xghw:3.2.4-beta版本则不需要此步骤，只需要前两步即可
+
 
 
 ###Eclipes集成方法

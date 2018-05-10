@@ -40,6 +40,7 @@ compile 'com.tencent.xinge:xgmz:3.2.2-release'
 ```
 
 2.配置[魅族消息receiver](/魅族消息receiver)。
+**注：**如果使用xgmz:3.2.4-beta版本则不需要此步骤，只需要添加依赖即可
 
 ###Eclipse集成方式
 

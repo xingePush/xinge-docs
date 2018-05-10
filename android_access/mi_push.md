@@ -17,7 +17,15 @@
 
 ##配置小米推送相关内容
 ###AS开发建议使用jcenter依赖接入
-1.引入小米推送的jar包
+
+1.配置包名。
+
+```java
+ manifestPlaceholders = [
+	 PACKAGE_NAME:"应用包名"
+        ]
+```
+2.引入小米推送的jar包
 
 ```java
 
@@ -28,7 +36,7 @@ compile 'com.tencent.xinge:mipush:3.2.2-release'
 //compile 'com.tencent.xinge:mipush:3.2.4-beta'
 ```
 
-2.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
+3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
 
 ```xml
 <receiver
@@ -46,7 +54,7 @@ android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver"
 </receiver>
 
 ```
-
+**注：**如果使用mipush:3.2.4-beta版本则不需要此步骤，只需要前两步即可
 
 ###Eclipse开发接入
 

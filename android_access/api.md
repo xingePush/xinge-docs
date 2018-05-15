@@ -73,7 +73,6 @@ XGPushBaseReceiver类提供透传消息的接收和操作结果的反馈，需�
 
 
 
-
 ##启动与注册
 
 <hr>

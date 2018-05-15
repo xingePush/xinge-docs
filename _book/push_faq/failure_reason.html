@@ -1,0 +1,670 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>推送失败原因 · 腾讯移动推送 文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="technical_issues.html" />
+    
+    
+    <link rel="prev" href="flow_chart.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://xg.qq.com/" target="_blank" class="custom-link">腾讯移动推送</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    信鸽基础介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../android_access.html">
+            
+                <a href="../android_access.html">
+            
+                    
+                    Android接入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../android_access/api.html">
+            
+                <a href="../android_access/api.html">
+            
+                    
+                    Android SDK API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../android_access/upgrade_guide.html">
+            
+                <a href="../android_access/upgrade_guide.html">
+            
+                    
+                    Android SDK 3.X升级指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../android_access/jcenter.html">
+            
+                <a href="../android_access/jcenter.html">
+            
+                    
+                    Android SDK 集成指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../android_access/huawei_push.html">
+            
+                <a href="../android_access/huawei_push.html">
+            
+                    
+                    华为推送通道集成指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../android_access/meizu_push.html">
+            
+                <a href="../android_access/meizu_push.html">
+            
+                    
+                    魅族推送通道集成指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../android_access/mi_push.html">
+            
+                <a href="../android_access/mi_push.html">
+            
+                    
+                    小米推送通道集成指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../android_access/testdemo.html">
+            
+                <a href="../android_access/testdemo.html">
+            
+                    
+                    Android测试Demo用法介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ios_access.html">
+            
+                <a href="../ios_access.html">
+            
+                    
+                    iOS接入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ios_access/certificate_config.html">
+            
+                <a href="../ios_access/certificate_config.html">
+            
+                    
+                    iOS 证书设置指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ios_access/api_2.5.0.html">
+            
+                <a href="../ios_access/api_2.5.0.html">
+            
+                    
+                    iOS SDK v2.5.0 完整接入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ios_access/api_3.0.html">
+            
+                <a href="../ios_access/api_3.0.html">
+            
+                    
+                    iOS SDK v3.0 完整接入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ios_access/ios-chang-jian-wen-ti-zi-cha.html">
+            
+                <a href="../ios_access/ios-chang-jian-wen-ti-zi-cha.html">
+            
+                    
+                    iOS 常见问题自查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../server_api.html">
+            
+                <a href="../server_api.html">
+            
+                    
+                    服务端API接入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../server_api/rest.html">
+            
+                <a href="../server_api/rest.html">
+            
+                    
+                    Rest API 使用指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../server_api/other.html">
+            
+                <a href="../server_api/other.html">
+            
+                    
+                    服务端其他语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../push_ret_code.html">
+            
+                <a href="../push_ret_code.html">
+            
+                    
+                    信鸽返回码一览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../push_faq.html">
+            
+                <a href="../push_faq.html">
+            
+                    
+                    热门问题与解答
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="flow_chart.html">
+            
+                <a href="flow_chart.html">
+            
+                    
+                    推送流程图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="failure_reason.html">
+            
+                <a href="failure_reason.html">
+            
+                    
+                    推送失败原因
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="technical_issues.html">
+            
+                <a href="technical_issues.html">
+            
+                    
+                    热门技术问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../console.html">
+            
+                <a href="../console.html">
+            
+                    
+                    管理台功能介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../console/auth.html">
+            
+                <a href="../console/auth.html">
+            
+                    
+                    权限管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../console/pushdetail.html">
+            
+                <a href="../console/pushdetail.html">
+            
+                    
+                    推送详情
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="noun_explanation.html">
+            
+                <a href="noun_explanation.html">
+            
+                    
+                    名词解释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../apicloud-tencentpush.html">
+            
+                <a href="../apicloud-tencentpush.html">
+            
+                    
+                    APICloud模块接入(new)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >推送失败原因</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#&#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;">1. &#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;</a></li><ul><li><a href="#&#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;">1.1. &#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;</a></li><ul><li><a href="#&#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;">1.1.1. &#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;</a></li><li><a href="#service&#x88AB;&#x7EC8;&#x6B62;">1.1.2. Service&#x88AB;&#x7EC8;&#x6B62;</a></li><li><a href="#ios&#x8BC1;&#x4E66;&#x95EE;&#x9898;">1.1.3. iOS&#x8BC1;&#x4E66;&#x95EE;&#x9898;</a></li><li><a href="#&#x6D88;&#x606F;&#x5EF6;&#x65F6;">1.1.4. &#x6D88;&#x606F;&#x5EF6;&#x65F6;</a></li><li><a href="#&#x6392;&#x67E5;&#x65B9;&#x6CD5;">1.1.5. &#x6392;&#x67E5;&#x65B9;&#x6CD5;</a></li><li><a href="#&#x63A8;&#x9001;&#x6682;&#x505C;">1.1.6. &#x63A8;&#x9001;&#x6682;&#x505C;</a></li></ul></ul></ul></div><a href="#&#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;"><a name="&#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;" class="anchor-navigation-ex-anchor" href="#&#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x63A8;&#x9001;&#x5931;&#x8D25;&#x539F;&#x56E0;</h1>
+<h2 id="&#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;"><a name="&#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;" class="anchor-navigation-ex-anchor" href="#&#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x5931;&#x8D25;</h2>
+<hr>
+
+<p>&#x65B0;&#x521B;&#x5EFA;&#x7684;app&#x4F1A;&#x6709;&#x4E00;&#x5206;&#x949F;&#x5DE6;&#x53F3;&#x7684;&#x6570;&#x636E;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#xFF0C;&#x5728;&#x6B64;&#x671F;&#x95F4;&#x6CE8;&#x518C;&#x53EF;&#x80FD;&#x8FD4;&#x56DE;20&#x9519;&#x8BEF;&#x7801;&#xFF0C;&#x7A0D;&#x540E;&#x91CD;&#x8BD5;&#x5373;&#x53EF;&#x3002;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x8FD4;&#x56DE;20&#x9519;&#x8BEF;&#x7801;&#xFF0C;&#x8BF7;&#x68C0;&#x67E5;access id&#x548C;access key&#x662F;&#x5426;&#x6B63;&#x786E;&#x914D;&#x7F6E;&#xFF0C;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x662F;&#x8BEF;&#x7528;secret key&#x6216;&#x8005;access key&#x5934;&#x5C3E;&#x6709;&#x7A7A;&#x683C;&#x3002;</p>
+<h3 id="&#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;"><a name="&#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#&#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x5E10;&#x53F7;&#x548C;&#x8BBE;&#x5907;&#x672A;&#x7ED1;&#x5B9A;</h3>
+<p><hr>&#x5BF9;&#x4E8E;&#x5E0C;&#x671B;&#x6839;&#x636E;&#x5E10;&#x53F7;&#x8FDB;&#x884C;&#x63A8;&#x9001;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x5C06;&#x8D26;&#x53F7;&#x4E0E;token&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x65E0;&#x6CD5;&#x63A8;&#x9001;&#x6210;&#x529F;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<p>Android Token&#x957F;&#x5EA6;&#x4E3A;40&#x4F4D;</p>
+<p>iOS Token&#x957F;&#x5EA6;&#x4E3A;64&#x4F4D;</p>
+<p>&#x8D26;&#x53F7;&#xFF0C;&#x53C8;&#x79F0;&#x522B;&#x540D;&#xFF0C;&#x6307;&#x5E26;&#x6709;&#x8D26;&#x53F7;&#x767B;&#x5F55;&#x529F;&#x80FD;&#x7684;APP&#x7684;&#x7528;&#x6237;&#x8D26;&#x53F7;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;QQ&#x6216;&#x5FAE;&#x4FE1;&#xFF0C;&#x53EA;&#x8981;&#x662F;&#x7528;&#x6237;&#x7684;&#x8D26;&#x53F7;&#x90FD;&#x652F;&#x6301;&#xFF0C;&#x6BD4;&#x5982;&#x624B;&#x673A;QQ&#x7684;&#x8D26;&#x53F7;&#x5C31;&#x662F;QQ&#x53F7;&#x7801;&#xFF0C;gmail&#x7684;&#x8D26;&#x53F7;&#x5C31;&#x662F;&#x90AE;&#x7BB1;&#xFF0C;&#x4E2D;&#x56FD;&#x79FB;&#x52A8;&#x7684;&#x8D26;&#x53F7;&#x5C31;&#x662F;&#x624B;&#x673A;&#x53F7;&#x7801;&#x3002;</p>
+<p>Android&#x7ED1;&#x5B9A;&#x8D26;&#x53F7;&#x5728;&#x6CE8;&#x518C;&#x65F6;&#x7ED1;&#x5B9A;&#xFF0C;&#x5373;&#xFF1A;registerPush(context,account)&#x63A5;&#x53E3;&#xFF0C;ios&#x901A;&#x8FC7;setAccount&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x9009;&#x62E9;&#x5E10;&#x53F7;&#x63A8;&#x9001;&#x65F6;&#xFF0C;&#x63D0;&#x793A;token not found,check registration&#xFF0C;&#x8BF4;&#x660E;&#x8D26;&#x53F7;&#x6CA1;&#x548C;token&#x5173;&#x8054;&#x4E0A;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x6709;&#x4E24;&#x79CD;&#x53EF;&#x80FD;&#xFF1A;</p>
+<p>(1)&#x8D26;&#x53F7;&#x6216;&#x522B;&#x540D;&#x6CE8;&#x9500;&#x4E86;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;app&#x8C03;&#x7528;&#xFF0C;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x4F1A;&#x81EA;&#x52A8;&#x89E6;&#x53D1;&#x6CE8;&#x9500;&#x7684;</p>
+<p>(2)&#x8BE5;&#x8BBE;&#x5907;&#x6CE8;&#x518C;&#x4E86;&#x522B;&#x7684;&#x8D26;&#x53F7;&#x6216;&#x522B;&#x540D;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x81EA;&#x52A8;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x89E3;&#x7ED1;&#x3002;&#xFF08;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x53EA;&#x80FD;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#x5982;&#x679C;&#x5F53;&#x524D;&#x522B;&#x540D;&#x4E0B;&#x6CA1;&#x6709;&#x8BBE;&#x5907;&#x4E86;&#xFF0C;&#x5C31;not found&#x4E86;&#xFF09;</p>
+<p>&#x7ED1;&#x5B9A;&#x8D26;&#x53F7;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x522B;&#x540D;&#xFF08;&#x8D26;&#x53F7;&#xFF09;&#x4E0B;&#x53D1;&#x901A;&#x77E5;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x8D26;&#x53F7;&#x6700;&#x8FD1;&#x767B;&#x9646;&#x8FC7;&#x7684;&#x8BBE;&#x5907;&#x90FD;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x901A;&#x77E5;&#x3002;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;registerPush(context,&quot;*&quot;)&#x89E3;&#x9664;&#x5F53;&#x524D;&#x8D26;&#x53F7;&#x7684;&#x7ED1;&#x5B9A;&#x3002;</p>
+<p>&#x8D26;&#x53F7;&#xFF08;&#x522B;&#x540D;&#xFF09;&#x4E0D;&#x5141;&#x8BB8;&#x5355;&#x5B57;&#x7B26;&#xFF0C;&#x4E00;&#x4E2A;token&#x53EA;&#x80FD;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x8D26;&#x53F7;&#xFF0C;&#x591A;&#x6B21;&#x7ED1;&#x5B9A;&#x65F6;&#xFF0C;&#x4EE5;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x4E3A;&#x51C6;&#x3002;</p>
+<font color="#FF7F50">&#x6CE8;&#x610F;&#xFF1A;&#x4E00;&#x4E2A;&#x5E10;&#x53F7;&#xFF08;&#x5373;&#x522B;&#x540D;&#xFF0C;account&#xFF09;&#x4E0B;&#x9762;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;15&#x53F0;&#x8BBE;&#x5907;&#xFF0C;&#x5F53;&#x7ED1;&#x5B9A;&#x6EE1;&#x540E;&#xFF0C;&#x6700;&#x65B0;&#x7ED1;&#x5B9A;&#x7684;&#x8BBE;&#x5907;&#x4F1A;&#x968F;&#x673A;&#x9876;&#x6389;&#x4E4B;&#x524D;&#x7ED1;&#x5B9A;&#x7684;&#x4E00;&#x53F0;&#x8BBE;&#x5907;token&#x3002;</font>
+
+<h3 id="service&#x88AB;&#x7EC8;&#x6B62;"><a name="service&#x88AB;&#x7EC8;&#x6B62;" class="anchor-navigation-ex-anchor" href="#service&#x88AB;&#x7EC8;&#x6B62;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.2. Service&#x88AB;&#x7EC8;&#x6B62;</h3>
+<hr>
+
+<p>service&#x88AB;&#x7EC8;&#x6B62;&#x540E;&#xFF0C;&#x7531;&#x7CFB;&#x7EDF;&#x3001;&#x5B89;&#x5168;&#x8F6F;&#x4EF6;&#x548C;&#x7528;&#x6237;&#x64CD;&#x4F5C;&#x9650;&#x5B9A;&#x662F;&#x5426;&#x80FD;&#x591F;&#x518D;&#x6B21;&#x542F;&#x52A8;&#x3002;</p>
+<p>&#x4FE1;&#x9E3D;SDK&#x901A;&#x8FC7;&#x552F;&#x4E00;&#x7684;service&#x4E0E;&#x4FE1;&#x9E3D;&#x540E;&#x53F0;&#x4FDD;&#x6301;&#x901A;&#x8BAF;&#xFF0C;&#x5728;android&#x4E2D;&#xFF0C;service&#x88AB;&#x6740;&#x6B7B;&#x540E;&#x5728;&#x6CA1;&#x6709;&#x88AB;&#x7CFB;&#x7EDF;/&#x5B89;&#x5168;&#x8F6F;&#x4EF6;&#x7981;&#x6B62;&#x7684;&#x6761;&#x4EF6;&#x4E0B;&#x662F;&#x80FD;&#x591F;&#x81EA;&#x542F;&#x52A8;&#x7684;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x81EA;&#x884C;&#x7F51;&#x4E0A;&#x641C;&#x7D22;&#x201C;android service onstartcommand START_STICKY&#x201D;</p>
+<p>&#x76EE;&#x524D;&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x5B9A;&#x5236;&#x7684;&#x7CFB;&#x7EDF;&#xFF08;&#x5982;MIUI&#xFF09;&#x6216;&#x88AB;&#x5B89;&#x5168;&#x8F6F;&#x4EF6;&#x7981;&#x6B62;&#x81EA;&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x53EA;&#x6709;&#x7528;&#x6237;&#x518D;&#x6B21;&#x6253;&#x5F00;APP&#x624D;&#x80FD;&#x91CD;&#x542F;&#x4FE1;&#x9E3D;service</p>
+<p>&#x4FE1;&#x9E3D;service&#x4F55;&#x65F6;&#x80FD;&#x591F;&#x542F;&#x52A8;&#x7531;&#x7CFB;&#x7EDF;&#x8C03;&#x5EA6;&#x786E;&#x5B9A;</p>
+<p>&#x5728;&#x9501;&#x5C4F;&#x89E6;&#x5C4F;&#x3001;&#x7F51;&#x7EDC;&#x5207;&#x6362;&#x3001;&#x5B89;&#x88C5;APP&#x3001;&#x7CFB;&#x7EDF;&#x91CD;&#x542F;&#x7B49;&#x6761;&#x4EF6;&#xFF0C;&#x4FE1;&#x9E3D;&#x4F1A;&#x4E3B;&#x52A8;&#x5C1D;&#x8BD5;&#x542F;&#x52A8;service</p>
+<h3 id="ios&#x8BC1;&#x4E66;&#x95EE;&#x9898;"><a name="ios&#x8BC1;&#x4E66;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#ios&#x8BC1;&#x4E66;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.3. iOS&#x8BC1;&#x4E66;&#x95EE;&#x9898;</h3>
+<hr>
+
+<p>iOS&#x63A8;&#x9001;&#x63D0;&#x793A;failed to load certificate,check your APNS certificate&#xFF0C;&#x5BF9;&#x5E94;&#x73AF;&#x5883;&#x7684;apns&#x8BC1;&#x4E66;&#x6CA1;&#x63D0;&#x4EA4;&#x3002;
+&#x8BC1;&#x4E66;&#x505A;&#x5F97;&#x4E0D;&#x5BF9;&#xFF0C;&#x8BF7;&#x53C2;&#x7167;&#x5B98;&#x65B9;&#x6307;&#x5357;&#x8FDB;&#x884C;&#x5236;&#x4F5C;&#x3002;</p>
+<p>&#x63A8;&#x9001;&#x73AF;&#x5883;&#x662F;&#x5426;&#x9009;&#x62E9;&#x6B63;&#x786E;&#xFF0C;&#x6D4B;&#x8BD5;&#x9884;&#x89C8;&#x8BF7;&#x9009;&#x62E9;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+<p>&#x63A8;&#x9001;&#x73AF;&#x5883;&#x662F;&#x5426;&#x9009;&#x62E9;&#x6B63;&#x786E;&#xFF0C;&#x5F00;&#x53D1;&#x8BC1;&#x4E66;&#x5BF9;&#x5E94;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#xFF0C;&#x751F;&#x4EA7;&#x8BC1;&#x4E66;&#x5BF9;&#x5E94;&#x6B63;&#x5F0F;&#x73AF;&#x5883;&#x3002;</p>
+<p>&#x8BC1;&#x4E66;&#x6709;&#x6548;&#x671F;&#x5224;&#x65AD;</p>
+<p><img src="../assets/11.png" alt=""></p>
+<p>&#x67E5;&#x770B;&#x8FDE;&#x63A5;APNS&#x6D4B;&#x8BD5;&#x8BC1;&#x4E66;&#x662F;&#x5426;&#x5408;&#x6CD5;</p>
+<p>&#x5F00;&#x53D1;&#x73AF;&#x5883;
+<img src="../assets/12.png" alt=""></p>
+<p>&#x751F;&#x4EA7;&#x73AF;&#x5883;
+<img src="../assets/13.png" alt=""></p>
+<h3 id="&#x6D88;&#x606F;&#x5EF6;&#x65F6;"><a name="&#x6D88;&#x606F;&#x5EF6;&#x65F6;" class="anchor-navigation-ex-anchor" href="#&#x6D88;&#x606F;&#x5EF6;&#x65F6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.4. &#x6D88;&#x606F;&#x5EF6;&#x65F6;</h3>
+<hr>
+
+<p>&#x5728;Android&#x5E73;&#x53F0;&#x4E0B;&#xFF0C;&#x63A8;&#x9001;&#x670D;&#x52A1;&#x548C;&#x5927;&#x591A;&#x6570;&#x4E92;&#x8054;&#x7F51;&#x670D;&#x52A1;&#x4E00;&#x6837;&#xFF0C;&#x53D7;&#x9650;&#x4E8E;&#x5305;&#x62EC;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#x3001;&#x8FD0;&#x8425;&#x5546;&#x653F;&#x7B56;&#x6216;&#x7528;&#x6237;&#x9700;&#x6C42;&#x5DEE;&#x5F02;&#x7B49;&#x56E0;&#x7D20;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x6240;&#x4EE5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x5EF6;&#x65F6;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x7EC8;&#x7AEF;&#x4E0A;&#x4FE1;&#x9E3D;service&#x88AB;&#x7CFB;&#x7EDF;&#x6216;&#x8005;&#x5B89;&#x5168;&#x8F6F;&#x4EF6;&#x6740;&#x6B7B;&#xFF0C;&#x4E5F;&#x4F1A;&#x6709;&#x6536;&#x4E0D;&#x5230;&#x6216;&#x5EF6;&#x65F6;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x5728;iOS&#x5E73;&#x53F0;&#x4E0B;&#xFF0C;&#x4FE1;&#x9E3D;&#x8D1F;&#x8D23;&#x5C06;&#x6D88;&#x606F;&#x6210;&#x529F;&#x8F6C;&#x53D1;&#x7ED9;APNS&#xFF0C;&#x4F46;APNS&#x662F;&#x5426;&#x4F1A;&#x6210;&#x529F;&#x4E0B;&#x53D1;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x5177;&#x4F53;&#x4E0B;&#x53D1;&#x591A;&#x5C11;&#xFF0C;&#x6298;&#x635F;&#x591A;&#x5C11;&#xFF0C;&#x90FD;&#x53D7;&#x9650;&#x4E8E;&#x5305;&#x62EC;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#x3001;&#x8FD0;&#x8425;&#x5546;&#x653F;&#x7B56;&#x7B49;&#x56E0;&#x7D20;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;APNS&#x53EA;&#x4E3A;&#x79BB;&#x7EBF;&#x7EC8;&#x7AEF;&#x4FDD;&#x5B58;&#x4E00;&#x6761;&#x6D88;&#x606F;&#xFF0C;&#x6240;&#x4EE5;&#x79BB;&#x7EBF;&#x7EC8;&#x7AEF;&#x4E0A;&#x7EBF;&#x540E;&#x4EC5;&#x80FD;&#x6536;&#x5230;&#x79BB;&#x7EBF;&#x671F;&#x95F4;&#x6700;&#x65B0;&#x7684;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x3002;</strong></p>
+<h3 id="&#x6392;&#x67E5;&#x65B9;&#x6CD5;"><a name="&#x6392;&#x67E5;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x6392;&#x67E5;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.5. &#x6392;&#x67E5;&#x65B9;&#x6CD5;</h3>
+<hr>
+
+<p>(1)&#x8BBE;&#x5907;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x8054;&#x7F51;&#xFF1F;</p>
+<p>(2)accessId&#x3001;accessKey&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x4E0E;&#x524D;&#x53F0;&#x6CE8;&#x518C;&#x7684;&#x4E00;&#x81F4;&#xFF1F;</p>
+<p>(3)&#x5F53;&#x524D;APP&#x5305;&#x540D;&#x662F;&#x5426;&#x4E0E;&#x524D;&#x53F0;&#x6CE8;&#x518C;&#x7684;&#x4E00;&#x81F4;&#xFF1F;&#x5982;&#x679C;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x8BF7;&#x5728;&#x524D;&#x53F0;&#x9009;&#x4E2D;&#x201C;&#x4F7F;&#x7528;&#x591A;&#x5305;&#x540D;&#x201D;&#x9009;&#x9879;&#x3002;</p>
+<p>(4)&#x8BBE;&#x5907;&#x662F;&#x5426;&#x6CE8;&#x518C;&#x6210;&#x529F;&#xFF1F;</p>
+<p>(5)&#x524D;&#x53F0;&#x4E0B;&#x53D1;&#x901A;&#x77E5;&#x65F6;&#xFF0C;&#x201C;&#x65F6;&#x6BB5;&#x63A7;&#x5236;&#x201D;&#x9009;&#x9879;&#x91CC;&#x7684;&#x65F6;&#x95F4;&#x6BB5;&#x662F;&#x5426;&#x7B26;&#x5408;&#x7EC8;&#x7AEF;&#x8BBE;&#x5907;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF1F;</p>
+<p>(6)&#x8BF7;&#x68C0;&#x67E5;xml&#x7684;receiver&#x548C;service&#x6807;&#x7B7E;&#x662F;&#x5426;&#x5339;&#x914D;&#xFF0C;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x8BF7;&#x76F4;&#x63A5;&#x590D;&#x5236;demo&#x7684;&#x4F8B;&#x5B50;&#x518D;&#x4FEE;&#x6539;&#x3002;</p>
+<p>(7)&#x8BF7;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6CA1;&#x6709;&#x52A0;&#x201C;android.permission.GET_TASKS&#x201D;&#x6743;&#x9650;&#x7684;&#x95EE;&#x9898;</p>
+<h3 id="&#x63A8;&#x9001;&#x6682;&#x505C;"><a name="&#x63A8;&#x9001;&#x6682;&#x505C;" class="anchor-navigation-ex-anchor" href="#&#x63A8;&#x9001;&#x6682;&#x505C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.6. &#x63A8;&#x9001;&#x6682;&#x505C;</h3>
+<hr>
+
+<p>&#xFF08;1&#xFF09;&#x76F8;&#x540C;&#x7684;&#x5185;&#x5BB9;&#x5728;&#x63A8;&#x9001;&#x7ED9;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x5C0F;&#x65F6;&#x5185;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x521B;&#x5EFA;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x6BCF;&#x5C0F;&#x65F6;&#x6700;&#x591A;&#x521B;&#x5EFA;30&#x6761;&#x5168;&#x91CF;&#x63A8;&#x9001;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="flow_chart.html" class="navigation navigation-prev " aria-label="Previous page: 推送流程图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="technical_issues.html" class="navigation navigation-next " aria-label="Next page: 热门技术问题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"推送失败原因","level":"1.6.2","depth":2,"next":{"title":"热门技术问题","level":"1.6.3","depth":2,"path":"push_faq/technical_issues.md","ref":"push_faq/technical_issues.md","articles":[]},"previous":{"title":"推送流程图","level":"1.6.1","depth":2,"path":"push_faq/flow_chart.md","ref":"push_faq/flow_chart.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","splitter@^0.0.8","-sharing","simple-page-toc@^0.1.1","anchor-navigation-ex@0.1.8"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"anchor-navigation-ex":{"isRewritePageTitle":true,"isShowTocTitleIcon":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"search-plus":{},"splitter":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"腾讯移动推送 文档","language":"zh-hans","links":{"sidebar":{"腾讯移动推送":"http://xg.qq.com/"}},"gitbook":"*","description":"腾讯移动推送相关文档记录"},"file":{"path":"push_faq/failure_reason.md","mtime":"2018-03-08T07:47:28.352Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-15T11:41:52.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

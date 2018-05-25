@@ -8,11 +8,7 @@
 
 ## 推送流程原理介绍
 
-
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1frc1kbp334j30kw0b275g.jpg)
-
-
+![](/assets/iOSPushMap.jpg)
 
 简要说明iOS客户端实现推送流程的步骤：
 

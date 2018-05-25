@@ -14,6 +14,9 @@
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)
   * [iOS SDK v3.0 完整接入](ios_access/api_3.0.md)
   * [iOS 常见问题自查](ios_access/ios-chang-jian-wen-ti-zi-cha.md)
+* iOS 推送服务介绍
+* iOS 推送服务介绍
+* iOS 推送服务介绍
 * [服务端API接入](server_api.md)
   * [Rest API 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)
@@ -22,9 +25,4 @@
   * [推送流程图](push_faq/flow_chart.md)
   * [推送失败原因](push_faq/failure_reason.md)
   * [热门技术问题](push_faq/technical_issues.md)
-* [管理台功能介绍](console.md)
-  * [权限管理](console/auth.md)
-  * [推送详情](console/pushdetail.md)
-* [名词解释](push_faq/noun_explanation.md)
-* [APICloud模块接入\(new\)](apicloud-tencentpush.md)
 

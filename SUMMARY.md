@@ -10,7 +10,6 @@
   * [小米推送通道集成指南](android_access/mi_push.md)
   * [Android测试Demo用法介绍](android_access/testdemo.md)
 * [iOS接入](ios_access.md)
-  * [iOS 常见问题自查](ios_access/ios-chang-jian-wen-ti-zi-cha.md)
   * [iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)
   * [iOS SDK 集成指南](ios_access/ios-sdk-ji-cheng-zhi-nan.md)
   * [iOS SDK API 接口文档](ios_access/ios-sdk-api-jie-kou-wen-dang.md)

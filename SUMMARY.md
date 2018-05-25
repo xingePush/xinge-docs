@@ -14,7 +14,7 @@
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)
   * [iOS SDK v3.0 完整接入](ios_access/api_3.0.md)
   * [iOS 常见问题自查](ios_access/ios-chang-jian-wen-ti-zi-cha.md)
-  * iOS 推送服务介绍
+  * [iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)
 * [服务端API接入](server_api.md)
   * [Rest API 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)

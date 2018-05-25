@@ -8,3 +8,5 @@
 [iOS SDK V2.5.0 完整接入](/ios_access/api_2.5.0.md)
 
 [iOS SDK V3.0 完整接入](/ios_access/api_3.0.md)
+
+[iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)

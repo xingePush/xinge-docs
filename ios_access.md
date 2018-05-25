@@ -10,3 +10,4 @@
 [iOS SDK V3.0 完整接入](/ios_access/api_3.0.md)
 
 [iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)
+[iOS SDK 错误码对照表](/ios_access/ios-sdk-cuo-wu-ma-dui-zhao-biao.md)

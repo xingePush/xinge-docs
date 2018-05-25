@@ -58,10 +58,8 @@
    ```objective-c
    @interface AppDelegate () <XGPushDelegate>
    @end
-   
-   
-   - (BOOL)application:(UIApplication *)application 
-       didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+
+   -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
        {
            [[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
    	return YES;
@@ -70,7 +68,7 @@
 
    - 在 ```AppDelegate``` 中选择实现 ```XGPushDelegate ``` 协议中的方法
 
-```Objective-C
+```objective-c
 	/**
 	 收到推送的回调
 	 @param application  UIApplication 实例

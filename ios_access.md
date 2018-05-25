@@ -11,4 +11,7 @@
 
 [iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)
 [iOS SDK 集成指南](/ios_access/ios-sdk-ji-cheng-zhi-nan.md)
+[iOS SDK API 接口文档](/ios_access/ios-sdk-api-jie-kou-wen-dang.md)
+[iOS 推送证书说明](/ios_access/ios-tui-song-zheng-shu-shuo-ming.md)
 [iOS SDK 错误码对照表](/ios_access/ios-sdk-cuo-wu-ma-dui-zhao-biao.md)
+[iOS SDK 常见问题](/ios_access/ios-sdk-chang-jian-wen-ti.md)

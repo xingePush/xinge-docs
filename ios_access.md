@@ -8,7 +8,7 @@
 
 [iOS 推送证书说明](/ios_access/iOSCertificateGuide.md)
 
-[iOS SDK错误码对照表](/ios_access/iOSSDKErrorCode.md)
+[iOS SDK 错误码对照表](/ios_access/iOSSDKErrorCode.md)
 
 [iOS SDK 常见问题](/ios_access/iOSSDKIssues.md)
 

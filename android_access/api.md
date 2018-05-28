@@ -45,7 +45,7 @@
 
 |原型|功能|
 |-----|-----|
-|void enableDebug(Context context,boolean debugMode)|是否开启debug模式，即输出logcat日志重要：为保证数据的安全性，发布前必须设置为false）|
+|```void enableDebug(```<br> ```Context context,``` <br> ```boolean debugMode``` <br> ```)```|是否开启debug模式，即输出logcat日志重要：为保证数据的安全性，发布前必须设置为false）|
 |boolean setAccessId(Context context,long accessId)|配置accessId|
 |boolean setAccessKey(Context context,String accessKey)|配置accessKey|
 |String getToken(Context context)|获取设备的token，只有注册成功才能获取到正常的结果|

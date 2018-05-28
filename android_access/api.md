@@ -41,7 +41,7 @@
 
 ### XGPushConfig配置类
 
-XGPushConfig提供信鸽服务的对外配置API列表，方法默认为public static类型，对于本类提供的set和enable方法，要在XGPushManager接口前调用才能及时生效。
+```XGPushConfig```提供信鸽服务的对外配置API列表，方法默认为```public static```类型，对于本类提供的```set```和```enable```方法，要在```XGPushManager```接口前调用才能及时生效。
 
 |原型|功能|
 |-----|-----|

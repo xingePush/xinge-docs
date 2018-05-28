@@ -1,6 +1,6 @@
 # 最近更新
-##1.Android SDK更新说明
-### 1.1.Android SDK v3.2.3 
+##Android SDK更新说明
+### Android SDK v3.2.3 
 
 #### 更新时间 
 
@@ -21,7 +21,7 @@
 
 [Android SDK v3.2.3](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-Android-3.2.3.zip)
 
-### 1.2.Android SDK v3.2.4（beta）
+### Android SDK v3.2.4（beta）
 
 #### 更新时间
 
@@ -42,8 +42,8 @@
 
 [Android SDK v3.2.4（beta）](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-Android-3.2.4.zip)
 
-##2.iOS SDK 更新说明
-### 2.1.iOS SDK v3.1.0 
+##iOS SDK 更新说明
+### iOS SDK v3.1.0 
 
 #### 更新时间 
 
@@ -62,7 +62,7 @@
 
 [IOS SDK v3.1.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-iOS-3.1.0.zip)
 
-### 2.2.iOS SDK v3.1.1\(beta\)
+### iOS SDK v3.1.1\(beta\)
 
 #### 更新时间
 

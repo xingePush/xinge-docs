@@ -39,7 +39,7 @@
 ```
 **示例**
 ```Objective-C
-[[XGPush defaultManager] stopXGNotification;
+[[XGPush defaultManager] stopXGNotification];
 ```
 
 

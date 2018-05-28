@@ -23,14 +23,14 @@
 
 ### Eclipse工程
 
-需要将获取到的测试应用的ACCESSID和ACCESSKEY配置到demo工程中的AndroidManifest.xml文件下的<mata-data>节点下!
+需要将获取到的测试应用的```ACCESSID```和```ACCESSKEY```配置到```demo```工程中的```AndroidManifest.xml```文件下的```<mata-data>```节点下!
 
 ![](/assets/eclipseDemo.png)
 
 
 ## 运行代码
 
-出现如下日志说明信鸽注册成功。（日志tag:"TPush"）:
+出现如下日志说明信鸽注册成功。（日志tag:```TPush```）:
 
 ```xml
 10-09 20:08:46.922 24290-24303/com.qq.xgdemo I/XINGE: [TPush] get RegisterEntity:RegisterEntity [accessId=2100250470, accessKey=null, token=5874b7465d9eead746bd9374559e010b0d1c0bc4, packageName=com.qq.xgdemo, state=0, timestamp=1507550766, xgSDKVersion=3.11, appVersion=1.0]
@@ -39,7 +39,7 @@
 
 ## 推送测试
 
-获取日志输出的设备token。通过信鸽web端的应用管理中创建推送。如图所示
+获取日志输出的设备```token```。通过信鸽web端的应用管理中创建推送。如图所示
 
 ![](/assets/推送测试.png)
 

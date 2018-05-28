@@ -22,22 +22,22 @@
 |:----------|:--------|
 |```void registerPush(Context context)```|启动并注册（无注册回调）|
 |```void registerPush (```<br>```Context context,``` <br>```final XGIOperateCallback callback```<br>```)```|启动并注册（有注册回调）|
-|```void registerPush(Context context, String account, XGIOperateCallback callback)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2不包括3.2.2之前的版本使用，有注册回调）|
-|```void bindAccount(Context context, String account, XGIOperateCallback callback)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
-|```void bindAccount(Context context, final String account)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，<br>仅当前注册的账号生效，无注册回调）|
-| ```void appendAccount(Context context, String account, XGIOperateCallback callback)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，<br>一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，有注册回调）|
-| ```void appendAccount(Context context, final String account)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口保留之前的账号，只做增加操作，<br>一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，无注册回调）|
-| ```void delAccount(Context context, final String account, XGIOperateCallback callback)```  |解绑指定账号（3.2.2以及3.2.2之后的版本使用，有注册回调）|
-| ```void delAccount(Context context, final String account)``` |解绑指定账号（3.2.2以及3.2.2之后的版本使用，无注册回调）|
-|```void registerPush(Context context,String account, String ticket, int ticketType, String qua, final XGIOperateCallback callback)```|同上，仅供带登陆态的业务使用|
+|```void registerPush(``` <br> ```Context context,``` <br> ``` String account, ``` <br> ```XGIOperateCallback callback``` <br> ```)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2不包括3.2.2之前的版本使用，有注册回调）|
+|```void bindAccount(``` <br> ```Context context, ``` <br> ```String account, ``` <br> ```XGIOperateCallback callback``` <br> ```)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
+|```void bindAccount(``` <br> ```Context context,``` <br> ``` final String account``` <br> ```)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，<br>仅当前注册的账号生效，无注册回调）|
+| ```void appendAccount(``` <br> ```Context context,``` <br> ``` String account, ``` <br> ```XGIOperateCallback callback``` <br> ```)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，<br>一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，有注册回调）|
+| ```void appendAccount(``` <br> ```Context context,``` <br> ``` final String account``` <br> ```)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口保留之前的账号，只做增加操作，<br>一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，无注册回调）|
+| ```void delAccount(``` <br> ```Context context,``` <br> ``` final String account, ``` <br> ```XGIOperateCallback callback``` <br> ```)```  |解绑指定账号（3.2.2以及3.2.2之后的版本使用，有注册回调）|
+| ```void delAccount(``` <br> ```Context context,``` <br> ``` final String account``` <br> ```)``` |解绑指定账号（3.2.2以及3.2.2之后的版本使用，无注册回调）|
+|```void registerPush(``` <br> ```Context context,``` <br> ```String account, ``` <br> ```String ticket, ``` <br> ```int ticketType,``` <br> ``` String qua, ``` <br> ```final XGIOperateCallback callback``` <br> ```)```|同上，仅供带登陆态的业务使用|
 |```void unregisterPush(Context context)```|反注册，建议在不需要接收推送的时候调用|
-|```void setTag(Context context,String tagName)```|设置标签|
-|```void deleteTag(Context context,String tagName)```|删除标签|
+|```void setTag(``` <br> ```Context context,``` <br> ```String tagName``` <br> ```)```|设置标签|
+|```void deleteTag(``` <br> ```Context context,``` <br> ```String tagName``` <br> ```)```|删除标签|
 |```XGPushClickedResult onActivityStarted(Activity activity)```|Activity被打开的效果统计；获取下发的自定义key-value|
-|```void onActivityStoped(Activity activity)```|Activity被打开的效果统计|
-|```void setPushNotificationBuilder(Context context, int notificationBulderId, XGPushNotificationBuilder notificationBuilder)```|自定义本地通知样式|
-|```long addLocalNotification(Context context, XGLocalMessage msg)```|本地通知|
-|```boolean isNotificationOpened(Context context)```|检测通知栏是否关闭|
+|```void onActivityStoped(``` <br> ```Activity activity``` <br> ```)```|Activity被打开的效果统计|
+|```void setPushNotificationBuilder(``` <br> ```Context context, ``` <br> ```int notificationBulderId, ``` <br> ```XGPushNotificationBuilder notifiBuilder``` <br> ```)```|自定义本地通知样式|
+|```long addLocalNotification(``` <br> ```Context context, ``` <br> ```XGLocalMessage msg``` <br> ```)```|本地通知|
+|```boolean isNotificationOpened(``` <br> ```Context context``` <br> ```)```|检测通知栏是否关闭|
 
 ### XGPushConfig配置类
 

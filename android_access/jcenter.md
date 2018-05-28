@@ -4,9 +4,9 @@
 
 <hr>
 
-## AndroidStudio自动集成
+## 通过AndroidStudio自动集成
 
-### 一导入依赖
+###  导入依赖
 AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目中导入jar包和so文件；
 在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。
 导入依赖过后修改应用配置，书写注册代码就能够实现信鸽快速接入。 
@@ -89,9 +89,9 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
   </receiver>
   ```
   
-  ## 手动集成
+## 手动配置来进行集成
   
-  ### 注册并下载SDK
+### 注册并下载SDK
 
 <hr>
 
@@ -107,7 +107,7 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
 
 将SDK导入到工程的步骤为：
 
-（1）创建或打开Android工程（关于如何创建Android工程，请参照开发环境的章节）。
+- （1）创建或打开Android工程（关于如何创建Android工程，请参照开发环境的章节）。
 
 （2）将信鸽 SDK目录下的libs目录所有文件拷贝到工程的libs（或lib）目录下。
 

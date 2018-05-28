@@ -6,24 +6,24 @@
 
 <hr>
 
-所有API接口的包名路径前缀都是：com.tencent.android.tpush，其中有以下个重要的对外提供接口的类，如下：
+所有API接口的包名路径前缀都是：```com.tencent.android.tpush```，其中有以下个重要的对外提供接口的类，如下：
 
 |类名|说明|
 |-------|-----|
-|XGPushManagerPush服务|推送|
-|XGPushConfig|Push服务配置项接口|
-|XGPushBaseReceiver|接收消息和结果反馈的receiver，需要开发者自己在AndroidManifest.xml静态注册|
+|```XGPushManager```|Push服务推送|
+|```XGPushConfig```|Push服务配置项接口|
+|```XGPushBaseReceiver```|接收消息和结果反馈的receiver，需要开发者自己在```AndroidManifest.xml```静态注册|
 
 ### XGPushManager功能类
 
-XGPushManager提供信鸽服务的对外API列表，方法默认为public static类型。
+```XGPushManager```提供信鸽服务的对外API列表，方法默认为```public static```类型。
 
 |原型|功能|
-|----------|------|
+|:----------|:--------|
 |void registerPush(Context context)；|启动并注册（无注册回调）|
-| void registerPush(Context context, final XGIOperateCallback callback)|启动并注册（有注册回调）|
-|void registerPush(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2不包括3.2.2之前的版本使用，有注册回调）|
-|void bindAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
+|void registerPush(Context context, final XGIOperateCallback callback)|启动并注册（有注册回调）|
+|void registerPush(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2不包括3.2.2之前的版本使用，有注册回调）|
+|void bindAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
 |void bindAccount(Context context, final String account) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效，无注册回调）|
 | void appendAccount(Context context, String account, XGIOperateCallback callback) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，有注册回调）|
 | void appendAccount(Context context, final String account) |启动并注册APP，同时绑定账号,推荐有帐号体系的APP使用（3.2.2以及3.2.2之后的版本使用，此接口保留之前的账号，只做增加操作，一个token下最多只能有3个账号超过限制会自动顶掉之前绑定的账号，无注册回调）|

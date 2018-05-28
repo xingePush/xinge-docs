@@ -9,8 +9,8 @@
 #### Xg-Push-SDK-iOS-3.1.1
 
 
-* doc 文件夹：信鸽 iOS SDK 开发指南
-* demo 文件夹：主要包含样例工程，信鸽 SDK 也在其中
+* ```doc``` 文件夹：信鸽 iOS SDK 开发指南
+* ```demo``` 文件夹：主要包含样例工程，信鸽 SDK 也在其中
 
 
 
@@ -22,9 +22,9 @@
 
 ### 手动集成
 
-1. 前往信鸽管理台注册 iOS 应用并获取 App ID和 App Key
+1. 前往信鸽管理台注册 iOS 应用并获取 ```App ID```和 ```App Key```
 
-* <font color= red>注:</font> App ID 对应应用 Access ID，App Key 对应应用 Access Key.
+* <font color= red>注:</font> App ID 对应应用 ```Access ID```，```App Key``` 对应应用 ```Access Key```.
 
 2. 下载信鸽 SDK, 解压缩
 
@@ -32,12 +32,15 @@
 
 3. 在```Build Phases```下添加以下 Framework:
 
+```
  * CoreTelephony.framework
  * SystemConfiguration.framework
  * UserNotifications.framework
  * libXG-SDK.a 
  * libz.tbd
  * libsqlite3.0.tbd 
+```
+ 
 添加完成以后,库的引用如下: 
 ![](/assets/编译静态库.png)
 

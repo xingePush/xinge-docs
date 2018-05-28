@@ -8,7 +8,7 @@
 
 ## 推送流程原理介绍
 
-![](/assets/iOSPushMap.jpg)
+![推送流程原理介绍](/assets/iOSPushMap.jpg)
 
 简要说明iOS客户端实现推送流程的步骤：
 

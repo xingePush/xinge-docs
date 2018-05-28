@@ -1,12 +1,12 @@
 # 最近更新
+##1.Android SDK更新说明
+### 1.1.Android SDK v3.2.3 
 
-### Android SDK v3.2.3 {#toc_1}
-
-#### 更新时间 {#toc_2}
+#### 更新时间 
 
 * 2018-5-4
 
-#### 版本更新说明 {#toc_3}
+#### 版本更新说明 
 
 1. 优化网络连接，增强稳定性
 2. 解决部分设备点击通知无法跳转指定页面问题
@@ -17,11 +17,11 @@
 
 * 建议升级！
 
-##### 下载地址： {#toc_4}
+##### 下载地址： 
 
 [Android SDK v3.2.3](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-Android-3.2.3.zip)
 
-### Android SDK v3.2.4（beta）
+### 1.2.Android SDK v3.2.4（beta）
 
 #### 更新时间
 
@@ -42,13 +42,14 @@
 
 [Android SDK v3.2.4（beta）](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-Android-3.2.4.zip)
 
-### IOS SDK v3.1.0 {#toc_10}
+##2.iOS SDK 更新说明
+### 2.1.iOS SDK v3.1.0 
 
-#### 更新时间 {#toc_11}
+#### 更新时间 
 
 * 2018-4-11
 
-#### 版本更新说明 {#toc_12}
+#### 版本更新说明 
 
 1. 增加消息回执统计SDK\(iOS 10+\)
 2. 自动化Device Token上报
@@ -57,11 +58,11 @@
 
 建议升级！
 
-##### 下载地址： {#toc_13}
+##### 下载地址：
 
 [IOS SDK v3.1.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-iOS-3.1.0.zip)
 
-### iOS SDK v3.1.1\(beta\)
+### 2.2.iOS SDK v3.1.1\(beta\)
 
 #### 更新时间
 

@@ -1,4 +1,4 @@
-#信鸽Android 3.版本升级指南
+#信鸽Android SDK 3.* 版本升级指南
 
 <hr>
 

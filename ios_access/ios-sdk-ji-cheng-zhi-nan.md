@@ -191,4 +191,4 @@ package Size is 359
 
 点击下载[信鸽测试助手](http://xg.qq.com/pigeon_v2/resource/sdk/XGPushTool.zip)
 
-如遇到推送收不到，请参考[iOS常见问题文档]()。
+如遇到推送收不到，请参考[iOS常见问题文档](/ios_access/ios-sdk-chang-jian-wen-ti.md)。

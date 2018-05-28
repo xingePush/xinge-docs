@@ -6,7 +6,9 @@
 
 ## 注册测试应用
 
-注册测试应用的名称不限，但是包名必须为com.qq.xgdemo。（如果包名不一致推送的时候需要勾选多包名推送）。并获取注册完整过后应用对应的ACCESSID和ACCESSKEY。
+注册测试应用的名称不限，但是包名必须为```com.qq.xgdemo```,
+（如果包名不一致推送的时候需要勾选多包名推送）。
+并获取注册完整过后应用对应的```ACCESSID```和```ACCESSKEY```。
 
 ![](/assets/注册信鸽demo.png)
 
@@ -15,7 +17,7 @@
 ### AndroidStudio工程
 
 
-需要将获取到的测试应用的ACCESSID和ACCESSKEY配置到demo工程app模块下的build.gradle文件下的ManifestPlaceholders节点。如图所示：
+需要将获取到的测试应用的ACCESSID和ACCESSKEY配置到demo工程app模块下的```build.gradle```文件下的```ManifestPlaceholders```节点。如图所示：
 
 ![](/assets/AndroidStudioDemo.png)
 

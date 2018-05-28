@@ -21,7 +21,7 @@
 |原型|功能|
 |:----------|:--------|
 |```void registerPush(Context context)```|启动并注册（无注册回调）|
-|```void registerPush(Context context, final XGIOperateCallback callback)```|启动并注册（有注册回调）|
+|```void registerPush (```<br>```Context context,``` <br>```final XGIOperateCallback callback```<br>```)```|启动并注册（有注册回调）|
 |```void registerPush(Context context, String account, XGIOperateCallback callback)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2不包括3.2.2之前的版本使用，有注册回调）|
 |```void bindAccount(Context context, String account, XGIOperateCallback callback)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，<br>此接口会覆盖设备之前绑定过的账号，仅当前注册的账号生效）|
 |```void bindAccount(Context context, final String account)``` |启动并注册APP，同时绑定账号,<br>推荐有帐号体系的APP使用<br>（3.2.2以及3.2.2之后的版本使用，此接口会覆盖设备之前绑定过的账号，<br>仅当前注册的账号生效，无注册回调）|

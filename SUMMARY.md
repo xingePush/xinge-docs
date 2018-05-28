@@ -1,6 +1,6 @@
 # Summary
 
-* [信鸽基础介绍](README.md)
+* [信鸽推送基础介绍](README.md)
 * [Android接入](android_access.md)
   * [Android SDK API](android_access/api.md)
   * [Android SDK 3.X升级指南](android_access/upgrade_guide.md)

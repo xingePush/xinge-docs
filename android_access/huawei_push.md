@@ -189,7 +189,7 @@ public class MyReceiver extends PushReceiver {
 }
 
 ```
-2.在AndroidManifest.xml 增加自定义Receiver 配置如下：
+2. 在 ```AndroidManifest.xml``` 增加自定义 ```Receiver``` 配置如下：
 
 ```xml
 <!-- xxx.xx.xx为CP自定义的广播名称，比如: com.huawei.hmssample. HuaweiPushRevicer -->
@@ -207,8 +207,8 @@ public class MyReceiver extends PushReceiver {
             </intent-filter>
         </receiver>
 ```
-###启动华为推送以及注册日志
-在调用信鸽（XGPushManager.registerPush）之前开启第三方推送接口：
+### 启动华为推送以及注册日志
+在调用信鸽（```XGPushManager.registerPush```）之前开启第三方推送接口：
 
 ```java
 //打开第三方推送
@@ -223,15 +223,20 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
 如果出现：
 
-otherPushType = huawei otherPushToken = null,这个日志
+```otherPushType = huawei otherPushToken = null```,这个日志
 
 请在注册代码之前调用：
 
+```
 XGPushConfig.setHuaweiDebug(true);
+```
 
-请手动确认给应用存储权限，然后查看SD卡目录下的huawei.txt文件内输出的注册华为失败的错误原因。然后根据[华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode)对应的错误码原因，以及解决办法。
 
-###代码混淆
+请手动确认给应用存储权限，
+然后查看SD卡目录下的 ```huawei.txt``` 文件内输出的注册华为失败的错误原因。
+然后根据 [华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode) 对应的错误码原因，以及解决办法。
+
+### 代码混淆
 
 ```xml
 -ignorewarning

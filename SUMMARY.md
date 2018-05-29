@@ -20,7 +20,7 @@
   * [iOS SDK 常见问题](ios_access/ios-sdk-chang-jian-wen-ti.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)
 * [服务端API接入](server_api.md)
-  * [Rest API 使用指南](server_api/rest.md)
+  * [Rest API v2版本 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)
 * [信鸽返回码一览](push_ret_code.md)
 * [热门问题与解答](push_faq.md)

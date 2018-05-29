@@ -22,6 +22,7 @@
 * [服务端API接入](server_api.md)
   * [Rest API v2版本 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)
+  * [Rest API v3版本 使用指南](server_api/rest-api-v3ban-ben-shi-yong-zhi-nan.md)
 * [信鸽返回码一览](push_ret_code.md)
 * [热门问题与解答](push_faq.md)
   * [推送流程图](push_faq/flow_chart.md)

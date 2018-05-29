@@ -46,34 +46,16 @@ appid:secretkey
 
 通用基础返回值，是所有请求的响应中都会包含的字段，JSON格式
 
-```
-{ 
-"seq"
-:
-0
-,
-"push_id"
-:
-123
-,
-"ret_code"
-:
-0
-, 
-"environment"
-:
-"product"
-,
-"err_msg"
-:
-""
-,
-"result"
-:{
-""
-:
-""
-} 
+```json
+{
+    "seq":0,
+    "push_id":123,
+    "ret_code":0,
+    "environment":"product",
+    "err_msg":"",
+    "result":{
+        "":""
+    }
 }
 ```
 

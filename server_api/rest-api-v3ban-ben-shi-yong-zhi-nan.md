@@ -21,8 +21,6 @@
 
 * 只支持https的请求方式
 
-  ​
-
 ## 协议描述
 
 **请求URL**：`https://openapi.xg.qq.com/v3/class_path/method`
@@ -63,7 +61,7 @@ appid:secretkey
 
 | 参数名 | 类型 | 必需 | 参数描述 |
 | :--- | :--- | :--- | :--- |
-| seq | int64\_t | 是 | 与请求包一致（如果请求包是非法json 该字段为0） |
+| seq | int64\_t | 是 | 与请求包一致（如果请求包是非法json，该字段为0） |
 | push\_id | string | 是 | 推送id；如果loop\_times !=0 那么返回格式为：id1,id2,id3 |
 | ret\_code | int | 是 | [返回码](##返回码一览) |
 | environment | string | 是 | product-生产环境，dev-开发环境 |

@@ -235,6 +235,8 @@ XGPushConfig.setHuaweiDebug(true);
 请手动确认给应用存储权限，
 然后查看SD卡目录下的 ```huawei.txt``` 文件内输出的注册华为失败的错误原因。
 然后根据 [华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode) 对应的错误码原因，以及解决办法。
+若还不能解决，可以在cmd里执行adb shell setprop log.tag.hwpush VERBOSE和
+adb shell logcat -v time > D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给我们的技术支持。
 
 ### 代码混淆
 

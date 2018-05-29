@@ -28,7 +28,7 @@
 
 ### AndroidStudio集成方式
 
-1.在app模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
+1.在项目模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
 
 ```java
 compile 'com.tencent.xinge:xgmz:3.2.2-release'
@@ -91,7 +91,7 @@ compile 'com.tencent.xinge:xgmz:3.2.2-release'
 
 ```xml
 <!-- 默认的自定义广播接收器，用于自定义处理魅族push消息广播，receiver的name为自定义的广播接收类 start -->
-<receiver android:name="应用包名.MzReceiver">
+<receiver android:name="com.tencent.android.mzpush.MZPushMessageReceiver">
     <intent-filter>
         <!-- 接收push消息 -->
         <action android:name="com.meizu.flyme.push.intent.MESSAGE" />

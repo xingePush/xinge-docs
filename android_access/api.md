@@ -570,7 +570,7 @@ message：接收到消息结构体，其中XGPushTextMessage的方法列表如�
         ```
         
 ##自定义通知样式
-用户可以根据自行需要设置通知样式，由于目前的定制ROM的限制，部分接口 无法适配全部机型。
+用户可以根据自行需要设置通知样式，但由于目前定制ROM的限制，部分接口无法适配全部机型。
 
  ```java
   XGCustomPushNotificationBuilder build = new  XGCustomPushNotificationBuilder();

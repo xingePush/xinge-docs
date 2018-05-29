@@ -118,7 +118,7 @@ android:protectionLevel="signature" />
 ```xml
 <receiver
 android:exported="true"
-android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver">
+android:name="com.tencent.android.mipush.XMPushMessageReceiver">
 <intent-filter>
 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
 </intent-filter>

@@ -509,6 +509,11 @@ android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
 ```java
 action.setIntent("xgscheme://com.xg.push/notify_detail");
 ```
+3.若要在intent里带上参数，可以这样设置：
+```java
+action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb"");
+```
+
 
 
 

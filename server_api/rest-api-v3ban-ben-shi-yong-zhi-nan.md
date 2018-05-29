@@ -25,7 +25,7 @@
 
 ## 协议描述
 
-**请求URL**：`http://openapi.xg.qq.com/v3/class_path/method`
+**请求URL**：`https://openapi.xg.qq.com/v3/class_path/method`
 
 | 字段名 | 用途 | 备注 |
 | :--- | :--- | :--- |
@@ -36,7 +36,11 @@
 
 ## 权鉴方式
 
-采用基础鉴权的方式，对接口调用进行权限校验：Base authorization:appid:secretkey
+采用基础鉴权的方式，对接口调用进行权限校验：
+
+Base authorization:
+
+appid:secretkey
 
 ## 通用基础返回值
 

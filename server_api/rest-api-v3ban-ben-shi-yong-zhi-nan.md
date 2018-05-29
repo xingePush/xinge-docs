@@ -145,11 +145,9 @@ appid:secretkey
 
 [通用基础返回值](##通用基础返回值)，result字段会包含给app下发的任务id:
 
-```
+```json
 {
-"push_id"
-:
-10000
+    "push_id": 10000
 }
 ```
 
@@ -159,20 +157,8 @@ appid:secretkey
 
 ```json
 {
-"push_id"
-:
-10000
-,
-//父任务id
-"sub_push_ids"
-:[
-234
-,
-235
-,
-236
-] 
-//子任务id
+    "push_id":10000,//父任务id
+    "sub_push_ids":[234,235,236] //子任务id
 }
 ```
 
@@ -206,11 +192,9 @@ appid:secretkey
 
 [通用基础返回值](通用基础返回值)，result字段会包含给app下发的任务id
 
-```
+```json
 {
-"push_id"
-:
-10000
+    "push_id": 10000
 }
 ```
 
@@ -218,22 +202,10 @@ appid:secretkey
 
 具体示例如下：
 
-```
+```json
 {
-"push_id"
-:
-10000
-,
-//父任务id
-"sub_push_ids"
-:[
-234
-,
-235
-,
-236
-] 
-//子任务id
+    "push_id":10000,//父任务id
+    "sub_push_ids":[234,235,236] //子任务id
 }
 ```
 
@@ -372,153 +344,61 @@ Android平台具体字段如下表：
 
 完整的消息示例如下：
 
-```
+```json
 {
-"title"
-: 
-"xxx"
-,
-"content "
-: 
-"xxxxxxxxx"
-,
-"accept_time"
-: [
-  {
-"start"
-: {
-"hour"
-: 
-"13"
-,
-"min"
-: 
-"00"
-  },
-"end"
-: {
-"hour"
-: 
-"14"
-,
-"min"
-: 
-"00"
-  }
-  },
-  {
-"start"
-: {
-"hour"
-: 
-"00"
-,
-"min"
-: 
-"00"
-  },
-"end"
-: {
-"hour"
-: 
-"09"
-,
-"min"
-: 
-"00"
-  }
-  }
+  "title": "xxx",
+  "content ": "xxxxxxxxx",
+  "accept_time": [
+    {
+      "start": {
+        "hour": "13",
+        "min": "00"
+      },
+      "end": {
+        "hour": "14",
+        "min": "00"
+      }
+    },
+    {
+      "start": {
+        "hour": "00",
+        "min": "00"
+      },
+      "end": {
+        "hour": "09",
+        "min": "00"
+      }
+    }
   ],
-"android"
-: {
-"n_id"
-: 
-0
-,
-"builder_id"
-: 
-0
-,
-"ring"
-: 
-1
-,
-"ring_raw"
-: 
-"ring"
-,
-"vibrate"
-: 
-1
-,
-"lights"
-: 
-1
-,
-"clearable"
-: 
-1
-,
-"icon_type"
-: 
-0
-,
-"icon_res"
-: 
-"xg"
-,
-"style_id"
-: 
-1
-,
-"small_icon"
-: 
-"xg"
-,
-"action"
-: {
-"action_type "
-: 
-1
-,
-"activity"
-: 
-"xxx"
-,
-"aty_attr"
-: {
-"if"
-: 
-0
-,
-"pf"
-: 
-0
-  },
-"browser"
-: {
-"url"
-: 
-"xxxx "
-,
-"confirm"
-: 
-1
-  },
-"intent"
-: 
-"xxx"
-  },
-"custom_content"
-: {
-"key1"
-: 
-"value1"
-,
-"key2"
-: 
-"value2"
-  }
+  "android": {
+    "n_id": 0,
+    "builder_id": 0,
+    "ring": 1,
+    "ring_raw": "ring",
+    "vibrate": 1,
+    "lights": 1,
+    "clearable": 1,
+    "icon_type": 0,
+    "icon_res": "xg",
+    "style_id": 1,
+    "small_icon": "xg",
+    "action": {
+      "action_type ": 1,
+      "activity": "xxx",
+      "aty_attr": {
+        "if": 0,
+        "pf": 0
+      },
+      "browser": {
+        "url": "xxxx ",
+        "confirm": 1
+      },
+      "intent": "xxx"
+    },
+    "custom_content": {
+      "key1": "value1",
+      "key2": "value2"
+    }
   }
 }
 ```
@@ -535,37 +415,21 @@ iOS平台具体字段如下表：
 
 完整的消息示例如下：
 
-```
+```json
 {
-"aps"
-: {
-"alert"
-: {
-"subtitle"
-: 
-"my subtitle"
+  "aps": {
+    "alert": {
+      "subtitle": "my subtitle"
+    },
+    "badge": 5,
+    "category": "INVITE_CATEGORY"
   },
-"badge"
-: 
-5
-,
-"category"
-: 
-"INVITE_CATEGORY"
-  },
-"custom1"
-: 
-"bar"
-,
-"custom2"
-: [
-"bang"
-,
-"whiz"
+  "custom1": "bar",
+  "custom2": [
+    "bang",
+    "whiz"
   ],
-"xg"
-: 
-"oops"
+  "xg": "oops"
 }
 ```
 
@@ -584,74 +448,36 @@ Android平台具体字段如下表：
 
 具体完整示例：
 
-```
+```json
 {
-"title"
-:
-"this is title"
-,
-"content"
-:
-"this is content"
-,
-"custom_content"
-:{
-"key1"
-:
-"value1"
-,
-"key2"
-:
-"value2"
-  },
-"accept_time"
-:[
-//在下午1点到下午2点或者是凌晨0点到上午9点之间，消息可以展示，其他时间段，消息不会展示
-  {
-"start"
-:{
-"hour"
-:
-"13"
-,
-"min"
-:
-"00"
-  },
-"end"
-:{
-"hour"
-:
-"14"
-,
-"min"
-:
-"00"
-  }
-  },
-  {
-"start"
-:{
-"hour"
-:
-"00"
-,
-"min"
-:
-"00"
-  },
-"end"
-:{
-"hour"
-:
-"09"
-,
-"min"
-:
-"00"
-  }
-  }
-  ]
+    "title":"this is title",
+    "content":"this is content",
+    "custom_content":{
+        "key1":"value1",
+        "key2":"value2"
+    },
+    "accept_time":[//在下午1点到下午2点或者是凌晨0点到上午9点之间，消息可以展示，其他时间段，消息不会展示
+        {
+            "start":{
+                "hour":"13",
+                "min":"00"
+            },
+            "end":{
+                "hour":"14",
+                "min":"00"
+            }
+        },
+        {
+            "start":{
+                "hour":"00",
+                "min":"00"
+            },
+            "end":{
+                "hour":"09",
+                "min":"00"
+            }
+        }
+    ]
 }
 ```
 
@@ -669,27 +495,16 @@ Android平台具体字段如下表：
 
 具体完整示例：
 
-```
+```json
 {
-"aps"
-:{
-"content-available"
-:
-1
-  },
-"custom"
-:{
-"key1"
-:
-"value1"
-,
-"key2"
-:
-"value2"
-  },
-"xg"
-: 
-"oops"
+    "aps":{
+        "content-available":1
+    },
+    "custom":{
+        "key1":"value1",
+        "key2":"value2"
+    },
+  "xg": "oops"
 }
 ```
 

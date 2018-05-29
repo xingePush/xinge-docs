@@ -161,18 +161,15 @@ String s = clickedResult.getContent();
 * 需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
 
 ```
-<activity 
+<activity
 android:name="com.qq.xg.AboutActivity"
-android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-<intent-filter>
-<action
-android:name="android.intent.action.VIEW"/>
-<category
-android:name="android.intent.category.DEFAULT"/>
-<data
-android:scheme="xgscheme"
+android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+<intent-filter >
+<action android:name="android.intent.action.VIEW" />
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="xgscheme"
 android:host="com.xg.push"
-android:path="otify_detail"/>
+android:path="/notify_detail" />
 </intent-filter>
 </activity>
 ```
@@ -193,17 +190,10 @@ action.setIntent("xgscheme://com.xg.pushotify_detail");
 * 根据开发文档检查manifest文件配置，尤其是需要修改包名的地方是否修改
 
 ```
-<permission
-android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE"
-android:protectionLevel="signature"/>
-<
-!-- 这里com.example.mipushtest改成app的包名 --
->
-<uses-permission
-android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE"/>
-<
-!-- 这里com.example.mipushtest改成app的包名 --
->
+<permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
+<!-- 这里com.example.mipushtest改成app的包名 -->
+<uses-permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" />
+<!-- 这里com.example.mipushtest改成app的包名 -->
 ```
 
 * 在信鸽注册前是否设置了小米的APPID和APPKEY，以及第三方推送有没有启动

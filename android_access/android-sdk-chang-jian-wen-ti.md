@@ -70,83 +70,20 @@
 /**
      * 查询token的标签
      */
-public
-function
-QueryTokenTags
-(
-$deviceToken
-)
-{
-$ret
-=
-array
-(
-'ret_code'
-=
->
--
-1
-);
-if
-(
-!
-is_string
-(
-$deviceToken
-))
-{
-$ret
-[
-'err_msg'
-]
-=
-'deviceToken is not valid'
-;
-return
-$ret
-;
-}
-$params
-=
-array
-();
-$params
-[
-'access_id'
-]
-=
-$this
--
->
-accessId
-;
-$params
-[
-'device_token'
-]
-=
-$deviceToken
-;
-$params
-[
-'timestamp'
-]
-=
-time
-();
-return
-$this
--
->
-callRestful
-(
-self
-::
-RESTAPI_QUERYTOKENTAGS
-,
-$params
-);
-}
+public function QueryTokenTags($deviceToken)
+    {
+        $ret = array('ret_code' => -1);
+        if (!is_string($deviceToken)) {
+            $ret['err_msg'] = 'deviceToken is not valid';
+            return $ret;
+        }
+        $params = array();
+        $params['access_id'] = $this->accessId;
+        $params['device_token'] = $deviceToken;
+        $params['timestamp'] = time();
+
+        return $this->callRestful(self::RESTAPI_QUERYTOKENTAGS, $params);
+    }
 ```
 
 [1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).2. 推送数据问题

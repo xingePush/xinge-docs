@@ -21,8 +21,6 @@
 
 * 只支持https的请求方式
 
-  ​
-
 ## 协议描述
 
 **请求URL**：`https://openapi.xg.qq.com/v3/class_path/method`

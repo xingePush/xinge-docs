@@ -377,74 +377,36 @@ Android平台具体字段如下表：
 
 具体完整示例：
 
-```
+```json
 {
-"title"
-:
-"this is title"
-,
-"content"
-:
-"this is content"
-,
-"custom_content"
-:{
-"key1"
-:
-"value1"
-,
-"key2"
-:
-"value2"
-  },
-"accept_time"
-:[
-//在下午1点到下午2点或者是凌晨0点到上午9点之间，消息可以展示，其他时间段，消息不会展示
-  {
-"start"
-:{
-"hour"
-:
-"13"
-,
-"min"
-:
-"00"
-  },
-"end"
-:{
-"hour"
-:
-"14"
-,
-"min"
-:
-"00"
-  }
-  },
-  {
-"start"
-:{
-"hour"
-:
-"00"
-,
-"min"
-:
-"00"
-  },
-"end"
-:{
-"hour"
-:
-"09"
-,
-"min"
-:
-"00"
-  }
-  }
-  ]
+    "title": "this is title",
+    "content": "this is content",
+    "custom_content": {
+        "key1": "value1",
+        "key2": "value2"
+    },
+    "accept_time": [
+        {
+            "start": {
+                "hour": "13",
+                "min": "00"
+            },
+            "end": {
+                "hour": "14",
+                "min": "00"
+            }
+        },
+        {
+            "start": {
+                "hour": "00",
+                "min": "00"
+            },
+            "end": {
+                "hour": "09",
+                "min": "00"
+            }
+        }
+    ]
 }
 ```
 

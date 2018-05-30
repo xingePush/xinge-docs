@@ -166,37 +166,26 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 
 * 设备列表推送，推送给token为"token1"和"token2"的设备
 
-  ```
+  ```json
   {
-  "audience_type"
-  : 
-  "token_list"
-  ,
-  "token_list"
-  : [
-  "token1"
-  , 
-  "token2"
-  ],
-  "push_id"
-  : 
-  "0"
-  }
+    "audience_type": "token_list",
+    "token_list": [
+        "token1",
+        "token2"
+    ],
+    "push_id": "0"
+}
   ```
 
 * 单账号推送：推送给账号为"account1"的设备
 
-  ```
+  ```json
   {
-  "audience_type"
-  : 
-  "account"
-  ,
-  "account_list"
-  : [
-  "account1"
-  ]
-  }
+    "audience_type": "account",
+    "account_list": [
+        "account1"
+    ]
+}
   ```
 
 * 账号列表推送：推送账号为"account1"和"account2"的设备

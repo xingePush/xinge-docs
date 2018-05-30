@@ -424,27 +424,16 @@ Android平台具体字段如下表：
 
 具体完整示例：
 
-```
+```json
 {
-"aps"
-:{
-"content-available"
-:
-1
-  },
-"custom"
-:{
-"key1"
-:
-"value1"
-,
-"key2"
-:
-"value2"
-  },
-"xg"
-: 
-"oops"
+    "aps": {
+        "content-available": 1
+    },
+    "custom": {
+        "key1": "value1",
+        "key2": "value2"
+    },
+    "xg": "oops"
 }
 ```
 

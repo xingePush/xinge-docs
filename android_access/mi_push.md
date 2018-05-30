@@ -1,9 +1,9 @@
-#小米推送通道集成指南
+# 小米推送通道集成指南
 
 小米推送通道是由**小米官方提供**的系统级推送通道。在小米手机上，推送消息能够通过小米的系统通道抵达终端，并且无需打开应用就能够收到推送。使用此功能必须先集成信鸽3.2.0以上版本。
 
 
-##获取小米推送秘钥
+## 获取小米推送秘钥
 
 
 (a)根据[小米开放平台](https://dev.mi.com/console/appservice/push.html)指引开通小米开发者账号,然后注册应用并获取小米推送的秘钥。 
@@ -15,8 +15,8 @@
 获取小米推送密钥：
 ![](/assets/或者小米ID.jpeg)
 
-##配置小米推送相关内容
-###AS开发建议使用jcenter依赖接入
+## 配置小米推送相关内容
+### AS开发建议使用jcenter依赖接入
 
 1.配置包名。
 
@@ -56,7 +56,7 @@ android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver"
 ```
 **注：**如果使用mipush:3.2.4-beta版本则不需要此步骤，只需要前两步即可
 
-###Eclipse开发接入
+### Eclipse开发接入
 
 1.引入小米推送的jar包，可以在小米推送web官网[下载小米的jar包](https://dev.mi.com/mipush/downpage/)。
 
@@ -118,7 +118,7 @@ android:protectionLevel="signature" />
 ```xml
 <receiver
 android:exported="true"
-android:name="完整路径+类名如：com.qq.xgdemo.receiver.MiMessageReceiver">
+android:name="com.tencent.android.mipush.XMPushMessageReceiver">
 <intent-filter>
 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
 </intent-filter>
@@ -149,14 +149,14 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 12-02 16:17:33.001 12584-12626/com.qq.xgdemo I/XINGE: [XGOtherPush] other push token is : YZQfRxmxdfNlbSKpNWCa3tM4Esnq6op4qeOsQO2qT88= other push type: xiaomi
 ```
 
-##代码混淆
+## 代码混淆
 
 ```xml
 -keepclasseswithmembernames class com.xiaomi.**{*;}
 -keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
 ```
 
-##厂商通道测试方法(通用)
+## 厂商通道测试方法(通用)
 
 1. 在您的App中集成信鸽V3.2.1以上版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 

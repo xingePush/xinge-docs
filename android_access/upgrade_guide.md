@@ -1,14 +1,14 @@
-#信鸽Android 3.版本升级指南
+# 信鸽Android SDK 3.* 版本升级指南
 
 <hr>
 
 1.	【必须】提取SDK文档中的最新jar包替换当前信鸽SDK版本。                         
-2.	【必须】根据所需平台，提取libtpnsSecurity.so和libxguardian.so替换老版本
+2.	【必须】根据所需平台，提取```libtpnsSecurity.so```和```libxguardian.so```替换老版本
 
-3.	【必须】设置XGPushActivity和用户自定义的MessageReceiver的android:exported建议设 
-置为"false"
+3.	【必须】添加```XGPushActivity```页面配置和设置用户自定义的```MessageReceiver```的```android:exported``` 为```"false"```
             
 ```xml 
+如下所示
 <activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="false" > </activity> 
 
 <receiver android:name="您的自定义MessageReceiver，继承于XGPushBaseReceiver" android:exported="true"> 
@@ -20,7 +20,12 @@
       </intent-filter> 
 </receiver> ```
 
-4.【必须】检查是否配置com.tencent.android.tpush.service.XGPushServiceV3和com.tencent.android.tpush.rpc.XGRemoteService，若无配置则功能不可使用
+4.【必须】检查是否配置
+```
+com.tencent.android.tpush.service.XGPushServiceV3
+com.tencent.android.tpush.rpc.XGRemoteService
+```
+若无配置则功能不可用
 
 ```xml
 <!-- 【必须】 信鸽service -->
@@ -40,7 +45,14 @@
            </intent-filter>
        </service>```
 
-5.【必须】检查是否配置com.tencent.android.tpush.XGPushProvider、com.tencent.android.tpush.SettingsContentProvider和com.tencent.mid.api.MidProvider，若无配置则功能不可使用
+5.【必须】检查是否配置
+
+```
+   com.tencent.android.tpush.XGPushProvider
+   com.tencent.android.tpush.SettingsContentProvider
+   com.tencent.mid.api.MidProvider 
+```
+若无配置则功能不可用
 
 ```xml
 <!-- 【必须】 【注意】authorities修改为 包名.AUTH_XGPUSH, 如demo的包名为：com.qq.xgdemo-->

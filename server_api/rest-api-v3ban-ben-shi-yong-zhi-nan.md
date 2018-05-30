@@ -461,132 +461,44 @@ Push API可选参数是除了audience\_type、platform、message\_type、message
 
 #### 标签推送请求消息
 
-```
-POST
-/
-v3
-/
-push
-/
-app
-HTTP
-/
-1.1
-Host
-: 
-openapi
-.
-xg
-.
-qq
-.
-com
-Content
--
-Type
-: 
-application
-/
-json
-Authorization
-: 
-Basic
-YTViNWYwNzFmZjc3YTplYTUxMmViNzcwNGQ1ZmI1YTZhOTM3Y2FmYTcwZTc3MQ
-==
-Cache
--
-Control
-: 
-no
--
-cache
-Postman
--
-Token
-: 
-4
-b82a159
--
-afdd
--
-4
-f5c
--
-b459
--
-de978d845d2f
-​
+```json
+POST /v3/push/app HTTP/1.1
+Host: openapi.xg.qq.com
+Content-Type: application/json
+Authorization: Basic YTViNWYwNzFmZjc3YTplYTUxMmViNzcwNGQ1ZmI1YTZhOTM3Y2FmYTcwZTc3MQ==
+Cache-Control: no-cache
+Postman-Token: 4b82a159-afdd-4f5c-b459-de978d845d2f
 {
-"platform"
-: 
-"android"
-,
-"audience_type"
-: 
-"tag"
-,
-"tag_list"
-: {
-"tags"
-:[
-"tag1"
-,
-"tag2"
-],
-"op"
-:
-"AND"
-},
-"message_type"
-: 
-"notify"
-,
-"message"
-: {
-"title"
-: 
-"this is title"
-,
-"content"
-: 
-"this is content"
-,
-"custom_content"
-: {
-"key1"
-: 
-"value1"
-,
-"key2"
-: 
-"value2"
-  },
-"accept_time"
-: [
-  {
-"start"
-: {
-"hour"
-: 
-"13"
-,
-"min"
-: 
-"00"
-  },
-"end"
-: {
-"hour"
-: 
-"14"
-,
-"min"
-: 
-"00"
-  }
-  }
-  ]
-  }
+    "platform": "android",
+    "audience_type": "tag",
+    "tag_list": {
+        "tags": [
+            "tag1",
+            "tag2"
+        ],
+        "op": "AND"
+    },
+    "message_type": "notify",
+    "message": {
+        "title": "this is title",
+        "content": "this is content",
+        "custom_content": {
+            "key1": "value1",
+            "key2": "value2"
+        },
+        "accept_time": [
+            {
+                "start": {
+                    "hour": "13",
+                    "min": "00"
+                },
+                "end": {
+                    "hour": "14",
+                    "min": "00"
+                }
+            }
+        ]
+    }
 }
 ```
 

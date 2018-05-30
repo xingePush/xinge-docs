@@ -23,7 +23,7 @@
   * [Rest API v2版本 使用指南](push_faq/server_api/rest.md)
   * [Rest API v3版本 使用指南](push_faq/server_api/rest_api_v3.md)
   * [服务端其他语言](push_faq/server_api/other.md)
-* [信鸽推送管理台](xin-ge-tui-song-guan-li-tai.md)
+* [信鸽推送管理台](manage.md)
   * [管理台权限说明](console/auth.md)
   * [管理台数据展示说明](console/pushdetail.md)
 * [最近更新](sdk_update.md)

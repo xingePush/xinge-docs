@@ -22,9 +22,9 @@
 * [服务端API接入](server_api.md)
   * [Rest API v2版本 使用指南](server_api/rest.md)
   * [服务端其他语言](server_api/other.md)
-* [最近更新](sdk_update.md)
-* [名词解释](push_faq/noun_explanation.md)
 * [信鸽推送管理台](xin-ge-tui-song-guan-li-tai.md)
   * [管理台权限说明](console/auth.md)
   * [管理台数据展示说明](console/pushdetail.md)
+* [最近更新](sdk_update.md)
+* [名词解释](push_faq/noun_explanation.md)
 

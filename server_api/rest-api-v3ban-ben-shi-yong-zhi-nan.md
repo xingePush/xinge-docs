@@ -128,7 +128,7 @@
 | :--- | :--- | :--- | :--- |
 | audience\_type | string | 是 | 推送目标&lt;br&gt;all：全量推送&lt;br&gt;tag：标签推送&lt;br&gt;token：设备推送&lt;br&gt;token\_list ：设备列表推送&lt;br&gt;account：账号推送&lt;br&gt;account\_list：账号列表推送 |
 | platform | string | 是 | 客户端平台类型&lt;br&gt;android：安卓&lt;br&gt;ios：苹果&lt;br&gt;all：安卓和苹果平台都发，仅全推和标签推送时才能填all |
-| message | object | 是 | 消息体，参见[消息体格式](#%E9%80%9A%E7%94%A8%E5%9F%BA%E7%A1%80%E8%BF%94%E5%9B%9E%E5%80%BC) |
+| message | object | 是 | 消息体，参见[消息体格式](#通用基础返回值) |
 | message\_type | string | 是 | 消息类型&lt;br&gt;notify：通知&lt;br&gt;message：透传消息/静默消息 |
 
 #### audience\_type：推送目标
@@ -473,6 +473,204 @@ Android平台具体字段如下表：
 ```
 
 ##### iOS普通消息
+
+iOS平台具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 必需 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| aps | JSON | 无 | 是 | 苹果推送服务\(APNs\)特有的消息体字段&lt;br&gt;其中比较重要的键值对:&lt;br&gt;alert：包含标题和消息内容\(必选\)&lt;br&gt;badge：App显示的角标数\(可选\),&lt;br&gt;category：下拉消息时显示的操作标识\(可选\)&lt;br&gt;详细介绍可以参照：[Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) |
+| custom | string/JSON | 无 | 否 | 自定义下发的参数 |
+| xg | string | 无 | 否 | 系统保留key，应避免使用 |
+
+完整的消息示例如下：
+
+```
+{
+"title"
+: 
+"xxx"
+,
+"content"
+: 
+"xxxxxxxxx"
+,
+"aps"
+: {
+"alert"
+: {
+"subtitle"
+: 
+"my subtitle"
+  },
+"badge"
+: 
+5
+,
+"category"
+: 
+"INVITE_CATEGORY"
+  },
+"custom1"
+: 
+"bar"
+,
+"custom2"
+: [
+"bang"
+,
+"whiz"
+  ],
+"xg"
+: 
+"oops"
+}
+```
+
+##### Android透传消息
+
+透传消息，Android平台特有，即不显示在手机通知栏中的消息，可以用来实现让用户无感知的向App下发带有控制性质的消息
+
+Android平台具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 是否必需 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| title | string | 无 | 是 | 消息标题 |
+| content | string | 无 | 是 | 消息内容 |
+| custom\_content | JSON | 无 | 否 | 自定义内容 |
+| accept\_time | array | 无 | 否 | 消息将在哪些时间段允许推送给用户，建议小于10个 |
+
+具体完整示例：
+
+```
+{
+"title"
+:
+"this is title"
+,
+"content"
+:
+"this is content"
+,
+"custom_content"
+:{
+"key1"
+:
+"value1"
+,
+"key2"
+:
+"value2"
+  },
+"accept_time"
+:[
+//在下午1点到下午2点或者是凌晨0点到上午9点之间，消息可以展示，其他时间段，消息不会展示
+  {
+"start"
+:{
+"hour"
+:
+"13"
+,
+"min"
+:
+"00"
+  },
+"end"
+:{
+"hour"
+:
+"14"
+,
+"min"
+:
+"00"
+  }
+  },
+  {
+"start"
+:{
+"hour"
+:
+"00"
+,
+"min"
+:
+"00"
+  },
+"end"
+:{
+"hour"
+:
+"09"
+,
+"min"
+:
+"00"
+  }
+  }
+  ]
+}
+```
+
+##### iOS静默消息
+
+静默消息，iOS平台特有，类似Android中的透传消息，消息不展示，当静默消息到达终端时，iOS会在后台唤醒App一段时间\(小于30s\)，让App来处理消息逻辑
+
+具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 是否必要 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| aps | JSON | 无 | 是 | 苹果推送服务\(APNs\)特有的，&lt;br&gt;其中最重要的键值对:&lt;br&gt;content-available：标识消息类型\(必须为1\)&lt;br&gt;且不能包含alert、sound、badge字段&lt;br&gt;详细介绍可以参照：[Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) |
+| custom | string/JSON | 无 | 否 | 自定义下发的参数 |
+| xg | string | 无 | 否 | 系统保留key，应避免使用 |
+
+具体完整示例：
+
+```
+{
+"aps"
+:{
+"content-available"
+:
+1
+  },
+"custom"
+:{
+"key1"
+:
+"value1"
+,
+"key2"
+:
+"value2"
+  },
+"xg"
+: 
+"oops"
+}
+```
+
+### 推送可选参数
+
+推送可选参数是除了audience\_type、platform、message\_type、message以外，可选的高级参数。
+
+| 参数名 | 类型 | 必需 | 默认值 | 描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| expire\_time | int | 否 |  | 消息离线存储时间（单位为秒）&lt;br&gt;最长存储时间3天，若设置为0，则默认值（3天）&lt;br&gt;建议取值区间\[600, 86400x3\]&lt;br&gt;第三方通道离线保存消息不同厂商标准不同 |
+| send\_time | string | 否 |  | 指定推送时间&lt;br&gt;格式为yyyy-MM-DD HH:MM:SS&lt;br&gt;若小于服务器当前时间，则会立即推送&lt;br&gt;仅全量推送和标签推送支持此字段 |
+| multi\_pkg | bool | 否 | false | 表示按注册时提供的包名分发消息 |
+| loop\_times | int | 否 |  | 循环任务重复次数&lt;br&gt;仅支持全推、标签推&lt;br&gt;建议取值\[1, 15\] |
+| loop\_interval | int | 否 |  | 循环执行消息下发的间隔&lt;br&gt;必须配合loop\_times使用&lt;br&gt;以天为单位，取值\[1, 14\]&lt;br&gt;loop\_times和loop\_interval一起表示消息下发任务的循环规则，不可超过14天 |
+| environment | string | 否 | product | 用户指定推送环境&lt;br&gt;product： 推送生产环境&lt;br&gt;dev： 表示推送开发环境 |
+| stat\_tag | string | 否 |  | 用于聚合统计使用的标签，比如业务id、活动id |
+| seq | int64\_t | 否 |  | 接口调用时，在应答包中信鸽会回射该字段,可用于异步请求 |
+| tag\_list | object | 标签推送时必需 | 无 | 1. {“tags”:\[“tag1”,”tag2”\],”op”:”AND”} 表示推送设置了tag1 和tag2 的设备&lt;br&gt;2. {“tags”:\[“tag1”,“tag2”\],”op”:“OR”}表示推送设置了tag1 或tag2 的设备 |
+| account\_list | array | 账号推送、账号列表推送时时必需 |  | 1. audience\_type=account且该参数有多个账号时，仅推送第一个账号&lt;br&gt;2. 最多1000 个account&lt;br&gt;3. 格式eg：\[“account1”,”account2”\] |
+| account\_type | int | 账号推送时可选 | 0 | 1. 账号类型，参考后面账号说明。&lt;br&gt;2. 必须与账号绑定时设定的账号类型一致。 |
+| token\_list | array | 设备推送、设备列表推送时必需 | 无 | 1. 如果该参数包含多个token 只会推送第一个token&lt;br&gt;2. 最多1000 个token&lt;br&gt;3. 格式eg：\[“token1”,”token2”\] |
+| push\_id | string | 账号列表推送、设备列表推送时必需 |  | 账号列表推送和设备列表推送时，第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123，后续推送push\_id 填123\(同一个文案）表示使用与123 id 对应的文案进行推送。\(注：文案的有效时间由前面的expire\_time 字段决定） |
+
+### 推送请求完整示例
 
 
 

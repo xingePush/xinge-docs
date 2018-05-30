@@ -140,40 +140,28 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 
 * 标签推送：推送给同时设置了"tag1"和”tag2“标签的设备
 
-  ```
-  {
-  "audience_type"
-  : 
-  "tag"
-  ,
-  "tag_list"
-  : {
-  "tags"
-  :[
-  "tag1"
-  ,
-  "tag2"
-  ],
-  "op"
-  :
-  "AND"
-  },
-  }
+  ```json
+ {
+    "audience_type": "tag",
+    "tag_list": {
+        "tags": [
+            "tag1",
+            "tag2"
+        ],
+        "op": "AND"
+    }
+}
   ```
 
 * 单设备推送：推送给token为"token1"的设备
 
-  ```
+  ```json
   {
-  "audience_type"
-  : 
-  "token"
-  ,
-  "token_list"
-  : [
-  "token1"
-  ]
-  }
+    "audience_type": "token",
+    "token_list": [
+        "token1"
+    ]
+}
   ```
 
 * 设备列表推送，推送给token为"token1"和"token2"的设备

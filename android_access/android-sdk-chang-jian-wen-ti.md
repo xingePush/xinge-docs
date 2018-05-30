@@ -1,12 +1,11 @@
 # Android平台常见问题
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1). 推送问题
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1. 收不到推送的问题
+## 收不到推送的问题
 
 用获取到的Token，在「[信鸽官网](http://xg.qq.com/)」推送。如无法收到推送请根据以下情况进行排查（请确保SDK版本是最新的版本，如果是旧版本出现问题，在新版本可能已经修复，如遇到web端推送报错，请刷新页面重试）
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1.1. 注册成功无法收到推送
+### 注册成功无法收到推送
 
 * 请查看当前的应用包名是否和注册信鸽应用时填写的应用包名是否一致。如果不一致，推送的时候建议开启多包名推送
 * 检查手机网络是是否异常，切换4G网络测试一下
@@ -14,7 +13,7 @@
 * 确认手机当前模式是正常模式，部分手机在低电量，勿扰模式，省电模式下，会对后台信鸽进程进行一系列网络和活动的限制
 * 查看设备是否开启通知栏权限，oppo,vivo等手机，需要手动开启通知栏权限
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1.2. 注册不成功无法收到推送：
+### 注册不成功无法收到推送
 
 * 新创建的app会有一分钟左右的数据同步过程，在此期间注册可能返回20错误码，稍后重试即可
 
@@ -25,7 +24,7 @@
 **\[注册返回错误\]**
 
 * 若控制台返回「10004」、「10002」、「20」等错误码请参考
-  [信鸽错误码表](http://git.code.oa.com/)
+  [信鸽错误码表]()
 
 **\[注册无回调\]**
 
@@ -37,13 +36,13 @@
 * **努比亚手机**
   在2015年下半年和2016年出的机器都无法注册，具体机型包括「Nubia Z11系列」，「NubiaZ11S系列」，「NubiaZ9S系列」。可以的注册的机器都是之前的机器，包括「Z7系列」，「My布拉格系列」（在信鸽2.47和信鸽3.X上都有这个现象）
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1.3. 关闭应用无法收到推送
+### 关闭应用无法收到推送
 
 * 目前第三方推送都无法保证关闭应用过后还可以收到推送消息，这个是手机定制ROM对信鸽service的限制问题，信鸽的一切活动都需要建立在信鸽的service能够正常联网运行，service被终止后，由系统、安全软件和用户操作限定是否能够再次启动
 * QQ，微信是系统级别的应用白名单，相关的service不会应用关闭应用而退出所以用户感知推出应用过后还可以收到消息其实相关的service 还是能够在后台存活的
 * Android端在应用退出，信鸽service和信鸽的服务器断开连接后，这个时候给这个设备下发的消息，会变成离线消息，离线消息最多保存72消息，每个设备最多保存两条，如果有多条离线消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\);
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1.4. 账号推送收不到
+### 账号推送收不到
 
 「账号」，又称「别名」，指带有账号登录功能的APP的用户账号，这里不仅仅是QQ或微信，只要是用户的账号都支持，比如手机QQ的账号就是QQ号码，gmail的账号就是邮箱，中国移动的账号就是手机号码。
 
@@ -60,7 +59,7 @@
 
 \*\*注意：\*\*一个帐号（即别名，account）下面最多可以绑定15台设备，当绑定满后，最新绑定的设备会随机顶掉之前绑定的一台设备TokenToken
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).1.5. 标签推送收不到
+### 标签推送收不到
 
 \[1\] 请确认tag标签是否绑定成功，一个应用最多有10000个 标签「tag」， 每个Token在一个应用下最多100个 标签「tag」， 标签「tag」中不准包含空格
 
@@ -86,7 +85,7 @@ public function QueryTokenTags($deviceToken)
     }
 ```
 
-[1](http://git.code.oa.com/data-pc-md/data-pc-md/issues/1).2. 推送数据问题
+## 推送数据问题
 
 **\[推送暂停\]**
 
@@ -110,7 +109,7 @@ public function QueryTokenTags($deviceToken)
 
 * 展示的是当天的数据，某天的数据是在那一天中各种推送行为的推送总量。（分为单推，广播也就是批量和全量推送，通知栏消息和应用内消息四类）
 
-[2](http://git.code.oa.com/data-pc-md/data-pc-md/issues/2). 消息点击事件，以及跳转页面方法
+## 消息点击事件以及跳转页面方法
 
 ---
 
@@ -180,9 +179,9 @@ android:path="/notify_detail" />
 action.setIntent("xgscheme://com.xg.pushotify_detail");
 ```
 
-[3](http://git.code.oa.com/data-pc-md/data-pc-md/issues/3). 信鸽Android SDK集成厂商通道相关问题
+## 信鸽Android SDK集成厂商通道相关问题
 
-[3](http://git.code.oa.com/data-pc-md/data-pc-md/issues/3).1. 调试过程中可能遇到的otherpushToken = null的问题
+### 调试过程中可能遇到的otherpushToken = null的问题
 
 **\[小米通道排查路径\]**
 
@@ -224,7 +223,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 * 和小米通道的排查方法类似，参考小米通道的排查路径即可
 
-[4](http://git.code.oa.com/data-pc-md/data-pc-md/issues/4). 常见问题FAQ
+## 常见问题FAQ
 
 ---
 

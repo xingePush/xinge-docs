@@ -15,7 +15,7 @@
 * 信鸽主 Service 在接入信鸽的应用中随机启动一个备份的 Service, 2 个Service相互拉活，互为备份
 * 信鸽主 Service 建立一个信鸽服务器的 Socket 长连接，并通过心跳等机制维持长连接一直存在
 * 客户端主 Service 通过 Socket 长连接请求向信鸽服务器请求 Token
-* 信鸽服务器 通过 Socket 长连接推送消息到客户端主 Service
+* 信鸽服务器通过 Socket 长连接推送消息到客户端主 Service
 * 主 Service 把 Push 消息转发到对应的客户端 APP 上
 
 * **简要说明Andoid客户端实现推送流程的步骤（含厂商通道版本）：**

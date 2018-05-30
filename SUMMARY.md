@@ -2,7 +2,7 @@
 
 * [信鸽推送基础介绍](README.md)
 * [Android接入](android_access.md)
-  * [XG推送服务介绍](android_access/xgtui-song-fu-wu-jie-shao.md)
+  * [Android 推送服务介绍](android_access/xgtui-song-fu-wu-jie-shao.md)
   * [Android SDK 集成指南](android_access/jcenter.md)
   * [Android SDK 3.\* 版本升级指南](android_access/upgrade_guide.md)
   * [Android SDK API](android_access/api.md)

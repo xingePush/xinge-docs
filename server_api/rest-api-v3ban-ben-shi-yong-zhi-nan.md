@@ -255,14 +255,14 @@ Android平台具体字段如下表：
 | title | string | 无 | 是 | 消息标题 |
 | content | string | 无 | 是 | 消息内容 |
 | accept\_time | array | 无 | 否 | 消息将在哪些时间段允许推送给用户，建议小于10个 |
-| n\_id | int | 0 | 否 | 通知消息对象的唯一标识&lt;br&gt;&lt;font size=0.5 color=\#ff6a6a&gt;1.大于0，会覆盖先前相同id的消息；&lt;br&gt;2.等于0，展示本条通知且不影响其他消息；&lt;br&gt;3.等于-1，将清除先前所有消息，仅展示本条消息&lt;/font&gt; |
+| n\_id | int | 0 | 否 | 通知消息对象的唯一标识&lt;br&gt;&lt;font size=0.5 color=\#ff6a6a&gt;1. 大于0，会覆盖先前相同id的消息；&lt;br&gt;2. 等于0，展示本条通知且不影响其他消息；&lt;br&gt;3. 等于-1，将清除先前所有消息，仅展示本条消息&lt;/font&gt; |
 | builder\_id | int | 无 | 是 | 本地通知样式标识 |
-| ring | int | 1 | 否 | 是否有铃声&lt;br&gt;0, 没有铃声&lt;br&gt;1, 有铃声 |
+| ring | int | 1 | 否 | 是否有铃声&lt;br&gt;0：没有铃声&lt;br&gt;1：有铃声 |
 | ring\_raw | string | 无 | 否 | 指定Android工程里raw目录中的铃声文件名，不需要后缀名 |
-| vibrate | int | 1 | 否 | 是否使用震动&lt;br&gt;0, 没有震动&lt;br&gt;1, 有震动 |
-| lights | int | 1 | 否 | 是否使用呼吸灯&lt;br&gt;0, 使用呼吸灯&lt;br&gt;1, 不使用呼吸灯 |
+| vibrate | int | 1 | 否 | 是否使用震动&lt;br&gt;0：没有震动&lt;br&gt;1：有震动 |
+| lights | int | 1 | 否 | 是否使用呼吸灯&lt;br&gt;0：使用呼吸灯&lt;br&gt;1：不使用呼吸灯 |
 | clearable | int | 1 | 否 | 通知栏是否可清除 |
-| icon\_type | int | 0 | 否 | 通知栏图标是应用内图标还是上传图标&lt;br&gt;0，应用内图标&lt;br&gt;1，上传图标 |
+| icon\_type | int | 0 | 否 | 通知栏图标是应用内图标还是上传图标&lt;br&gt;0：应用内图标&lt;br&gt;1：上传图标 |
 | icon\_res | string | 无 | 否 | 应用内图标文件名或者下载图标的url地址 |
 | style\_id | int | 1 | 否 | 设置是否覆盖指定编号的通知样式 |
 | small\_icon | string | 无 | 否 | 消息在状态栏显示的图标，若不设置，则显示应用图标 |

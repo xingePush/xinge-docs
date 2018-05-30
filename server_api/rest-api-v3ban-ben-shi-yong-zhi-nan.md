@@ -137,14 +137,14 @@
 
 Push API 提供了多种推送目标的，比如：全量、标签、单设备、设备列表、单账号、账号列表
 
-| 推送目标 | 描述 | 必需参数 |
-| :--- | :--- | :--- |
+| 推送目标 | 描述 | 必需参数及使用说明 |
+| :--: | :--: | ---- |
 | all | 全量推送 | 无 |
-| tag | 标签推送 | `tag_list`<br>1. {“tags”:[“tag1”,”tag2”],”op”:”AND”} 表示推送设置了tag1 和tag2 的设备<br>2. {“tags”:[“tag1”,“tag2”],”op”:“OR”}表示推送设置了tag1 或tag2 的设备 |
+| tag | 标签推送 | `tag_list`<br>1. 推送 tag1 和 tag2 的设备<br> {“tags”:[“tag1”,”tag2”],”op”:”AND”}<br>2. 推送 tag1 或 tag2 的设备 <br>{“tags”:[“tag1”,“tag2”],”op”:“OR”} |
 | token | 单设备推送 | `token_list`<br>1. 如果该参数包含多个token 只会推送第一个token<br>2. 格式eg：[“token1”] |
-| token_list | 设备列表群推 | `token_list`<br>1. 最多1000 个token<br>2. 格式eg：[“token1”,”token2”]<br>`push_id`<br>1. 第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123<br>2. 后续推送push_id 填123(同一个文案）表示使用与123 id 对应的文案进行推送。 |
+| token_list | 设备列表群推 | `token_list`<br>1. 最多1000 个token<br>2. 格式eg：[“token1”,”token2”]<br>`push_id`<br>1. 第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123<br>2. 后续推送push_id 填123(同一个文案）表示使用与123 id 对应的文案进行推送 |
 | account | 单账号推送 | `account_list`<br>1. 该参数有多个账号时，仅推送第一个账号<br>2. 格式eg：[“account1”] |
-| account_list | 账号列表群推 | `account_list`<br>1. 最多1000 个account<br>2. 格式eg：[“account1”,”account2”]<br>`push_id`<br>1. 第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123<br>2. 后续推送push_id 填123(同一个文案）表示使用与123 id 对应的文案进行推送。 |
+| account_list | 账号列表群推 | `account_list`<br>1. 最多1000 个account<br>2. 格式eg：[“account1”,”account2”]<br>`push_id`<br>1. 第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123<br>2. 后续推送push_id 填123(同一个文案）表示使用与123 id 对应的文案进行推送 |
 
 * 全量推送：推送给全部设备
 
@@ -472,7 +472,7 @@ Android平台具体字段如下表：
 Push API 可选参数是除了 ```audience_type```、```platform```、```message_type```、```message``` 以外，可选的高级参数
 
 | 参数名 | 类型 | 必需 | 默认值 | 描述 |
-| :--- | :--- | :--- | :--- | :--- |
+| :--: | :--: | :--: | :--: | :--- |
 | expire_time | int | 否 | 259200 | 消息离线存储时间（单位为秒）<br>最长存储时间3天，若设置为0，则默认值（3天）<br>建议取值区间[600, 86400x3]<br>第三方通道离线保存消息不同厂商标准不同 |
 | send_time | string | 否 | 当前系统时间 | 指定推送时间<br>格式为yyyy-MM-DD HH:MM:SS<br>若小于服务器当前时间，则会立即推送<br>仅全量推送和标签推送支持此字段 |
 | multi_pkg | bool | 否 | false | 多包名推送<br>当app存在多个不同渠道包（例如应用宝、豌豆荚等），推送时如果是希望手机上安装任何一个渠道的app都能收到消息那么该值需要设置为true |
@@ -481,10 +481,10 @@ Push API 可选参数是除了 ```audience_type```、```platform```、```message
 | environment | string | 否 | product | 用户指定推送环境，仅限iOS平台推送使用<br>product： 推送生产环境<br>dev： 推送开发环境 |
 | stat_tag | string | 否 | 无 | 统计标签，用于聚合统计<br>使用场景(示例)：<br>现在有一个活动id：active_picture_123,需要给10000个设备通过单推接口（或者列表推送等推送形式）下发消息，同时设置该字段为active_picture_123<br>推送完成之后可以使用v3统计查询接口，根据该标签active_picture_123 查询这10000个设备的实发、抵达、展示、点击数据 |
 | seq | int64_t | 否 | 0 | 接口调用时，在应答包中信鸽会回射该字段，可用于异步请求<br>使用场景：异步服务中可以通过该字段找到server端返回的对应应答包 |
-| tag_list | object | 标签推送时必需 | 无 | 1. {“tags”:[“tag1”,”tag2”],”op”:”AND”} 表示推送设置了tag1 和tag2 的设备<br>2. {“tags”:[“tag1”,“tag2”],”op”:“OR”}表示推送设置了tag1 或tag2 的设备 |
-| account_list | array | 单账号推送、账号列表推送时时必需 | 无 | 1. audience_type=account且该参数有多个账号时，仅推送第一个账号<br>2. 最多1000 个account<br>3. 格式eg：[“account1”,”account2”] |
-| account_type | int | 单账号推送时可选 | 0 | 1. 账号类型，参考后面账号说明。<br>2. 必须与账号绑定时设定的账号类型一致。 |
-| token_list | array | 单设备推送、设备列表推送时必需 | 无 | 1. 如果该参数包含多个token 只会推送第一个token<br>2. 最多1000 个token<br>3. 格式eg：[“token1”,”token2”] |
+| tag_list | object | 仅标签推送必需 | 无 | 1. 推送 tag1 和 tag2 的设备：<br> {“tags”:[“tag1”,”tag2”],”op”:”AND”}<br>2. 推送 tag1 或 tag2 的设备： <br>{“tags”:[“tag1”,“tag2”],”op”:“OR”} |
+| account_list | array | 单账号推送、账号列表推送时必需 | 无 | 若单账号推送<br>1. 要求 audience_type=account<br>2. 参数格式：[“account1”]<br><br>若账号列表推送<br>1. 参数格式：[“account1”,”account2”]<br>2. 最多1000 个account<br> |
+| account_type | int | 单账号推送时可选 | 0 | 1. 账号类型，参考后面账号说明。<br>2. 必须与账号绑定时设定的账号类型一致 |
+| token_list | array | 单设备推送、设备列表推送时必需 | 无 | 若单设备推送<br>1. 要求 audience_type=token<br>2. 参数格式：[“token1”]<br>若设备列表推送<br>1. 参数格式：[“token1”,”token2”]<br>2. 最多 1000 个 token<br> |
 | push_id | string | 账号列表推送、设备列表推送时必需 | 无 | 账号列表推送和设备列表推送时，第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123，后续推送push_id 填123(同一个文案）表示使用与123 id 对应的文案进行推送。(注：文案的有效时间由前面的expire_time 字段决定） |
 
 ### Push API 请求完整示例

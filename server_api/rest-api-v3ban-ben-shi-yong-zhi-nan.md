@@ -190,22 +190,15 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 
 * 账号列表推送：推送账号为"account1"和"account2"的设备
 
-  ```
-  {
-  "audience_type"
-  : 
-  "account_list"
-  ,
-  "account_list"
-  : [
-  "account1"
-  , 
-  "account1"
-  ],
-  "push_id"
-  : 
-  "0"
-  }
+  ```json
+ {
+    "audience_type": "account_list",
+    "account_list": [
+        "account1",
+        "account2"
+    ],
+    "push_id": "0"
+}
   ```
 
 #### platform：推送平台

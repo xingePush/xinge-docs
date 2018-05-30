@@ -56,34 +56,16 @@
 
 * 通用基础返回值，是所有请求的响应中都会包含的字段，格式如下：
 
-```
-{ 
-"seq"
-:
-0
-,
-"push_id"
-:
-123
-,
-"ret_code"
-:
-0
-, 
-"environment"
-:
-"product"
-,
-"err_msg"
-:
-""
-,
-"result"
-:{
-""
-:
-""
-} 
+```json
+{
+    "seq": 0,
+    "push_id": 123,
+    "ret_code": 0,
+    "environment": "product",
+    "err_msg": "",
+    "result": {
+        "": ""
+    }
 }
 ```
 
@@ -94,7 +76,7 @@
 | seq | int64 | 是 | 与请求包一致（如果请求包是非法json 该字段为0） |
 | push\_id | string | 是 | 推送id |
 | ret\_code | int | 是 | [错误码](#错误码) |
-| environment | string | 是 | 用户指定推送环境，仅限iOS平台推送使用&lt;br&gt;product： 推送生产环境&lt;br&gt;dev： 推送开发环境 |
+| environment | string | 是 | 用户指定推送环境，仅支持iOS&lt;br&gt;product： 生产环境&lt;br&gt;dev： 开发环境 |
 | err\_msg | string | 否 | 结果描述 |
 | result | JSON | 否 | 请求正确时且有额外数据，则结果封装在该字段中 |
 
@@ -150,11 +132,9 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 
 * 全量推送：推送给全部设备
 
-  ```
+  ```json
   {
-  "audience_type"
-  : 
-  "all"
+    "audience_type": "all"
   }
   ```
 

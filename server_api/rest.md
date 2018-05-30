@@ -600,27 +600,28 @@ Android平台具体字段如下表：
     "Total": "1", 
     "list": {
         "0": {
-            "Content": "test", 
-            "OfflineSave": "86400", 
+            "Content": "test", //推送消息体
+            "OfflineSave": "86400", //Android 离线保存时间
             "ScheduleSendTime": "2017-04-12 17:50:00", 
-            "SendTime": "2017-04-12 17:50:01", 
-            "TagsList": "", 
-            "Title": "this is title", 
-            "Type": "3", 
-            "cleanup": "0", 
-            "click": "0", 
-            "create_time": "2017-04-12 17:49:01", 
-            "push_active": "0", 
+            "SendTime": "2017-04-12 17:50:01", //根据算法从tobe_sent_tome、creat_time\start_time中选择
+            "TagsList": "", //标签时的标签列表
+            "Title": "this is title", //推送标题
+            "Type": "3", //任务类型：3-全推、4-标签推送
+            "cleanup": "0", //清除
+            "click": "0", //点击
+            "create_time": "2017-04-12 17:49:01", //任务创建时间
+            "push_active": "0", //Android最近30天活跃设备
             "push_id": "2511161036", 
-            "push_online": "0", 
-            "start_time": "2017-04-12 17:50:01", 
-            "status": "2", 
-            "verify": "123", 
+            "push_online": "0", //实发
+            "start_time": "2017-04-12 17:50:01", //任务开始推送时间
+            "status": "2", //0-创建任务，1-推送中，2-推送完成，4-非法任务，3-推送失败，9-内容重复，10-频率控制，11-删除离线消息，12-用户取消推送
+            "verify": "123", //展示
+            "verify_svc":"0"//到达设备数量
             "cal_type": "0"
         }
     }
 }
-在线工具 由 开源中国 所有 | @新浪
+
 ```
 
 

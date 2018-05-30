@@ -532,8 +532,6 @@ iOS平台具体字段如下表：
 }
 ```
 
-
-
 ##### Android透传消息
 
 透传消息，Android平台特有，即不显示在手机通知栏中的消息，可以用来实现让用户无感知的向App下发带有控制性质的消息
@@ -620,8 +618,6 @@ Android平台具体字段如下表：
 }
 ```
 
-
-
 ##### iOS静默消息
 
 静默消息，iOS平台特有，类似Android中的透传消息，消息不展示，当静默消息到达终端时，iOS会在后台唤醒App一段时间\(小于30s\)，让App来处理消息逻辑
@@ -660,9 +656,188 @@ Android平台具体字段如下表：
 }
 ```
 
-
-
 ### Push API可选参数
+
+Push API可选参数是除了audience\_type、platform、message\_type、message以外，可选的高级参数
+
+| 参数名 | 类型 | 必需 | 默认值 | 描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| expire\_time | int | 否 | 259200 | 消息离线存储时间（单位为秒）&lt;br&gt;最长存储时间3天，若设置为0，则默认值（3天）&lt;br&gt;建议取值区间\[600, 86400x3\]&lt;br&gt;第三方通道离线保存消息不同厂商标准不同 |
+| send\_time | string | 否 | 当前系统时间 | 指定推送时间&lt;br&gt;格式为yyyy-MM-DD HH:MM:SS&lt;br&gt;若小于服务器当前时间，则会立即推送&lt;br&gt;仅全量推送和标签推送支持此字段 |
+| multi\_pkg | bool | 否 | false | 多包名推送&lt;br&gt;当app存在多个不同渠道包（例如应用宝、豌豆荚等），推送时如果是希望手机上安装任何一个渠道的app都能收到消息那么该值需要设置为true |
+| loop\_times | int | 否 | 0 | 循环任务重复次数&lt;br&gt;仅支持全推、标签推&lt;br&gt;建议取值\[1, 15\] |
+| loop\_interval | int | 否 | 0 | 循环执行消息下发的间隔&lt;br&gt;必须配合loop\_times使用&lt;br&gt;以天为单位，取值\[1, 14\]&lt;br&gt;loop\_times和loop\_interval一起表示消息下发任务的循环规则，不可超过14天 |
+| environment | string | 否 | product | 用户指定推送环境，仅限iOS平台推送使用&lt;br&gt;product： 推送生产环境&lt;br&gt;dev： 推送开发环境 |
+| stat\_tag | string | 否 | 无 | 统计标签，用于聚合统计&lt;br&gt;使用场景\(示例\)：&lt;br&gt;现在有一个活动id：active\_picture_123,需要给10000个设备通过单推接口（或者列表推送等推送形式）下发消息，同时设置该字段为active\_picture_123&lt;br&gt;推送完成之后可以使用v3统计查询接口，根据该标签active\_picture\_123 查询这10000个设备的实发、抵达、展示、点击数据 |
+| seq | int64\_t | 否 | 0 | 接口调用时，在应答包中信鸽会回射该字段，可用于异步请求&lt;br&gt;使用场景：异步服务中可以通过该字段找到server端返回的对应应答包 |
+| tag\_list | object | 标签推送时必需 | 无 | 1. {“tags”:\[“tag1”,”tag2”\],”op”:”AND”} 表示推送设置了tag1 和tag2 的设备&lt;br&gt;2. {“tags”:\[“tag1”,“tag2”\],”op”:“OR”}表示推送设置了tag1 或tag2 的设备 |
+| account\_list | array | 单账号推送、账号列表推送时时必需 | 无 | 1. audience\_type=account且该参数有多个账号时，仅推送第一个账号&lt;br&gt;2. 最多1000 个account&lt;br&gt;3. 格式eg：\[“account1”,”account2”\] |
+| account\_type | int | 单账号推送时可选 | 0 | 1. 账号类型，参考后面账号说明。&lt;br&gt;2. 必须与账号绑定时设定的账号类型一致。 |
+| token\_list | array | 单设备推送、设备列表推送时必需 | 无 | 1. 如果该参数包含多个token 只会推送第一个token&lt;br&gt;2. 最多1000 个token&lt;br&gt;3. 格式eg：\[“token1”,”token2”\] |
+| push\_id | string | 账号列表推送、设备列表推送时必需 | 无 | 账号列表推送和设备列表推送时，第一次推送该值填0，系统会创建对应的推送任务，并且返回对应的pushid：123，后续推送push\_id 填123\(同一个文案）表示使用与123 id 对应的文案进行推送。\(注：文案的有效时间由前面的expire\_time 字段决定） |
+
+
+
+### Push API请求完整示例
+
+#### 标签推送请求消息
+
+```
+POST
+/
+v3
+/
+push
+/
+app
+HTTP
+/
+1.1
+Host
+: 
+openapi
+.
+xg
+.
+qq
+.
+com
+Content
+-
+Type
+: 
+application
+/
+json
+Authorization
+: 
+Basic
+YTViNWYwNzFmZjc3YTplYTUxMmViNzcwNGQ1ZmI1YTZhOTM3Y2FmYTcwZTc3MQ
+==
+Cache
+-
+Control
+: 
+no
+-
+cache
+Postman
+-
+Token
+: 
+4
+b82a159
+-
+afdd
+-
+4
+f5c
+-
+b459
+-
+de978d845d2f
+​
+{
+"platform"
+: 
+"android"
+,
+"audience_type"
+: 
+"tag"
+,
+"tag_list"
+: {
+"tags"
+:[
+"tag1"
+,
+"tag2"
+],
+"op"
+:
+"AND"
+},
+"message_type"
+: 
+"notify"
+,
+"message"
+: {
+"title"
+: 
+"this is title"
+,
+"content"
+: 
+"this is content"
+,
+"custom_content"
+: {
+"key1"
+: 
+"value1"
+,
+"key2"
+: 
+"value2"
+  },
+"accept_time"
+: [
+  {
+"start"
+: {
+"hour"
+: 
+"13"
+,
+"min"
+: 
+"00"
+  },
+"end"
+: {
+"hour"
+: 
+"14"
+,
+"min"
+: 
+"00"
+  }
+  }
+  ]
+  }
+}
+```
+
+
+
+#### 标签推送应答消息
+
+```
+{
+"seq"
+:
+0
+,
+"environment"
+:
+"product"
+,
+"ret_code"
+:
+0
+,
+"push_id"
+:
+"3895624686"
+}
+```
+
+
+
+## 账号类型
 
 
 

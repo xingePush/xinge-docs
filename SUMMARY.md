@@ -9,7 +9,7 @@
   * [华为推送通道集成指南](android_access/huawei_push.md)
   * [魅族推送通道集成指南](android_access/meizu_push.md)
   * [小米推送通道集成指南](android_access/mi_push.md)
-  * [Android测试Demo用法介绍](android_access/testdemo.md)
+  * [Android SDK 错误码对照表](android_access/android_returncode.md)
   * [Android SDK 常见问题](android_access/android-sdk-chang-jian-wen-ti.md)
 * [iOS接入](ios_access.md)
   * [iOS 推送服务介绍](ios_access/ios-tui-song-fu-wu-jie-shao.md)

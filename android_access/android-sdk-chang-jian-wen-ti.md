@@ -1,5 +1,5 @@
 # Android平台常见问题
-
+<hr>
 
 ## 收不到推送的问题
 
@@ -392,7 +392,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 答：注册方法可以在任何地方调用，但注意要传递applicationContext
 ```
 
-**问：S如何删除注册成功的Toast提示?**
+**问：如何删除注册成功的Toast提示?**
 
 ```
 答：demo里面的CustomPushReceiver自带Toast提示处理方法：删除CustomPushReceiver里面的Toast

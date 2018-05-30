@@ -504,23 +504,12 @@ Postman-Token: 4b82a159-afdd-4f5c-b459-de978d845d2f
 
 #### 标签推送应答消息
 
-```
+```json
 {
-"seq"
-:
-0
-,
-"environment"
-:
-"product"
-,
-"ret_code"
-:
-0
-,
-"push_id"
-:
-"3895624686"
+    "seq": 0,
+    "environment": "product",
+    "ret_code": 0,
+    "push_id": "3895624686"
 }
 ```
 

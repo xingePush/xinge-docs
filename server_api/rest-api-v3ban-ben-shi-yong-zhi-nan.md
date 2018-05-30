@@ -342,45 +342,23 @@ iOS平台具体字段如下表：
 
 完整的消息示例如下：
 
-```
+```json
 {
-"title"
-: 
-"xxx"
-,
-"content"
-: 
-"xxxxxxxxx"
-,
-"aps"
-: {
-"alert"
-: {
-"subtitle"
-: 
-"my subtitle"
-  },
-"badge"
-: 
-5
-,
-"category"
-: 
-"INVITE_CATEGORY"
-  },
-"custom1"
-: 
-"bar"
-,
-"custom2"
-: [
-"bang"
-,
-"whiz"
-  ],
-"xg"
-: 
-"oops"
+    "title": "xxx",
+    "content": "xxxxxxxxx",
+    "aps": {
+        "alert": {
+            "subtitle": "my subtitle"
+        },
+        "badge": 5,
+        "category": "INVITE_CATEGORY"
+    },
+    "custom1": "bar",
+    "custom2": [
+        "bang",
+        "whiz"
+    ],
+    "xg": "oops"
 }
 ```
 

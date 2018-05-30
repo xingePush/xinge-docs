@@ -271,154 +271,62 @@ Android平台具体字段如下表：
 
 完整的消息示例如下：
 
-```
+```json
 {
-"title"
-: 
-"xxx"
-,
-"content"
-: 
-"xxxxxxxxx"
-,
-"accept_time"
-: [
-  {
-"start"
-: {
-"hour"
-: 
-"13"
-,
-"min"
-: 
-"00"
-  },
-"end"
-: {
-"hour"
-: 
-"14"
-,
-"min"
-: 
-"00"
-  }
-  },
-  {
-"start"
-: {
-"hour"
-: 
-"00"
-,
-"min"
-: 
-"00"
-  },
-"end"
-: {
-"hour"
-: 
-"09"
-,
-"min"
-: 
-"00"
-  }
-  }
-  ],
-"android"
-: {
-"n_id"
-: 
-0
-,
-"builder_id"
-: 
-0
-,
-"ring"
-: 
-1
-,
-"ring_raw"
-: 
-"ring"
-,
-"vibrate"
-: 
-1
-,
-"lights"
-: 
-1
-,
-"clearable"
-: 
-1
-,
-"icon_type"
-: 
-0
-,
-"icon_res"
-: 
-"xg"
-,
-"style_id"
-: 
-1
-,
-"small_icon"
-: 
-"xg"
-,
-"action"
-: {
-"action_type "
-: 
-1
-,
-"activity"
-: 
-"xxx"
-,
-"aty_attr"
-: {
-"if"
-: 
-0
-,
-"pf"
-: 
-0
-  },
-"browser"
-: {
-"url"
-: 
-"xxxx "
-,
-"confirm"
-: 
-1
-  },
-"intent"
-: 
-"xxx"
-  },
-"custom_content"
-: {
-"key1"
-: 
-"value1"
-,
-"key2"
-: 
-"value2"
-  }
-  }
+    "title": "xxx",
+    "content": "xxxxxxxxx",
+    "accept_time": [
+        {
+            "start": {
+                "hour": "13",
+                "min": "00"
+            },
+            "end": {
+                "hour": "14",
+                "min": "00"
+            }
+        },
+        {
+            "start": {
+                "hour": "00",
+                "min": "00"
+            },
+            "end": {
+                "hour": "09",
+                "min": "00"
+            }
+        }
+    ],
+    "android": {
+        "n_id": 0,
+        "builder_id": 0,
+        "ring": 1,
+        "ring_raw": "ring",
+        "vibrate": 1,
+        "lights": 1,
+        "clearable": 1,
+        "icon_type": 0,
+        "icon_res": "xg",
+        "style_id": 1,
+        "small_icon": "xg",
+        "action": {
+            "action_type ": 1,
+            "activity": "xxx",
+            "aty_attr": {
+                "if": 0,
+                "pf": 0
+            },
+            "browser": {
+                "url": "xxxx ",
+                "confirm": 1
+            },
+            "intent": "xxx"
+        },
+        "custom_content": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 

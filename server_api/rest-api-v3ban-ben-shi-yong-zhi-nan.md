@@ -287,8 +287,6 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
   }
   ```
 
-
-
 #### message\_type：消息体类型
 
 针对不同平台，消息类型稍有不同，具体参照下表：
@@ -298,15 +296,11 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 | notify | 通知栏消息 | Android&lt;br&gt;iOS | 通知栏展示消息 |
 | message | 透传消息/静默消息 | Android\(透传消息\)&lt;br&gt;iOS\(静默消息\) | 通知栏不展示消息 |
 
-
-
 #### message：消息体
 
 消息体，即下发到客户端的消息
 
 Push API对iOS和Android两个平台的消息有不同处理，需要分开来实现对应平台的推送消息，推送的消息体是JSON格式
-
-
 
 ##### Android普通消息
 
@@ -484,9 +478,191 @@ Android平台具体字段如下表：
 }
 ```
 
-
-
 ##### iOS普通消息
+
+iOS平台具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 必需 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| aps | JSON | 无 | 是 | 苹果推送服务\(APNs\)特有的消息体字段&lt;br&gt;其中比较重要的键值对:&lt;br&gt;alert：包含标题和消息内容\(必选\)&lt;br&gt;badge：App显示的角标数\(可选\),&lt;br&gt;category：下拉消息时显示的操作标识\(可选\)&lt;br&gt;详细介绍可以参照：[Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) |
+| custom | string/JSON | 无 | 否 | 自定义下发的参数 |
+| xg | string | 无 | 否 | 系统保留key，应避免使用 |
+
+完整的消息示例如下：
+
+```
+{
+"title"
+: 
+"xxx"
+,
+"content"
+: 
+"xxxxxxxxx"
+,
+"aps"
+: {
+"alert"
+: {
+"subtitle"
+: 
+"my subtitle"
+  },
+"badge"
+: 
+5
+,
+"category"
+: 
+"INVITE_CATEGORY"
+  },
+"custom1"
+: 
+"bar"
+,
+"custom2"
+: [
+"bang"
+,
+"whiz"
+  ],
+"xg"
+: 
+"oops"
+}
+```
+
+
+
+##### Android透传消息
+
+透传消息，Android平台特有，即不显示在手机通知栏中的消息，可以用来实现让用户无感知的向App下发带有控制性质的消息
+
+Android平台具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 是否必需 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| title | string | 无 | 是 | 消息标题 |
+| content | string | 无 | 是 | 消息内容 |
+| custom\_content | JSON | 无 | 否 | 自定义内容 |
+| accept\_time | array | 无 | 否 | 消息将在哪些时间段允许推送给用户，建议小于10个 |
+
+具体完整示例：
+
+```
+{
+"title"
+:
+"this is title"
+,
+"content"
+:
+"this is content"
+,
+"custom_content"
+:{
+"key1"
+:
+"value1"
+,
+"key2"
+:
+"value2"
+  },
+"accept_time"
+:[
+//在下午1点到下午2点或者是凌晨0点到上午9点之间，消息可以展示，其他时间段，消息不会展示
+  {
+"start"
+:{
+"hour"
+:
+"13"
+,
+"min"
+:
+"00"
+  },
+"end"
+:{
+"hour"
+:
+"14"
+,
+"min"
+:
+"00"
+  }
+  },
+  {
+"start"
+:{
+"hour"
+:
+"00"
+,
+"min"
+:
+"00"
+  },
+"end"
+:{
+"hour"
+:
+"09"
+,
+"min"
+:
+"00"
+  }
+  }
+  ]
+}
+```
+
+
+
+##### iOS静默消息
+
+静默消息，iOS平台特有，类似Android中的透传消息，消息不展示，当静默消息到达终端时，iOS会在后台唤醒App一段时间\(小于30s\)，让App来处理消息逻辑
+
+具体字段如下表：
+
+| 字段名 | 类型 | 默认值 | 是否必要 | 参数描述 |
+| :--- | :--- | :--- | :--- | :--- |
+| aps | JSON | 无 | 是 | 苹果推送服务\(APNs\)特有的，&lt;br&gt;其中最重要的键值对:&lt;br&gt;content-available：标识消息类型\(必须为1\)&lt;br&gt;且不能包含alert、sound、badge字段&lt;br&gt;详细介绍可以参照：[Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) |
+| custom | string/JSON | 无 | 否 | 自定义下发的参数 |
+| xg | string | 无 | 否 | 系统保留key，应避免使用 |
+
+具体完整示例：
+
+```
+{
+"aps"
+:{
+"content-available"
+:
+1
+  },
+"custom"
+:{
+"key1"
+:
+"value1"
+,
+"key2"
+:
+"value2"
+  },
+"xg"
+: 
+"oops"
+}
+```
+
+
+
+### Push API可选参数
 
 
 

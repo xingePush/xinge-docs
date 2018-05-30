@@ -209,32 +209,26 @@ Push API提供了多种推送目标的，比如：全量、标签、单设备、
 
 * 推送到所有平台：
 
-  ```
-  {
-  "platform"
-  : 
-  "all"
-  }
+  ```json
+ {
+    "platform": "all"
+ }
   ```
 
 * 推送到安卓平台：
 
-  ```
-  {
-  "platform"
-  : 
-  "android"
-  }
+  ```json
+ {
+    "platform": "android"
+ }
   ```
 
 * 推送到iOS平台：
 
-  ```
-  {
-  "platform"
-  : 
-  "ios"
-  }
+  ```json
+ {
+    "platform": "ios"
+ }
   ```
 
 #### message\_type：消息体类型

@@ -60,7 +60,7 @@
 
 ##### 下载地址：
 
-[IOS SDK v3.1.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-iOS-3.1.0.zip)
+[iOS SDK v3.1.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-iOS-3.1.0.zip)
 
 ### iOS SDK v3.1.1\(beta\)
 

@@ -6,7 +6,7 @@
 
 ## 1. 信鸽推送流程原理介绍
 
-![](http://git.code.oa.com/data-pc-md/data-pc-md//uploads/A0745929D1E0450DBFB81650616D64EC/xg流程图.png "xg流程图.png")
+![](/assets/xg流程图.png)
 
 * **简要说明Andoid客户端实现推送流程的步骤（不含厂商通道版本）：**
 

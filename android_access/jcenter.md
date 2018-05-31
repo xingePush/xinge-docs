@@ -319,6 +319,19 @@ XGPushManager.setTag(this,"XINGE");
 
 ```
 
+##代码混淆
+
+<hr>
+
+如果你的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
+
+```xml
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.tencent.mid.** {* ;}
+-keep public class * extends com.qq.taf.jce.JceStruct{*;}
+```
 
 
 

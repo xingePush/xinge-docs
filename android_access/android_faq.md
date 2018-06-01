@@ -180,6 +180,11 @@ action.setIntent("xgscheme://com.xg.pushotify_detail");
 
 ## 信鸽Android SDK集成厂商通道相关问题
 
+### 厂商通道功能支持
+- 小米通道支持抵达回调，不支持点击回调
+- 华为不支持抵达回调，需要自定义数才支持点击回调
+- 魅族不支持透传
+
 ### 调试过程中可能遇到的otherpushToken = null的问题
 
 **\[小米通道排查路径\]**

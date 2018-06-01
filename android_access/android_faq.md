@@ -83,6 +83,7 @@ public function QueryTokenTags($deviceToken)
         return $this->callRestful(self::RESTAPI_QUERYTOKENTAGS, $params);
     }
 ```
+\[2\] 目前信鸽管理台只支持预设置的省份、版本、不活跃用户三种标签的推送，可以使用服务端sdk进行自定义标签的查询和推送
 
 ## 推送数据问题
 

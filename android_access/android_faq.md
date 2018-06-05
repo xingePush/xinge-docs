@@ -176,7 +176,7 @@ android:path="/notify_detail" />
 * 若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
 
 ```
-action.setIntent("xgscheme://com.xg.pushotify_detail");
+action.setIntent("xgscheme://com.xg.push/notify_detail");
 ```
 
 ## 信鸽Android SDK集成厂商通道相关问题

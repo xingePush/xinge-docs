@@ -370,19 +370,21 @@ iOS平台具体字段如下表：
 {
     "title": "xxx",
     "content": "xxxxxxxxx",
-    "aps": {
-        "alert": {
-            "subtitle": "my subtitle"
+    "ios":{
+        "aps": {
+            "alert": {
+                "subtitle": "my subtitle"
+            },
+            "badge": 5,
+            "category": "INVITE_CATEGORY"
         },
-        "badge": 5,
-        "category": "INVITE_CATEGORY"
-    },
-    "custom1": "bar",
-    "custom2": [
-        "bang",
-        "whiz"
-    ],
-    "xg": "oops"
+        "custom1": "bar",
+        "custom2": [
+            "bang",
+            "whiz"
+        ],
+        "xg": "oops"
+    }
 }
 ```
 
@@ -454,14 +456,16 @@ Android平台具体字段如下表：
 
 ```json
 {
-    "aps": {
-        "content-available": 1
-    },
-    "custom": {
-        "key1": "value1",
-        "key2": "value2"
-    },
-    "xg": "oops"
+    "ios":{
+        "aps": {
+            "content-available": 1
+        },
+        "custom": {
+            "key1": "value1",
+            "key2": "value2"
+        },
+        "xg": "oops"
+    }
 }
 ```
 

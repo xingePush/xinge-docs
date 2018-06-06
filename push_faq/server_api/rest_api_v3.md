@@ -409,9 +409,11 @@ Android平台具体字段如下表：
 {
     "title": "this is title",
     "content": "this is content",
-    "custom_content": {
-        "key1": "value1",
-        "key2": "value2"
+    "android": {
+       "custom_content": {
+          "key1": "value1",
+          "key2": "value2"
+             }
     },
     "accept_time": [
         {

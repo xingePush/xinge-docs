@@ -223,13 +223,13 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 **\[华为通道排查路径\]**
 
-* 检查信鸽SDK版本是否为V3.2.0以上版本，以及华为手机中的移动推送服务是否为2.5.3以上版本
+* 检查信鸽SDK版本是否为V3.2.0以上版本以及 华为手机中【设置】->【应用管理】->【华为移动服务】的版本信息是否大于2.5.3
 * 按照开发文档华为通道接入指南部分检查manifest文件配置
 * 在信鸽注册之前是否启动了第三方推送，以及华为APPID是否配置正确
 * APP的包名和华为推送官网上的包名是否一致
 * 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\),手动确认给应用存储权限，然后查看SD卡目录下的hauwei.txt文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因
 * cmd里执行adb shell setprop log.tag.hwpush VERBOSE和
-  adb shell logcat -v time &gt; D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给技术支持。
+  adb shell logcat -v time &gt; D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给技术支持
 
 **\[魅族通道排查路径\]**
 

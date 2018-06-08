@@ -1,8 +1,8 @@
-#测试Demo的用法
+#测试Demo的使用方法
 
 ##下载Demo
 
-一. demo工程的未知在信鸽SDK文档内[下载SDK](http://xg.qq.com/ctr_index/download).
+一. Demo工程的未知在信鸽SDK文档内[下载SDK](http://xg.qq.com/ctr_index/download).
 
 二. 在信鸽的web端注册测试应用，测试应用名称不限，包名必须为com.qq.xgdemo,然后获取注册应用的AccessID和Accesskey.
 

@@ -1,5 +1,3 @@
-
-
 # Android SDK 集成指南
 
 <hr>
@@ -7,13 +5,13 @@
 ## 通过AndroidStudio自动集成
 
 ###  导入依赖
-AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目中导入jar包和so文件；
-在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。
+AndroidStudio 上可以使用 jcenter 远程仓库自动接入，不需要在项目中导入jar包和so文件；
+在 AndroidManifest.xml 中不需要配置信鸽相关的内容，jcenter 会自动导入。
 导入依赖过后修改应用配置，书写注册代码就能够实现信鸽快速接入。 
-对应的依赖版本号均是，官网上最新的版本。
+对应的依赖版本号均是官网上最新的版本。
 用户自定义的recevier.依然需要在Androidmanifest.xml配置相关节点。
 
-在app build.gradle文件下配置 以下内容
+在```app build.gradle```文件下配置 以下内容
 
 ```java
     
@@ -64,18 +62,18 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
 
   
 
- *** 注意 *** 
+ ** 注意: **
 
- - 如果在添加以上 abiFilter 配置之后android Studio出现以下提示：
+ - 如果在添加以上 abiFilter 配置之后 Android Studio 出现以下提示：
 
         NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.
 
-则在 Project 根目录的gradle.properties文件中添加：
+则在 Project 根目录的 gradle.properties 文件中添加：
 
         android.useDeprecatedNdk=true
 
 
-- 如需监听消息请参考XGBaseReceiver接口或者是demo的MessageReceiver类。自行继承XGBaseReceiver并且在配置文件中配置如下内容：
+- 如需监听消息请参考XGBaseReceiver接口或者是 demo 的 MessageReceiver 类。自行继承XGBaseReceiver并且在配置文件中配置如下内容：
 
 ```xml
   <receiver android:name="完整的类名如:com.qq.xgdemo.receiver.MessageReceiver"
@@ -95,11 +93,11 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
 
 <hr>
 
-前往信鸽管理台xg.qq.com，使用QQ号码登陆，进入应用注册页，填写“应用名称”和“应用包名”（必须要跟APP一致），选择“操作系统”和“分类”，最后点击“创建应用”。
+前往信鸽管理台 xg.qq.com，使用QQ号码登陆，进入应用注册页，填写“应用名称”和“应用包名”（必须要跟APP一致），选择“操作系统”和“分类”，最后点击“创建应用”。
 
-应用创建成功后，点击“应用配置”即可看到APP专属的AccessId和AccessKey等信息。
+应用创建成功后，点击“应用配置”即可看到 APP 专属的 AccessId 和 AccessKey 等信息。
 
-注册完成后，请下载最新版本的Android SDK到本地，并解压。
+注册完成后，请下载最新版本的 Android SDK 到本地，并解压。
 
 ### 工程配置
 
@@ -107,7 +105,7 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
 
 将SDK导入到工程的步骤为：
 
-- （1）创建或打开Android工程（关于如何创建Android工程，请参照开发环境的章节）。
+（1）创建或打开Android工程（关于如何创建Android工程，请参照开发环境的章节）。
 
 （2）将信鸽 SDK目录下的libs目录所有文件拷贝到工程的libs（或lib）目录下。
 
@@ -254,13 +252,13 @@ AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目
 
 1.根据<a href="http://docs.developer.qq.com/xg/android_access/manual.html" target="_blank" >手动接入</a>或者<a href="http://docs.developer.qq.com/xg/android_access/jcenter.html" target="_blank" >自动接入</a>，配置好信鸽过后，获取信鸽注册日志（接入过程中建议调用有回调的注册接口，开启信鸽的debug日志输出。AndroidStudio 建议采用jcenter自动接入，无需在配置文件中配置信鸽各个节点，全部由依赖导入）。
 
-***开启debug日志数据***
+**开启debug日志数据**
 
 ```java
  XGPushConfig.enableDebug(this,true);
 ```
 
-***token注册***
+**token注册**
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {
@@ -282,7 +280,7 @@ Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + ms
 10-09 20:08:47.232 24290-24360/com.qq.xgdemo D/TPush: 注册成功，设备token为：5874b7465d9eead746bd9374559e010b0d1c0bc4
 ```
 
-***设置账号***
+**设置账号**
 
 ```java
 //注意在3.2.2 版本信鸽对账号绑定和解绑接口进行了升级具体详情请参考API文档。
@@ -295,7 +293,7 @@ XGPushManager.bindAccount(getApplicationContext(), "XINGE");
 10-11 15:55:57.810 29299-29299/com.qq.xgdemo D/TPushReceiver: TPushRegisterMessage [accessId=2100250470, deviceId=853861b6bba92fb1b63a8296a54f439e, account=XINGE, ticket=0, ticketType=0, token=3f13f775079df2d54e1f82475a28bccd3bfef8c1]注册成功
 ```
 
-***设置标签***
+**设置标签**
 
 ```java
 XGPushManager.setTag(this,"XINGE");
@@ -307,7 +305,7 @@ XGPushManager.setTag(this,"XINGE");
 10-09 20:11:42.558 27348-27348/com.qq.xgdemo I/XINGE: [XGPushManager] Action -> setTag with tag = XINGE
 ```
 
-***收到消息日志***
+**收到消息日志**
 
 ```xml
 10-16 19:50:01.065 5969-6098/com.qq.xgdemo D/XINGE: [i] Action -> handleRemotePushMessage
@@ -321,6 +319,19 @@ XGPushManager.setTag(this,"XINGE");
 
 ```
 
+##代码混淆
+
+<hr>
+
+如果您的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
+
+```xml
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.tencent.mid.** {* ;}
+-keep calss com.qq.taf.jce** {*;}
+```
 
 
 

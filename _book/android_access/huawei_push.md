@@ -4,9 +4,9 @@
 
 **注意事项：**
 
-1. 华为推送只有在**_签名发布包环境_**下才可以收到推送消息
+1. 华为推送只有在**签名发布包环境**下才可以收到推送消息
 
-2. 华为手机中的**_移动推送服务_**，必须升级到__2.5.3以上版本__，华为通道会注册失败（依旧走信鸽通道）。
+2. 华为手机中的**移动推送服务**，必须升级到 <font color=#FF0000>2.5.3</font> 以上版本，华为通道会注册失败（依旧走信鸽通道）。
 
 ## 获取华为推送密钥
 
@@ -114,8 +114,6 @@ compile 'com.tencent.xinge:xghw:2.5.2.300-release'
 ```java
 public class MyReceiver extends PushReceiver {
 
-
-
 	@Override
 	public void onEvent(Context context, Event arg1, Bundle arg2) {
 		super.onEvent(context, arg1, arg2);
@@ -184,8 +182,6 @@ public class MyReceiver extends PushReceiver {
 			e.printStackTrace();
 		}
 	}
-
-
 }
 
 ```

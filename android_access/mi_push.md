@@ -31,7 +31,7 @@
 
 ```js
 
-//需要在信鸽的集成基础上新增小米push的jar包
+//在集成信鸽的基础上新增小米push的jar包
 compile 'com.tencent.xinge:mipush:3.2.2-release'
 ```
 ```js

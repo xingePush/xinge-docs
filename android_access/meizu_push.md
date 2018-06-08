@@ -29,12 +29,17 @@
 ### AndroidStudio集成方式
 
 1.在项目模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
+以下两个版本请根据需要选择其中之一
 
 ```java
+//集成信鸽的基础上新增魅族push的jar包
 compile 'com.tencent.xinge:xgmz:3.2.2-release'
-
-// 魅族3.2.4-beta版
-// compile 'com.tencent.xinge:xgmz:3.2.4-beta'
+```
+```js
+/* 魅族 3.2.4-beta版
+ * 注意：若魅族通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+ */
+compile 'com.tencent.xinge:xgmz:3.2.4-beta'
 ```
 
 2.配置[魅族消息receiver](/魅族消息receiver)。  

@@ -10,9 +10,10 @@
 
 认证小米开发者：
 
-![](/assets/注册小米开发者认证.jpeg)
+![](/assets/认证小米开发者.jpeg)
 
 获取小米推送密钥：
+
 ![](/assets/或者小米ID.jpeg)
 
 ## 配置小米推送相关内容
@@ -26,14 +27,18 @@
         ]
 ```
 2.引入小米推送的jar包
+以下两个版本请根据需要选择其中之一
 
-```java
+```js
 
 //需要在信鸽的集成基础上新增小米push的jar包
 compile 'com.tencent.xinge:mipush:3.2.2-release'
-
-//小米3.2.4-beta版
-//compile 'com.tencent.xinge:mipush:3.2.4-beta'
+```
+```js
+/* 小米3.2.4-beta版
+ * 注意：若小米通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+ */
+compile 'com.tencent.xinge:mipush:3.2.4-beta'
 ```
 
 3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
@@ -131,7 +136,7 @@ android:name="com.tencent.android.mipush.XMPushMessageReceiver">
 </receiver>
 
 ```
-***开启小米推送***
+## 开启小米推送
 
 设置小米APPID和APPKEY。
 

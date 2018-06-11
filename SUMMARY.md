@@ -29,4 +29,5 @@
   * [管理台数据展示说明](console/pushdetail.md)
 * [最近更新](sdk_update.md)
 * [名词解释](push_faq/noun_explanation.md)
+* [技术支持](technical_support.md)
 

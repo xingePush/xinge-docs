@@ -52,11 +52,11 @@
 |void setReportNotificationStatusEnable(final Context context,final boolean debugMode)|设置上报通知栏是否关闭 默认打开|
 |void setReportApplistEnable(final Context context,final boolean debugMode)|设置上报APP 列表，用于智能推送 默认打开|
 |void enableOtherPush(Context context, boolean flag)|设置支持第三方厂商推送|
-|void setMiPushAppId(<br>Context context, String appid){OtherPushManager.setMiPushAppid(context, appid)|设置小米推送APPID|
-|void setMiPushAppKey(<br>Context context, String appkey){OtherPushManager.setMiPushAppKey(context, appkey)|设置小米推送APPKEY|
-|void setMzPushAppId(<br>Context context, String appid){OtherPushManager.setMZPushAppid(context, appid)|设置魅族推送APPID|
-|void setMzPushAppKey(<br>Context context, String appkey){OtherPushManager.setMZPushAppKey(context, appkey)|设置魅族推送APPKEY|
-|void setHuaweiDebug(<br>boolean isHuaweiDebug){|华为手机的写日志定位问题|
+|void setMiPushAppId(Context context, String appid)|设置小米推送APPID|
+|void setMiPushAppKey(Context context, String appkey)|设置小米推送APPKEY|
+|void setMzPushAppId(Context context, String appid)|设置魅族推送APPID|
+|void setMzPushAppKey(Context context, String appkey)|设置魅族推送APPKEY|
+|void setHuaweiDebug(boolean isHuaweiDebug)|华为手机的写日志定位问题|
 
 
 

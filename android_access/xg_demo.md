@@ -12,13 +12,13 @@
 
 **[AndroidStudioDemo]**
 
-将注册测试应用获取到的ACCESSID和ACCESSKEY配置到测试工程内app模块下的```build.gradle```文件内的```manifestPlaceholders```节点。如图所示：
+将注册测试应用获取到的 ACCESSID 和 ACCESSKEY 配置到测试工程内app模块下的```build.gradle```文件内的```manifestPlaceholders```节点。如图所示：
 
 ![](/assets/AndroidStudioDemo.png)
 
 **[eclipse]**
 
-将注册测试应用获取到的AccessID和Accesskey配置到测试工程内```AndroidManifest.xml```下的```<mata-data>```节点。如图所示：
+将注册测试应用获取到的 AccessID 和 Accesskey 配置到测试工程内```AndroidManifest.xml```下的```<mata-data>```节点。如图所示：
 
 ![](/assets/eclipseDemo.png)
 

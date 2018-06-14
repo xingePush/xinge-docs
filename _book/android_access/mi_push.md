@@ -10,9 +10,10 @@
 
 认证小米开发者：
 
-![](/assets/注册小米开发者认证.jpeg)
+![](/assets/认证小米开发者.jpeg)
 
 获取小米推送密钥：
+
 ![](/assets/或者小米ID.jpeg)
 
 ## 配置小米推送相关内容
@@ -26,14 +27,18 @@
         ]
 ```
 2.引入小米推送的jar包
+以下两个版本请根据需要选择其中之一
 
-```java
+```js
 
-//需要在信鸽的集成基础上新增小米push的jar包
+//在集成信鸽的基础上新增小米push的jar包
 compile 'com.tencent.xinge:mipush:3.2.2-release'
-
-//小米3.2.4-beta版
-//compile 'com.tencent.xinge:mipush:3.2.4-beta'
+```
+```js
+/* 小米3.2.4-beta版
+ * 注意：若小米通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+ */
+compile 'com.tencent.xinge:mipush:3.2.4-beta'
 ```
 
 3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置
@@ -131,7 +136,7 @@ android:name="com.tencent.android.mipush.XMPushMessageReceiver">
 </receiver>
 
 ```
-***开启小米推送***
+## 开启小米推送
 
 设置小米APPID和APPKEY。
 
@@ -148,6 +153,9 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 12-02 16:17:32.997 12584-12626/com.qq.xgdemo I/XINGE: [XGPushManager] XG register push success with token : 1d31bb3ea6185baebdf05dfc2e586dfe5dc41fb5
 12-02 16:17:33.001 12584-12626/com.qq.xgdemo I/XINGE: [XGOtherPush] other push token is : YZQfRxmxdfNlbSKpNWCa3tM4Esnq6op4qeOsQO2qT88= other push type: xiaomi
 ```
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
+
+
 
 ## 代码混淆
 

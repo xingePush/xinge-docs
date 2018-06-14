@@ -29,12 +29,17 @@
 ### AndroidStudio集成方式
 
 1.在项目模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
+以下两个版本请根据需要选择其中之一
 
 ```java
+//集成信鸽的基础上新增魅族push的jar包
 compile 'com.tencent.xinge:xgmz:3.2.2-release'
-
-// 魅族3.2.4-beta版
-// compile 'com.tencent.xinge:xgmz:3.2.4-beta'
+```
+```js
+/* 魅族 3.2.4-beta版
+ * 注意：若魅族通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+ */
+compile 'com.tencent.xinge:xgmz:3.2.4-beta'
 ```
 
 2.配置[魅族消息receiver](/魅族消息receiver)。  
@@ -125,6 +130,7 @@ XGPushConfig.setMzPushAppKey(this, APP_KEY);
 //成功的获取到信鸽的token和魅族的token，并且绑定成功说明注册成功
 INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
 ```
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
 
 ## 代码混淆
 

@@ -330,7 +330,7 @@ XGPushManager.setTag(this,"XINGE");
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {* ;}
 -keep class com.tencent.mid.** {* ;}
--keep calss com.qq.taf.jce** {*;}
+-keep class com.qq.taf.jce.** {*;}
 ```
 
 

@@ -89,8 +89,14 @@ public function QueryTokenTags($deviceToken)
 
 **\[推送暂停\]**
 
-* 相同的内容的全量推送每小时只能推送一次，超过一次推送会被暂停
-* 每小时最多推送30条全量推送，超过三十次会被暂停
+* 全量推送限制(V2、V3)：
+  1.全量推送每小时最多只能创建30次推送，超过30次会被暂停。
+  2.相同内容的全量推送每小时只能推送一次，超过一次推送会被暂停。
+
+* 标签推送限制(V3)：
+  1. 同一标签每小时最多只能创建30次推送，超过30次会被暂停。
+  2. 同一标签相同内容的推送每小时只能推送一次，超过一次推送会被暂停。
+
 
 **\[效果统计\]**
 
@@ -117,7 +123,45 @@ public function QueryTokenTags($deviceToken)
 
 **解决办法如下\(推荐使用第一种方式\)：**
 
-**\[1\] 在下发消息的时候设置点击消息要跳转的页面**
+**\[1\] 使用Intent来跳转指定页面（Android 3.2.3 以上版本使用此方式）**
+
+* 需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
+
+```
+<activity
+android:name="com.qq.xg.AboutActivity"
+android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+<intent-filter >
+<action android:name="android.intent.action.VIEW" />
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="xgscheme"
+android:host="com.xg.push"
+android:path="/notify_detail" />
+</intent-filter>
+</activity>
+```
+
+* 若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
+```
+action.setIntent("xgscheme://com.xg.push/notify_detail");
+```
+* 如果要带上param1和param2等参数可以这么设置：
+```
+action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
+```
+
+* 终端获取参数：
+在你跳转指定的页面onCreat方法里面：
+```
+Uri uri = getIntent().getData();
+        if (uri != null) {                
+String url = uri.toString();
+String p1= uri.getQueryParameter("param1");
+String p2= uri.getQueryParameter("param2");
+ }
+```
+
+**\[2\] 在下发消息的时候设置点击消息要跳转的页面**
 
 （a）可以直接在web端高级功能内设置deeplink包名+类名） ;
 
@@ -152,32 +196,9 @@ String set = clickedResult.getTitle();
 //获取消息内容
 String s = clickedResult.getContent();
 ```
+**\[3\] 发应用内消息到终端，用户自定义通知栏，采用本地通知弹出通知，设置要跳转的页面**
 
-**\[2\] 发应用内消息到终端，用户自定义通知栏，采用本地通知弹出通知，设置要跳转的页面**
 
-**\[3\] 使用Intent来跳转指定页面（Android 3.2.3版本使用此方式）**
-
-* 需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
-
-```
-<activity
-android:name="com.qq.xg.AboutActivity"
-android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-<intent-filter >
-<action android:name="android.intent.action.VIEW" />
-<category android:name="android.intent.category.DEFAULT"/>
-<data android:scheme="xgscheme"
-android:host="com.xg.push"
-android:path="/notify_detail" />
-</intent-filter>
-</activity>
-```
-
-* 若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
-
-```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
-```
 
 ## 信鸽Android SDK集成厂商通道相关问题
 
@@ -186,6 +207,8 @@ action.setIntent("xgscheme://com.xg.push/notify_detail");
 - 小米通道支持抵达回调，不支持点击回调
 - 华为通道不支持抵达回调，支持点击回调（需要自定义参数）
 - 魅族通道不支持透传
+
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
 
 ### 调试过程中可能遇到的otherpushToken = null的问题
 
@@ -213,17 +236,17 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 * APP包名是否和小米开推送平台注册的包名一致
 * 通过实现自定义的继承PushMessageReceiver的广播来监听小米的注册结果，查看注册返回码
-* 启动logcat，观察tag为PushMessage的异常信息日志
+* 启动logcat，观察tag为PushService的日志，看看有什么错误信息
 
 **\[华为通道排查路径\]**
 
-* 检查信鸽SDK版本是否为V3.2.0以上版本，以及华为手机中的移动推送服务是否为2.5.3以上版本
+* 检查信鸽SDK版本是否为V3.2.0以上版本以及 华为手机中【设置】->【应用管理】->【华为移动服务】的版本信息是否大于2.5.3
 * 按照开发文档华为通道接入指南部分检查manifest文件配置
 * 在信鸽注册之前是否启动了第三方推送，以及华为APPID是否配置正确
 * APP的包名和华为推送官网上的包名是否一致
 * 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\),手动确认给应用存储权限，然后查看SD卡目录下的hauwei.txt文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因
 * cmd里执行adb shell setprop log.tag.hwpush VERBOSE和
-  adb shell logcat -v time &gt; D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给技术支持。
+  adb shell logcat -v time &gt; D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给技术支持
 
 **\[魅族通道排查路径\]**
 
@@ -260,22 +283,10 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 答: 单个设备最多设置100个标签，单个app全局最多可以有10000个不同的标签
 ```
 
-**问: 在推送时，如何向单个用户推送消息？**
-
-```
-答: 请参考开发手册，有关于“推送消息给单个设备”和“推送消息给单个账户或别名”的使用指南
-```
-
 **问: 当第一次注册成功后，没有反注册，以后使用还需要注册吗？**
 
 ```
 答: 不需要，只要没反注册，就不需要再次注册
-```
-
-**问: 在推送时，如何向单个用户推送消息？**
-
-```
-答: 请参考开发手册，有关于“推送消息给单个设备”和“推送消息给单个账户或别名”的使用指南
 ```
 
 **问: 设备注册为什么收不到回调信息？**

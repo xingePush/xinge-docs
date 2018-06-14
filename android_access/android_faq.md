@@ -123,7 +123,45 @@ public function QueryTokenTags($deviceToken)
 
 **解决办法如下\(推荐使用第一种方式\)：**
 
-**\[1\] 在下发消息的时候设置点击消息要跳转的页面**
+**\[1\] 使用Intent来跳转指定页面（Android 3.2.3 以上版本使用此方式）**
+
+* 需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
+
+```
+<activity
+android:name="com.qq.xg.AboutActivity"
+android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+<intent-filter >
+<action android:name="android.intent.action.VIEW" />
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="xgscheme"
+android:host="com.xg.push"
+android:path="/notify_detail" />
+</intent-filter>
+</activity>
+```
+
+* 若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
+```
+action.setIntent("xgscheme://com.xg.push/notify_detail");
+```
+* 如果要带上param1和param2等参数可以这么设置：
+```
+action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
+```
+
+* 终端获取参数：
+在你跳转指定的页面onCreat方法里面：
+```
+Uri uri = getIntent().getData();
+        if (uri != null) {                
+String url = uri.toString();
+String p1= uri.getQueryParameter("param1");
+String p2= uri.getQueryParameter("param2");
+ }
+```
+
+**\[2\] 在下发消息的时候设置点击消息要跳转的页面**
 
 （a）可以直接在web端高级功能内设置deeplink包名+类名） ;
 
@@ -158,32 +196,9 @@ String set = clickedResult.getTitle();
 //获取消息内容
 String s = clickedResult.getContent();
 ```
+**\[3\] 发应用内消息到终端，用户自定义通知栏，采用本地通知弹出通知，设置要跳转的页面**
 
-**\[2\] 发应用内消息到终端，用户自定义通知栏，采用本地通知弹出通知，设置要跳转的页面**
 
-**\[3\] 使用Intent来跳转指定页面（Android 3.2.3版本使用此方式）**
-
-* 需要在客户端app的manifest上配置要跳转的页面，如要跳转AboutActivity指定页面：
-
-```
-<activity
-android:name="com.qq.xg.AboutActivity"
-android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-<intent-filter >
-<action android:name="android.intent.action.VIEW" />
-<category android:name="android.intent.category.DEFAULT"/>
-<data android:scheme="xgscheme"
-android:host="com.xg.push"
-android:path="/notify_detail" />
-</intent-filter>
-</activity>
-```
-
-* 若使用服务端SDK设置intent进行跳转，可设置intent为（以Java SDK为例）：
-
-```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
-```
 
 ## 信鸽Android SDK集成厂商通道相关问题
 
@@ -192,6 +207,8 @@ action.setIntent("xgscheme://com.xg.push/notify_detail");
 - 小米通道支持抵达回调，不支持点击回调
 - 华为通道不支持抵达回调，支持点击回调（需要自定义参数）
 - 魅族通道不支持透传
+
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
 
 ### 调试过程中可能遇到的otherpushToken = null的问题
 
@@ -219,7 +236,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 * APP包名是否和小米开推送平台注册的包名一致
 * 通过实现自定义的继承PushMessageReceiver的广播来监听小米的注册结果，查看注册返回码
-* 启动logcat，观察tag为PushMessage的异常信息日志
+* 启动logcat，观察tag为PushService的日志，看看有什么错误信息
 
 **\[华为通道排查路径\]**
 

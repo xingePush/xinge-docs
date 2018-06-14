@@ -209,7 +209,7 @@ public class MyReceiver extends PushReceiver {
         </receiver>
 ```
 ### 启动华为推送以及注册日志
-在调用信鸽（```XGPushManager.registerPush```）之前开启第三方推送接口：
+- 在调用信鸽（```XGPushManager.registerPush```）之前开启第三方推送接口：
 
 ```java
 //打开第三方推送
@@ -222,22 +222,23 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 01-15 16:40:41.122 15730-15846/? I/XINGE: [a] binder other push token with accid = 2100274337  token = 17c32948df0346d5837d4748192e9d2f14c81e08 otherPushType = huawei otherPushToken = 0865551032618726300001294600CN01
 ```
 
-如果出现：
+如果日志中出现：
 
-```otherPushType = huawei otherPushToken = null```,这个日志
+```
+otherPushType = huawei otherPushToken = null
+```
 
 请在注册代码之前调用：
 
 ```
 XGPushConfig.setHuaweiDebug(true);
 ```
+并手动确认给**应用存储权限**，然后查看SD卡目录下的 ```huawei.txt``` 文件内输出的注册华为失败的错误原因。
+然后根据 [华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode) 对应的错误码查找原因，以及解决办法。
 
+若还不能解决，可以在cmd里执行```adb shell setprop log.tag.hwpush VERBOSE```和```adb shell logcat -v time > D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给我们的技术支持。
 
-请手动确认给应用存储权限，
-然后查看SD卡目录下的 ```huawei.txt``` 文件内输出的注册华为失败的错误原因。
-然后根据 [华为开发文档](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush_agent.html?page=hmssdk_huaweipush_api_reference_errorcode) 对应的错误码原因，以及解决办法。
-若还不能解决，可以在cmd里执行adb shell setprop log.tag.hwpush VERBOSE和
-adb shell logcat -v time > D:/log.txt 开始抓日志，然后进行测试，测完再关闭cmd窗口。将log发给我们的技术支持。
+- **如果需要通过消息点击回调来获取参数或者跳转自定义页面，可以通过使用Intent方式来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
 
 ### 代码混淆
 
@@ -266,5 +267,7 @@ adb shell logcat -v time > D:/log.txt 开始抓日志，然后进行测试，测
 5. 如果应用收到消息，将App退到后台，并且杀掉所有App进程
 
 6. 再次进行单推/全推，如果能够收到推送，则表明厂商通道集成成功
+
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
 
 

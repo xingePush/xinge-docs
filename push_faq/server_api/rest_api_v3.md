@@ -1,12 +1,4 @@
 # Rest API 概述（V3）
-<table><tr><td bgcolor=#ACD6FF>v3版本相对于v2版本的改进：
-* 完全基于 HTTPs，不再提供HTTP访问
-* 支持POST方式访问，不再提供GET方式访问
-* 使用 HTTP Basic Authentication 的方式做访问授权。这样整个 API 请求可以使用常见的 HTTP 工具来完成，比如：curl，postman等
-* API接口按照业务功能分类，类别为：Push API、标签 API、账号 API、工具类 API。每种类别的API接口采用相同的URL，提高接口易用性
-* 功能方面的改进：增加送达统计的查询功能，该接口属于工具类API，目前内测中
-</td></tr></table>
-
 ## API概述
 
 信鸽推送提供遵从 REST 规范的 HTTP API，以供开发者远程调用信鸽提供的服务

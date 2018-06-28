@@ -13,7 +13,8 @@
 |10003|权限配错或者缺少所需权限|
 |10004|so库没有正确导入（Androidstudio可在main文件目录下 添加jniLibs命名的文件夹将SDK文档中的Other-Platform-SO下的7个so库文件夹添加至该目录）|
 |10005|AndroidManifest文件的XGRemoteService节点没有配置或者的该节点的action包名配错|
-|10008|jce JAR错误或者缺少 jce JAR（如果是混淆打包过后出现,请检查混淆代码）|
+|10008|没有配置正确的ContentProvider，请检查AndroidManifest文件|
+|10009|jce JAR错误或者缺少 jce JAR（检查是否已经把wup包编译进去了，如果是混淆打包过后出现,请检查混淆代码）|
 |10101|创建链路失败（切换网络重试）|
 |10102|请求处理过程中， 链路被主动关闭（切换网络重试）|
 |10103|请求处理过程中，服务器关闭链接（切换网络重试）|

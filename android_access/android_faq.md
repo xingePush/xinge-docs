@@ -58,7 +58,7 @@
 
 ### 标签推送收不到
 
-\[1\] 请确认tag标签是否绑定成功，一个应用最多有10000个 标签「tag」， 每个Token在一个应用下最多100个 标签「tag」， 标签「tag」中不准包含空格
+请确认tag标签是否绑定成功，一个应用最多有10000个 标签「tag」， 每个Token在一个应用下最多100个 标签「tag」， 标签「tag」中不准包含空格
 
 * **用服务端推送SDK来查询「tag」与「Token」绑定关系**
 
@@ -81,8 +81,6 @@ public function QueryTokenTags($deviceToken)
         return $this->callRestful(self::RESTAPI_QUERYTOKENTAGS, $params);
     }
 ```
-\[2\] 目前信鸽管理台只支持预设置的省份、版本、不活跃用户三种标签的推送，可以使用服务端sdk进行自定义标签的查询和推送
-
 ## 推送数据问题
 
 **\[推送暂停\]**

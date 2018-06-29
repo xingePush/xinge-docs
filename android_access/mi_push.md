@@ -160,7 +160,7 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 ## 代码混淆
 
 ```xml
--keepclasseswithmembernames class com.xiaomi.**{*;}
+-keep class com.xiaomi.**{*;}
 -keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
 ```
 

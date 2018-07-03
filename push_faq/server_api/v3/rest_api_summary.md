@@ -68,5 +68,5 @@
 
 ## API限制
 
-- Push API中全量推送、标签推送接口有调用频率的限制外，默认为每个ACCESS_ID每小时30次
-- 推送的消息体大小限制为 4K，此限制适用于 Push API 中的 `message` 字段
+- Push API全量推送、标签推送的接口有调用频率的限制，默认为每个ACCESS_ID每小时30次
+- 推送的消息体大小限制为4K，此限制适用于 Push API 中的 `message` 字段

@@ -72,5 +72,6 @@
 - 推送的消息体大小限制为4K，此限制适用于 Push API 中的 `message` 字段
 
 ## 参考
-- 名词解释
+- [名词解释](http://docs.developer.qq.com/xg/push_faq/noun_explanation.html
+)
 - HTTP 错误码 429 - WikiPedia定义

@@ -38,6 +38,8 @@
 |```void setPushNotificationBuilder(``` <br> ```Context context, ``` <br> ```int notificationBulderId, ``` <br> ```XGPushNotificationBuilder notifiBuilder``` <br> ```)```|自定义本地通知样式|
 |```long addLocalNotification(``` <br> ```Context context, ``` <br> ```XGLocalMessage msg``` <br> ```)```|本地通知|
 |```boolean isNotificationOpened(``` <br> ```Context context``` <br> ```)```|检测通知栏是否关闭|
+|```void cancelNotifaction(Context context, int id)```|清除单个通知|
+|```void cancelAllNotifaction(Context context)```|清除通知栏所有通知|
 
 ### XGPushConfig配置类
 

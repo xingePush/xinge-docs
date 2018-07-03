@@ -22,7 +22,8 @@
 
 | API类型      | 描述              | 状态   |
 | ---------- | --------------- | ---- |
-| Push API   | 包含多种消息推送的接口     | 正常   |
+| <a href="./push_api_v3.md">Push API</a>
+   | 包含多种消息推送的接口     | 正常   |
 | Tag API    | 主要完成标签的新增、删除、查询 | 正常   |
 | Device API | 主要完成账号的查询、删除    | 实现中  |
 | Tool API   | 用来定位问题和其他数据查询   | 实现中  |
@@ -72,6 +73,5 @@
 - 推送的消息体大小限制为4K，此限制适用于 Push API 中的 `message` 字段
 
 ## 参考
-- [名词解释](http://docs.developer.qq.com/xg/push_faq/noun_explanation.html
-)
-- HTTP 错误码 429 - WikiPedia定义
+- <a href="../../noun_explanation.md">名词解释</a>
+- [HTTP标准错误码](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error)

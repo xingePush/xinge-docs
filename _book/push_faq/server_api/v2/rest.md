@@ -920,6 +920,8 @@ V2版本支持的具体接口如下：
 
 此接口是为了查询指定设备(Device Token)在信鸽服务器上注册的状态，设备能收到信鸽推送的消息的首要条件是设备(Device Token)已经被注册到信鸽的后台，否则信鸽无法给指定设备下发消息的
 
+**注意：**此接口仅支持Android端的token查询
+
 **请求URL**:
 
 `http://openapi.xg.qq.com/v2/application/get_app_token_info?params`

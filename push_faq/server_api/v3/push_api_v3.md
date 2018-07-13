@@ -34,7 +34,7 @@ https://openapi.xg.qq.com/v3/push/app
 | ------------- | ------ | ---- | ---------------------------------------- |
 | audience_type | string | 是    | 推送目标<br>1）all：全量推送<br>2）tag：标签推送<br>3）token：单设备推送<br>4）token_list：设备列表推送<br>5）account：单账号推送<br>6）account_list：账号列表推送 |
 | platform      | string | 是    | 客户端平台类型<br>1）android：安卓<br>2）ios：苹果<br>3）all：安卓&&苹果，仅支持全量推送和标签推送 |
-| message       | object | 是    | 消息体，参见[消息体格式](https://legacy.gitbook.com/book/tencenbigdata/xg-docs/edit#message：消息体) |
+| message       | object | 是    | 消息体，参见<a href="#message：消息体">消息体</a> |
 | message_type  | string | 是    | 消息类型<br>1）notify：通知<br>2）message：透传消息/静默消息 |
 
 

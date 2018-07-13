@@ -15,7 +15,8 @@
 
 另外，感谢第三方开发者（非官方）提供的其它语言版本：
 
-<a href="https://github.com/huangnaiang/xinge-node-sdk">服务端Node js</a>
+<a href="https://github.com/huangnaiang/xinge-node-sdk">服务端 Node js</a>
 
+<a href="https://github.com/xingePush/xinge-api-Golang">服务端 Golang</a>
 
 

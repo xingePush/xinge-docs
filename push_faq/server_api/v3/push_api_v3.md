@@ -1,6 +1,6 @@
-## Push API v3
+# Push API v3
 
-### Push API 概述
+## Push API 概述
 
 - Push API 是所有推送接口的统称
 
@@ -18,7 +18,7 @@
 
   ​
 
-### 调用地址
+## 调用地址
 
 ```text
 https://openapi.xg.qq.com/v3/push/app
@@ -26,7 +26,7 @@ https://openapi.xg.qq.com/v3/push/app
 
 
 
-### Push API 必要参数
+## Push API 必要参数
 
 推送必要参数指一条推送消息必需携带的参数
 
@@ -39,7 +39,7 @@ https://openapi.xg.qq.com/v3/push/app
 
 
 
-#### audience_type：推送目标
+### audience_type：推送目标
 
 推送目标，表示一条推送可以被推送到哪些设备
 
@@ -127,7 +127,7 @@ Push API 提供了多种推送目标的，比如：全量、标签、单设备�
 
 
 
-#### platform：推送平台
+### platform：推送平台
 
 当前支持 Android、iOS 两个平台的推送
 
@@ -159,7 +159,7 @@ Push API 提供了多种推送目标的，比如：全量、标签、单设备�
 
 
 
-#### message_type：消息体类型
+### message_type：消息体类型
 
 针对不同平台，消息类型稍有不同，具体参照下表：
 
@@ -170,13 +170,13 @@ Push API 提供了多种推送目标的，比如：全量、标签、单设备�
 
 
 
-#### message：消息体
+### message：消息体
 
 消息体，即下发到客户端的消息
 
 Push API 对 iOS 和 Android 两个平台的消息有不同处理，需要分开来实现对应平台的推送消息，推送的消息体是 JSON格式
 
-##### Android普通消息
+#### Android普通消息
 
 Android平台具体字段如下表：
 
@@ -260,7 +260,7 @@ Android平台具体字段如下表：
 }
 ```
 
-##### iOS普通消息
+#### iOS普通消息
 
 iOS平台具体字段如下表：
 
@@ -294,7 +294,7 @@ iOS平台具体字段如下表：
 }
 ```
 
-##### Android透传消息
+#### Android透传消息
 
 透传消息，Android平台特有，即不显示在手机通知栏中的消息，可以用来实现让用户无感知的向App下发带有控制性质的消息
 
@@ -344,7 +344,7 @@ Android平台具体字段如下表：
 }
 ```
 
-##### iOS静默消息
+#### iOS静默消息
 
 静默消息，iOS平台特有，类似Android中的透传消息，消息不展示，当静默消息到达终端时，iOS会在后台唤醒App一段时间(小于30s)，让App来处理消息逻辑
 

@@ -252,11 +252,11 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 ---
 
-**问: 在信鸽管理台中创建Token单推之后，历史明细中为什么没有推送记录？**
+**问: 集成小米通道，没有点击回调，怎么实现点击通知栏信息能跳转到指定页面？**
 
-```
-答: 信鸽管理台中的推送历史明细只展示全量推送、标签推送和官网的号码包推送
-```
+
+  答: 集成厂商通道的必须使用[intent](http://docs.developer.qq.com/xg/android_access/android_faq.html#消息点击事件以及跳转页面方法)方式来跳转
+
 
 **问: 应用关闭或结束进程后，还能收到推送消息吗？**
 

@@ -252,10 +252,10 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 ---
 
-**问: 集成小米通道，没有点击回调，怎么实现点击通知栏信息能跳转到指定页面？**
+**问: 集成小米通道，没有点击回调，怎么实现点击通知栏信息跳转到指定页面？**
 
 
-  答: 集成厂商通道的必须使用[intent](http://docs.developer.qq.com/xg/android_access/android_faq.html#消息点击事件以及跳转页面方法)方式来跳转
+  答: 集成厂商通道的必须使用「[intent](http://docs.developer.qq.com/xg/android_access/android_faq.html#消息点击事件以及跳转页面方法)」方式来跳转
 
 
 **问: 应用关闭或结束进程后，还能收到推送消息吗？**
@@ -265,11 +265,17 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 被拉活或重启app才可以收到推送。若手机中有其他接入信鸽的app被打开，则可以利用其他app的service接收消息，
 但共享service通道也受手机ROM限制，无法保证百分之百的成功率
 ```
-
 **问: 对单个设备，保存多少条离线信息？保存时间？**
 
 ```
 答: 离线消息Android最多保存2条，iOS最多保存1条；保存时间最多72小时
+```
+
+
+**问:Android版本4.4.4编译报错，找不到XGPushProvider、MidProvider？**
+
+```
+答: 由于工程加载方法数超过65K,请对工程做分包处理
 ```
 
 **问: 标签方面限制？**

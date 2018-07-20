@@ -159,7 +159,7 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 **参数说明**
 *  badgeNumber 应用的角标数
 
-***注意：此接口适用于「SDK版本3.1.0及以上」，调用此接口可实现角标自动+1的功能，服务器会在这个数值基础上进行角标数新增的操作，调用成功之后，会覆盖之前值***
+***注意：此接口适用于「SDK版本3.1.0及以上」，调用此接口即可使用「iOS角标自动加1」的功能，此功能在***
 
 **示例**
 

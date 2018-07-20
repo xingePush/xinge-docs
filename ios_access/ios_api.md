@@ -147,7 +147,7 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 
 **说明**
 
-* 上报当前 App 角标数到信鸽服务器
+* 上报当前 App 角标数到信鸽服务器,调用此接口即可使用「iOS角标自动加1」的功能，此功能在管理台位置（创建推送→通知栏消息→常用设置→角标数字）
 
 
 **接口**
@@ -159,7 +159,7 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 **参数说明**
 *  badgeNumber 应用的角标数
 
-***注意：此接口适用于「SDK版本3.1.0及以上」，调用此接口即可使用「iOS角标自动加1」的功能，此功能在***
+***注意：此接口适用于「SDK版本3.1.0及以上」，低于此版本将导致「iOS角标自动加1」功能不可用***
 
 **示例**
 

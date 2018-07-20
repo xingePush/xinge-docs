@@ -43,6 +43,38 @@
 [Android SDK v3.2.4（beta）](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-Android-3.2.4.zip)
 
 ##iOS SDK 更新说明
+### iOS SDK v3.2.0\(beta\)
+
+当前版本SDK上线新功能
+
+| 功能描述 | 使用条件 | 调用方法 |管理台位置|
+| ------ | ------ | ------ |
+| OS角标自动加1 | SDK 版本3.1.0及以上 | [点击查看](http://docs.developer.qq.com/xg/ios_access/ios_api.html#%E4%B8%8A%E6%8A%A5%E5%BA%94%E7%94%A8%E8%A7%92%E6%A0%87)|创建推送→通知栏消息→常用设置→角标数字|
+
+
+
+#### 更新时间
+
+* 2018-7-20
+
+#### 版本更新说明
+
+1. 增加清除、替换接口
+2. 解绑和绑定支持多标签
+3. 增加角标设置接口，实现角标+1 
+4. 增加单推统计逻辑
+
+#### 升级提示
+
+建议升级！
+
+##### 下载地址：
+
+[iOS SDK v3.2.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-iOS-3.2.0.zip)
+
+
+
+
 ### iOS SDK v3.1.0 
 
 #### 更新时间 
@@ -62,7 +94,7 @@
 
 [iOS SDK v3.1.0](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-iOS-3.1.0.zip)
 
-### iOS SDK v3.1.1\(beta\)
+### iOS SDK v3.1.1
 
 #### 更新时间
 
@@ -81,5 +113,8 @@
 
 ##### 下载地址：
 
-[iOS SDK v3.1.1\(beta\)](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-iOS-3.1.1.zip)
+[iOS SDK v3.1.1](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-iOS-3.1.1.zip)
+
+
+
 

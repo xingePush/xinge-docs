@@ -2,6 +2,28 @@
 
 ## Android SDK更新说明
 
+### Android SDK v3.2.5
+
+#### 更新时间
+
+* 2018-7-20
+
+#### 版本更新说明
+
+  1. ANR问题修复
+  2. 厂商通道漏洞修复
+  3. 离线时间失效问题修复
+
+#### 升级提示
+
+* 建议升级！
+
+##### 下载地址：
+
+[Android SDK v3.2.5](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-Android-3.2.5.zip)
+
+
+
 ### Android SDK v3.2.3
 
 #### 更新时间
@@ -22,6 +44,27 @@
 ##### 下载地址：
 
 [Android SDK v3.2.3](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Push-SDK-Android-3.2.3.zip)
+### Android SDK v4.0.3（beta）
+
+#### 更新时间
+
+* 2018-7-20
+
+#### 版本更新说明
+
+1. 支持厂商通道动态灵活加载，减少包体量
+2. 适配最新Android P
+3. 增加标签批量操作API
+4. 联合保活优化
+
+#### 升级提示
+
+* 建议升级！
+
+##### 下载地址：
+
+[Android SDK v4.0.3（beta）](https://xg.qq.com/pigeon_v2/resource/sdk/Xg-Beta-SDK-Android-4.0.3.zip)
+
 
 ### Android SDK v3.2.4（beta）
 

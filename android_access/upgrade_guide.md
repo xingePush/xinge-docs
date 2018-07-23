@@ -387,7 +387,7 @@ com.tencent.mid.api.MidProvider
          
 
  4.	【可选】如果是需要使用多通道，增加以下配置：
- ```xml
+
 <!-- 小米配置 -->
 		<service
             android:name="com.xiaomi.push.service.XMPushService"
@@ -557,22 +557,14 @@ com.tencent.mid.api.MidProvider
 
 在你的Application的attachBaseContext函数里面增加
 
-```java
  StubAppUtils.attachBaseContext(context);
  
- 在初始化或者主页面onCreat函数里添加
+在初始化或者主页面onCreat函数里添加
  XGPushConfig.enableOtherPush(getApplicationContext(), true);
  XGPushConfig.setHuaweiDebug(true);
  XGPushConfig.setMiPushAppId(getApplicationContext(), "APPID");
  XGPushConfig.setMiPushAppKey(getApplicationContext(), "APPKEY");
  XGPushConfig.setMzPushAppId(this, APP_ID);
  XGPushConfig.setMzPushAppKey(this, APP_KEY);
-
-
- 
-```
-
-
-
 
  ```

@@ -161,12 +161,13 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 
 **注意：  
 1.此接口必须本地调用，否则管理台使用「iOS角标自动加1」功能时，角标会默认不变  
- 2.此接口仅适用于「SDK版本3.1.0及以上」，低于此版本管理台使用「iOS角标自动加1」功能，角标会默认不变**
+2.此接口仅适用于「SDK版本3.1.0及以上」，低于此版本管理台使用「iOS角标自动加1」功能，角标会默认不变
+**
 
 **示例**
 
 ```Objective-C
-[[XGPush defaultManager] setXgApplicationBadgeNumber:0];
+[[XGPush defaultManager] setBadge:7];
 ```
 
 ## 管理应用角标

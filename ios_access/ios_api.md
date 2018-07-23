@@ -4,7 +4,7 @@
 
 **说明**
 
- *  通过使用在信鸽官网注册的应用的信息，启动信鸽推送服务
+* 通过使用在信鸽官网注册的应用的信息，启动信鸽推送服务
 
 **接口**
 
@@ -14,35 +14,35 @@
 
 **参数说明**
 
-- appID：通过前台申请的应用 ID, 即 Access ID
-- appKey： 通过前台申请的 appKey，即 Access Key
-- delegate：回调对象 
+* appID：通过前台申请的应用 ID, 即 Access ID
+* appKey： 通过前台申请的 appKey，即 Access Key
+* delegate：回调对象 
 
-***注意：接口所需参数必须要正确填写，反之信鸽服务将不能正确为应用推送消息***
+_**注意：接口所需参数必须要正确填写，反之信鸽服务将不能正确为应用推送消息**_
 
 **示例**
+
 ```Objective-C
 [[XGPush defaultManager] startXGWithAppID: <#your access ID#>appKey:<#your access key#> delegate:<#your delegate#>];
 ```
-
 
 ## 终止信鸽推送服务
 
 **说明**
 
-* 终止信鸽推送服务以后，将无法通过信鸽推送服务向设备推送消息，如果再次需要接收信鸽服务的消息推送，则必须需要再次调用 ```startXGWithAppID:appKey:delegate:``` 方法重启信鸽推送服务
+* 终止信鸽推送服务以后，将无法通过信鸽推送服务向设备推送消息，如果再次需要接收信鸽服务的消息推送，则必须需要再次调用 `startXGWithAppID:appKey:delegate:` 方法重启信鸽推送服务
 
 **接口**
 
 ```objective-c
 - (void)stopXGNotification;
 ```
+
 **示例**
+
 ```Objective-C
 [[XGPush defaultManager] stopXGNotification];
 ```
-
-
 
 ## 自定义通知栏消息行为
 
@@ -60,9 +60,9 @@
 
 **参数说明**
 
-- identifier：行为唯一标识 
-- title：行为名称 
-- options：行为支持的选项
+* identifier：行为唯一标识 
+* title：行为名称 
+* options：行为支持的选项
 
 **示例**
 
@@ -70,7 +70,7 @@
 XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];
 ```
 
-***注意：通知栏带有点击事件的特性，只有在 iOS8.0 + 以上支持，iOS 7.x or earlier的版本，此方法返回空*** 
+_**注意：通知栏带有点击事件的特性，只有在 iOS8.0 + 以上支持，iOS 7.x or earlier的版本，此方法返回空**_
 
 ### 创建分类对象
 
@@ -83,19 +83,21 @@ XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xga
 ```objective-c
 + (nullable id)categoryWithIdentifier:(nonnull NSString *)identifier actions:(nullable NSArray<XGNotificationAction *> *)actions intentIdentifiers:(nullable NSArray<NSString *> *)intentIdentifiers options:(XGNotificationCategoryOptions)options;
 ```
-**参数说明**
-* identifier：分类对象的标识
-*  actions：当前分类拥有的行为对象组
-*  intentIdentifiers：用以表明可以通过Siri识别的标识
-*  options：分类的特性
 
-***注意：通知栏带有点击事件的特性，只有在iOS8+以上支持，iOS 8 or earlier的版本，此方法返回空***
+**参数说明**
+
+* identifier：分类对象的标识
+* actions：当前分类拥有的行为对象组
+* intentIdentifiers：用以表明可以通过Siri识别的标识
+* options：分类的特性
+
+_**注意：通知栏带有点击事件的特性，只有在iOS8+以上支持，iOS 8 or earlier的版本，此方法返回空**_
 
 **示例**
+
 ```Objective-C
 XGNotificationCategory *category = [XGNotificationCategory categoryWithIdentifier:@"xgCategory" actions:@[action1, action2] intentIdentifiers:@[] options:XGNotificationCategoryOptionNone];
 ```
-
 
 ### 创建配置类
 
@@ -109,16 +111,14 @@ XGNotificationCategory *category = [XGNotificationCategory categoryWithIdentifie
 
 **参数说明**
 
-- categories：通知栏中支持的分类集合 
-- types：注册通知的样式
+* categories：通知栏中支持的分类集合 
+* types：注册通知的样式
 
 **示例**
 
 ```objective-c
 XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificationWithCategories:[NSSet setWithObject:category] types:XGUserNotificationTypeAlert|XGUserNotificationTypeBadge|XGUserNotificationTypeSound];
 ```
-
-
 
 ## 上报地理位置
 
@@ -133,22 +133,21 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ```
 
 **参数说明**
-*  latitude：纬度
+
+* latitude：纬度
 * longitude：经度
 
 **示例**
+
 ```Objective-C
 [[XGPush defaultManager] reportLocationWithLatitude:20.0 longitude:19.0];
 ```
-
-
 
 ## 角标自动加1
 
 **说明**
 
 * 调用此接口上报当前 App 角标数到信鸽服务器,客户端配置完成即可使用「iOS角标自动加1」的功能，此功能在管理台位置（创建推送→通知栏消息→常用设置→角标数字）
-
 
 **接口**
 
@@ -157,10 +156,11 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ```
 
 **参数说明**
-*  badgeNumber 应用的角标数
 
-**注意：        
-1.此接口必须本地调用否则管理台使用「iOS角标自动加1」功能，角标会默认不变
+* badgeNumber 应用的角标数
+
+**注意：  
+1.此接口必须本地调用，否则管理台使用「iOS角标自动加1」功能时，角标会默认不变  
  2.此接口仅适用于「SDK版本3.1.0及以上」，低于此版本管理台使用「iOS角标自动加1」功能，角标会默认不变**
 
 **示例**
@@ -169,13 +169,11 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
 ```
 
-
-
 ## 管理应用角标
 
 **说明**
 
-- 管理 App 显示的角标数量
+* 管理 App 显示的角标数量
 
 **接口**
 
@@ -193,19 +191,19 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
 ```
 
-
-
 ## 统计推送效果
 
 **说明**
 
 * 为了更好的了解每一条推送消息的运营效果，需要将用户对消息的行为上报
 
-需要调用上报数据的接口
+需要调用上报数据的接口  
 **接口**
+
 ```Objective-C
 - (void)reportXGNotificationInfo:(nonnull NSDictionary *)info;
 ```
+
 **示例**
 
 ```Objective-C
@@ -217,8 +215,7 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
   }
 ```
 
-
-- **iOS 9.x** 及以前，需要在 ```UIApplicationDelegate``` 的回调方法(如下)中调用上报数据的接口
+* **iOS 9.x** 及以前，需要在 `UIApplicationDelegate` 的回调方法\(如下\)中调用上报数据的接口
 
 ```objective-c
 - (void)application:(UIApplication *)application 
@@ -235,14 +232,12 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
     didReceiveRemoteNotification:(NSDictionary *)userInfo 
         fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
 {
-	[[XGPush defaultManager] reportXGNotificationInfo:userInfo];
-	completionHandler(UIBackgroundFetchResultNewData);
+    [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 ```
 
-
-
-- **iOS 10.0 +** ，需要在 ```XGPushDelegate``` 的回调方法(如下)中调用上报数据的接口
+* **iOS 10.0 +** ，需要在 `XGPushDelegate` 的回调方法\(如下\)中调用上报数据的接口
 
 **示例**
 
@@ -254,9 +249,8 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
     [[XGPush defaultManager] 
      reportXGNotificationInfo:response.notification.request.content.userInfo];
        completionHandler();
-   } 
+   }
 ```
-
 
 如果需要实现应用在前台时，也可以展示推送消息，需要实现以下方法，并在其中调用上报接口
 
@@ -266,7 +260,7 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
 - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler;
 ```
 
-**示例** 
+**示例**
 
 ```Objective-C
 - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
@@ -275,15 +269,13 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
 }
 ```
 
-
-
 ## 管理设备 Token
 
 ### 查询设备 Token
 
 **说明**
 
-- 查询当前应用从 APNs 获取的 Token 字符串
+* 查询当前应用从 APNs 获取的 Token 字符串
 
 **接口**
 
@@ -297,24 +289,23 @@ NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
 NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 ```
 
-
-
 ### 查询 APNs 注册结果
 
 **说明**
-* 如果注册成功，则应用会调用 ```UIApplicationDelegate``` 代理对象的回调方法(如下)，
+
+* 如果注册成功，则应用会调用 `UIApplicationDelegate` 代理对象的回调方法\(如下\)，
 
 **接口**
+
 ```Objective-C
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 ```
-
 
 ### 查询信鸽注册结果
 
 **说明**
 
-- SDK 的启动方法自动注册设备从 APNs 获取的 Token 到信鸽服务器，注册结果会在 ```XGPushDelegate``` (以下)的回调方法返回
+* SDK 的启动方法自动注册设备从 APNs 获取的 Token 到信鸽服务器，注册结果会在 `XGPushDelegate` \(以下\)的回调方法返回
 
 **接口**
 
@@ -322,13 +313,12 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 - (void)xgPushDidRegisteredDeviceToken:(NSString *)deviceToken error:(NSError *)error;
 ```
 
-***注意：此回调方法在注册成功之后调用，当前的 Token 已经注册过之后，SDK 将缓存注册信息，此方法将不会再调用***
-
-
+_**注意：此回调方法在注册成功之后调用，当前的 Token 已经注册过之后，SDK 将缓存注册信息，此方法将不会再调用**_
 
 ### 绑定/解绑 标签和账号
 
 **说明**
+
 * 开发者可以针对不同的用户绑定标签,然后对该标签推送.对标签推送会让该标签下的所有设备都收到推送.一个设备可以绑定多个标签.
 
 **接口**
@@ -337,7 +327,9 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 - (void)bindWithIdentifier:(nullable NSString *)identifier type:(XGPushTokenBindType)type;
 - (void)unbindWithIdentifer:(nullable NSString *)identifier type:(XGPushTokenBindType)type;
 ```
+
 **参数说明**
+
 * identifier:标签或账号
 * type:绑定类型
 
@@ -361,7 +353,7 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 
 **说明**
 
-- 根据指定类型查询当前 Token 对象绑定的标识 
+* 根据指定类型查询当前 Token 对象绑定的标识 
 
 **接口**
 
@@ -378,13 +370,11 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 [[XGPushTokenManager defaultTokenManager] identifiersWithType:XGPushTokenBindTypeAccount];
 ```
 
-
-
 ## 查询设备通知权限
 
 **说明**
 
-- 查询设备通知权限是否被用户允许 
+* 查询设备通知权限是否被用户允许 
 
 **接口**
 
@@ -394,7 +384,7 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 
 **参数说明**
 
-- handler：查询结果的返回方法
+* handler：查询结果的返回方法
 
 **示例**
 
@@ -404,13 +394,11 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
     }];
 ```
 
-
-
 ## 查询 SDK 版本
 
 **说明**
 
-- 查询当前 SDK 的版本
+* 查询当前 SDK 的版本
 
 **接口**
 
@@ -423,8 +411,6 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 ```objective-c
 [[XGPush defaultManager] sdkVersion];
 ```
-
-
 
 ## 本地推送
 

@@ -25,6 +25,7 @@
 com.tencent.android.tpush.service.XGPushServiceV4
 com.tencent.android.tpush.XGPushReceiver
 com.tencent.android.tpush.service.XGDaemonService
+com.tencent.mid.api.MidProvider
 ```
 若无配置则功能不可用
 
@@ -70,28 +71,23 @@ com.tencent.android.tpush.service.XGDaemonService
         <service
             android:name="com.tencent.android.tpush.service.XGDaemonService"
             android:process=":xg_service_v4" />
+    <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
+        <provider
+           android:name="com.tencent.mid.api.MidProvider"
+           android:authorities="com.qq.xgdemo.TENCENT.MID.V4"
+           android:exported="true" >
+       </provider>
+
 
 5.【必须】检查是否配置
 
 ```
-   com.tencent.android.tpush.XGPushProvider
-   com.tencent.android.tpush.SettingsContentProvider
    com.tencent.mid.api.MidProvider 
 ```
 若无配置则功能不可用
 
 ```xml
-<!-- 【必须】 【注意】authorities修改为 包名.AUTH_XGPUSH, 如demo的包名为：com.qq.xgdemo-->
-       <provider
-           android:name="com.tencent.android.tpush.XGPushProvider"
-           android:authorities="com.qq.xgdemo.AUTH_XGPUSH"
-           android:exported="true"
-           />       
-<!-- 【必须】 【注意】authorities修改为 包名.TPUSH_PROVIDER, 如demo的包名为：com.qq.xgdemo-->
-       <provider
-           android:name="com.tencent.android.tpush.SettingsContentProvider"
-           android:authorities="com.qq.xgdemo.TPUSH_PROVIDER"
-           android:exported="false" />
+
 <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
        <provider
            android:name="com.tencent.mid.api.MidProvider"

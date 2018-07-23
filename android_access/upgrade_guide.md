@@ -3,7 +3,7 @@
 <hr>
 
 1.	【必须】提取SDK文档中的最新jar包替换当前信鸽SDK版本。                         
-2.	【必须】根据所需平台，提取```libtpnsSecurity.so```和```libxguardian.so```替换老版本
+2.	【必须】根据所需平台，提取```libtpnsSecurity.so```替换老版本和删除原先```libxguardian.so```
 
 3.	【必须】添加```XGPushActivity```页面配置和设置用户自定义的```MessageReceiver```的```android:exported``` 为```"false"```
             
@@ -20,30 +20,56 @@
       </intent-filter> 
 </receiver> ```
 
-4.【必须】检查是否配置
+4.【必须】检查是否配置正确
 ```
-com.tencent.android.tpush.service.XGPushServiceV3
-com.tencent.android.tpush.rpc.XGRemoteService
+com.tencent.android.tpush.service.XGPushServiceV4
+com.tencent.android.tpush.XGPushReceiver
+com.tencent.android.tpush.service.XGDaemonService
 ```
 若无配置则功能不可用
 
 ```xml
 <!-- 【必须】 信鸽service -->
        <service
-           android:name="com.tencent.android.tpush.service.XGPushServiceV3"
+           android:name="com.tencent.android.tpush.service.XGPushServiceV4"
            android:exported="true"
            android:persistent="true"
-           android:process=":xg_service_v3" />
+           android:process=":xg_service_v4" />
 
 <!-- 【必须】 通知service，此选项有助于提高抵达率 -->
-       <service
-           android:name="com.tencent.android.tpush.rpc.XGRemoteService"
-           android:exported="true" >
-           <intent-filter>
-               <!-- 【必须】 请修改为当前APP包名.PUSH_ACTION-->
-               <action android:name="com.qq.xgdemo.PUSH_ACTION" />
-           </intent-filter>
-       </service>```
+       <receiver
+            android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:process=":xg_service_v4" >
+            <intent-filter android:priority="0x7fffffff" >
+
+                <!-- 【必须】 信鸽SDK的内部广播 -->
+                <action android:name="com.tencent.android.tpush.action.SDK" />
+                android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+                <!-- 【必须】 系统广播：网络切换 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <!-- 【可选】 系统广播：开屏 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+
+                <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+            <!-- 【可选】 usb相关的系统广播，增强信鸽service的复活机会，请根据需要添加 -->
+            <intent-filter android:priority="0x7fffffff" >
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+                <action android:name="android.intent.action.MEDIA_CHECKING" />
+                <action android:name="android.intent.action.MEDIA_EJECT" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+        
+        <service
+            android:name="com.tencent.android.tpush.service.XGDaemonService"
+            android:process=":xg_service_v4" />
 
 5.【必须】检查是否配置
 
@@ -69,7 +95,7 @@ com.tencent.android.tpush.rpc.XGRemoteService
 <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
        <provider
            android:name="com.tencent.mid.api.MidProvider"
-           android:authorities="com.qq.xgdemo.TENCENT.MID.V3"
+           android:authorities="com.qq.xgdemo.TENCENT.MID.V4"
            android:exported="true" >
        </provider>
 ```

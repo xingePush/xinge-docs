@@ -216,24 +216,33 @@ com.tencent.mid.api.MidProvider
             android:persistent="true" />
         <!-- 云控相关 - 完 -->
         
-         <!-- 增加厂商权限 -->
+     <!-- 增加厂商权限 -->
 	 <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
     <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
-    <permission android:name="${applicationId}.push.permission.MESSAGE" android:protectionLevel="signature"/>
-    <uses-permission android:name="${applicationId}push.permission.MESSAGE"></uses-permission>
+    <permission android:name="你的应用包名.push.permission.MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="你的应用包名.push.permission.MESSAGE"></uses-permission>
     <!--  兼容flyme3.0配置权限-->
     <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
-    <permission android:name="${applicationId}.permission.C2D_MESSAGE"
+    <permission android:name="你的应用包名.permission.C2D_MESSAGE"
         android:protectionLevel="signature"></permission>
-    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="你的应用包名.permission.C2D_MESSAGE"/>
     <!-- 注：魅族push 需要的权限 end -->
 	<!--小米所需权限-->
     <permission
-        android:name="${applicationId}.permission.MIPUSH_RECEIVE"
+        android:name="你的应用包名.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature" />
-    <!-- 这里com.example.mipushtest改成app的包名 -->
-    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE" />
-    <!-- 这里com.example.mipushtest改成app的包名 -->
+    <uses-permission android:name="你的应用包名.permission.MIPUSH_RECEIVE" />
+
+**开启厂商通道**
+
+在你的application的attachBaseContext函数里面增加
+
+```java
+ StubAppUtils.attachBaseContext(base);
+ 
+```
+
+
 
 
  ```

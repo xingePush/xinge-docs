@@ -71,7 +71,7 @@ com.tencent.mid.api.MidProvider
         <service
             android:name="com.tencent.android.tpush.service.XGDaemonService"
             android:process=":xg_service_v4" />
-    <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
+    <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V4, 如demo的包名为：com.qq.xgdemo-->
         <provider
            android:name="com.tencent.mid.api.MidProvider"
            android:authorities="com.qq.xgdemo.TENCENT.MID.V4"

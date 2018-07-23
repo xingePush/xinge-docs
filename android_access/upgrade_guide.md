@@ -5,22 +5,7 @@
 1.	【必须】提取SDK文档中的最新jar包替换当前信鸽SDK版本。                         
 2.	【必须】根据所需平台，提取```libtpnsSecurity.so```替换老版本和删除原先```libxguardian.so```
 
-3.	【必须】添加```XGPushActivity```页面配置和设置用户自定义的```MessageReceiver```的```android:exported``` 为```"false"```
-            
-```xml 
-如下所示
-<activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="false" > </activity> 
-
-<receiver android:name="您的自定义MessageReceiver，继承于XGPushBaseReceiver" android:exported="true"> 
-      <intent-filter> 
-            <!-- 接收消息透传 --> 
-            <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" /> 
-            <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 --> 
-            <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
-      </intent-filter> 
-</receiver> ```
-
-4.【必须】检查是否配置正确
+3.     【必须】检查是否配置正确（v3升级V4）
 ```
 com.tencent.android.tpush.service.XGPushServiceV4
 com.tencent.android.tpush.XGPushReceiver
@@ -71,53 +56,184 @@ com.tencent.mid.api.MidProvider
         <service
             android:name="com.tencent.android.tpush.service.XGDaemonService"
             android:process=":xg_service_v4" />
-    <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V4, 如demo的包名为：com.qq.xgdemo-->
+        <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V4, 如demo的包名为：com.qq.xgdemo-->
         <provider
            android:name="com.tencent.mid.api.MidProvider"
            android:authorities="com.qq.xgdemo.TENCENT.MID.V4"
            android:exported="true" >
        </provider>
+       
+        
+         
+
+ 4.	【可选】如果是需要使用多通道，增加以下配置：
+ ```xml
+<!-- 小米配置 -->
+		<service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true"
+            android:process=":pushservice" />
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":pushservice" />
+        <!-- 注：此service必须在3.0.1版本以后（包括3.0.1版本）加入 -->
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" />
+        <!-- 注：此service必须在2.2.5版本以后（包括2.2.5版本）加入 -->
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false"
+            android:process=":pushservice" >
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
 
 
-5.【必须】检查是否配置
+        <receiver
+            android:name="com.tencent.otherpush.receiver.XmReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+		
+		 <!-- 注：魅族push -->
+        <service
+            android:name="com.meizu.cloud.pushsdk.NotificationService"
+            android:exported="true" />
 
-```
-   com.tencent.mid.api.MidProvider 
-```
-若无配置则功能不可用
+        <receiver android:name="com.meizu.cloud.pushsdk.SystemReceiver" >
+            <intent-filter>
+                <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START" />
 
-```xml
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <!-- 默认的自定义广播接收器，用于自定义处理魅族push消息广播，receiver的name为自定义的广播接收类 start -->
+        <receiver android:name="com.tencent.otherpush.receiver.MzReceiver" >
+            <intent-filter>
 
-<!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
-       <provider
-           android:name="com.tencent.mid.api.MidProvider"
-           android:authorities="com.qq.xgdemo.TENCENT.MID.V4"
-           android:exported="true" >
-       </provider>
-```
+                <!-- 接收push消息 -->
+                <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+                <!-- 接收register消息 -->
+                <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
+                <!-- 接收unregister消息 -->
+                <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK" />
+                <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
+                <action android:name="com.meizu.c2dm.intent.RECEIVE" />
+                <!-- 你的应用包名 -->
+                <category android:name="你的应用包名" >
+                </category>
+            </intent-filter>
+        </receiver>
+		
+		<!-- 注：华为push 需要的 begin -->
+		<meta-data
+        android:name="com.huawei.hms.client.appid"
+        android:value="你的华为注册APPID" >
+        </meta-data>
 
-6.	【可选】整理权限
+		
+		<activity
+            android:name="com.huawei.hms.activity.BridgeActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
 
-```xml
-<!-- 【必须】 信鸽SDK所需权限   -->
-   <uses-permission android:name="android.permission.INTERNET" />
-   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-   <uses-permission android:name="android.permission.WAKE_LOCK" />
-   <uses-permission android:name="android.permission.VIBRATE" />
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="你的应用包名.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+        </provider>
 
-    <!-- 【常用】 信鸽SDK所需权限 -->
-   <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-   <!-- 【可选】 信鸽SDK所需权限 -->
-   <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-   <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-   <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-   <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-   <uses-permission android:name="android.permission.GET_TASKS" />
-   <uses-permission android:name="android.permission.READ_LOGS" />
-   <uses-permission android:name="android.permission.BLUETOOTH" />
-   <uses-permission android:name="android.permission.BATTERY_STATS" /> ```
+
+        <receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver" >
+            <intent-filter>
+
+                <!-- 接收通道发来的通知栏消息，兼容老版本PUSH -->
+                <action android:name="com.huawei.intent.action.PUSH" />
+            </intent-filter>
+        </receiver>
+
+        <!-- xxx.xx.xx为CP自定义的广播名称，比如: com.huawei.hmssample. HuaweiPushRevicer -->
+        <receiver android:name="com.tencent.otherpush.receiver.HwReceiver" >
+            <intent-filter>
+
+                <!-- 必须,用于接收TOKEN -->
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <!-- 必须，用于接收消息 -->
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <!-- 可选，查看PUSH通道是否连接，不查看则不需要 -->
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+		
+		 <!-- 云控相关 -->
+        <receiver
+            android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.cloudcontrol.action.DOWNLOAD_FILE_FINISH" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadService"
+            android:exported="true"
+            android:persistent="true" />
+        <!-- 云控相关 - 完 -->
+        
+         <!-- 增加厂商权限 -->
+	 <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
+    <permission android:name="${applicationId}.push.permission.MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="${applicationId}push.permission.MESSAGE"></uses-permission>
+    <!--  兼容flyme3.0配置权限-->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
+    <permission android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"></permission>
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+    <!-- 注：魅族push 需要的权限 end -->
+	<!--小米所需权限-->
+    <permission
+        android:name="${applicationId}.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+    <!-- 这里com.example.mipushtest改成app的包名 -->
+    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE" />
+    <!-- 这里com.example.mipushtest改成app的包名 -->
+
+
+ ```

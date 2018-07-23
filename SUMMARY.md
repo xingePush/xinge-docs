@@ -17,6 +17,7 @@
   * [iOS SDK 集成指南](ios_access/ios_access_guide.md)
   * [iOS SDK API 接口文档](ios_access/ios_api.md)
   * [iOS 推送证书说明](ios_access/ios_push_certificate.md)
+  * [iOS关于 IDFA 插件说明](ios_access/ios_xg_idfa.md)
   * [iOS SDK 错误码对照表](ios_access/ios_returncode.md)
   * [iOS SDK 常见问题](ios_access/ios_faq.md)
   * [iOS SDK v2.5.0 完整接入](ios_access/api_2.5.0.md)

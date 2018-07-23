@@ -143,7 +143,7 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 
 
 
-## 上报应用角标
+## 角标自动加1
 
 **说明**
 

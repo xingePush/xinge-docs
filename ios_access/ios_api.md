@@ -322,8 +322,7 @@ _**注意：此回调方法在注册成功之后调用，当前的 Token 已经�
 
 * 开发者可以针对不同的用户绑定标签,然后对该标签推送.对标签推送会让该标签下的所有设备都收到推送.一个设备可以绑定多个标签.
 
-**接口**
-
+** 单操作接口 **
 ```Objective-C
 - (void)bindWithIdentifier:(nullable NSString *)identifier type:(XGPushTokenBindType)type;
 - (void)unbindWithIdentifer:(nullable NSString *)identifier type:(XGPushTokenBindType)type;
@@ -349,6 +348,48 @@ _**注意：此回调方法在注册成功之后调用，当前的 Token 已经�
 //解绑账号：
 [[XGPushTokenManager defaultTokenManager] unbindWithIdentifer:@"your account" type:XGPushTokenBindTypeAccount];
 ```
+
+** 批量操作接口 **
+
+```Objective-C
+- (void)bindWithIdentifiers:(nonnull NSArray <NSString *> *)identifiers type:(XGPushTokenBindType)type
+- (void)unbindWithIdentifers:(nonnull NSArray <NSString *> *)identifiers type:(XGPushTokenBindType)type;
+```
+** 参数说明 **
+
+* identifiers:标签或账号列表
+* type:绑定类型
+
+** 注意 **
+* XG SDK 3.2.0+
+* 暂不支持账号类型，标签字符串不允许有空格或者是tab字符
+
+### 批量更新标签/账号
+
+** 接口 **
+```Objective-C
+- (void)updateBindedIdentifiers:(nonnull NSArray <NSString *> *)identifiers bindType:(XGPushTokenBindType)type;
+```
+** 参数说明 **
+
+* identifiers:标签标识字符串数组，标签字符串不允许有空格或者是tab字符
+* type:标识类型
+
+** 注意 **
+* XG SDK 3.2.0+
+* 若指定为标签类型，此接口会将当前 Token 对应的旧有的标签全部替换为当前的标签；若指定账号类型，此接口仅取 identifiers 列表中第一个
+
+### 清除全部标签/账号
+
+** 接口 **
+```Objective-C
+- (void)clearAllIdentifiers:(XGPushTokenBindType)type;
+```
+** 参数说明 **
+* type:标识类型
+
+** 注意 **
+* XG SDK 3.2.0+
 
 ### 查询绑定的标签和账号
 

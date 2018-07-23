@@ -777,7 +777,7 @@ XGPushManager.setTag(this, "male"); ```
 
 ***设置多个标签***
 
-【4.03及以上版本】一次设置多个标签，会覆盖这个设备之前设置的标签。
+【4.0.3及以上版本】一次设置多个标签，会覆盖这个设备之前设置的标签。
 
 
 
@@ -813,7 +813,7 @@ XGPushManager.setTags(getApplicationContext(), "setTags:" + System.currentTimeMi
 
 ***增加多个标签***
 
-【4.03及以上版本】一次增加多个标签，不会覆盖这个设备之前设置的标签。
+【4.0.3及以上版本】一次增加多个标签，不会覆盖这个设备之前设置的标签。
 
 
 
@@ -884,7 +884,7 @@ XGPushManager.deleteTag (this, "male"); ```
 
 ***删除多个标签***
 
-【4.03及以上版本】一次删除多个标签
+【4.0.3及以上版本】一次删除多个标签
 
 
 
@@ -921,7 +921,7 @@ XGPushManager.deleteTags(getApplicationContext(), "deleteTags:" + System.current
 
 ***清除所有标签***
 
-【4.03及以上版本】清除这个设备的所有标签
+【4.0.3及以上版本】清除这个设备的所有标签
 
 
 

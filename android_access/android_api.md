@@ -32,7 +32,11 @@
 |```void registerPush(``` <br> ```Context context,``` <br> ```String account, ``` <br> ```String ticket, ``` <br> ```int ticketType,``` <br> ``` String qua, ``` <br> ```final XGIOperateCallback callback``` <br> ```)```|同上，仅供带登陆态的业务使用|
 |```void unregisterPush(Context context)```|反注册，建议在不需要接收推送的时候调用|
 |```void setTag(``` <br> ```Context context,``` <br> ```String tagName``` <br> ```)```|设置标签|
+|```void setTags(```<br>```Context context, ```<br>```String operateName, ```<br>```Set<String> tags```<br>```) ```|设置多个标签，会覆盖这个设备之前设置的标签|
+|```void addTags(```<br>```Context context, ```<br>```String operateName, ```<br>```Set<String> tags```<br>```)```|增加多个标签|
 |```void deleteTag(``` <br> ```Context context,``` <br> ```String tagName``` <br> ```)```|删除标签|
+|```void deleteTags(``` <br> ```Context context, ``` <br> ```String operateName, ``` <br> ```Set<String> tags``` <br> ```)```|删除多个标签|
+|```void cleanTags(``` <br> ```Context context, ``` <br> ```String operateName``` <br> ```)```|清除所有标签|
 |```XGPushClickedResult onActivityStarted(Activity activity)```|Activity被打开的效果统计；获取下发的自定义key-value|
 |```void onActivityStoped(``` <br> ```Activity activity``` <br> ```)```|Activity被打开的效果统计|
 |```void setPushNotificationBuilder(``` <br> ```Context context, ``` <br> ```int notificationBulderId, ``` <br> ```XGPushNotificationBuilder notifiBuilder``` <br> ```)```|自定义本地通知样式|
@@ -771,6 +775,80 @@ XGPushManager.setTag(this, "male"); ```
 
 
 
+***设置多个标签***
+
+一次设置多个标签，会覆盖这个设备之前设置的标签。
+
+
+
+***函数原型***
+
+```java
+public static void setTags(Context context, String operateName, Set<String> tags) ```
+
+
+
+***参数***
+
+context：Context对象
+operateName：用户定义的操作名称，回调结果会原样返回，用于给用户区分是哪个操作。在XGPushBaseReceiver的onSetTagResult的tagName参数原样返回
+tags：标签名集合，每个标签是一个String。限制：每个tag不能超过40字节（超过会抛弃），不能包含空格（含有空格会删除空格）。最多设置1000个tag，超过部分会抛弃
+
+
+
+***处理结果***
+
+可通过重载XGPushBaseReceiver的onSetTagResult方法获取。
+
+
+***示例***
+
+```java
+String[] tags = "tag1 tag2".split(" ");
+Set<String> tagsSet = new HashSet<>(Arrays.asList(tags));
+XGPushManager.setTags(getApplicationContext(), "setTags:" + System.currentTimeMillis(), tagsSet); 
+```
+
+
+
+***增加多个标签***
+
+一次增加多个标签，不会覆盖这个设备之前设置的标签。
+
+
+
+***函数原型***
+
+```java
+public static void addTags(Context context, String operateName, Set<String> tags) 
+```
+
+
+
+***参数***
+
+context：Context对象
+operateName：用户定义的操作名称，回调结果会原样返回，用于给用户区分是哪个操作。在XGPushBaseReceiver的onSetTagResult的tagName参数原样返回
+tags：标签名集合，每个标签是一个String。限制：每个tag不能超过40字节（超过会抛弃），不能包含空格（含有空格会删除空格）。最多设置1000个tag，超过部分会抛弃
+
+
+
+***处理结果***
+
+可通过重载XGPushBaseReceiver的onSetTagResult方法获取。
+
+
+***示例***
+
+```java
+String[] tags = "tag1 tag2".split(" ");
+Set<String> tagsSet = new HashSet<>(Arrays.asList(tags));
+XGPushManager.addTags(getApplicationContext(), "addTags:" + System.currentTimeMillis(), tagsSet);
+```
+
+
+
+
 ***删除标签***
 
 
@@ -802,6 +880,76 @@ tagName：待设置的标签名称，不能为null或空
 ```java
 XGPushManager.deleteTag (this, "male"); ```
 
+
+
+***删除多个标签***
+
+一次删除多个标签
+
+
+
+***函数原型***
+
+```java
+public static void deleteTags(Context context, String operateName, Set<String> tags)
+```
+
+
+
+***参数***
+
+context：Context对象
+operateName：用户定义的操作名称，回调结果会原样返回，用于给用户区分是哪个操作。在XGPushBaseReceiver的onSetTagResult的tagName参数原样返回
+tags：标签名集合，每个标签是一个String。限制：每个tag不能超过40字节（超过会抛弃），不能包含空格（含有空格会删除空格）。最多设置1000个tag，超过部分会抛弃
+
+
+
+***处理结果***
+
+可通过重载XGPushBaseReceiver的onSetTagResult方法获取。
+
+
+***示例***
+
+```java
+String[] tags = "tag1 tag2".split(" ");
+Set<String> tagsSet = new HashSet<>(Arrays.asList(tags));
+XGPushManager.deleteTags(getApplicationContext(), "deleteTags:" + System.currentTimeMillis(), tagsSet);
+```
+
+
+
+***清除所有标签***
+
+清除这个设备的所有标签
+
+
+
+***函数原型***
+
+```java
+public static void cleanTags(Context context, String operateName)
+```
+
+
+
+***参数***
+
+context：Context对象
+operateName：用户定义的操作名称，回调结果会原样返回，用于给用户区分是哪个操作。在XGPushBaseReceiver的onSetTagResult的tagName参数原样返回
+
+
+
+***处理结果***
+
+可通过重载XGPushBaseReceiver的onSetTagResult方法获取。
+
+
+***示例***
+
+```java
+XGPushManager.cleanTags(getApplicationContext(), "cleanTags:" + System.currentTimeMillis());
+```
 
 
 

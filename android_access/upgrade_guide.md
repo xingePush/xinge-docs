@@ -316,6 +316,26 @@ XGPushManager.setTag(this,"XINGE");
 -keep class com.tencent.android.tpush.** {* ;}
 -keep class com.tencent.mid.** {* ;}
 -keep class com.qq.taf.jce.** {*;}
+
+华为通道
+-ignorewarning
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.hianalytics.android.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
+
+小米通道
+-keep class com.xiaomi.**{*;}
+-keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
+
+魅族通道
+-dontwarn com.meizu.cloud.pushsdk.**
+-keep class com.meizu.cloud.pushsdk.**{*;}
+
 ```
 
 
@@ -383,12 +403,15 @@ com.tencent.mid.api.MidProvider
            android:exported="true" >
        </provider>
        
-        
+        ```
          
 
- 4.	【可选】如果是需要使用多通道，增加以下配置：
+ ####	【可选】如果是需要使用多通道，增加以下配置：
 
 <!-- 小米配置 -->
+```xml
+
+
 		<service
             android:name="com.xiaomi.push.service.XMPushService"
             android:enabled="true"
@@ -552,19 +575,27 @@ com.tencent.mid.api.MidProvider
         android:name="你的应用包名.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature" />
     <uses-permission android:name="你的应用包名.permission.MIPUSH_RECEIVE" />
+    ```
 
- **开启厂商通道初始化代码**
+
+
+**开启厂商通道初始化代码**
 
 在你的Application的attachBaseContext函数里面增加
+```java
+
 
  StubAppUtils.attachBaseContext(context);
- 
+ ```
+
 在初始化或者主页面onCreat函数里添加
+```java
+
  XGPushConfig.enableOtherPush(getApplicationContext(), true);
  XGPushConfig.setHuaweiDebug(true);
  XGPushConfig.setMiPushAppId(getApplicationContext(), "APPID");
  XGPushConfig.setMiPushAppKey(getApplicationContext(), "APPKEY");
- XGPushConfig.setMzPushAppId(this, APP_ID);
- XGPushConfig.setMzPushAppKey(this, APP_KEY);
-
+ XGPushConfig.setMzPushAppId(this, "APPID");
+ XGPushConfig.setMzPushAppKey(this, "APPKEY");
+```
  ```

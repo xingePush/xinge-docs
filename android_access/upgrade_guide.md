@@ -231,116 +231,11 @@ android:value="YOUR_ACCESS_KEY" />
 <uses-permission android:name="android.permission.BATTERY_STATS" />
 
 ```
-##注册以及部分日志输出。
-
-<hr>
-
-1.根据<a href="http://docs.developer.qq.com/xg/android_access/manual.html" target="_blank" >手动接入</a>或者<a href="http://docs.developer.qq.com/xg/android_access/jcenter.html" target="_blank" >自动接入</a>，配置好信鸽过后，获取信鸽注册日志（接入过程中建议调用有回调的注册接口，开启信鸽的debug日志输出。AndroidStudio 建议采用jcenter自动接入，无需在配置文件中配置信鸽各个节点，全部由依赖导入）。
-
-**开启debug日志数据**
-
-```java
-XGPushConfig.enableDebug(this,true);
-```
-
-**token注册**
-
-```java
-XGPushManager.registerPush(this, new XGIOperateCallback() {
-@Override
-public void onSuccess(Object data, int flag) {
-//token在设备卸载重装的时候有可能会变
-Log.d("TPush", "注册成功，设备token为：" + data);
-}
-@Override
-public void onFail(Object data, int errCode, String msg) {
-Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
-}
-})
-```
-过滤"TPush"注册成功的日志如下：
-
-```xml
-10-09 20:08:46.922 24290-24303/com.qq.xgdemo I/XINGE: [TPush] get RegisterEntity:RegisterEntity [accessId=2100250470, accessKey=null, token=5874b7465d9eead746bd9374559e010b0d1c0bc4, packageName=com.qq.xgdemo, state=0, timestamp=1507550766, xgSDKVersion=3.11, appVersion=1.0]
-10-09 20:08:47.232 24290-24360/com.qq.xgdemo D/TPush: 注册成功，设备token为：5874b7465d9eead746bd9374559e010b0d1c0bc4
-```
-
-**设置账号**
-
-```java
-//注意在3.2.2 版本信鸽对账号绑定和解绑接口进行了升级具体详情请参考API文档。
-XGPushManager.bindAccount(getApplicationContext(), "XINGE");
-```
-过滤“TPush”账号注册成功的日志如下：
-
-```xml
-//如推送返回48账号无效，请确认账号接口调用成功
-10-11 15:55:57.810 29299-29299/com.qq.xgdemo D/TPushReceiver: TPushRegisterMessage [accessId=2100250470, deviceId=853861b6bba92fb1b63a8296a54f439e, account=XINGE, ticket=0, ticketType=0, token=3f13f775079df2d54e1f82475a28bccd3bfef8c1]注册成功
-```
-
-**设置标签**
-
-```java
-XGPushManager.setTag(this,"XINGE");
-```
-
-设置标签成功的日志：
-
-```xml
-10-09 20:11:42.558 27348-27348/com.qq.xgdemo I/XINGE: [XGPushManager] Action -> setTag with tag = XINGE
-```
-
-**收到消息日志**
-
-```xml
-10-16 19:50:01.065 5969-6098/com.qq.xgdemo D/XINGE: [i] Action -> handleRemotePushMessage
-10-16 19:50:01.065 5969-6098/com.qq.xgdemo I/XINGE: [i] >> msg from service, @msgId=1 @accId=2100250470 @timeUs=1508154601660412 @recTime=1508154601076 @msg.date= @msg.busiMsgId=0 @msg.timestamp=1508154601 @msg.type=1 @msg.multiPkg=0 @msg.serverTime=1508154601000 @msg.ttl=259200 @expire_time=1508154860200076 @currentTimeMillis=1508154601076
-10-16 19:50:01.095 5969-6098/com.qq.xgdemo D/XINGE: [m] Action -> handlerPushMessage
-10-16 19:50:01.105 5969-6098/com.qq.xgdemo I/XINGE: [m] Receiver msg from server :PushMessageManager [msgId=1, accessId=2100250470, busiMsgId=0, content={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, timestamps=1508154601, type=1, intent=Intent { act=com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE cat=[android.intent.category.BROWSABLE] pkg=com.qq.xgdemo (has extras) }, messageHolder=BaseMessageHolder [msgJson={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, msgJsonStr={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, title=XGDemo, content=token 推送, customContent=null, acceptTime=null]]
-10-16 19:50:01.105 5969-6098/com.qq.xgdemo V/XINGE: [XGPushManager] Action -> msgAck(com.qq.xgdemo,1)
-10-16 19:50:01.115 5969-6098/com.qq.xgdemo I/XINGE: [TPush] title encry obj:{"cipher":"YZXM+CuPhqaBn4eK0SE9ApWieHznugNT2uKo0OaXtlDDHLJiY7NlvSL2ZnlSb8E7yd7E7i9JU3g0PlFyYNLjokNp1buJuPoMYEHaJ0s6vmUMY+cq0Sv782XHxNzekV4a9mRcJ5xsOccIjH1VoskUmikfZJo3XLhZveWNYGPaoto="}
-10-16 19:50:01.125 5969-6098/com.qq.xgdemo E/XINGE: [MessageInfoManager] delOldShowedCacheMessage Error! toDelTime: 1507981801138
-10-16 19:50:01.145 5969-6098/com.qq.xgdemo I/XINGE: [MessageHelper] Action -> showNotification {"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}
-
-```
-
-##代码混淆
-
-<hr>
-
-如果您的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
-
-```xml
--keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep class com.tencent.android.tpush.** {* ;}
--keep class com.tencent.mid.** {* ;}
--keep class com.qq.taf.jce.** {*;}
-
-华为通道
--ignorewarning
--keepattributes *Annotation*
--keepattributes Exceptions
--keepattributes InnerClasses
--keepattributes Signature
--keepattributes SourceFile,LineNumberTable
--keep class com.hianalytics.android.**{*;}
--keep class com.huawei.updatesdk.**{*;}
--keep class com.huawei.hms.**{*;}
-
-小米通道
--keep class com.xiaomi.**{*;}
--keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
-
-魅族通道
--dontwarn com.meizu.cloud.pushsdk.**
--keep class com.meizu.cloud.pushsdk.**{*;}
-
-```
 
 
 
-##     3.x升级4.x手动配置来进行集成
+
+###     3.x升级4.x手动配置来进行集成
 
 1.	【必须】提取SDK文档中的最新jar包替换当前信鸽SDK版本。                         
 2.	【必须】根据所需平台，提取```libtpnsSecurity.so```替换老版本和删除原先```libxguardian.so```
@@ -406,7 +301,7 @@ com.tencent.mid.api.MidProvider
         ```
          
 
- ####	【可选】如果是需要使用多通道，增加以下配置：
+ ###	【可选】如果是需要使用多通道，增加以下配置：
 
 <!-- 小米配置 -->
 ```xml
@@ -579,6 +474,19 @@ com.tencent.mid.api.MidProvider
 
 
 
+
+##注册以及部分日志输出。
+
+<hr>
+
+1.根据<a href="http://docs.developer.qq.com/xg/android_access/manual.html" target="_blank" >手动接入</a>或者<a href="http://docs.developer.qq.com/xg/android_access/jcenter.html" target="_blank" >自动接入</a>，配置好信鸽过后，获取信鸽注册日志（接入过程中建议调用有回调的注册接口，开启信鸽的debug日志输出。AndroidStudio 建议采用jcenter自动接入，无需在配置文件中配置信鸽各个节点，全部由依赖导入）。
+
+**开启debug日志数据**
+
+```java
+XGPushConfig.enableDebug(this,true);
+```
+
 **开启厂商通道初始化代码**
 
 在你的Application的attachBaseContext函数里面增加
@@ -598,4 +506,104 @@ com.tencent.mid.api.MidProvider
  XGPushConfig.setMzPushAppId(this, "APPID");
  XGPushConfig.setMzPushAppKey(this, "APPKEY");
 ```
+
+
+**token注册**
+
+```java
+XGPushManager.registerPush(this, new XGIOperateCallback() {
+@Override
+public void onSuccess(Object data, int flag) {
+//token在设备卸载重装的时候有可能会变
+Log.d("TPush", "注册成功，设备token为：" + data);
+}
+@Override
+public void onFail(Object data, int errCode, String msg) {
+Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
+}
+})
+```
+过滤"TPush"注册成功的日志如下：
+
+```xml
+10-09 20:08:46.922 24290-24303/com.qq.xgdemo I/XINGE: [TPush] get RegisterEntity:RegisterEntity [accessId=2100250470, accessKey=null, token=5874b7465d9eead746bd9374559e010b0d1c0bc4, packageName=com.qq.xgdemo, state=0, timestamp=1507550766, xgSDKVersion=3.11, appVersion=1.0]
+10-09 20:08:47.232 24290-24360/com.qq.xgdemo D/TPush: 注册成功，设备token为：5874b7465d9eead746bd9374559e010b0d1c0bc4
+```
+
+**设置账号**
+
+```java
+//注意在3.2.2 版本信鸽对账号绑定和解绑接口进行了升级具体详情请参考API文档。
+XGPushManager.bindAccount(getApplicationContext(), "XINGE");
+```
+过滤“TPush”账号注册成功的日志如下：
+
+```xml
+//如推送返回48账号无效，请确认账号接口调用成功
+10-11 15:55:57.810 29299-29299/com.qq.xgdemo D/TPushReceiver: TPushRegisterMessage [accessId=2100250470, deviceId=853861b6bba92fb1b63a8296a54f439e, account=XINGE, ticket=0, ticketType=0, token=3f13f775079df2d54e1f82475a28bccd3bfef8c1]注册成功
+```
+
+**设置标签**
+
+```java
+XGPushManager.setTag(this,"XINGE");
+```
+
+设置标签成功的日志：
+
+```xml
+10-09 20:11:42.558 27348-27348/com.qq.xgdemo I/XINGE: [XGPushManager] Action -> setTag with tag = XINGE
+```
+
+**收到消息日志**
+
+```xml
+10-16 19:50:01.065 5969-6098/com.qq.xgdemo D/XINGE: [i] Action -> handleRemotePushMessage
+10-16 19:50:01.065 5969-6098/com.qq.xgdemo I/XINGE: [i] >> msg from service, @msgId=1 @accId=2100250470 @timeUs=1508154601660412 @recTime=1508154601076 @msg.date= @msg.busiMsgId=0 @msg.timestamp=1508154601 @msg.type=1 @msg.multiPkg=0 @msg.serverTime=1508154601000 @msg.ttl=259200 @expire_time=1508154860200076 @currentTimeMillis=1508154601076
+10-16 19:50:01.095 5969-6098/com.qq.xgdemo D/XINGE: [m] Action -> handlerPushMessage
+10-16 19:50:01.105 5969-6098/com.qq.xgdemo I/XINGE: [m] Receiver msg from server :PushMessageManager [msgId=1, accessId=2100250470, busiMsgId=0, content={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, timestamps=1508154601, type=1, intent=Intent { act=com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE cat=[android.intent.category.BROWSABLE] pkg=com.qq.xgdemo (has extras) }, messageHolder=BaseMessageHolder [msgJson={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, msgJsonStr={"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}, title=XGDemo, content=token 推送, customContent=null, acceptTime=null]]
+10-16 19:50:01.105 5969-6098/com.qq.xgdemo V/XINGE: [XGPushManager] Action -> msgAck(com.qq.xgdemo,1)
+10-16 19:50:01.115 5969-6098/com.qq.xgdemo I/XINGE: [TPush] title encry obj:{"cipher":"YZXM+CuPhqaBn4eK0SE9ApWieHznugNT2uKo0OaXtlDDHLJiY7NlvSL2ZnlSb8E7yd7E7i9JU3g0PlFyYNLjokNp1buJuPoMYEHaJ0s6vmUMY+cq0Sv782XHxNzekV4a9mRcJ5xsOccIjH1VoskUmikfZJo3XLhZveWNYGPaoto="}
+10-16 19:50:01.125 5969-6098/com.qq.xgdemo E/XINGE: [MessageInfoManager] delOldShowedCacheMessage Error! toDelTime: 1507981801138
+10-16 19:50:01.145 5969-6098/com.qq.xgdemo I/XINGE: [MessageHelper] Action -> showNotification {"n_id":0,"title":"XGDemo","style_id":1,"icon_type":0,"builder_id":1,"vibrate":0,"ring_raw":"","content":"token 推送","lights":1,"clearable":1,"action":{"aty_attr":{"pf":0,"if":0},"action_type":1,"activity":""},"small_icon":"","ring":1,"icon_res":"","custom_content":{}}
+
+```
+
+##代码混淆
+
+<hr>
+
+如果您的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
+
+```xml
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.tencent.mid.** {* ;}
+-keep class com.qq.taf.jce.** {*;}
+
+华为通道
+-ignorewarning
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.hianalytics.android.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
+
+小米通道
+-keep class com.xiaomi.**{*;}
+-keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
+
+魅族通道
+-dontwarn com.meizu.cloud.pushsdk.**
+-keep class com.meizu.cloud.pushsdk.**{*;}
+
+```
+
+
+
+
  ```

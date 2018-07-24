@@ -113,7 +113,7 @@ d）若当前工程已经有armeabi，那么只需要添加信鸽的armeabi下�
 
 e）若在Androidstudio中导入so文件出错（错误10004.SOERROR），在main文件目录下 添加jniLibs命名的文件
 夹将所有的架构文件复制进去也就是SDK文档中的Other-Platform-SO下的所有文件夹。如图：
-![](/assets/SO配置.jpg)
+![![](/assets/so配置.png)
 
 
 
@@ -553,7 +553,7 @@ com.tencent.mid.api.MidProvider
         android:protectionLevel="signature" />
     <uses-permission android:name="你的应用包名.permission.MIPUSH_RECEIVE" />
 
-**开启厂商通道**
+ **开启厂商通道初始化代码**
 
 在你的Application的attachBaseContext函数里面增加
 

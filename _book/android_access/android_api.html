@@ -153,7 +153,7 @@
                 <a href="jcenter.html">
             
                     
-                    Android SDK 集成指南
+                    Android SDK 3.* 集成指南
             
                 </a>
             
@@ -166,7 +166,7 @@
                 <a href="upgrade_guide.html">
             
                     
-                    Android SDK 3.* 版本升级指南
+                    Android SDK 4.* 集成指南
             
                 </a>
             
@@ -200,20 +200,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="meizu_push.html">
-            
-                <a href="meizu_push.html">
-            
-                    
-                    魅族推送通道集成指南
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7" data-path="mi_push.html">
+        <li class="chapter " data-level="1.2.6" data-path="mi_push.html">
             
                 <a href="mi_push.html">
             
@@ -226,12 +213,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="android_returncode.html">
+        <li class="chapter " data-level="1.2.7" data-path="meizu_push.html">
             
-                <a href="android_returncode.html">
+                <a href="meizu_push.html">
             
                     
-                    Android SDK 错误码对照表
+                    魅族推送通道集成指南
             
                 </a>
             
@@ -239,7 +226,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="android_faq.html">
+        <li class="chapter " data-level="1.2.8" data-path="android_faq.html">
             
                 <a href="android_faq.html">
             
@@ -252,12 +239,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10" data-path="xg_demo.html">
+        <li class="chapter " data-level="1.2.9" data-path="xg_demo.html">
             
                 <a href="xg_demo.html">
             
                     
                     Android SDK Demo使用方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="android_returncode.html">
+            
+                <a href="android_returncode.html">
+            
+                    
+                    Android SDK 错误码对照表
             
                 </a>
             
@@ -336,7 +336,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../ios_access/ios_returncode.html">
+        <li class="chapter " data-level="1.3.5" data-path="../ios_access/ios_xg_idfa.html">
+            
+                <a href="../ios_access/ios_xg_idfa.html">
+            
+                    
+                    iOS关于 IDFA 插件说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ios_access/ios_returncode.html">
             
                 <a href="../ios_access/ios_returncode.html">
             
@@ -349,7 +362,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../ios_access/ios_faq.html">
+        <li class="chapter " data-level="1.3.7" data-path="../ios_access/ios_faq.html">
             
                 <a href="../ios_access/ios_faq.html">
             
@@ -362,7 +375,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="../ios_access/api_2.5.0.html">
+        <li class="chapter " data-level="1.3.8" data-path="../ios_access/api_2.5.0.html">
             
                 <a href="../ios_access/api_2.5.0.html">
             
@@ -717,8 +730,24 @@
 <td style="text-align:left">&#x8BBE;&#x7F6E;&#x6807;&#x7B7E;</td>
 </tr>
 <tr>
+<td style="text-align:left"><code>void setTags(</code><br><code>Context context,</code><br><code>String operateName,</code><br><code>Set&lt;String&gt; tags</code><br><code>)</code></td>
+<td style="text-align:left">&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;&#x7684;&#x6807;&#x7B7E;&#xFF08;4.0.3&#x4EE5;&#x53CA;&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x4F7F;&#x7528;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>void addTags(</code><br><code>Context context,</code><br><code>String operateName,</code><br><code>Set&lt;String&gt; tags</code><br><code>)</code></td>
+<td style="text-align:left">&#x589E;&#x52A0;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF08;4.0.3&#x4EE5;&#x53CA;&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x4F7F;&#x7528;&#xFF09;</td>
+</tr>
+<tr>
 <td style="text-align:left"><code>void deleteTag(</code> <br> <code>Context context,</code> <br> <code>String tagName</code> <br> <code>)</code></td>
 <td style="text-align:left">&#x5220;&#x9664;&#x6807;&#x7B7E;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>void deleteTags(</code> <br> <code>Context context,</code> <br> <code>String operateName,</code> <br> <code>Set&lt;String&gt; tags</code> <br> <code>)</code></td>
+<td style="text-align:left">&#x5220;&#x9664;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF08;4.0.3&#x4EE5;&#x53CA;&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x4F7F;&#x7528;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>void cleanTags(</code> <br> <code>Context context,</code> <br> <code>String operateName</code> <br> <code>)</code></td>
+<td style="text-align:left">&#x6E05;&#x9664;&#x6240;&#x6709;&#x6807;&#x7B7E;&#xFF08;4.0.3&#x4EE5;&#x53CA;&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x4F7F;&#x7528;&#xFF09;</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>XGPushClickedResult onActivityStarted(Activity activity)</code></td>
@@ -1425,6 +1454,38 @@ String  customContent= clickedResult.getCustomContent();
 <p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
 <pre><code class="lang-java">XGPushManager.setTag(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;male&quot;</span>);
 </code></pre>
+<p><strong><em>&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x6807;&#x7B7E;</em></strong></p>
+<p>&#x3010;4.0.3&#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3011;&#x4E00;&#x6B21;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;&#x7684;&#x6807;&#x7B7E;&#x3002;</p>
+<p><strong><em>&#x51FD;&#x6570;&#x539F;&#x578B;</em></strong></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setTags</span><span class="hljs-params">(Context context, String operateName, Set&lt;String&gt; tags)</span>
+</span></code></pre>
+<p><strong><em>&#x53C2;&#x6570;</em></strong></p>
+<p>context&#xFF1A;Context&#x5BF9;&#x8C61;
+operateName&#xFF1A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x540D;&#x79F0;&#xFF0C;&#x56DE;&#x8C03;&#x7ED3;&#x679C;&#x4F1A;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x7528;&#x6237;&#x533A;&#x5206;&#x662F;&#x54EA;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x5728;XGPushBaseReceiver&#x7684;onSetTagResult&#x7684;tagName&#x53C2;&#x6570;&#x539F;&#x6837;&#x8FD4;&#x56DE;
+tags&#xFF1A;&#x6807;&#x7B7E;&#x540D;&#x96C6;&#x5408;&#xFF0C;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x662F;&#x4E00;&#x4E2A;String&#x3002;&#x9650;&#x5236;&#xFF1A;&#x6BCF;&#x4E2A;tag&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;40&#x5B57;&#x8282;&#xFF08;&#x8D85;&#x8FC7;&#x4F1A;&#x629B;&#x5F03;&#xFF09;&#xFF0C;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x7A7A;&#x683C;&#xFF08;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x4F1A;&#x5220;&#x9664;&#x7A7A;&#x683C;&#xFF09;&#x3002;&#x6700;&#x591A;&#x8BBE;&#x7F6E;1000&#x4E2A;tag&#xFF0C;&#x8D85;&#x8FC7;&#x90E8;&#x5206;&#x4F1A;&#x629B;&#x5F03;</p>
+<p><strong><em>&#x5904;&#x7406;&#x7ED3;&#x679C;</em></strong></p>
+<p>&#x53EF;&#x901A;&#x8FC7;&#x91CD;&#x8F7D;XGPushBaseReceiver&#x7684;onSetTagResult&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;</p>
+<p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
+<pre><code class="lang-java">String[] tags = <span class="hljs-string">&quot;tag1 tag2&quot;</span>.split(<span class="hljs-string">&quot; &quot;</span>);
+Set&lt;String&gt; tagsSet = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(Arrays.asList(tags));
+XGPushManager.setTags(getApplicationContext(), <span class="hljs-string">&quot;setTags:&quot;</span> + System.currentTimeMillis(), tagsSet);
+</code></pre>
+<p><strong><em>&#x589E;&#x52A0;&#x591A;&#x4E2A;&#x6807;&#x7B7E;</em></strong></p>
+<p>&#x3010;4.0.3&#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3011;&#x4E00;&#x6B21;&#x589E;&#x52A0;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4E0D;&#x4F1A;&#x8986;&#x76D6;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;&#x7684;&#x6807;&#x7B7E;&#x3002;</p>
+<p><strong><em>&#x51FD;&#x6570;&#x539F;&#x578B;</em></strong></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addTags</span><span class="hljs-params">(Context context, String operateName, Set&lt;String&gt; tags)</span>
+</span></code></pre>
+<p><strong><em>&#x53C2;&#x6570;</em></strong></p>
+<p>context&#xFF1A;Context&#x5BF9;&#x8C61;
+operateName&#xFF1A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x540D;&#x79F0;&#xFF0C;&#x56DE;&#x8C03;&#x7ED3;&#x679C;&#x4F1A;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x7528;&#x6237;&#x533A;&#x5206;&#x662F;&#x54EA;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x5728;XGPushBaseReceiver&#x7684;onSetTagResult&#x7684;tagName&#x53C2;&#x6570;&#x539F;&#x6837;&#x8FD4;&#x56DE;
+tags&#xFF1A;&#x6807;&#x7B7E;&#x540D;&#x96C6;&#x5408;&#xFF0C;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x662F;&#x4E00;&#x4E2A;String&#x3002;&#x9650;&#x5236;&#xFF1A;&#x6BCF;&#x4E2A;tag&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;40&#x5B57;&#x8282;&#xFF08;&#x8D85;&#x8FC7;&#x4F1A;&#x629B;&#x5F03;&#xFF09;&#xFF0C;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x7A7A;&#x683C;&#xFF08;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x4F1A;&#x5220;&#x9664;&#x7A7A;&#x683C;&#xFF09;&#x3002;&#x6700;&#x591A;&#x8BBE;&#x7F6E;1000&#x4E2A;tag&#xFF0C;&#x8D85;&#x8FC7;&#x90E8;&#x5206;&#x4F1A;&#x629B;&#x5F03;</p>
+<p><strong><em>&#x5904;&#x7406;&#x7ED3;&#x679C;</em></strong></p>
+<p>&#x53EF;&#x901A;&#x8FC7;&#x91CD;&#x8F7D;XGPushBaseReceiver&#x7684;onSetTagResult&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;</p>
+<p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
+<pre><code class="lang-java">String[] tags = <span class="hljs-string">&quot;tag1 tag2&quot;</span>.split(<span class="hljs-string">&quot; &quot;</span>);
+Set&lt;String&gt; tagsSet = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(Arrays.asList(tags));
+XGPushManager.addTags(getApplicationContext(), <span class="hljs-string">&quot;addTags:&quot;</span> + System.currentTimeMillis(), tagsSet);
+</code></pre>
 <p><strong><em>&#x5220;&#x9664;&#x6807;&#x7B7E;</em></strong></p>
 <p>&#x5F00;&#x53D1;&#x8005;&#x5220;&#x9664;&#x7528;&#x6237;&#x6807;&#x7B7E;&#x6570;&#x636E;&#x3002;</p>
 <p><strong><em>&#x51FD;&#x6570;&#x539F;&#x578B;</em></strong></p>
@@ -1437,6 +1498,35 @@ String  customContent= clickedResult.getCustomContent();
 <p>&#x53EF;&#x901A;&#x8FC7;&#x91CD;&#x8F7D;XGPushBaseReceiver&#x7684;onDeleteTagResult&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;</p>
 <p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
 <pre><code class="lang-java">XGPushManager.deleteTag (<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;male&quot;</span>);
+</code></pre>
+<p><strong><em>&#x5220;&#x9664;&#x591A;&#x4E2A;&#x6807;&#x7B7E;</em></strong></p>
+<p>&#x3010;4.0.3&#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3011;&#x4E00;&#x6B21;&#x5220;&#x9664;&#x591A;&#x4E2A;&#x6807;&#x7B7E;</p>
+<p><strong><em>&#x51FD;&#x6570;&#x539F;&#x578B;</em></strong></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteTags</span><span class="hljs-params">(Context context, String operateName, Set&lt;String&gt; tags)</span>
+</span></code></pre>
+<p><strong><em>&#x53C2;&#x6570;</em></strong></p>
+<p>context&#xFF1A;Context&#x5BF9;&#x8C61;
+operateName&#xFF1A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x540D;&#x79F0;&#xFF0C;&#x56DE;&#x8C03;&#x7ED3;&#x679C;&#x4F1A;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x7528;&#x6237;&#x533A;&#x5206;&#x662F;&#x54EA;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x5728;XGPushBaseReceiver&#x7684;onSetTagResult&#x7684;tagName&#x53C2;&#x6570;&#x539F;&#x6837;&#x8FD4;&#x56DE;
+tags&#xFF1A;&#x6807;&#x7B7E;&#x540D;&#x96C6;&#x5408;&#xFF0C;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x662F;&#x4E00;&#x4E2A;String&#x3002;&#x9650;&#x5236;&#xFF1A;&#x6BCF;&#x4E2A;tag&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;40&#x5B57;&#x8282;&#xFF08;&#x8D85;&#x8FC7;&#x4F1A;&#x629B;&#x5F03;&#xFF09;&#xFF0C;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x7A7A;&#x683C;&#xFF08;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x4F1A;&#x5220;&#x9664;&#x7A7A;&#x683C;&#xFF09;&#x3002;&#x6700;&#x591A;&#x8BBE;&#x7F6E;1000&#x4E2A;tag&#xFF0C;&#x8D85;&#x8FC7;&#x90E8;&#x5206;&#x4F1A;&#x629B;&#x5F03;</p>
+<p><strong><em>&#x5904;&#x7406;&#x7ED3;&#x679C;</em></strong></p>
+<p>&#x53EF;&#x901A;&#x8FC7;&#x91CD;&#x8F7D;XGPushBaseReceiver&#x7684;onSetTagResult&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;</p>
+<p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
+<pre><code class="lang-java">String[] tags = <span class="hljs-string">&quot;tag1 tag2&quot;</span>.split(<span class="hljs-string">&quot; &quot;</span>);
+Set&lt;String&gt; tagsSet = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(Arrays.asList(tags));
+XGPushManager.deleteTags(getApplicationContext(), <span class="hljs-string">&quot;deleteTags:&quot;</span> + System.currentTimeMillis(), tagsSet);
+</code></pre>
+<p><strong><em>&#x6E05;&#x9664;&#x6240;&#x6709;&#x6807;&#x7B7E;</em></strong></p>
+<p>&#x3010;4.0.3&#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3011;&#x6E05;&#x9664;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x6807;&#x7B7E;</p>
+<p><strong><em>&#x51FD;&#x6570;&#x539F;&#x578B;</em></strong></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cleanTags</span><span class="hljs-params">(Context context, String operateName)</span>
+</span></code></pre>
+<p><strong><em>&#x53C2;&#x6570;</em></strong></p>
+<p>context&#xFF1A;Context&#x5BF9;&#x8C61;
+operateName&#xFF1A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x540D;&#x79F0;&#xFF0C;&#x56DE;&#x8C03;&#x7ED3;&#x679C;&#x4F1A;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x7528;&#x6237;&#x533A;&#x5206;&#x662F;&#x54EA;&#x4E2A;&#x64CD;&#x4F5C;&#x3002;&#x5728;XGPushBaseReceiver&#x7684;onSetTagResult&#x7684;tagName&#x53C2;&#x6570;&#x539F;&#x6837;&#x8FD4;&#x56DE;</p>
+<p><strong><em>&#x5904;&#x7406;&#x7ED3;&#x679C;</em></strong></p>
+<p>&#x53EF;&#x901A;&#x8FC7;&#x91CD;&#x8F7D;XGPushBaseReceiver&#x7684;onSetTagResult&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x3002;</p>
+<p><strong><em>&#x793A;&#x4F8B;</em></strong></p>
+<pre><code class="lang-java">XGPushManager.cleanTags(getApplicationContext(), <span class="hljs-string">&quot;cleanTags:&quot;</span> + System.currentTimeMillis());
 </code></pre>
 <h2 id="&#x914D;&#x7F6E;&#x63A5;&#x53E3;"><a name="&#x914D;&#x7F6E;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>1.10. &#x914D;&#x7F6E;&#x63A5;&#x53E3;</h2>
 <hr>
@@ -1513,7 +1603,7 @@ accessId&#xFF1A;&#x524D;&#x53F0;&#x6CE8;&#x518C;&#x5F97;&#x5230;&#x7684;accessId
 
             
                 
-                <a href="upgrade_guide.html" class="navigation navigation-prev " aria-label="Previous page: Android SDK 3.* 版本升级指南">
+                <a href="upgrade_guide.html" class="navigation navigation-prev " aria-label="Previous page: Android SDK 4.* 集成指南">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1529,7 +1619,7 @@ accessId&#xFF1A;&#x524D;&#x53F0;&#x6CE8;&#x518C;&#x5F97;&#x5230;&#x7684;accessId
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Android SDK API","level":"1.2.4","depth":2,"next":{"title":"华为推送通道集成指南","level":"1.2.5","depth":2,"path":"android_access/huawei_push.md","ref":"android_access/huawei_push.md","articles":[]},"previous":{"title":"Android SDK 3.* 版本升级指南","level":"1.2.3","depth":2,"path":"android_access/upgrade_guide.md","ref":"android_access/upgrade_guide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","splitter@^0.0.8","-sharing","simple-page-toc@^0.1.1","anchor-navigation-ex@0.1.8"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"anchor-navigation-ex":{"isRewritePageTitle":true,"isShowTocTitleIcon":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"search-plus":{},"splitter":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"腾讯移动推送 文档","language":"zh-hans","links":{"sidebar":{"腾讯移动推送":"http://xg.qq.com/"}},"gitbook":"*","description":"腾讯移动推送相关文档记录"},"file":{"path":"android_access/android_api.md","mtime":"2018-07-13T03:29:21.605Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-19T10:38:49.406Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Android SDK API","level":"1.2.4","depth":2,"next":{"title":"华为推送通道集成指南","level":"1.2.5","depth":2,"path":"android_access/huawei_push.md","ref":"android_access/huawei_push.md","articles":[]},"previous":{"title":"Android SDK 4.* 集成指南","level":"1.2.3","depth":2,"path":"android_access/upgrade_guide.md","ref":"android_access/upgrade_guide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","splitter@^0.0.8","-sharing","simple-page-toc@^0.1.1","anchor-navigation-ex@0.1.8"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"anchor-navigation-ex":{"isRewritePageTitle":true,"isShowTocTitleIcon":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"search-plus":{},"splitter":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"腾讯移动推送 文档","language":"zh-hans","links":{"sidebar":{"腾讯移动推送":"http://xg.qq.com/"}},"gitbook":"*","description":"腾讯移动推送相关文档记录"},"file":{"path":"android_access/android_api.md","mtime":"2018-07-24T08:21:46.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-24T08:22:06.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

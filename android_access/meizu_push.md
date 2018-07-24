@@ -2,7 +2,7 @@
 
 魅族推送通道是由**魅族官方提供**的系统级推送通道。在魅族手机上，推送消息能够通过魅族的系统通道抵达终端，并且无需打开应用就能够收到推送。使用此功能必须先集成信鸽 3.2.1-beta 以上版本。
 
-**[注意事项]**
+**\[注意事项\]**
 
 1. 魅族推送通道通知标题不超过32字符，通知内容不超过100字符
 
@@ -28,13 +28,14 @@
 
 ### AndroidStudio集成方式
 
-1.在项目模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:
+1.在项目模块下的build.gradle中添加魅族通道所需要依赖（使用Androidstudio默认仓库jcenter）:  
 以下两个版本请根据需要选择其中之一
 
 ```java
 //集成信鸽的基础上新增魅族push的jar包
 compile 'com.tencent.xinge:xgmz:3.2.2-release'
 ```
+
 ```js
 /* 魅族 3.2.4-beta版
  * 注意：若魅族通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
@@ -115,7 +116,7 @@ compile 'com.tencent.xinge:xgmz:3.2.4-beta'
 
 ## 启动代码已经注册日志输出
 
-在启动信鸽(调用 `XGPushManager.registerPush` )之前配置如下代码：
+在启动信鸽\(调用 `XGPushManager.registerPush` \)之前配置如下代码：
 
 ```java
 //设置魅族APPID和APPKEY
@@ -130,7 +131,8 @@ XGPushConfig.setMzPushAppKey(this, APP_KEY);
 //成功的获取到信鸽的token和魅族的token，并且绑定成功说明注册成功
 INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2100273138 , rsp = 0] token = 08d7ea8e4b93952cbfdd2cb68461342c314d281a otherPushType = meizu otherPushToken = ULY6c5968627059714a475c63517f675b7f655e62627e
 ```
-**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，[点击查看教程](http://docs.developer.qq.com/xg/android_access/android_faq.html#%E6%B6%88%E6%81%AF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E4%BB%A5%E5%8F%8A%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E6%96%B9%E6%B3%95)**
+
+**注：如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用Intent来实现，**[**点击查看教程**](http://docs.developer.qq.com/xg/android_access/android_faq.html#消息点击事件以及跳转页面方法)
 
 ## 代码混淆
 
@@ -140,7 +142,7 @@ INFO16:24:27.94313075XINGE[a] >> bind OtherPushToken success ack with [accId = 2
 -keep class com.meizu.cloud.pushsdk.**{*;}
 ```
 
-## 厂商通道测试方法(通用)
+## 厂商通道测试方法\(通用\)
 
 1. 在您的App中集成信鸽V3.2.1以上版本的SDK，并且按照「厂商通道集成指南」集成所需的厂商SDK
 

@@ -10,6 +10,8 @@
 
 [iOS 推送证书说明](/ios_access/ios-tui-song-zheng-shu-shuo-ming.md)
 
+[iOS SDK 关于 IDFA 插件说明](/ios_access/ios_xg_idfa.md)
+
 [iOS SDK 错误码对照表](/ios_access/ios-sdk-cuo-wu-ma-dui-zhao-biao.md)
 
 [iOS SDK 常见问题](/ios_access/ios-sdk-chang-jian-wen-ti.md)

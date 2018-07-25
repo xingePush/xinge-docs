@@ -33,14 +33,14 @@
 
 ```java
 //集成信鸽的基础上新增魅族push的jar包
-compile 'com.tencent.xinge:xgmz:3.2.2-release'
+compile 'com.tencent.xinge:xgmz:3.2.4-beta'
 ```
 
 ```js
 /* 魅族 3.2.4-beta版
- * 注意：若魅族通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+ * 注意：若魅族通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.5
  */
-compile 'com.tencent.xinge:xgmz:3.2.4-beta'
+compile 'com.tencent.xinge:xgmz:3.2.5-release'
 ```
 
 2.配置[魅族消息receiver](#魅族消息receiver)。  

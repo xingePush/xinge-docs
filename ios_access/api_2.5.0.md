@@ -26,7 +26,8 @@
 pod 'QQ_XGPush'
 ```
 
-（2）将 XGSetting.h, XGPush.h 以及 libXG-SDK.a 添加到工程
+（2）将 XGSetting.h、XGPush.h、libXG-SDK.a 添加到工程
+** 注意：** 3.0+以上版本中没有```XGSetting.h```文件
 
 （3）添加以下库/framework 的引用 CoreTelephony.framework, SystemConfiguration.framework, UserNotifications.framework, libXG-SDK.a 以及 libz.tbd.添加完成以后,库的引用如下
 

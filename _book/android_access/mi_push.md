@@ -32,13 +32,13 @@
 ```js
 
 //在集成信鸽的基础上新增小米push的jar包
-compile 'com.tencent.xinge:mipush:3.2.2-release'
+compile 'com.tencent.xinge:mipush:3.2.4-beta'
 ```
 ```js
-/* 小米3.2.4-beta版
- * 注意：若小米通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
+/* 小米3.2.5-release版
+ * 注意：若小米通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.5
  */
-compile 'com.tencent.xinge:mipush:3.2.4-beta'
+compile 'com.tencent.xinge:mipush:3.2.5-release'
 ```
 
 3.新建一个类继承小米PushMessageReceiver，然后再Androidmanif.xml 中配置。根据小米的要求次节点必须配置

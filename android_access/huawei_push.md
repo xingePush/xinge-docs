@@ -51,13 +51,13 @@
 
 ```java
 //在集成信鸽的基础上新增华为push的jar包
-compile 'com.tencent.xinge:xghw:2.5.2.300-release'
-```
-```
-/* 华为 3.2.4-beta版
- * 注意：若华为通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.4-beta
- */
 compile 'com.tencent.xinge:xghw:3.2.4-beta'
+```
+```
+/* 华为 3.2.5-release版
+ * 注意：若华为通道使用此版本,则信鸽sdk版本也需要同时使用v3.2.5
+ */
+compile 'com.tencent.xinge:xghw:3.2.5-release'
 ```
 
 3.配置 <a href="#华为消息receiver">华为消息receiver</a>.

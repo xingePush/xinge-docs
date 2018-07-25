@@ -42,16 +42,16 @@ AndroidStudio 上可以使用 jcenter 远程仓库自动接入，不需要在项
     dependencies {
         ......
         
-    //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请确认libs 中没有信鸽的相关jar包）
+    //信鸽3.2.5之前版本无需单独依赖'com.tencent.jg:jg:1.1'，其它三个依赖必须有。
     
-    //信鸽3.2.3 release版本
-    //完整的信鸽依赖三个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请                    确认libs 中没有信鸽的相关jar包） 
-    
-    //信鸽3.2.4 beta版本
-    //compile 'com.tencent.xinge:xinge:3.2.4-beta'
+
+    //信鸽3.2.5 版本
+    //完整的信鸽依赖四个都必须有，如果发生依赖冲突请根据对应的依赖版本号选择高版本的依赖。（使用jcenter自动接入请确认libs中没有信鸽的相关jar包） 
     
     //信鸽jar
-    compile 'com.tencent.xinge:xinge:3.2.3-release'
+    compile 'com.tencent.xinge:xinge:3.2.5'
+    //jg包
+    compile'com.tencent.jg:jg:1.1'
     //wup包
     compile 'com.tencent.wup:wup:1.0.0.E-release'
     //mid包

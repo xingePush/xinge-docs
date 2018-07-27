@@ -583,6 +583,8 @@ XGPushManager.setTag(this,"XINGE");
 -keep class com.tencent.android.tpush.** {* ;}
 -keep class com.tencent.mid.** {* ;}
 -keep class com.qq.taf.jce.** {*;}
+-keep public class com.tencent.bigdata.dataacquisition.* {* ;}
+-keep public class com.tencent.bigdata.customdataacquisition.intf.* {* ;}
 
 华为通道
 -ignorewarning

@@ -573,7 +573,6 @@ XGPushManager.setTag(this,"XINGE");
 
 ##代码混淆
 
-<hr>
 
 如果您的项目中使用proguard等工具做了代码混淆，请保留以下选项，否则将导致信鸽服务不可用。
 
@@ -583,8 +582,7 @@ XGPushManager.setTag(this,"XINGE");
 -keep class com.tencent.android.tpush.** {* ;}
 -keep class com.tencent.mid.** {* ;}
 -keep class com.qq.taf.jce.** {*;}
--keep public class com.tencent.bigdata.dataacquisition.* {* ;}
--keep public class com.tencent.bigdata.customdataacquisition.intf.* {* ;}
+-keep class com.tencent.bigdata.** {* ;}
 
 华为通道
 -ignorewarning
@@ -610,4 +608,3 @@ XGPushManager.setTag(this,"XINGE");
 
 
 
- ```

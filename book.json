@@ -9,7 +9,8 @@
         "splitter@^0.0.8",
         "-sharing",
         "simple-page-toc@^0.1.1",
-        "anchor-navigation-ex@0.1.8"
+        "anchor-navigation-ex@0.1.8",
+        "expandable-chapters-small"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
